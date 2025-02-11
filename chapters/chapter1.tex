@@ -2,6 +2,7 @@
 \chaptermark{The Standard Model of particle physics}  
 \thispagestyle{plain}  % First page has default style
 \pagestyle{chapterpages}
+\label{Section:Chapter1}
 The \ac{SM} of particle physics~\cite{Glashow_StandardModel_1,Weinberg_StandardModel_1,StandardModel_3,Standard_Model4,StandardModel_3} is our current best theoretical framework underpinning our understanding of the subatomic world, providing a description of fundamental elementary particles and their interactions via the electromagnetic force, weak nuclear force and the strong nuclear force. The fourth fundamental force of nature, Gravity, is absent from the SM, highlighting one of its key limitations. However, in high-energy physics experiments, where the interactions of subatomic particles are being studied, the omission of gravity is considered a safe simplification. Extremely powerful predictions have emerged from this theoretical framework, with its greatest accomplishments being the prediction~\cite{Higgs_1} and subsequent discovery of the Higgs boson in 2012~\cite{Higgs_ATLAS,Higgs_CMS}. Despite its success, the Standard Model has its limitations. Along with the absence of gravity, it leaves several fundamental questions unanswered, such as the nature of neutrino oscillations~\cite{Neutrino_Oscillations}, the existence of dark matter~\cite{DarkMatter}, the hierarchy problem~\cite{HierarchyProblem}, and the matter-antimatter asymmetry in the universe~\cite{MatterAntimatter}, which cannot be fully explained by the predicted amount of CP violation, driving the field to look for explanations beyond the SM. In the pursue of \ac{BSM} physics, a deep understanding of the SM theory is crucial. This is the goal of this chapter aiming to establish the base foundation for this work, the SM, by exploring the fundamental blocks of the theory, including its particle content, interactions, and the Higgs mechanism.
 
 \section{Particle content and fundamental interactions}
@@ -10,7 +11,7 @@ Built upon the theoretical framework of \ac{QFT}~\cite{QFT}, the SM is a renorma
 
 \begin{figure}[h]
 \centering
-\includegraphics[width= 1\textwidth]{Figures/Introduction/Particles.pdf}
+\includegraphics[width= 0.9\textwidth]{Figures/Introduction/Particles.pdf}
 \caption{Diagram of the particle content of the SM. For each fundamental particle, the charges, colour and spin quantum numbers are available. The measured masses for all fermions and gauge bosons are taken from Ref.~\cite{ParticleMasses} with the exception of the Higgs mass which is taken from Ref.~\cite{Higgs_Mass}.}
 \label{Figure:Introduction_1}
 \end{figure}
@@ -60,10 +61,10 @@ Despite, beautifully unifying the electromagnetic and weak interactions into a s
 \label{Section:Introduction_HiggsMechanism}
 First proposed back in the 1960s by Englert and Brout~\cite{Englert_Brout}, Higgs~\cite{Higgs_2}, and Guralnik, Hagen and Kibble~\cite{Guralnik_Hagen_Kibble,Kibble_1}, the Higgs mechanism provides a way to generate mass while preserving the local gauge invariance of the SM. It is based on the principle of \ac{SSB} where, the Lagrangian of a system remains invariant under a certain symmetry group, but the vacuum of state of the system does not~\cite{SSB_Definition}. 
 
-In the context of EW theory, the symmetry is broken by introducing a gauge invariant complex scalar $SU(2)_{L}$ doublet, $\phi$. The doublet acquiring a non-zero \ac{VEV} spontaneously breaks the symmetry reducing the EW symmetry group to $U(1)_{EM}$.
+In the context of EW theory, the symmetry is broken by introducing a gauge invariant complex scalar $SU(2)_{L}$ doublet, $\Phi$. The doublet acquiring a non-zero \ac{VEV} spontaneously breaks the symmetry reducing the EW symmetry group to $U(1)_{EM}$.
 
-\[
-\phi =
+\begin{equation}
+\Phi =
 \begin{pmatrix}
 \phi^{+} \\
 \phi^{0} 
@@ -72,12 +73,13 @@ In the context of EW theory, the symmetry is broken by introducing a gauge invar
     \phi_{1} + i\phi_{2} \\
     \phi_{3} + i\phi_{4}
 \end{pmatrix}
-\]
+\end{equation}
+
 
 This doublet, known as the Higgs field, contributes four \ac{dof} to the SM Lagrangian; one for the real part and one for the imaginary part of each component. The corresponding Lagrangian for the Higgs field is
 
 \begin{equation}
-    \mathcal{L}_{\text{Higgs}} = (D_{\mu} \phi)^{\dagger}(D^{\mu}\phi) - \underbrace{(\mu^{2}\phi^{\dagger}\phi + \lambda(\phi^{\dagger}\phi)^2)}_{\text{V($\phi$)}}
+    \mathcal{L}_{\text{Higgs}} = (D_{\mu} \Phi)^{\dagger}(D^{\mu}\Phi) - \underbrace{(\mu^{2}\Phi^{\dagger}\Phi + \lambda(\Phi^{\dagger}\Phi)^2)}_{\text{V($\Phi$)}}
 \label{Equation:Introduction_HiggsLagrangian}
 \end{equation}
 
@@ -90,13 +92,13 @@ where $D_{\mu}$ is the covariant derivative,
 The second term in Eq.~\ref{Equation:Introduction_HiggsLagrangian} is the Higgs potential, which depends on the Higgs field and two real parameters, $\mu^{2}$ and $\lambda$. The vacuum state of the Higgs field corresponds to the minimum of this potential, imposing constraints on the parameters: $\lambda$ must be positive ($\lambda > 0$) to ensure a finite minimum, and $\mu^{2}$ must be negative ($\mu^{2} < 0$) to allow for a non-zero VEV. These constraints result in a potential with an infinite set of degenerate minima, where the Higgs field satisfies,
 
 \begin{equation}
-    \phi^{\dagger}\phi = -\frac{\mu^{2}}{2\lambda} = \frac{\nu^2}{2}
+    \Phi^{\dagger}\Phi = -\frac{\mu^{2}}{2\lambda} = \frac{\nu^2}{2}
 \end{equation}
 
 The goal of SSB in the Higgs mechanism is to generate masses for the three massive gauge bosons and the fundamental particles.  Noticeably, the neutral photon still needs to remain massless because of the $U(1)_{EM}$ symmetry being preserved after the symmetry breaking. To satisfy this, the minimum of the Higgs potential must correspond to a non-zero VEV only for the neutral scalar field $\phi^{0}$~\cite{Higgs_VacuumState_Choice},
 
 \begin{equation}
-    <0|\phi|0> = \frac{1}{\sqrt{2}} \begin{pmatrix}
+    <0|\Phi|0> = \frac{1}{\sqrt{2}} \begin{pmatrix}
         0 \\
         \nu
     \end{pmatrix}
@@ -105,7 +107,7 @@ The goal of SSB in the Higgs mechanism is to generate masses for the three massi
 Before expanding the Higgs field around its minimum to study the consequences of SSB, it is important to recall Goldstone's theorem~\cite{Goldstone}, predicting the emergence of a massless scalar (Goldstone) boson after the spontaneous breaking of a continuous symmetry. Out of the four dof introduced by the Higgs field, the three associated with the broken symmetry generators become Goldstone bosons, appearing as massless scalar fields in the Lagrangian. Gauge invariance guarantees that the choice of gauge does not affect the physical predictions of the theory, allowing us to eliminate the Goldstone bosons from the Lagrangian by making an appropriate local gauge transformation. This is referred to as the unitary gauge where the dof associated with the massless Goldstone bosons are replaced with new degrees of freedom corresponding to the longitudinal polarisation states of the gauge bosons ($W^{\pm}/Z$). In the unitary gauge, the Higgs field can be re-expressed as,
 
 \begin{equation}
-    \phi = \frac{1}{\sqrt{2}}\begin{pmatrix}
+    \Phi = \frac{1}{\sqrt{2}}\begin{pmatrix}
         0 \\
         \nu + h
     \end{pmatrix} 
@@ -114,7 +116,7 @@ Before expanding the Higgs field around its minimum to study the consequences of
 
 where h is the physical Higgs field, the fourth dof in the Higgs sector.
 
-The term in the Lagrangian responsible for generation of the masses of gauge bosons is $(D_\mu\phi)^\dagger(D^\mu\phi)$. Substituting Eq.~\ref{Equation:Introduction_HiggsField_2} into this term and expressing the $B_\mu$ and $W_{\mu}^{(i)}$ fields in terms of physical $Z_\mu$ and $W_{\mu}^{\pm}$ states using Eq.~\ref{Equation:Introduction_PhysicalGaugeFields}, we obtain the following weak boson mass terms,
+The term in the Lagrangian responsible for generation of the masses of gauge bosons is $(D_\mu\Phi)^\dagger(D^\mu\Phi)$. Substituting Eq.~\ref{Equation:Introduction_HiggsField_2} into this term and expressing the $B_\mu$ and $W_{\mu}^{(i)}$ fields in terms of physical $Z_\mu$ and $W_{\mu}^{\pm}$ states using Eq.~\ref{Equation:Introduction_PhysicalGaugeFields}, we obtain the following weak boson mass terms,
 
 \begin{equation}
     \mathcal{L}_{\text{Higgs}} \supset \frac{1}{4} g^2 \nu^2 W^{+\mu}W_{\mu}^- + \frac{(g^2+g'^2)\nu^2}{8} Z_\mu Z^\mu
@@ -126,7 +128,7 @@ Using the known form of a mass term for a spin-1 gauge boson, the masses of the 
 \begin{equation}
 \begin{array}{c}
     m_W = \frac{1}{2}g\nu \\
-    m_Z = \frac{1}{2}\nu\sqrt{g^2+g'^2}
+    m_Z = \frac{1}{2}\nu\sqrt{g^2+g'^2}\\
 \end{array}
 \end{equation}
 
@@ -147,8 +149,7 @@ According to Eq.~\ref{Equation:Introduction_HiggsLagrangian_3}, the mass of the 
 \label{Figure:Introduction_HiggsSelf}
 \end{figure}
 
-Remarkably, fermions in the SM also acquire masses via the Higgs mechanism through Yukawa interactions~\cite{YukawaInteractions}. The Yukawa part of the Lagrangian for a generic fermion $f$ can be written as,
-
+Remarkably, fermions in the SM also acquire masses via the Higgs mechanism through Yukawa interactions~\cite{YukawaInteractions}. After SSB, when the Higgs field acquires a VEV, the Yukawa part of the Lagrangian takes the form
 
 \begin{equation}
     \mathcal{L}_{Yukawa}^f = \underbrace{-\frac{g_f}{\sqrt{2}}\nu(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{mass term}} \underbrace{- \frac{g_f}{\sqrt{2}}h(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{interaction term}}
@@ -174,20 +175,29 @@ At the \ac{LHC}, the Higgs boson is produced via four major production modes; gl
 \begin{figure}[h]
 \centering
 \includegraphics[width= .9\textwidth]{Figures/Introduction/Higgs_ProductionModes.png}
-\caption{TODO }
+\caption{Feynman diagrams of the main SM Higgs production modes at the LHC.}
 \label{Figure:Introduction_HiggsProductionModes}
 \end{figure}
 
 \begin{table}[h]
 \centering
-\begin{tabular}{l|c|c|c|c|c}
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\arrayrulecolor{black} % Ensure outer border is black
+\begin{tabular}{|c|c|c|}
 \hline
-Production mode                   & ggH   & VBF   & WH    & ZH     & ttH  \\ \hline
-Cross section @ 13~$\TeV$ {[}pb{]}   & 48.6  & 3.78  & 1.37  & 0.76   & 0.51 \\
-\hline
-Cross section @ 13.6~$\TeV$ {[}pb{]} & 52.23 & 4.078 & 1.457 & 0.9439 & 0.57
+Mechanism & Cross Section @ 13 TeV [pb] & Cross Section @ 13.6 TeV [pb] \\ \hline \hline 
+ggH                                & 48.6  & 52.23 \\ 
+\arrayrulecolor{lightgray} \hline
+VBF                                & 3.78  & 4.078 \\ 
+\arrayrulecolor{lightgray} \hline
+WH                                 & 1.37  & 1.457 \\ 
+\arrayrulecolor{lightgray} \hline
+ZH                                 & 0.76  & 0.9439 \\ 
+\arrayrulecolor{lightgray} \hline
+ttH                                & 0.51  & 0.57 \\ 
+\arrayrulecolor{black} \hline
 \end{tabular}
-\caption{Cross sections of the dominant Higgs production mechanisms in the SM. Derived for $\text{m}_H = 125\GeV$ and presented for both $\sqrt{\sigma}=13\TeV$ and $\sqrt{\sigma}=13.6\TeV$~\cite{HiggsProduction_XS}}
+\caption{Cross sections of the dominant Higgs production mechanisms in the SM. Derived for $\text{m}_H = 125\GeV$ and presented for both $\sqrt{\sigma}=13\TeV$ and $\sqrt{\sigma}=13.6\TeV$~\cite{HiggsProduction_XS}.}
 \label{Table:Introduction_HiggsProduction_XS}
 \end{table}
 
@@ -198,13 +208,31 @@ The ggH production mode is clearly the most dominant one proceeding via an inter
 The Higgs boson is an unstable particle, decaying almost immediately after its production~\cite{HiggsUnstable}, with its inference only possible from the decay products. The dominant SM Higgs decays channels are listed in Table~\ref{Table:Introduction_HiggsBranchingFractions}, clearly showing that $H\rightarrow b\overline{b}$ is the dominant decay mode. 
 
 \begin{table}[h]
-\begin{tabular}{l|c|c|c|c|c|c|c|c}
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\setlength{\tabcolsep}{12pt} % Increase column width
+\arrayrulecolor{black} % Ensure outer border is black
+\begin{tabular}{|c|c|}
 \hline
-Decay Mode                  & $b\overline{b}$    & $WW^*$    & gg   & $\tau\tau$   & $c\overline{c}$   & $ZZ^*$      & $\gamma\gamma$ & $\mu\mu$ \\ \hline
-Branching Fraction {[}\%{]} & 58.24 & 21.37 & 8.19 & 6.27 & 2.89 & 2.61 & 0.23                            & 0.02
+Decay Mode                  & Branching Fraction {[}\%{]} \\ \hline \hline
+$b\overline{b}$             & 58.24 \\ 
+\arrayrulecolor{lightgray} \hline
+$WW^*$                      & 21.37 \\ 
+\arrayrulecolor{lightgray} \hline
+$gg$                        & 8.19  \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau\tau$                  & 6.27  \\ 
+\arrayrulecolor{lightgray} \hline
+$c\overline{c}$             & 2.89  \\ 
+\arrayrulecolor{lightgray} \hline
+$ZZ^*$                      & 2.61  \\ 
+\arrayrulecolor{lightgray} \hline
+$\gamma\gamma$              & 0.23  \\ 
+\arrayrulecolor{lightgray} \hline
+$\mu\mu$                    & 0.02  \\ 
+\arrayrulecolor{black} \hline
 \end{tabular}
-\caption{Branching fractions, $\text{B}_f$, of the main SM Higgs boson decay channel for $\text{m}_H = 125\GeV$~\cite{HiggsProduction_XS} where for a particular final state $f$, $\text{B}_f = \Gamma_f/\Gamma_H$}, with $\Gamma_f$ and $\Gamma_H$ being the decay width of the final state and the Higgs boson respectively.
-
+\caption{Branching fractions, $\text{B}_f$, of the main SM Higgs boson decay channel for $\text{m}_H = 125\GeV$~\cite{HiggsProduction_XS} where for a particular final state $f$, $\text{B}_f = \Gamma_f/\Gamma_H$, with $\Gamma_f$ and $\Gamma_H$ being the decay width of the final state and the Higgs boson respectively.}
 \label{Table:Introduction_HiggsBranchingFractions}
 \end{table}
 

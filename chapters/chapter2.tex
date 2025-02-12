@@ -22,11 +22,25 @@ where $m_H^0$ represent the bare mass of the Higgs boson, and $\Delta m_H$ term 
     \Delta m_H^2 = -\frac{g_f^2}{8\pi^2}\Lambda^2 + \space \text{...}
 \end{equation}
 
-where $\Lambda$ should be interpreted as the least energy scale at which new physics is expected to modify the high-energy behaviour of the theory. The Feynman diagram for the mass correction due to a fermion coupling to the Higgs field is shown in Fig.~\ref{Section:Introduction_HiggsMechanism}TODO.
+where $\Lambda$ should be interpreted as the least energy scale at which new physics is expected to modify the high-energy behaviour of the theory. The Feynman diagram for the mass correction due to a fermion coupling to the Higgs field is shown in Fig.~\ref{Figure:Chapter2_Hierarchy_Feynman1}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width= 0.9\textwidth]{Figures/Chapter2/Hierarchy_Feynman_1.png}
+\caption{TODO}
+\label{Figure:Chapter2_Hierarchy_Feynman1}
+\end{figure}
 
 At the core of the hierarchy problem lies this $\Lambda$ term as the current best measurement of the Higgs boson mass from the Compact Muon Solenoid at $125.38 \pm 0.14~\GeV$ (in natural units), can only be explained if there is an extreme degree of fine-tuning in Eq.~\ref{Equation:Chapter2_HiggsBosonMass}. Specifically, if $\Lambda$ is taken to be the Plank scale, the predicted Higgs boson mass would be many orders of magnitude larger than the observed value ($\propto \Lambda^2$). Reconciling this discrepancy requires that the bare mass term is sufficiently large ($\mathcal{O}(10^{38})$ to cancel out the quantum loop correction term.
 
-Perhaps, the most studied and appealing solution to the hierarchy problem is \ac{SUSY}, which introduces a symmetry relating fermions and bosons. In SUSY, every known SM particle has at least one supersymmetric partner: bosons have fermionic superpartners while, fermions have scalar boson superpartners. This symmetry provides a natural way of addressing this extreme fine-tuning, as superpartners also contribute to $\Delta m_H^2$ but, with opposite signs relative to their SM counterparts, allowing the Higgs mass to stabilise naturally through the cancellation of the quantum loop corrections(TODO**). The Feynman diagram for the mass correction due to a fermionic superpartner (scalar boson) is shown in Fig.~\ref{Section:Introduction_HiggsMechanism}TODO.
+Perhaps, the most studied and appealing solution to the hierarchy problem is \ac{SUSY}, which introduces a symmetry relating fermions and bosons. In SUSY, every known SM particle has at least one supersymmetric partner: bosons have fermionic superpartners while, fermions have scalar boson superpartners. This symmetry provides a natural way of addressing this extreme fine-tuning, as superpartners also contribute to $\Delta m_H^2$ but, with opposite signs relative to their SM counterparts, allowing the Higgs mass to stabilise naturally through the cancellation of the quantum loop corrections. The Feynman diagram for the mass correction due to a fermionic superpartner (scalar boson) is shown in Fig.~\ref{Figure:Chapter2_Hierarchy_Feynman2}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width= 0.9\textwidth]{Figures/Chapter2/Hierarchy_Feynman_1.png}
+\caption{TODO}
+\label{Figure:Chapter2_Hierarchy_Feynman2}
+\end{figure}
 
 While SUSY provides a natural solution to the hierarchy problem, the lack of any experimental evidence for supersymmetric partners, along with strong experimental constraints on the simplest SUSY extension of the SM (MSSM), has lead to alternative extensions to the SM Higgs sector gaining traction. One such extension is the \ac{2HDM}, which could provide a way to mitigate the fine-tuning in the Higgs mass by introducing additional Higgs bosons that could alter the running of coupling constants and loop corrections. Moreover, 2HDMs are particularly interesting in light of the muon $g-2$ anomaly, which will be discussed in this chapter.
 
@@ -77,7 +91,7 @@ After SSB, the Higgs doublets can be expanded around the minima
 
 where the doublets have been expressed in terms of CP-even ($h_i$), CP-odd ($z_i$) and charged Higgs fields ($\phi_i^+$).
 
-Analogous to the SM Higgs sector, the inclusion of a second Higgs doublet introduces an additional 4 dof. Upon SSB, 3 out of the 8 dof are absorbed as Goldstone bosons providing the W$^{\pm}$ and Z bosons with longitudinal dof while the remaining 5 dof correspond to 5 physical Higgs bosons; 2 CP-even (h and H), 1 CP-odd (A) and 2 charged Higgs bosons (H$^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets in Eq. TODO.
+Analogous to the SM Higgs sector, the inclusion of a second Higgs doublet introduces an additional 4 dof. Upon SSB, 3 out of the 8 dof are absorbed as Goldstone bosons providing the W$^{\pm}$ and Z bosons with longitudinal dof while the remaining 5 dof correspond to 5 physical Higgs bosons; 2 CP-even (h and H), 1 CP-odd (A) and 2 charged Higgs bosons (H$^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets in Eq.~\ref{Equation:Chapter2_2HDM-MassEigenstates}.
 
 \begin{equation}
 \begin{array}{c}
@@ -86,6 +100,7 @@ Analogous to the SM Higgs sector, the inclusion of a second Higgs doublet introd
      H^\pm = \phi_1^+ \sin{\beta} + \phi_2^+ \cos{\beta} \\
      A = z_1 \sin{\beta} - z_2 \cos{\beta}
 \end{array}
+\label{Equation:Chapter2_2HDM-MassEigenstates}
 \end{equation}
 
 where the parameter $\alpha$ governs the mixing between the CP-even scalars and $\beta$ is a rotational angle that diagonalises the mass-squared matrices of the pseudoscalar and the charged Higgs, defined as $\tan{\beta} = \nu_2/\nu_1$.
@@ -156,17 +171,13 @@ In 2HDMs, the observed Higgs boson can be matched to the predicted CP-even boson
     h_{\text{obs}} = \sin{(\beta - \alpha)} h + \cos{(\beta - \alpha)} H 
 \end{equation}
 
-In the Higgs alignment limit, one of these CP-even neutral Higgs boson is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the normal scenario, the observed Higgs is identified as the lighter h in 2HDM, in contrast to H being identified as the observed Higgs in the inverted scenario. The couplings in Table~\ref{Table:Chapter2_2HDM-Couplings} are adjusted to match the observed Higgs couplings, with Eqs.~\ref{Equation:Chapter2-NormalScenario} and \ref{Equation:Chapter2-InvertedScenario} explicitly showing how these couplings change in each scenario.
+In the Higgs alignment limit, one of these CP-even neutral Higgs boson is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the normal scenario, the observed Higgs is identified as the lighter h in 2HDM, in contrast to H being identified as the observed Higgs in the inverted scenario (Eqs.~\ref{Equation:Chapter2-NormalScenario,Equation:Chapter2-InvertedScenario}. The adjusted couplings of the unmatched CP-even boson are summarised in Table~\ref{Table:Chapter2_2HDM-CouplingsAlignmentLimit} for each of the four different types of 2HDMs.
 
 \begin{equation}
 \begin{rcases}
   h_{\text{obs}} = h \\
-  \cos(\beta-\alpha) = 0 \\
-  \cos\alpha/\sin\beta = 1 \\
-  \sin\alpha/\cos\beta = -1 \\
-  \sin\alpha/\sin\beta = -1/\tan\beta \\
-  \cos\alpha/\cos\beta = \tan\beta
-\quad \quad \quad\end{rcases}
+  \cos(\beta-\alpha) = 0 
+\quad \end{rcases}
 \quad \text{Normal}
 \label{Equation:Chapter2-NormalScenario}
 \end{equation}
@@ -174,28 +185,46 @@ In the Higgs alignment limit, one of these CP-even neutral Higgs boson is the ob
 \begin{equation}
 \begin{rcases}
   h_{\text{obs}} = H \\
-  \sin(\beta-\alpha) = 0 \\
-  \cos\alpha/\sin\beta = 1/\tan{\beta} \\
-  \sin\alpha/\cos\beta = \tan{\beta} \\
-  \sin\alpha/\sin\beta = 1 \\
-  \cos\alpha/\cos\beta = 1
-\quad \quad \quad \end{rcases}
+  \sin(\beta-\alpha) = 0
+\quad \end{rcases}
 \quad \text{Inverted}
 \label{Equation:Chapter2-InvertedScenario}
 \end{equation}
 
 
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\setlength{\tabcolsep}{12pt} % Increase column width
+\arrayrulecolor{black} % Ensure outer borders are black
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Normal (Inverted)     & Type I                     & Type II                     & Type X                                        & Type Y                      \\ \hline \hline
+(-)$g_l^{H(h)}$ & $-1/\tan{\beta}$  & $\tan{\beta}$  & $\tan{\beta}$                    & $-1/\tan{\beta}$  \\ \arrayrulecolor{lightgray} \hline
+(-)$g_u^{H(h)}$ & $-1/\tan{\beta}$  & $-1/\tan{\beta}$  & $-1/\tan{\beta}$                    & $-1/\tan{\beta}$  \\ \arrayrulecolor{lightgray} \hline
+(-)$g_d^{H(h)}$ & $-1/\tan{\beta}$  & $\tan{\beta}$  & $-1/\tan{\beta}$                    & $\tan{\beta}$  \\ \arrayrulecolor{black} \hline
+\end{tabular}
+\caption{TODO}
+\label{Table:Chapter2_2HDM-CouplingsAlignmentLimit}
+\end{table}
+
+\section{\texorpdfstring{Muon $g$-2 anomaly}{Muon g-2 anomaly}}
+
+In 2023, Fermilab announced the most precise measurement of the anomalous magnetic moment of the muon, $\alpha_\mu$. Combined with the earlier result from the Brookhaven National Laboratory, the experimental average of the muon anomaly exhibits a 5.0~$\sigma$ discrepancy from SM prediction compiled by the Muon $g-2$ Theory Initiative in 2020. This is a definitely an intriguing result, as it could be a hint of BSM physics, however, caution is also warranted, as there also tensions between the different theoretical calculations that could bring the prediction closer to the experimental value.
+
+
+\begin{equation}
+\begin{aligned}
+    \alpha_\mu (SM) &= 116591810(43) \times 10^{-11} \\
+    \alpha_\mu (\text{exp}) &= 116592059(22) \times 10^{-11} \quad (0.19~\text{ppm}) \\
+    \Delta \alpha_\mu &= (249\pm48) \times 10^{-11}
+\end{aligned}
+\end{equation}
+
+A possible explanation for the discrepancy between the experimental measurements and the theoretical prediction of the $g-2$ anomaly can be accommodated by 2HDMs. In 2HDMs, the additional Higgs bosons can introduce loop corrections to the calculation of $\alpha_\mu$, through one-loop and two-loop Barr-Zee interactions presented in Fig.~\ref{TODO} and Fig.~\ref{TODO} respectively. The one-loop contributions are mediated by $\phi$, A and H$^{\pm}$ with the contribution of $\phi$ to $\Delta\alpha_\mu$ being positive $\alpha_\mu$ while those of A and H$^{\pm}$ are negative. The dominant contribution comes from two-loop Barr-Zee type diagrams with heavy fermions in the loop providing a positive shift to $\Delta\alpha_\mu$, with the CP-odd Higgs boson contributing positively primarily through the top quark loop. However, the contribution from the additional CP-even boson can have either a positive or a negative impact, depending on $\tan{\beta}$. 
 
 
 
-
-
-
-
-
-
-
-\section{Muon g-2 anomaly}
 \section{The matter-antimatter asymmetry problem}
 - The matter-antimatter asymmetry problem and why the SM fails to explain it
 - The role of CP violation in baryogenesis

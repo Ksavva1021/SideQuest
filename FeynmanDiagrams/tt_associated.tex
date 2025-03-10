@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex at (0, 1.5) (i1) {\(g\)};
+        \vertex at (0,-1.5) (i2) {\(g\)};
+        
+        \vertex at (3, 1.5) (a);
+        \vertex at (3,0) (ab);
+        \vertex at (3,-1.5) (b);
+        
+        \vertex at (6, 1.5) (c) {\(\overline{t}\)};
+        \vertex at (6, -1.5) (d) {\(t\)};
+
+        \vertex[blue] at (6, 0) (f) {\(H\)};
+
+        \diagram*{
+            (i1) -- [gluon] (a),
+            (i2) -- [gluon] (b),
+            (c) -- [fermion] (a),
+            (a) -- [fermion] (ab),
+            (ab) -- [fermion] (b),
+            (b) -- [fermion] (d),
+            (ab) -- [scalar] (f),
+        };
+    \end{feynman}
+\end{tikzpicture}
+

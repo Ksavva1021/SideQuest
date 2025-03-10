@@ -143,10 +143,19 @@ Importantly in this physical basis, the neutral gauge boson associated with the 
 According to Eq.~\ref{Equation:Introduction_HiggsLagrangian_3}, the mass of the scalar boson field in given by $\text{m}_H = \sqrt{2\lambda}\nu$. This Lagrangian also contains terms describing the trilinear and quartic self-interactions of the Higgs boson for which the relevant Feynman diagram are shown in Fig.~\ref{Figure:Introduction_HiggsSelf}. While only the self-interaction terms are shown in Eq.~\ref{Equation:Introduction_HiggsLagrangian_3}, the Lagrangian also contains interactions terms between the Higgs boson and the weak gauge bosons ($W^\pm/Z$). 
 
 \begin{figure}[h]
-\centering
-\includegraphics[width= .5\textwidth]{Figures/Introduction/HiggsSelfInt.png}
-\caption{Feynman diagrams arising from the presence of the Higgs self-interaction terms in the SM Lagrangian.}
-\label{Figure:Introduction_HiggsSelf}
+    \centering
+    % First row
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/HiggsSelf_3x}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/HiggsSelf_4x}
+    \end{subfigure}
+    \caption{Feynman diagrams arising from the presence of the Higgs self-interaction terms in the SM Lagrangian.}
+    \label{Figure:Introduction_HiggsSelf}
 \end{figure}
 
 Remarkably, fermions in the SM also acquire masses via the Higgs mechanism through Yukawa interactions~\cite{YukawaInteractions}. After SSB, when the Higgs field acquires a VEV, the Yukawa part of the Lagrangian takes the form
@@ -172,12 +181,42 @@ Undoubtedly, one of the most significant achievements in modern physics, is the 
 
 At the \ac{LHC}, the Higgs boson is produced via four major production modes; gluon-gluon fusion (ggH), vector boson fusion (VBF), vector boson associated production (VH), and $t\overline{t}$-associated production (ttH); listed in order of decreasing cross-section. In addition to the dominant production modes, the Higgs can still be produced in different ways \eg in association with a single-top (tH). The Feynman diagrams of the dominant modes are displayed in Fig.~\ref{Figure:Introduction_HiggsProductionModes} while their respective cross-sections at $\sqrt{s}$ = 13$\TeV$ and $\sqrt{s}$ = 13.6$\TeV$ are displayed in Table~\ref{Table:Introduction_HiggsProduction_XS}. 
 
+
 \begin{figure}[h]
-\centering
-\includegraphics[width= .9\textwidth]{Figures/Introduction/Higgs_ProductionModes.png}
-\caption{Feynman diagrams of the main SM Higgs production modes at the LHC.}
-\label{Figure:Introduction_HiggsProductionModes}
+    \centering
+    % First row
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/ggH.tex}
+        \caption{\(ggH\)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/VBF.tex}
+        \caption{\(VBF\)}
+    \end{subfigure}
+
+    % Add vertical space between rows
+    \vspace{0.5cm}
+
+    % Second row (centered properly)
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \raisebox{-5mm}{\input{FeynmanDiagrams/WZ_associated.tex}}
+        \caption{\(WZ\) associated}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/tt_associated.tex}
+        \caption{\(t\bar{t}\) associated}
+    \end{subfigure}
+
+    \caption{Feynman diagrams of the main SM Higgs production modes at the LHC.}
+    \label{Figure:Introduction_HiggsProductionModes}
 \end{figure}
+
 
 \begin{table}[h]
 \centering

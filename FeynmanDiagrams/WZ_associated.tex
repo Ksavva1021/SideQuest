@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex at (0, 1.5) (i1) {\(q\)};
+        \vertex at (0,-1.5) (i2) {\(\overline{q}\)};
+
+        \vertex at (2,0) (a);
+        \vertex at (4, 0) (b);
+
+        \vertex at (6.15, 1.5) (c) {\(W/Z\)};
+        \vertex[blue] at (6,-1.5) (d) {\(H\)};
+
+        \vertex at (3,0.25) () {\(W/Z\)};
+
+        \diagram*{
+            (i1) -- [fermion] (a) -- [fermion] (i2),
+            (a) -- [photon] (b),
+            (b) -- [photon] (c),
+            (b) -- [scalar] (d),
+        };
+    \end{feynman}
+\end{tikzpicture}

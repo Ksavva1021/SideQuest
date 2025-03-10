@@ -26,7 +26,7 @@ where $\Lambda$ should be interpreted as the least energy scale at which new phy
 
 \begin{figure}[h]
 \centering
-\includegraphics[width= 0.9\textwidth]{Figures/Chapter2/Hierarchy_Feynman_1.png}
+\input{FeynmanDiagrams/HiggsCorrection_FermionLoop}
 \caption{TODO}
 \label{Figure:Chapter2_Hierarchy_Feynman1}
 \end{figure}
@@ -37,7 +37,7 @@ Perhaps, the most studied and appealing solution to the hierarchy problem is \ac
 
 \begin{figure}[h]
 \centering
-\includegraphics[width= 0.9\textwidth]{Figures/Chapter2/Hierarchy_Feynman_1.png}
+\input{FeynmanDiagrams/HiggsCorrection_SFermionLoop}
 \caption{TODO}
 \label{Figure:Chapter2_Hierarchy_Feynman2}
 \end{figure}
@@ -223,11 +223,25 @@ In 2023, Fermilab announced the most precise measurement of the anomalous magnet
 
 A possible explanation for the discrepancy between the experimental measurements and the theoretical prediction of the $g-2$ anomaly can be accommodated by 2HDMs. In 2HDMs, the additional Higgs bosons can introduce loop corrections to the calculation of $\alpha_\mu$, through one-loop and two-loop Barr-Zee interactions presented in Fig.~\ref{TODO} and Fig.~\ref{TODO} respectively. The one-loop contributions are mediated by $\phi$, A and H$^{\pm}$ with the contribution of $\phi$ to $\Delta\alpha_\mu$ being positive $\alpha_\mu$ while those of A and H$^{\pm}$ are negative. The dominant contribution comes from two-loop Barr-Zee type diagrams with heavy fermions in the loop providing a positive shift to $\Delta\alpha_\mu$, with the CP-odd Higgs boson contributing positively primarily through the top quark loop. However, the contribution from the additional CP-even boson can have either a positive or a negative impact, depending on $\tan{\beta}$. 
 
+For the $g-2$ anomaly to be explained by 2HDMs, enhanced couplings between muons and the additional Higgs bosons are required. These enhanced couplings can be fascilitated by the type II and type X 2HDMs at large values of $\tan{\beta}$. The type II 2HDM also features enhanced coupling to down-type quarks, leading to gluon fusion and associated production with bottom quarks being the dominant single Higgs boson production modes. However, finding regions of parameter space within this model that can explain the $g-2$ anomaly is challenging because of the productions mechanisms being heavily constrained by experimental searches at LEP, Tevatron and LHC. On the other hand, the type X 2HDM is particularly interesting because of its hadrophobic nature, featuring suppressed up- and down-type quark couplings with increased $\tan{\beta}$. This suppression allows it to evade the experimentally constrained quark-initiated production modes, leaving much of its parameter space relatively untouched. As a result, the type X 2HDM remains a more viable candidate for explaining the $g-2$ anomaly. 
 
+In addition to collider constraints, the available parameter space is further shaped by theoretical considerations including vacuum stability and perturbative unitarity, as well as electroweak precision measurements. The regions where the $g-2$ anomaly can be accommodated within the type X 2HDM in both alignment scenarios are summarized in Table~\ref{Table:Chapter2_TypeX-ParameterSpace}.
 
-\section{The matter-antimatter asymmetry problem}
-- The matter-antimatter asymmetry problem and why the SM fails to explain it
-- The role of CP violation in baryogenesis
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\setlength{\tabcolsep}{12pt} % Increase column width
+\arrayrulecolor{black} % Ensure outer borders are black
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Alignment Scenario & $\tan{\beta}$ & $\text{m}_\phi$ {[}GeV{]} & $\text{m}_A$ {[}GeV{]} & $\text{m}_{H^\pm} {[}GeV{]}$ \\ \hline \hline
+Normal             & $\geq$ 90     & 130 - 245                 & 62.5 - 145             & 95 - 285                     \\ \arrayrulecolor{lightgray} \hline
+Inverted           & $\geq$ 120    & 100 - 120                 & 70 - 105               & 95 - 185 \\ \arrayrulecolor{black} \hline
+\end{tabular}
+\caption{TODO}
+\label{Table:Chapter2_TypeX-ParameterSpace}
+\end{table}
+
 \section{CP Nature of the SM Higgs boson}
 - CP Nature of Higgs:
 - Why the observed Higgs may not be purely CP-even

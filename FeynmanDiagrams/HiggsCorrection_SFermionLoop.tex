@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+    \begin{feynman}
+      \vertex[blob, minimum size=2.5cm] (m) at ( 0, 0) {};
+      \vertex[blue] (a) at (-3,-1.29){\(H\)};
+      \vertex[blue] (b) at ( 3,-1.29){\(H\)};
+
+      \diagram* {
+        (m),
+        (a) -- [scalar] (b),
+      };
+    \end{feynman}
+\end{tikzpicture}

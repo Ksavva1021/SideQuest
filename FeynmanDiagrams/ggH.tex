@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex at (0, 1.5) (i1) {\(g\)};
+        \vertex at (0,-1.5) (i2) {\(g\)};
+        \vertex at (2.5, 1.5) (a);
+        \vertex at (2.5,-1.5) (b);
+        \vertex at (4, 0) (c);
+        \vertex[blue] at (6, 0) (f) {\(H\)};
+        \vertex at (3.25,0) () {\(t\)};
+        \diagram*{
+            (i1) -- [gluon] (a),
+            (i2) -- [gluon] (b),
+            (a) -- [fermion] (b) -- [fermion] (c) -- [fermion] (a),
+            (c) -- [scalar] (f),
+        };
+    \end{feynman}
+\end{tikzpicture}
+

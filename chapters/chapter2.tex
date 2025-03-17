@@ -4,19 +4,22 @@
 \pagestyle{chapterpages}
 \label{Section:Chapter2}
 
-In Chapter~\ref{Section:Chapter1}, the SM of particle physics was explored to establish the theoretical foundation of this work. While the SM has been immensely successful, with its predictions verified experimentally to a high degree of precision, it remains an incomplete theory of nature due to several fundamental theoretical problems. Beyond these theoretical issues, the emergence of experimental results in tension with SM predictions has sparked significant interest among particle physicists. Although the statistical significance of these tensions is not yet sufficient to claim new discoveries, the search for BSM physics to explain them remains an intriguing and active area of research. This chapter will focus on two major theoretical challenges; the hierarchy problem and the observed matter-antimatter asymmetry of the universe, while also briefly discussing key experimental tensions. Possible solutions within the context of BSM physics will then be explored, with the observed Higgs boson playing an integral role in the matter-antimatter asymmetry discussion.
+In Chapter~\ref{Section:Chapter1}, the SM of particle physics was explored to establish the theoretical foundation of this work. While the SM has been immensely successful, with its predictions verified experimentally to a high degree of precision, it remains an incomplete theory of nature due to several fundamental theoretical problems. Beyond these theoretical issues, the emergence of experimental results in tension with SM predictions has sparked significant interest. Although the statistical significance of these tensions is not yet sufficient to claim new discoveries, the search for BSM physics to explain them remains an intriguing and active area of research. This chapter will focus on two major theoretical challenges; the hierarchy problem and the observed matter-antimatter asymmetry of the universe, while also discussing key experimental tensions. Possible solutions within the context of BSM physics will then be explored, with the observed Higgs boson playing an integral role in the matter-antimatter asymmetry discussion.
 
 \section{Hierarchy problem}
-With these fundamental problems in mind, it seems fairly clear that the SM is an \ac{EFT}, describing physics up to a certain energy scale. However, an extension is required to describe physics at the Planck scale ($10^{19}\GeV$) where gravitational effects become significant. The hierarchy problem is a central issue in the Higgs sector arising from the absence of a natural mechanism to stabilise the Higgs mass against large quantum corrections.
 
-In QFT, the Higgs boson mass in not simply a fixed parameter, receiving corrections to its physical mass from virtual processes involving particles that couple directly or indirectly to the Higgs field. Mathematically the physical mass of the Higgs boson can be expressed as
+A fundamental principle in theoretical physics is naturalness, which suggests that parameters in a theory should not take values that are unnaturally small or large without an underlying reason. In the case of the Standard Model (SM), this concept is particularly relevant to the Higgs boson mass, which is significantly smaller than the Planck scale ($m_P \approx 10^{19} \GeV$), where gravitational interactions become as strong as other fundamental forces.
+
+Since the SM is widely regarded as an effective field theory (EFT), valid up to a certain energy scale, it is expected to require an extension at higher energies. The hierarchy problem arises from the absence of a natural mechanism to prevent large quantum corrections from driving the Higgs boson mass to much higher scales, typically near the Planck mass. This extreme disparity between the electroweak scale ($10^2 \GeV$) and the Planck scale remains one of the most significant unresolved questions in high-energy physics.
+
+In QFT, the Higgs boson mass in not simply a fixed parameter. It receives corrections to its physical mass from virtual processes involving particles that couple directly or indirectly to the Higgs field. Mathematically the physical mass of the Higgs boson can be expressed as
 
 \begin{equation}
     m_H^2 = (m_H^0)^2 + \Delta m_H^2
 \label{Equation:Chapter2_HiggsBosonMass}
 \end{equation}
 
-where $m_H^0$ represent the bare mass of the Higgs boson, and $\Delta m_H$ term encapsulates the quantum loop corrections from these virtual particle interactions with this loop-induced correction taking the following form in the EFT framework
+where $m_H^0$ represent the bare mass of the Higgs boson, and $\Delta m_H$ term encapsulates the quantum loop corrections. In the EFT framework, the loop-induced correction term takes the form,
 
 \begin{equation}
     \Delta m_H^2 = -\frac{g_f^2}{8\pi^2}\Lambda^2 + \space \text{...}
@@ -31,9 +34,9 @@ where $\Lambda$ should be interpreted as the least energy scale at which new phy
 \label{Figure:Chapter2_Hierarchy_Feynman1}
 \end{figure}
 
-At the core of the hierarchy problem lies this $\Lambda$ term as the current best measurement of the Higgs boson mass from the Compact Muon Solenoid at $125.38 \pm 0.14~\GeV$ (in natural units), can only be explained if there is an extreme degree of fine-tuning in Eq.~\ref{Equation:Chapter2_HiggsBosonMass}. Specifically, if $\Lambda$ is taken to be the Plank scale, the predicted Higgs boson mass would be many orders of magnitude larger than the observed value ($\propto \Lambda^2$). Reconciling this discrepancy requires that the bare mass term is sufficiently large ($\mathcal{O}(10^{38})$ to cancel out the quantum loop correction term.
+At the core of the hierarchy problem lies this $\Lambda$ term. If $\Lambda$ is taken to be close to the Plank scale, these quantum loop correction become many orders of magnitude larger than the observed mass of the Higgs boson, $125.38 \pm 0.14~\GeV$ (in natural units). To reconcile this, an extreme degree of fine-tuning in Eq.~\ref{Equation:Chapter2_HiggsBosonMass} is required. Specifically, the bare mass term has to be sufficiently large ($\mathcal{O}(10^{38})$ to cancel out the quantum loop correction term. This degree of unnatural finetuning remains an open question in the field, as the Higgs mass would otherwise be expected close to the scale of new physics. This could suggest that new physics may exist near $\Lambda$, that can stabilise the Higgs mass and resolve the hierarchy problem. 
 
-Perhaps, the most studied and appealing solution to the hierarchy problem is \ac{SUSY}, which introduces a symmetry relating fermions and bosons. In SUSY, every known SM particle has at least one supersymmetric partner: bosons have fermionic superpartners while, fermions have scalar boson superpartners. This symmetry provides a natural way of addressing this extreme fine-tuning, as superpartners also contribute to $\Delta m_H^2$ but, with opposite signs relative to their SM counterparts, allowing the Higgs mass to stabilise naturally through the cancellation of the quantum loop corrections. The Feynman diagram for the mass correction due to a fermionic superpartner (scalar boson) is shown in Fig.~\ref{Figure:Chapter2_Hierarchy_Feynman2}.
+Perhaps, the most studied and appealing solution to the hierarchy problem is \ac{SUSY}, which introduces a symmetry relating fermions and bosons. In SUSY, every known SM particle has at least one supersymmetric partner. Bosons have fermionic superpartners while, fermions have scalar boson superpartners. This symmetry provides a natural way of addressing this extreme fine-tuning, as superpartners also contribute to $\Delta m_H^2$ but, with opposite signs relative to their SM counterparts. This allows the Higgs mass to stabilise naturally through the cancellation of the quantum loop corrections. The Feynman diagram for the mass correction due to a fermionic superpartner (scalar boson) is shown in Fig.~\ref{Figure:Chapter2_Hierarchy_Feynman2}.
 
 \begin{figure}[h]
 \centering
@@ -42,11 +45,11 @@ Perhaps, the most studied and appealing solution to the hierarchy problem is \ac
 \label{Figure:Chapter2_Hierarchy_Feynman2}
 \end{figure}
 
-While SUSY provides a natural solution to the hierarchy problem, the lack of any experimental evidence for supersymmetric partners, along with strong experimental constraints on the simplest SUSY extension of the SM (MSSM), has lead to alternative extensions to the SM Higgs sector gaining traction. One such extension is the \ac{2HDM}, which could provide a way to mitigate the fine-tuning in the Higgs mass by introducing additional Higgs bosons that could alter the running of coupling constants and loop corrections. Moreover, 2HDMs are particularly interesting in light of the muon $g-2$ anomaly, which will be discussed in this chapter.
+While SUSY provides a natural solution to the hierarchy problem, the lack of any experimental evidence for supersymmetric partners, along with strong experimental constraints on the simplest SUSY extension of the SM (MSSM), has lead to alternative extensions to the SM Higgs sector gaining traction. One such extension is the \ac{2HDM}, where the introduction of additional Higgs bosons that could alter the running of coupling constants and loop corrections. Moreover, 2HDMs are particularly interesting in light of the muon $g-2$ anomaly, which will be discussed in this chapter.
 
 \section{Extended Higgs sector - 2HDM}
 
-The simplest extension to the SM Higgs sector is the 2HDM which comprises of two complex scalar $SU(2)_L$ doublets, $\Phi_1$ and $\Phi_2$
+The simplest extension to the SM Higgs sector is the 2HDM. In contrast to the SM, the 2HDM introduces two complex scalar $SU(2)_L$ doublets, $\Phi_1$ and $\Phi_2$.
 
 \begin{equation}
 \Phi_i =
@@ -57,7 +60,30 @@ The simplest extension to the SM Higgs sector is the 2HDM which comprises of two
 \quad ,\quad i = 1,2
 \end{equation}
 
-To preserve the $U(1)_{EM}$ symmetry, only the neutral components of the Higgs doublets acquire non-zero VEVs
+The presence of the additional doublet in 2HDM leads to a richer potential structure. The general 2HDM Higgs potential, written in terms of the doublets $\Phi_1$ and $\Phi_2$, takes the form,
+
+In contrast to the SM Higgs potential, the 2HDM counterpart exhibits an extended form because of the presence of the additional doublet
+
+\begin{equation}
+\begin{array}{c}
+    V(\Phi_1,\Phi_2) = m_{11}^2 \Phi_1^{\dagger}\Phi_1 + m_{22}^2 \Phi_2^{\dagger}\Phi_2 - m_{12}^2(\Phi_1^\dagger\Phi_2 + \text{H.c.}) \\
+    + \frac{1}{2} \lambda_1(\Phi_1^\dagger\Phi_1)^2 + \frac{1}{2}\lambda_2(\Phi_2^\dagger\Phi_2)^2 + \lambda_3(\Phi_1^\dagger\Phi_1)(\Phi_2^\dagger\Phi_2) \\
+    + \lambda_4(\Phi_1^\dagger\Phi_2)(\Phi_2^\dagger\Phi_1) + \frac{1}{2}\lambda_5[(\Phi_1^\dagger\Phi_2)^2 + (\Phi_2^\dagger\Phi_1)^2] \\
+    + \lambda_6(\Phi_1^\dagger\Phi_1)(\Phi_1^\dagger\Phi_2) + \lambda_7(\Phi_2^\dagger\Phi_2)(\Phi_1^\dagger\Phi_2)
+\end{array}
+\end{equation}
+
+where the scalar potential is expressed in terms of the mass parameters ($m_{ij}$) and the quartic couplings ($\lambda_i$). 
+
+A major constraint imposed in 2HDMs is the suppression of tree-level \ac{FCNC}. In a generic 2HDM, both Higgs doublet can couple to the same fermion flavour, which lead to non-diagonal Yukawa couplings after SSB. These couplings are strongly constrained by experimental data. To forbid these tree-level interactions, a discrete $\mathbb{Z}_2$ symmetry \cite{2HDM(2)} is introduced, 
+
+\begin{equation}
+    \Phi_1 \to \Phi_1, \Phi_2 \to - \Phi_2, \Phi_1 \not\to \Phi_2 
+\end{equation}
+
+This ensures that each fermion type couples to only one of the Higgs doublets. Following the introduction of the discrete symmetry, the quartic interaction terms $\lambda_6$ and $\lambda_7$ are also eliminated from the potential. In addition to suppressing flavor-changing neutral currents (FCNCs), charge-parity (CP) symmetry plays a crucial role in ensuring the theoretical consistency of 2HDMs. CP symmetry is a fundamental symmetry in quantum field theory (QFT) that combines charge conjugation (C) and parity (P). Under a charge conjugation transformation, particles are transformed into their corresponding antiparticles whilst, parity transformations invert the spatial coordinates. In 2HDM, CP conservation is often imposd to prevent spontaneous CP violation. to maintain CP symmetry, all free parameters in the Higgs potential are required to be real.
+
+In the 2HDM, electroweak symmetry breaking occurs similarly to the SM. To preserve the $U(1)_{EM}$ gauge symmetry, only the neutral components of the Higgs doublets acquire non-zero VEVs, ensuring that the photon remains massless. The vacuum structure is given by,
 
 \begin{equation}
     <0|\Phi_i|0> = \frac{1}{\sqrt{2}} \begin{pmatrix}
@@ -66,32 +92,20 @@ To preserve the $U(1)_{EM}$ symmetry, only the neutral components of the Higgs d
     \end{pmatrix} \quad,\quad i=1,2
 \end{equation}
 
-where $\nu_i$ represents the VEVs of each Higgs doublet.
-
-In contrast to the SM Higgs potential, the 2HDM counterpart exhibits an extended form because of the presence of the additional doublet
-
-\begin{equation}
-\begin{array}{c}
-    V(\phi_1,\phi_2) = m_{11}^2 \phi_1^{\dagger}\phi_1 + m_{22}^2 \phi_2^{\dagger}\phi_2 - m_{12}^2(\phi_1^\dagger\phi_2 + \text{H.c.}) \\
-    + \frac{1}{2} \lambda_1(\phi_1^\dagger\phi_1)^2 + \frac{1}{2}\lambda_2(\phi_2^\dagger\phi_2)^2 + \lambda_3(\phi_1^\dagger\phi_1)(\phi_2^\dagger\phi_2) \\
-    + \lambda_4(\phi_1^\dagger\phi_2)(\phi_2^\dagger\phi_1) + \frac{1}{2}\lambda_5[(\phi_1^\dagger\phi_2)^2 + \text{H.c.}] \\
-\end{array}
-\end{equation}
-
-where the doublet scalar potential is expressed in terms of the mass parameters ($m_{ij}$) and the quartic couplings ($\lambda_i$).
+where $\nu_1$ and $\nu_2$ are the VEVs associated with each Higgs doublet.
 
 After SSB, the Higgs doublets can be expanded around the minima
 
 \begin{equation}
-    \Phi_i = \begin{pmatrix}
+    \text{SSB} \rightarrow\Phi_i = \begin{pmatrix}
         \phi_i^+ \\
-        \frac{1}{\sqrt{2}}(\nu_i + h_i + iz_i
+        \frac{1}{\sqrt{2}}(\nu_i + h_i + iz_i)
     \end{pmatrix} \quad,\quad i=1,2
 \end{equation}
 
 where the doublets have been expressed in terms of CP-even ($h_i$), CP-odd ($z_i$) and charged Higgs fields ($\phi_i^+$).
 
-Analogous to the SM Higgs sector, the inclusion of a second Higgs doublet introduces an additional 4 dof. Upon SSB, 3 out of the 8 dof are absorbed as Goldstone bosons providing the W$^{\pm}$ and Z bosons with longitudinal dof while the remaining 5 dof correspond to 5 physical Higgs bosons; 2 CP-even (h and H), 1 CP-odd (A) and 2 charged Higgs bosons (H$^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets in Eq.~\ref{Equation:Chapter2_2HDM-MassEigenstates}.
+Analogous to the SM Higgs sector, the introduction of a second Higgs doublet introduces an additional 4 dof. Upon SSB, 3 out of the 8 dof are absorbed as Goldstone bosons providing the W$^{\pm}$ and Z bosons with longitudinal dof while the remaining 5 dof correspond to 5 physical Higgs bosons; 2 CP-even (h and H), 1 CP-odd (A) and 2 charged Higgs bosons (H$^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets in Eq.~\ref{Equation:Chapter2_2HDM-MassEigenstates}.
 
 \begin{equation}
 \begin{array}{c}
@@ -103,9 +117,13 @@ Analogous to the SM Higgs sector, the inclusion of a second Higgs doublet introd
 \label{Equation:Chapter2_2HDM-MassEigenstates}
 \end{equation}
 
-where the parameter $\alpha$ governs the mixing between the CP-even scalars and $\beta$ is a rotational angle that diagonalises the mass-squared matrices of the pseudoscalar and the charged Higgs, defined as $\tan{\beta} = \nu_2/\nu_1$.
+where the parameter $\alpha$ governs the mixing between the CP-even scalars and $\beta$ is a rotational angle that diagonalises the mass-squared matrices of the pseudoscalar and the charged Higgs, defined as,
 
-A major constraint imposed to 2HDMs is suppressing tree-level flavour-changing neutral currents which can occur in a generic 2HDM because of both Higgs doublet coupling to the same fermion flavour, leading to non-diagonal Yukawa couplings after SSB. To forbid these tree-level interactions, a discrete $\mathbb{Z}_2$ symmetry \cite{2HDM(2)} is introduced, $\Phi_1 \to \Phi_1$, $\Phi_2 \to - \Phi_2$, $\Phi_1 \not\to \Phi_2$, which eliminates the $\lambda_6$ and $\lambda_7$ terms from the scalar potential in Eq.~\ref{Equation:Chapter2_2HDMScalarPotential}. Rather than being strictly imposed, this $\mathbb{Z}_2$ symmetry is softly broken by the $m_{12}^2$ term in the scalar potential. This soft-breaking of the symmetry allows the Yukawa couplings to remain flavour diagonal while, simultaneously allowing for mixing between the Higgs doublets ($\Phi_i$), which is required to obtain the physical Higgs mass eigenstates. Following the introduction of $\mathbb{Z}_2$ symmetry, the CP-conserving 2HDMs are split in different types, which are defined based on which Higgs doublet couples to each fermion flavour. The four types of CP-conserving 2HDMs are shown in Table~\ref{Table:Chapter2_2HDM-Types}.
+\begin{equation}
+    \tan{\beta} = \nu_2/\nu_1
+\end{equation}
+
+To ensure the theoretical consistency and predictability within the 2HDM, the degree of mixing needs to be carefully controlled. This is achieved once again through a discrete $\mathbb{Z}_2$ symmetry. However, rather being strictly imposed, the symmetry is softly broken by the $m_{12}^2$ term in the scalar potential. This soft-breaking of the symmetry allows the Yukawa couplings to remain flavour diagonal while, simultaneously allowing for mixing between the Higgs doublets ($\Phi_i$). Following the introduction of $\mathbb{Z}_2$ symmetry, the CP-conserving 2HDMs are split in different types, which are defined based on which Higgs doublet couples to each fermion flavour. The four types of CP-conserving 2HDMs are shown in Table~\ref{Table:Chapter2_2HDM-Types}.
 
 \begin{table}[h]
 \centering
@@ -130,7 +148,7 @@ In each 2HDM type, the structure of the Yukawa interactions depend on the specif
 
 \begin{equation}
 \begin{aligned}
-    \mathcal{L}_{Yukawa}^{2HDM} &= - \sum\limits_{f=u,d,l} \frac{m_f}{\nu} 
+    \text{SSB} \rightarrow \mathcal{L}_{Yukawa}^{2HDM} &= - \sum\limits_{f=u,d,l} \frac{m_f}{\nu} 
     \left(g_f^h \overline{f}f h + g_f^H\overline{f}f H - i g_f^A\overline{f} \gamma_5 f A \right) \\
     &\quad - \left\{ \frac{\sqrt{2}V_{ud}}{\nu} \overline{u} 
     \left(m_u g_u^A P_L + m_d g_d^A P_R \right) d H^+ \right. \\

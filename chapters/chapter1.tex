@@ -40,7 +40,7 @@ The QFT of electromagnetism, known as \ac{QED}, describes the interactions betwe
 
 where $\psi$ and its adjoint $\overline{\psi}$ are the fermion fields expressed as four-component Dirac spinors while the quantity $\gamma^\mu$ represents the Dirac gamma matrices. Finally, $m_{\psi}$ represents the mass of the fermion.
 
-As briefly discussed in Section~\ref{Section:Chapter1_FundamentalInteractions}, under a local U(1) gauge transformation, the fermion field transforms as $\psi(x) \rightarrow e^{iq\theta(x)} \psi(x)$ and this breaks the local gauge invariance of the Lagrangian. Under this transformation, the Dirac equation (Equation~\ref{Equation:Dirac} becomes
+As briefly discussed in Section~\ref{Section:Chapter1_FundamentalInteractions}, under a local U(1) gauge transformation, the fermion field transforms as $\psi(x) \rightarrow e^{iq\theta(x)} \psi(x)$ and this breaks the local gauge invariance of the Lagrangian. Under this transformation, the Dirac equation (Eq.~\ref{Equation:Dirac} becomes
 
 \begin{equation}
     U(1) \rightarrow \mathcal{L}_{Dirac}^{\prime} = \mathcal{L}_{Dirac} - q\overline{\psi}(\partial_\mu\theta(x))\psi
@@ -53,7 +53,7 @@ To restore local gauge invariance, the derivative $\partial_\mu$ is replaced wit
     \partial_\mu \rightarrow D_\mu = \partial_\mu + iqA_\mu
 \end{equation}
 
-where $A_\mu$ is a new field. The problematic term in Equation~\ref{Equation:Dirac(U1)} can be cancelled out provided that the new field transforms as
+where $A_\mu$ is a new field. The problematic term in Eq.\ref{Equation:Dirac(U1)} can be cancelled out provided that the new field transforms as
 
 \begin{equation}
     U(1) \rightarrow A_\mu^{\prime} = A_\mu - \partial_\mu \theta(x) 
@@ -66,7 +66,7 @@ Therefore, imposing a U(1) local gauge invariance on the Lagrangian has forced t
 \label{Equation:Dirac_GaugeInvariant}
 \end{equation}
 
-The additional term in the Lagrangian (Equation~\ref{Equation:Dirac_GaugeInvariant}) encapsulates the electromagnetic interaction between charged fermions and photons. The strength of this coupling is given by $q = |e|Q$, where e denotes the fundamental unit of electric charge, and Q represents the dimensionless charge of the fermion field $\psi$ relative to e. By N\"{o}ether's theorem, electric charge corresponds to the conserved quantity associated with local U(1) gauge symmetry, once again reinforcing the deep connection between symmetry and conservation laws in QFT. The final component necessary to complete the QED Lagrangian is the gauge-invariant kinetic term for the massless spin-1 field, described by the field strength tensor $F_{\mu\nu}$. Incorporating this, the total QED Lagrangian takes the form,
+The additional term in the Lagrangian (Eq.\ref{Equation:Dirac_GaugeInvariant}) encapsulates the electromagnetic interaction between charged fermions and photons. The strength of this coupling is given by $q = |e|Q$, where e denotes the fundamental unit of electric charge, and Q represents the dimensionless charge of the fermion field $\psi$ relative to e. By N\"{o}ether's theorem, electric charge corresponds to the conserved quantity associated with local U(1) gauge symmetry, once again reinforcing the deep connection between symmetry and conservation laws in QFT. The final component necessary to complete the QED Lagrangian is the gauge-invariant kinetic term for the massless spin-1 field, described by the field strength tensor $F_{\mu\nu}$. Incorporating this, the total QED Lagrangian takes the form,
 
 \begin{equation}
     \mathcal{L}_{QED} = \overline{\psi}(i\gamma^\mu \partial_\mu - m_{\psi}) \psi - q\overline{\psi}\gamma^\mu A_\mu\psi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
@@ -130,15 +130,41 @@ where $\theta_{W}$, the weak mixing angle, quantifies the mixing between the wea
     \theta_W = \text{arctan}(\frac{g^{\prime}}{g})
 \end{equation}
 
-As discussed earlier in Section~\ref{Section:Particle content and fundamental interactions}, all fermions interact via the weak interaction. A key feature of the weak interaction is its violating of parity symmetry. This means that the weak interaction exhibits a different behavior under spatial translations. Using chiral operators, $P_{L/R}$, the fermion spinor fields ($u$) can be decomposed into left-handed ($u_{L}$) and right-handed ($u_{R}$) chiral components. 
+As discussed earlier in Section~\ref{Section:Particle content and fundamental interactions}, all fermions interact via the weak interaction. A key feature of the weak interaction is its violation of parity symmetry. This means that the weak interaction exhibits a different behavior under spatial translations. In contrast to QED and QCD, which conserve parity and involve pure vector interactions of the form,
 
 \begin{equation}
-    P_{L/R} = \frac{1}{2}(1\mp \gamma^5) \quad ,\quad \gamma^5 = \gamma^0\gamma^1\gamma^2\gamma^3
+    j^\mu = \overline{u}\gamma^\mu u
 \end{equation}
 
-This is engraved into the EW theory by only allowing interactions between left-handed fermions (right-handed anti-fermions) and the weak isospin fields, $W_{\mu}^{(i)}$. In this representation under $SU(2)_L$ transformations, the left-handed components of the fermion fields transform as doublets while the right-handed components transform as singlets. 
+the weak interaction is required to take a different form to account for its parity-violating nature.
 
-This structure of the EW theory naturally leads to a relationship between the weak isospin, weak hypercharge and electric charge.
+Mathematically, the proper parity transformations can be be achieved by requiring the interaction to have a chiral structure. Naturally, this leads to either a V-A or V+A (Vector, Axial Vector) current. Experimentally, it is well established that the weak interaction exhibits a V-A charged current of the form,
+
+\begin{equation}
+    j^\mu_{\text{weak}} = \overline{u}\gamma^\mu \frac{1}{2}(1-\gamma^5)u
+\label{Equation:Chapter1-WeakChargedCurrent}
+\end{equation}
+
+Using chiral operators, $P_{L/R}$, the fermion spinor fields ($u$) can be decomposed into left-handed ($u_{L}$) and right-handed ($u_{R}$) chiral components. 
+
+\begin{equation}
+\begin{array}{c}
+    P_{L/R} = \frac{1}{2}(1\mp \gamma^5) \quad ,\quad \gamma^5 = \gamma^0\gamma^1\gamma^2\gamma^3 \\
+    u = P_Ru +P_Lu = u_R + u_L
+\end{array}
+\end{equation}
+
+This chiral decomposition is fundamental in the EW theory, only allowing interactions between left-handed fermions (and equivalently, right-handed anti-fermions) and the weak isospin gauge bosons $W_{\mu}^{(i)}$. This can be explicitly seen by substituting the decomposed spinor field ($u$) into the weak charged current (Eq.~\ref{Equation:Chapter1-WeakChargedCurrent},
+
+\begin{equation}
+\begin{array}{c}
+    j^\mu_{\text{weak}} = (\overline{u_R} + \overline{u_L})\gamma^\mu P_L (u_R+u_L) \\
+    P_L u_R = 0
+\label{Equation:Chapter1-WeakChargedCurrent_Decomposed}
+\end{array}
+\end{equation}
+
+Hence, in this representation, it is natural that the left-handed components of the fermion fields transform as doublets $SU(2)_L$. Conversely, the right-handed components transform as singlets, and do not interact with the charged weak gauge bosons. This structure of the EW theory naturally leads to a relationship between the weak isospin, weak hypercharge and electric charge.
 
 \begin{equation}
     Q = I_3 + \frac{Y}{2}
@@ -156,7 +182,7 @@ First proposed back in the 1960s by Englert and Brout~\cite{Englert_Brout}, Higg
     SU(3)_C \otimes SU(2)_L \otimes U(1)_Y \quad \underbrace{\rightarrow}_{\text{BEH}} \quad SU(3)_C \otimes U(1)_{\text{EM}}
 \end{equation}
 
-Effectively, the BEH mechanism targets and breaks the symmetry of the electroweak interaction. This symmetry is broken by introducing two complex scalar fields, $\phi^+/o$, which transform as doublet $\Phi$ under $SU(2)_L$ transformation,
+Effectively, the BEH mechanism targets and breaks the symmetry of the electroweak interaction. This symmetry is broken by introducing two complex scalar fields, $\phi^{+/o}$, which transform as doublet $\Phi$ under $SU(2)_L$ transformation,
 
 \begin{equation}
 \Phi =
@@ -259,10 +285,10 @@ According to Eq.~\ref{Equation:Introduction_HiggsLagrangian_3}, the mass of the 
     \label{Figure:Introduction_HiggsSelf}
 \end{figure}
 
-Remarkably, fermions in the SM also acquire masses via the Higgs mechanism through Yukawa interactions~\cite{YukawaInteractions}. After SSB, when the Higgs field acquires a VEV, the Yukawa part of the Lagrangian takes the form
+Remarkably, fermions in the SM also acquire masses via the BEH mechanism through Yukawa interactions~\cite{YukawaInteractions}. After SSB, when the Higgs field acquires a VEV, the Yukawa part of the Lagrangian takes the form
 
 \begin{equation}
-    \mathcal{L}_{Yukawa}^f = \underbrace{-\frac{g_f}{\sqrt{2}}\nu(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{mass term}} \underbrace{- \frac{g_f}{\sqrt{2}}h(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{interaction term}}
+    \text{BEH} \rightarrow \mathcal{L}_{\text{Yukawa}}^f = \underbrace{-\frac{g_f}{\sqrt{2}}\nu(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{mass term}} \underbrace{- \frac{g_f}{\sqrt{2}}h(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{interaction term}}
 \end{equation}
 
 where $\psi_L$ and $\psi_R$ are the left-handed and right-handed chiral fields, and the first term gives the mass of fermionic mass $m_f = g_f\nu / \sqrt{2}$. The second term in the Lagrangian describes the coupling between the fermion and the Higgs boson itself, interestingly indicating that heavier fermions couple stronger to the Higgs.

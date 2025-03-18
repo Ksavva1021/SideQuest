@@ -3,7 +3,7 @@
 \thispagestyle{plain}  % First page has default style
 \pagestyle{chapterpages}
 \label{Section:Chapter1}
-The \ac{SM} of particle physics~\cite{Glashow_StandardModel_1,Weinberg_StandardModel_1,StandardModel_3,Standard_Model4} is our current best theoretical framework underpinning our understanding of the subatomic world, providing a description of fundamental elementary particles and their interactions via the electromagnetic force, weak nuclear force and the strong nuclear force. The fourth fundamental force of nature, Gravity, is absent from the SM, highlighting one of its key limitations. However, in high-energy physics experiments, where the interactions of subatomic particles are being studied, the omission of gravity is considered a safe simplification. Extremely powerful predictions have emerged from this theoretical framework, with its greatest accomplishments being the prediction~\cite{Higgs_1} and subsequent discovery of the Higgs boson in 2012~\cite{Higgs_ATLAS,Higgs_CMS}. Despite its success, the Standard Model has its limitations. Along with the absence of gravity, it leaves several fundamental questions unanswered, such as the nature of neutrino oscillations~\cite{Neutrino_Oscillations}, the existence of dark matter~\cite{DarkMatter}, the hierarchy problem~\cite{HierarchyProblem}, and the matter-antimatter asymmetry in the universe~\cite{MatterAntimatter}, driving the field to look for explanations beyond the SM. In the pursue of \ac{BSM} physics, a deep understanding of the SM theory is crucial. The goal of this chapter is to establish the base foundation for this work, the SM, by exploring the fundamental blocks of the theory, including its particle content, interactions, and the Higgs mechanism.
+The \ac{SM} of particle physics~\cite{Glashow_1, Weinberg_1, Salam_1} is our current best theoretical framework underpinning our understanding of the subatomic world, providing a description of fundamental elementary particles and their interactions via the electromagnetic force, weak nuclear force and the strong nuclear force. The fourth fundamental force of nature, Gravity, is absent from the SM, highlighting one of its key limitations. However, in high-energy physics experiments, where the interactions of subatomic particles are being studied, the omission of gravity is considered a safe simplification. Extremely powerful predictions have emerged from this theoretical framework, with its greatest accomplishments being the prediction~\cite{Englert_Brout,PeterHiggs_1,PeterHiggs_2, PeterHiggs_3, Guralnik_Hagen_Kibble, Kibble} and subsequent discovery of the Higgs boson in 2012~\cite{Higgs_ATLAS,Higgs_CMS}. Despite its success, the Standard Model has its limitations. Along with the absence of gravity, it leaves several fundamental questions unanswered, such as the nature of neutrino oscillations~\cite{Neutrino_Oscillations}, the existence of dark matter~\cite{DarkMatter}, the hierarchy problem~\cite{HierarchyProblem}, and the matter-antimatter asymmetry in the universe~\cite{MatterAntimatter}, driving the field to look for explanations beyond the SM. In the pursue of \ac{BSM} physics, a deep understanding of the SM theory is crucial. The goal of this chapter is to establish the base foundation for this work, the SM, by exploring the fundamental blocks of the theory, including its particle content, interactions, and the Higgs mechanism.
 
 \section{Particle content and fundamental interactions}
 \label{Section:Particle content and fundamental interactions}
@@ -25,13 +25,13 @@ A key distinction between leptons and quarks lies in their participation in stro
 \section{Foundation of the fundamental interactions}
 \label{Section:Chapter1_FundamentalInteractions}
 
-In the core of QFT and the SM lies the principle of symmetry, with the Lagrangian density serving as the starting point of describing fundamental interactions. Fundamental laws are closely tied to symmetries. N\"{o}ether's theorem shows that a conservation law is implied by the invariance of a Lagrangian under a continuous transformation (symmetry). A striking example of the deep connection between fundamental interactions and symmetry principles is the conversation of angular momentum, defined by a Lagrangian which is invariant under rotational transformations. 
+In the core of QFT and the SM lies the principle of symmetry, with the Lagrangian density serving as the starting point of describing fundamental interactions. Fundamental laws are closely tied to symmetries. N\"{o}ether's theorem~\cite{Noether} shows that a conservation law is implied by the invariance of a Lagrangian under a continuous transformation (symmetry). A striking example of the deep connection between fundamental interactions and symmetry principles is the conversation of angular momentum, defined by a Lagrangian which is invariant under rotational transformations. 
 
 The SM is a gauge theory built on the principle of local gauge invariance \ie the Lagrangian is invariant under local phase transformations. In contrast to global phase transformations, such transformations shift the phase of the field ($\psi(x)$) as a function of the spacetime coordinates; $\psi(x) \rightarrow e^{iq\theta(x)} \psi(x)$. The introduction of the gauge boson fields mediating fermion interactions is a direct consequence of imposing this invariance. Alone a local phase transformation would break the invariance of the SM Lagrangian which is restored by the introduction of the gauge boson fields.
 
 \subsection{Quantum Electrodynamics}
 
-The QFT of electromagnetism, known as \ac{QED}, describes the interactions between charged fermions through the exchanged of photons. Remarkably, the entire framework of QED emerges beautifully from a single guiding principle; the requirement that the QED Lagrangian remains invariant under local U(1) gauge transformations. The foundation of QED begins with the Dirac equation \cite{DiracEquation} which describes the equations of motion for spin-$\frac{1}{2}$ fermion fields,
+The QFT of electromagnetism, known as \ac{QED}~\cite{QED}, describes the interactions between charged fermions through the exchanged of photons. Remarkably, the entire framework of QED emerges beautifully from a single guiding principle; the requirement that the QED Lagrangian remains invariant under local U(1) gauge transformations. The foundation of QED begins with the Dirac equation \cite{DiracEquation} which describes the equations of motion for spin-$\frac{1}{2}$ fermion fields,
 
 \begin{equation}
     \mathcal{L}_{Dirac} = \overline{\psi}(i\gamma^\mu \partial_\mu - m_{\psi}) \psi
@@ -99,7 +99,7 @@ As a consequence of colour confinement, in high-energy collisions, high-energy q
 
 \subsection{Electroweak theory}
 
-In the 1960s, Glashow~\cite{Glashow}, Salam~\cite{Salam} and Weinberg~\cite{Weinberg} discovered that a unified picture of the electromagnetic and weak interactions could be constructed. Their proposal was to develop the electroweak theory incorporating the characteristics of both interactions by associating them with the $SU(2)_{L}$ $\otimes$ $U(1)_{Y}$ symmetry group,
+In the 1960s, Glashow~\cite{Glashow_1}, Salam~\cite{Salam_1} and Weinberg~\cite{Weinberg_1} discovered that a unified picture of the electromagnetic and weak interactions could be constructed. Their proposal was to develop the electroweak theory incorporating the characteristics of both interactions by associating them with the $SU(2)_{L}$ $\otimes$ $U(1)_{Y}$ symmetry group,
 
 \begin{equation}
     SU(2)_L \otimes U(1)_Y \rightarrow \mathcal{L}^{\prime}_{EW} = \mathcal{L}_{EW}
@@ -130,7 +130,7 @@ where $\theta_{W}$, the weak mixing angle, quantifies the mixing between the wea
     \theta_W = \text{arctan}(\frac{g^{\prime}}{g})
 \end{equation}
 
-As discussed earlier in Section~\ref{Section:Particle content and fundamental interactions}, all fermions interact via the weak interaction. A key feature of the weak interaction is its violation of parity symmetry. This means that the weak interaction exhibits a different behavior under spatial translations. In contrast to QED and QCD, which conserve parity and involve pure vector interactions of the form,
+As discussed earlier in Section~\ref{Section:Particle content and fundamental interactions}, all fermions interact via the weak interaction. A key feature of the weak interaction is its violation of parity symmetry~\cite{ParityViolation_Wu}. This means that the weak interaction exhibits a different behavior under spatial translations. In contrast to QED and QCD, which conserve parity and involve pure vector interactions of the form,
 
 \begin{equation}
     j^\mu = \overline{u}\gamma^\mu u
@@ -154,7 +154,7 @@ Using chiral operators, $P_{L/R}$, the fermion spinor fields ($u$) can be decomp
 \end{array}
 \end{equation}
 
-This chiral decomposition is fundamental in the EW theory, only allowing interactions between left-handed fermions (and equivalently, right-handed anti-fermions) and the weak isospin gauge bosons $W_{\mu}^{(i)}$. This can be explicitly seen by substituting the decomposed spinor field ($u$) into the weak charged current (Eq.~\ref{Equation:Chapter1-WeakChargedCurrent},
+This chiral decomposition is fundamental in the EW theory, only allowing interactions between left-handed fermions (and equivalently, right-handed anti-fermions) and the weak isospin gauge bosons $W_{\mu}^{(i)}$. This can be explicitly seen by substituting the decomposed spinor field ($u$) into the weak charged current (Eq.~\ref{Equation:Chapter1-WeakChargedCurrent}),
 
 \begin{equation}
 \begin{array}{c}
@@ -176,7 +176,7 @@ Despite, beautifully unifying the electromagnetic and weak interactions into a s
 
 \section{Brout-Englert-Higgs mechanism}
 \label{Section:Introduction_HiggsMechanism}
-First proposed back in the 1960s by Englert and Brout~\cite{Englert_Brout}, Higgs~\cite{Higgs_2}, and Guralnik, Hagen and Kibble~\cite{Guralnik_Hagen_Kibble,Kibble_1}, the \ac{BEH} mechanism provides a way to generate mass while preserving the local gauge invariance of the SM. It is based on the principle of \ac{SSB} where, the Lagrangian of a system remains invariant under a certain symmetry group, but the vacuum of state of the system does not~\cite{SSB_Definition}. The symmetry of the SM Lagrangian is broken through the BEH mechanism as
+First proposed back in the 1960s by Englert and Brout~\cite{Englert_Brout}, Higgs~\cite{PeterHiggs_1,PeterHiggs_2,PeterHiggs_3}, and Guralnik, Hagen and Kibble~\cite{Guralnik_Hagen_Kibble,Kibble}, the \ac{BEH} mechanism provides a way to generate mass while preserving the local gauge invariance of the SM. It is based on the principle of \ac{SSB}~\cite{SSB_Definition} where, the Lagrangian of a system remains invariant under a certain symmetry group, but the vacuum of state of the system does not. The symmetry of the SM Lagrangian is broken through the BEH mechanism as
 
 \begin{equation}
     SU(3)_C \otimes SU(2)_L \otimes U(1)_Y \quad \underbrace{\rightarrow}_{\text{BEH}} \quad SU(3)_C \otimes U(1)_{\text{EM}}
@@ -222,7 +222,7 @@ The second term in Eq.~\ref{Equation:Introduction_HiggsLagrangian} represents th
     \Phi^{\dagger}\Phi = -\frac{\mu^{2}}{2\lambda} = \frac{\nu^2}{2}
 \end{equation}
 
-A key constraint to achieve SSB through the BEH mechanism is to ensure that the photon remains massless while the other gauge bosons acquire mass. Hence, the Higgs potential's minimum must correspond to a nonzero VEV exclusively for the neutral scalar field, $\phi^{0}$~\cite{Higgs_VacuumState_Choice}. This condition preserves the $U(1)_{EM}$ symmetry after SSB.
+A key constraint to achieve SSB through the BEH mechanism is to ensure that the photon remains massless while the other gauge bosons acquire mass. Hence, the Higgs potential's minimum must correspond to a nonzero VEV exclusively for the neutral scalar field, $\phi^{0}$. This condition preserves the $U(1)_{EM}$ symmetry after SSB.
 
 \begin{equation}
     <0|\Phi|0> = \frac{1}{\sqrt{2}} \begin{pmatrix}
@@ -285,7 +285,7 @@ According to Eq.~\ref{Equation:Introduction_HiggsLagrangian_3}, the mass of the 
     \label{Figure:Introduction_HiggsSelf}
 \end{figure}
 
-Remarkably, fermions in the SM also acquire masses via the BEH mechanism through Yukawa interactions~\cite{YukawaInteractions}. After SSB, when the Higgs field acquires a VEV, the Yukawa part of the Lagrangian takes the form
+Remarkably, fermions in the SM also acquire masses via the BEH mechanism through Yukawa interactions. After SSB, when the Higgs field acquires a VEV, the Yukawa part of the Lagrangian takes the form
 
 \begin{equation}
     \text{BEH} \rightarrow \mathcal{L}_{\text{Yukawa}}^f = \underbrace{-\frac{g_f}{\sqrt{2}}\nu(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{mass term}} \underbrace{- \frac{g_f}{\sqrt{2}}h(\overline{\psi_L}\psi_R + \overline{\psi_R} \psi_L)}_{\text{interaction term}}
@@ -363,7 +363,7 @@ ZH                                 & 0.76  & 0.9439 \\
 ttH                                & 0.51  & 0.57 \\ 
 \arrayrulecolor{black} \hline
 \end{tabular}
-\caption{Cross sections of the dominant Higgs production mechanisms in the SM. Derived for $\text{m}_H = 125\GeV$ and presented for both $\sqrt{\sigma}=13\TeV$ and $\sqrt{\sigma}=13.6\TeV$~\cite{HiggsProduction_XS}.}
+\caption{Cross sections of the dominant Higgs production mechanisms in the SM. Derived for $\text{m}_H = 125\GeV$ and presented for both $\sqrt{\sigma}=13\TeV$ and $\sqrt{\sigma}=13.6\TeV$~\cite{HiggsProduction_XS_13TeV,HiggsProduction_XS_13p6TeV}.}
 \label{Table:Introduction_HiggsProduction_XS}
 \end{table}
 
@@ -371,7 +371,7 @@ The ggH production mode is clearly the most dominant one proceeding via an inter
 
 \subsection{Higgs boson decays}
 
-The Higgs boson is an unstable particle, decaying almost immediately after its production~\cite{HiggsUnstable}, with its inference only possible from the decay products. The dominant SM Higgs decays channels are listed in Table~\ref{Table:Introduction_HiggsBranchingFractions}, clearly showing that $H\rightarrow b\overline{b}$ is the dominant decay mode. 
+The Higgs boson is an unstable particle, decaying almost immediately after its production~\cite{MarkThompson}, with its inference only possible from the decay products. The dominant SM Higgs decays channels are listed in Table~\ref{Table:Introduction_HiggsBranchingFractions}, clearly showing that $H\rightarrow b\overline{b}$ is the dominant decay mode. 
 
 \begin{table}[h]
 \centering
@@ -398,7 +398,7 @@ $\gamma\gamma$              & 0.23  \\
 $\mu\mu$                    & 0.02  \\ 
 \arrayrulecolor{black} \hline
 \end{tabular}
-\caption{Branching fractions, $\text{B}_f$, of the main SM Higgs boson decay channel for $\text{m}_H = 125\GeV$~\cite{HiggsProduction_XS} where for a particular final state $f$, $\text{B}_f = \Gamma_f/\Gamma_H$, with $\Gamma_f$ and $\Gamma_H$ being the decay width of the final state and the Higgs boson respectively.}
+\caption{Branching fractions, $\text{B}_f$, of the main SM Higgs boson decay channel for $\text{m}_H = 125\GeV$~\cite{HiggsProduction_XS_13TeV,HiggsProduction_XS_13p6TeV} where for a particular final state $f$, $\text{B}_f = \Gamma_f/\Gamma_H$, with $\Gamma_f$ and $\Gamma_H$ being the decay width of the final state and the Higgs boson respectively.}
 \label{Table:Introduction_HiggsBranchingFractions}
 \end{table}
 

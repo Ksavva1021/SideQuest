@@ -19,7 +19,7 @@ In QFT, the Higgs boson mass in not simply a fixed parameter. It receives correc
 \label{Equation:Chapter2_HiggsBosonMass}
 \end{equation}
 
-where $m_H^0$ represent the bare mass of the Higgs boson, and $\Delta m_H$ term encapsulates the quantum loop corrections. In the EFT framework, the loop-induced correction term takes the form,
+where $m_H^0$ represents the bare mass of the Higgs boson, and $\Delta m_H$ term encapsulates the quantum loop corrections. In the EFT framework, the loop-induced correction term takes the form,
 
 \begin{equation}
     \Delta m_H^2 = -\frac{g_f^2}{8\pi^2}\Lambda^2 + \space \text{...}
@@ -30,18 +30,18 @@ where $\Lambda$ should be interpreted as the least energy scale at which new phy
 \begin{figure}[h]
 \centering
 \input{FeynmanDiagrams/HiggsCorrection_FermionLoop}
-\caption{TODO}
+\caption{One-loop Feynman diagram illustrating the correction to the Higgs boson mass due to its coupling to a fermion.}
 \label{Figure:Chapter2_Hierarchy_Feynman1}
 \end{figure}
 
-At the core of the hierarchy problem lies this $\Lambda$ term. If $\Lambda$ is taken to be close to the Plank scale, these quantum loop correction become many orders of magnitude larger than the observed mass of the Higgs boson, $125.04 \pm 0.12~\GeV$ (in natural units)~\cite{Higgs_Mass_Z4L}. To reconcile this, an extreme degree of fine-tuning in Eq.~\ref{Equation:Chapter2_HiggsBosonMass} is required. Specifically, the bare mass term has to be sufficiently large ($\mathcal{O}(10^{38})$ to cancel out the quantum loop correction term. This degree of unnatural finetuning remains an open question in the field, as the Higgs mass would otherwise be expected close to the scale of new physics. This could suggest that new physics may exist near $\Lambda$, that can stabilise the Higgs mass and resolve the hierarchy problem. 
+At the core of the hierarchy problem lies this $\Lambda$ term. If $\Lambda$ is taken to be close to the Plank scale, these quantum loop correction become many orders of magnitude larger than the observed mass of the Higgs boson, $125.04 \pm 0.12~\GeV$ (in natural units)~\cite{Higgs_Mass_Z4L}. To reconcile this, an extreme degree of fine-tuning in Eq.~\ref{Equation:Chapter2_HiggsBosonMass} is required. Specifically, the bare mass term has to be sufficiently large ($\mathcal{O}(10^{38})$) to cancel out the quantum loop correction term. This degree of unnatural finetuning remains an open question in the field, as the Higgs mass would otherwise be expected close to the scale of new physics. This could suggest that new physics may exist near $\Lambda$, that can stabilise the Higgs mass and resolve the hierarchy problem. 
 
 Perhaps, the most studied and appealing solution to the hierarchy problem is \ac{SUSY}~\cite{SUSY}, which introduces a symmetry relating fermions and bosons. In SUSY, every known SM particle has at least one supersymmetric partner. Bosons have fermionic superpartners while, fermions have scalar boson superpartners. This symmetry provides a natural way of addressing this extreme fine-tuning, as superpartners also contribute to $\Delta m_H^2$ but, with opposite signs relative to their SM counterparts. This allows the Higgs mass to stabilise naturally through the cancellation of the quantum loop corrections. The Feynman diagram for the mass correction due to a fermionic superpartner (scalar boson) is shown in Fig.~\ref{Figure:Chapter2_Hierarchy_Feynman2}.
 
 \begin{figure}[h]
 \centering
 \input{FeynmanDiagrams/HiggsCorrection_SFermionLoop}
-\caption{TODDO}
+\caption{One-loop correction to the Higgs mass due to a scalar S}
 \label{Figure:Chapter2_Hierarchy_Feynman2}
 \end{figure}
 
@@ -49,7 +49,7 @@ While SUSY provides a natural solution to the hierarchy problem, the lack of any
 
 \section{Extended Higgs sector - 2HDM}
 \label{Section:Chapter2_2HDM}
-The simplest extension to the SM Higgs sector is the 2HDM~\cite{2HDM_1}. In contrast to the SM, the 2HDM introduces two complex scalar $SU(2)_L$ doublets, $\Phi_1$ and $\Phi_2$.
+The simplest extension to the SM Higgs sector is the 2HDM~\cite{2HDM_1}. In contrast to the SM, the 2HDM introduces two complex scalar $\mathcal{SU(2)}_L$ doublets, $\Phi_1$ and $\Phi_2$.
 
 \begin{equation}
 \Phi_i =
@@ -62,8 +62,6 @@ The simplest extension to the SM Higgs sector is the 2HDM~\cite{2HDM_1}. In cont
 
 The presence of the additional doublet in 2HDM leads to a richer potential structure. The general 2HDM Higgs potential, written in terms of the doublets $\Phi_1$ and $\Phi_2$, takes the form,
 
-In contrast to the SM Higgs potential, the 2HDM counterpart exhibits an extended form because of the presence of the additional doublet
-
 \begin{equation}
 \begin{array}{c}
     V(\Phi_1,\Phi_2) = m_{11}^2 \Phi_1^{\dagger}\Phi_1 + m_{22}^2 \Phi_2^{\dagger}\Phi_2 - m_{12}^2(\Phi_1^\dagger\Phi_2 + \text{H.c.}) \\
@@ -75,15 +73,15 @@ In contrast to the SM Higgs potential, the 2HDM counterpart exhibits an extended
 
 where the scalar potential is expressed in terms of the mass parameters ($m_{ij}$) and the quartic couplings ($\lambda_i$)~\cite{2HDM_1}. 
 
-A major constraint imposed in 2HDMs is the suppression of tree-level \ac{FCNC}~\cite{FCNC_1,2HDM_2}. In a generic 2HDM, both Higgs doublet can couple to the same fermion flavour, which lead to non-diagonal Yukawa couplings after SSB. These couplings are strongly constrained by experimental data~\cite{FCNC_Constraints}. To forbid these tree-level interactions, a discrete $\mathbb{Z}_2$ symmetry \cite{2HDM_2} is introduced, 
+A major constraint imposed in 2HDMs is the suppression of tree-level \ac{FCNC}~\cite{FCNC_1,2HDM_2}. In a generic 2HDM, both Higgs doublets can couple to the same fermion flavour, which leads to non-diagonal Yukawa couplings after SSB. These couplings are strongly constrained by experimental data~\cite{FCNC_Constraints}. To forbid these tree-level interactions, a discrete $\mathbb{Z}_2$ symmetry \cite{2HDM_2} is introduced, 
 
 \begin{equation}
     \Phi_1 \to \Phi_1, \Phi_2 \to - \Phi_2, \Phi_1 \not\to \Phi_2 
 \end{equation}
 
-This ensures that each fermion type couples to only one of the Higgs doublets. Following the introduction of the discrete symmetry, the quartic interaction terms $\lambda_6$ and $\lambda_7$ are also eliminated from the potential. In addition to suppressing flavor-changing neutral currents (FCNCs), charge-parity (CP) symmetry plays a crucial role in ensuring the theoretical consistency of 2HDMs. CP symmetry is a fundamental symmetry in quantum field theory (QFT) that combines charge conjugation (C) and parity (P). Under a charge conjugation transformation, particles are transformed into their corresponding antiparticles whilst, parity transformations invert the spatial coordinates. In 2HDM, CP conservation is often imposd to prevent spontaneous CP violation. to maintain CP symmetry, all free parameters in the Higgs potential are required to be real.
+This ensures that each fermion type couples to only one of the Higgs doublets. Following the introduction of the discrete symmetry, the quartic interaction terms $\lambda_6$ and $\lambda_7$ are eliminated from the potential. In addition to suppressing flavor-changing neutral currents (FCNCs), charge-parity (CP) symmetry plays a crucial role in ensuring the theoretical consistency of 2HDMs. CP symmetry is a fundamental symmetry in quantum field theory (QFT) that combines charge conjugation (C) and parity (P). Under a charge conjugation transformation, particles are transformed into their corresponding antiparticles whilst, parity transformations invert the spatial coordinates. In the 2HDM, CP conservation is often imposed to prevent spontaneous CP violation by requiring all free parameters in the Higgs potential to be real.
 
-In the 2HDM, electroweak symmetry breaking occurs similarly to the SM. To preserve the $U(1)_{EM}$ gauge symmetry, only the neutral components of the Higgs doublets acquire non-zero VEVs, ensuring that the photon remains massless. The vacuum structure is given by,
+In the 2HDM, electroweak symmetry breaking occurs similarly to the SM. To preserve the $\mathcal{U}(1)_{\text{EM}}$ gauge symmetry, only the neutral components of the Higgs doublets acquire non-zero VEVs, ensuring that the photon remains massless. The vacuum structure is given by,
 
 \begin{equation}
     <0|\Phi_i|0> = \frac{1}{\sqrt{2}} \begin{pmatrix}
@@ -105,7 +103,7 @@ After SSB, the Higgs doublets can be expanded around the minima
 
 where the doublets have been expressed in terms of CP-even ($h_i$), CP-odd ($z_i$) and charged Higgs fields ($\phi_i^+$).
 
-Analogous to the SM Higgs sector, the introduction of a second Higgs doublet introduces an additional 4 dof. Upon SSB, 3 out of the 8 dof are absorbed as Goldstone bosons providing the W$^{\pm}$ and Z bosons with longitudinal dof while the remaining 5 dof correspond to 5 physical Higgs bosons; 2 CP-even (h and H), 1 CP-odd (A) and 2 charged Higgs bosons (H$^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets in Eq.~\ref{Equation:Chapter2_2HDM-MassEigenstates}.
+Analogous to the SM Higgs sector, the introduction of a second Higgs doublet introduces an additional four dof. Upon SSB, three out of the eight dof are absorbed as Goldstone bosons providing the $\PW^{\pm}$ and $\PZ$ bosons with longitudinal dof while the remaining five dof correspond to five physical Higgs bosons; two CP-even ($\Ph$ and $\PH$), one CP-odd (A) and two charged Higgs bosons ($\PH^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets,
 
 \begin{equation}
 \begin{array}{c}
@@ -117,13 +115,13 @@ Analogous to the SM Higgs sector, the introduction of a second Higgs doublet int
 \label{Equation:Chapter2_2HDM-MassEigenstates}
 \end{equation}
 
-where the parameter $\alpha$ governs the mixing between the CP-even scalars and $\beta$ is a rotational angle that diagonalises the mass-squared matrices of the pseudoscalar and the charged Higgs, defined as,
+where the parameter $\alpha$ governs the mixing between the CP-even scalars and $\beta$ is a rotational angle that diagonalises the mass-squared matrices of the pseudoscalar and the charged Higgs. The latter is defined as,
 
 \begin{equation}
     \tan{\beta} = \nu_2/\nu_1
 \end{equation}
 
-To ensure the theoretical consistency and predictability within the 2HDM, the degree of mixing needs to be carefully controlled. This is achieved once again through a discrete $\mathbb{Z}_2$ symmetry. However, rather being strictly imposed, the symmetry is softly broken by the $m_{12}^2$ term in the scalar potential. This soft-breaking of the symmetry allows the Yukawa couplings to remain flavour diagonal while, simultaneously allowing for mixing between the Higgs doublets ($\Phi_i$). Following the introduction of $\mathbb{Z}_2$ symmetry, the CP-conserving 2HDMs are split in different types, which are defined based on which Higgs doublet couples to each fermion flavour. The four types of CP-conserving 2HDMs are shown in Table~\ref{Table:Chapter2_2HDM-Types}.
+To ensure the theoretical consistency and predictability within the 2HDM, the degree of mixing needs to be carefully controlled. This is achieved once again through a discrete $\mathbb{Z}_2$ symmetry. However, rather being strictly imposed, the symmetry is softly broken by the $m_{12}^2$ term in the scalar potential. This soft-breaking of the symmetry allows the Yukawa couplings to remain flavour diagonal while, simultaneously allowing for mass mixing between the Higgs doublets ($\Phi_i$). CP-conserving 2HDMs are split in different types, which are defined based on which Higgs doublet couples to each fermion flavour. The four types of CP-conserving 2HDMs are shown in Table~\ref{Table:Chapter2_2HDM-Types}.
 
 \begin{table}[h]
 \centering
@@ -140,11 +138,11 @@ $d$ & $\Phi_2$ & $\Phi_1$ & $\Phi_2$ & $\Phi_1$ \\
 $l$ & $\Phi_2$ & $\Phi_2$ & $\Phi_1$ & $\Phi_2$ \\ 
 \arrayrulecolor{black} \hline
 \end{tabular}
-\caption{TODO}
+\caption{Table showing how each Higgs doublet couples to each fermion flavour in different 2HDM types.}
 \label{Table:Chapter2_2HDM-Types}
 \end{table}
 
-In each 2HDM type, the structure of the Yukawa interactions depend on the specific assignment of the fermion couplings to the Higgs doublets. After SSB, the Yukawa part of the 2HDM Lagrangian can be expressed in terms of the physical Higgs mass eigenstates, up-like ($u$) and down-like($d$) quark, charged lepton ($l$) and neutrino ($\upsilon$) fields as
+In each 2HDM type, the structure of the Yukawa interactions depends on the specific assignment of the fermion couplings to the Higgs doublets. After SSB, the Yukawa part of the 2HDM Lagrangian can be expressed in terms of the physical Higgs mass eigenstates, up-like ($u$) and down-like($d$) quark, charged lepton ($l$) and neutrino ($\upsilon$) fields as
 
 \begin{equation}
 \begin{aligned}
@@ -179,7 +177,7 @@ $g_l^h$ & $\cos{\alpha}/\sin{\beta}$ & $-\sin{\alpha}/\cos{\beta}$ & $-\sin{\alp
 $g_u^h$ & $\cos{\alpha}/\sin{\beta}$ & $\cos{\alpha}/\sin{\beta}$  & $\cos{\alpha}/\sin{\beta}$                    & $\cos{\alpha}/\sin{\beta}$  \\ \arrayrulecolor{lightgray} \hline
 $g_d^h$ & $\cos{\alpha}/\sin{\beta}$ & $-\sin{\alpha}/\cos{\beta}$ & $\cos{\alpha}/\sin{\beta}$                    & $-\sin{\alpha}/\cos{\beta}$ \\ \arrayrulecolor{black} \hline
 \end{tabular}
-\caption{TODO}
+\caption{Table summarising the couplings of the different fermion groups to the neutral Higgs bosons for different 2HDM types.}
 \label{Table:Chapter2_2HDM-Couplings}
 \end{table}
 
@@ -189,7 +187,7 @@ In 2HDMs, the observed Higgs boson can be matched to the predicted CP-even boson
     h_{\text{obs}} = \sin{(\beta - \alpha)} h + \cos{(\beta - \alpha)} H 
 \end{equation}
 
-In the Higgs alignment limit, one of these CP-even neutral Higgs boson is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the normal scenario, the observed Higgs is identified as the lighter h in 2HDM, in contrast to H being identified as the observed Higgs in the inverted scenario (Eqs.~\ref{Equation:Chapter2-NormalScenario,Equation:Chapter2-InvertedScenario}. The adjusted couplings of the unmatched CP-even boson are summarised in Table~\ref{Table:Chapter2_2HDM-CouplingsAlignmentLimit} for each of the four different types of 2HDMs.
+In the Higgs alignment limit, one of these CP-even neutral Higgs boson is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the normal scenario, the observed Higgs is identified as the lighter h, in contrast to H being identified as the observed Higgs in the inverted scenario. The couplings of the unmatched CP-even boson are summarised in Table~\ref{Table:Chapter2_2HDM-CouplingsAlignmentLimit} for each of the four different types of 2HDMs.
 
 \begin{equation}
 \begin{rcases}
@@ -222,13 +220,13 @@ Normal (Inverted)     & Type I                     & Type II                    
 (-)$g_u^{H(h)}$ & $-1/\tan{\beta}$  & $-1/\tan{\beta}$  & $-1/\tan{\beta}$                    & $-1/\tan{\beta}$  \\ \arrayrulecolor{lightgray} \hline
 (-)$g_d^{H(h)}$ & $-1/\tan{\beta}$  & $\tan{\beta}$  & $-1/\tan{\beta}$                    & $\tan{\beta}$  \\ \arrayrulecolor{black} \hline
 \end{tabular}
-\caption{TODO}
+\caption{Table showing the couplings of different fermion groups to the neutral Higgs boson (not matched to the observed Higgs) for different 2HDM types. Couplings for both normal and inverted scenarios are shown in a simplified format using Eqs.~\ref{Equation:Chapter2-NormalScenario}-\ref{Equation:Chapter2-InvertedScenario}.}
 \label{Table:Chapter2_2HDM-CouplingsAlignmentLimit}
 \end{table}
 
 \section{\texorpdfstring{Muon $g$-2 anomaly}{Muon g-2 anomaly}}
 
-In 2023, Fermilab announced the most precise measurement of the anomalous magnetic moment of the muon, $\alpha_\mu$~\cite{Fermilab_g-2}. Combined with the earlier result from the Brookhaven National Laboratory, the experimental average of the muon anomaly exhibits a 5.0~$\sigma$ discrepancy from SM prediction compiled by the Muon $g-2$ Theory Initiative in 2020~\cite{Muon_Theory_Initiative}. This is a definitely an intriguing result, as it could be a hint of BSM physics, however, caution is also warranted, as there also tensions between the different theoretical calculations that could bring the prediction closer to the experimental value.
+In 2023, Fermilab announced the most precise measurement of the anomalous magnetic moment of the muon, $\alpha_\mu$~\cite{Fermilab_g-2}. Combined with the earlier result from the Brookhaven National Laboratory, the experimental average of the muon anomaly exhibits a 5.0 standard deviations from SM prediction compiled by the Muon $g-2$ Theory Initiative in 2020~\cite{Muon_Theory_Initiative}. This is a definitely an intriguing result, as it could be a hint of BSM physics, however, caution is also warranted, as there also tensions between the different theoretical calculations that could bring the prediction closer to the experimental value.
 
 
 \begin{equation}
@@ -239,11 +237,55 @@ In 2023, Fermilab announced the most precise measurement of the anomalous magnet
 \end{aligned}
 \end{equation}
 
-A possible explanation for the discrepancy between the experimental measurements and the theoretical prediction of the $g-2$ anomaly can be accommodated by 2HDMs. In 2HDMs, the additional Higgs bosons can introduce loop corrections to the calculation of $\alpha_\mu$, through one-loop and two-loop Barr-Zee interactions~\cite{Barr_Zee_1,Barr_Zee_2} presented in Fig.~\ref{TODO} and Fig.~\ref{TODO} respectively. 
+A possible explanation for the discrepancy between the experimental measurements and the theoretical prediction of the $g-2$ anomaly can be accommodated by the 2HDM. In the 2HDM, the additional Higgs bosons can introduce loop corrections to the calculation of $\alpha_\mu$, through one-loop and two-loop Barr-Zee interactions~\cite{Barr_Zee_1,Barr_Zee_2} presented in Fig.~\ref{Figure:Chapter2_OneBarrZee} and Fig.~\ref{Figure:Chapter2_TwoBarrZee} respectively. 
 
-The one-loop contributions are mediated by $\phi$, A and H$^{\pm}$ with the contribution of $\phi$ to $\Delta\alpha_\mu$ being positive $\alpha_\mu$ while those of A and H$^{\pm}$ are negative. The dominant contribution comes from two-loop Barr-Zee type diagrams with heavy fermions in the loop providing a positive shift to $\Delta\alpha_\mu$, with the CP-odd Higgs boson contributing positively primarily through the top quark loop. However, the contribution from the additional CP-even boson can have either a positive or a negative impact, depending on $\tan{\beta}$. 
+\begin{figure}[h]
+    \centering
+    % First row
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/OneBarZee_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \raisebox{8.2mm}{\input{FeynmanDiagrams/OneBarZee_2}}
+    \end{subfigure}
 
-For the $g-2$ anomaly to be explained by 2HDMs, enhanced couplings between muons and the additional Higgs bosons are required. These enhanced couplings can be fascilitated by the type II and type X 2HDMs at large values of $\tan{\beta}$. The type II 2HDM also features enhanced coupling to down-type quarks, leading to gluon fusion and associated production with bottom quarks being the dominant single Higgs boson production modes. However, finding regions of parameter space within this model that can explain the $g-2$ anomaly is challenging because of the productions mechanisms being heavily constrained by experimental searches at LEP, Tevatron and LHC. On the other hand, the type X 2HDM is particularly interesting because of its hadrophobic nature, featuring suppressed up- and down-type quark couplings with increased $\tan{\beta}$. This suppression allows it to evade the experimentally constrained quark-initiated production modes, leaving much of its parameter space relatively untouched. As a result, the type X 2HDM remains a more viable candidate for explaining the $g-2$ anomaly. 
+    \caption{Feynman diagrams of one-loop contributions to $\Delta\alpha_\mu$.}
+    \label{Figure:Chapter2_OneBarrZee}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    % First row
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/TwoBarrZee_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/TwoBarrZee_2}
+    \end{subfigure}
+    
+    % Add vertical space between rows
+    \vspace{0.5cm}
+
+    % Second row (centered properly)
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \input{FeynmanDiagrams/TwoBarrZee_3}
+    \end{subfigure}
+
+    \caption{Feynman diagrams of two-loop contributions to $\Delta\alpha_\mu$.}
+    \label{Figure:Chapter2_TwoBarrZee}
+\end{figure}
+
+
+The one-loop contributions are mediated by $\phi$, A and H$^{\pm}$ with the contribution of $\phi$ to $\Delta\alpha_\mu$ being positive while those of A and H$^{\pm}$ are negative. The dominant contribution comes from two-loop Barr-Zee type diagrams with heavy fermions in the loop providing a positive shift to $\Delta\alpha_\mu$. The CP-odd Higgs boson contributes positively primarily through the top quark loop. However, the contribution from the additional CP-even boson can have either a positive or a negative impact, depending on $\tan{\beta}$. 
+
+For the $g-2$ anomaly to be explained by 2HDMs, enhanced couplings between muons and the additional Higgs bosons are required. These enhanced couplings can be fascilitated by the type-II and type-X 2HDMs at large values of $\tan{\beta}$. The type-II 2HDM also features enhanced couplings to down-type quarks. This leads to gluon fusion and associated production with bottom quarks, being the dominant single Higgs boson production modes. However, finding regions of parameter space within this model that can explain the $g-2$ anomaly is challenging because of the production mechanisms being heavily constrained by experimental searches at LEP, Tevatron and LHC~\cite{TypeX_2HDM}. On the other hand, the type-X 2HDM is particularly interesting because of its hadrophobic nature, featuring suppressed up-type and down-type quark couplings with increased $\tan{\beta}$. This suppression allows it to evade the experimentally constrained quark-initiated production modes, leaving much of its parameter space relatively untouched. As a result, the type-X 2HDM remains a more viable candidate for explaining the $g-2$ anomaly. 
 
 In addition to collider constraints, the available parameter space is further shaped by theoretical considerations including vacuum stability and perturbative unitarity, as well as electroweak precision measurements~\cite{TypeX_2HDM}. The regions where the $g-2$ anomaly can be accommodated within the type X 2HDM in both alignment scenarios are summarized in Table~\ref{Table:Chapter2_TypeX-ParameterSpace}.
 
@@ -258,11 +300,36 @@ Alignment Scenario & $\tan{\beta}$ & $\text{m}_\phi$ {[}GeV{]} & $\text{m}_A$ {[
 Normal             & $\geq$ 90     & 130 - 245                 & 62.5 - 145             & 95 - 285                     \\ \arrayrulecolor{lightgray} \hline
 Inverted           & $\geq$ 120    & 100 - 120                 & 70 - 105               & 95 - 185 \\ \arrayrulecolor{black} \hline
 \end{tabular}
-\caption{TODO}
+\caption{Summary of the regions of parameter space can be accommodated in the context of the type-X 2HDM for both normal and inverted scenarios~\cite{TypeX_2HDM}.}
 \label{Table:Chapter2_TypeX-ParameterSpace}
 \end{table}
 
-To effectively probe this region of parameter space, a non-suppressed production mode is required. The simultaneous production of two BSM Higgs bosons ($\phi$ and A) from an off-shelf Z boson is such an example. With a predicted cross-section varying between 10-600 fb (see Fig.~\ref{TODOFIGURE} across the mass ranges outlined in Table~\ref{Table:Chapter2_TypeX-ParameterSpace}, this process is very appealing. At high $\tan\beta$ in the type X 2HDM, the branching fractions of BSM Higgs bosons to $\tau$ leptons are dominant, hence this process has a four $\tau$ lepton final state, as shown in Fig~\ref{TODO, DIAGRAM 4TAU}. 
+To effectively probe this region of parameter space, a non-suppressed production mode is required. The simultaneous production of two BSM Higgs bosons ($\phi$ and A) from an off-shelf Z boson is such an example. With a predicted cross-section varying between 10-300 fb (see Fig.~\ref{Figure:Chapter2_4tau_ProductionXS}) across the mass ranges outlined in Table~\ref{Table:Chapter2_TypeX-ParameterSpace}, this process is very appealing. 
+
+\begin{figure}[h]
+    \centering
+    % First row
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Chapter2/4tau_ProductionXS_NS.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Chapter2/4tau_ProductionXS_IS.png}
+    \end{subfigure}
+
+    \caption{Projections of the total cross-section of the $pp \to Z^* \to \phi A \to 4\tau$ process as a function of $m_\phi$ and $m_A$, presented for both alignment scenarios (NS = Normal scenario \& IS = Inverted scenario) \cite{TypeX_2HDM}.}
+    \label{Figure:Chapter2_4tau_ProductionXS}
+\end{figure}
+
+At high $\tan\beta$ in the type X 2HDM, the branching fractions of BSM Higgs bosons to $\tau$ leptons are dominant, hence this process has a four $\tau$ lepton final state, as shown in Fig~\ref{Figure:Chapter2_Feynman4tau}. 
+
+\begin{figure}[h]
+\centering
+\input{FeynmanDiagrams/4tau}
+\caption{Feynman diagram for the production of two BSM neutral Higgs bosons from an off-shell Z boson followed by their decay to four $\tau$ leptons.}
+\label{Figure:Chapter2_Feynman4tau}
+\end{figure}
 
 \section{CP Nature of the SM Higgs boson}
 

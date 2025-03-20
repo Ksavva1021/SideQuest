@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex at (0, 2.5) (qbar) {\(\overline{q}\)};
+        \vertex at (0, -2.5) (q) {\(q\)};
+
+        \vertex at (2, 0) (Z0);
+        \vertex at (4, 0) (Z1);
+
+        \vertex at (6,1.25) (A);
+        \vertex at (6,-1.25) (phi);
+
+        \vertex at (7.9,2.5) (Atau_1){\(\tau^+\)};
+        \vertex at (8, 0.5) (Atau_2){\(\tau^-\)};
+        \vertex at (7.9,-2.5) (phitau_2){\(\tau^-\)};
+        \vertex at (8, -0.5) (phitau_1){\(\tau^+\)};
+
+        \vertex at (3,0.5) {\(Z^*\)};
+        \vertex at (4.7,1.25) {\(A\)};
+        \vertex at (4.7,-1.25) {\(\phi\)};
+
+
+        \diagram*{
+            (q) -- [fermion] (Z0) -- [fermion] (qbar),
+            (Z0) -- [photon] (Z1),
+            (Z1) -- [scalar] (A),
+            (Z1) -- [scalar] (phi),
+
+            (Atau_1) -- [fermion] (A) -- [fermion] (Atau_2),
+            (phitau_1) -- [fermion] (phi) -- [fermion] (phitau_2),
+
+
+        };
+    \end{feynman}
+\end{tikzpicture}
+

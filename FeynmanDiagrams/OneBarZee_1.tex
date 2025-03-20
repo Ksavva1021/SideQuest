@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        % Define vertices
+        \vertex (L) at (0,0) {\(\mu\)};
+        \vertex (R) at (6,0) {\(\mu\)};
+        \vertex (M) at (3,0) [dot];
+        \vertex (Photon) at (3,2) {\(\gamma\)};
+        \vertex (M1) at (2,0) [dot];
+        \vertex (M2) at (4,0) [dot];
+        \vertex at (3,-1.15) () {\(\phi/A\)};
+
+        % Draw diagram
+        \diagram* {
+            (L) -- [fermion] (M) -- [fermion] (R),
+            (M) -- [photon] (Photon),
+            (M1) -- [scalar, half right] (M2),
+        };
+    \end{feynman}
+\end{tikzpicture}

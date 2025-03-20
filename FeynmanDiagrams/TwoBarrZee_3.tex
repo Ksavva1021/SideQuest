@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        % Define vertices
+        \vertex (L) at (0,0) {\(\mu\)};
+        \vertex (L1) at (2,0);
+        \vertex (L2) at (4,0);
+        \vertex (L3) at (6,0){\(\mu\)};
+
+        \vertex (R1) at (2.5, 1.5);
+        \vertex (R2) at (3, 2.7)[dot];
+        \vertex (R3) at (3, 4){\(\gamma\)};        
+        \vertex (R4) at (3.5, 1.5);
+
+        \vertex at (1.7, 0.9){\(H^\pm\)};        
+        \vertex at (4.3, 0.9){\(W^\pm\)};        
+        \vertex at (3.85, 2.7){\(t/b\)}; 
+        \vertex at (3, 0.9){\(b/t\)};
+        \vertex at (2.15, 2.7){\(t/b\)}; 
+
+        % Draw the dashed blob (scalar-like appearance)
+        \draw[thick, dashed] (3,2) circle (0.7);
+
+        % Draw diagram
+        \diagram* {
+            (L) -- [fermion] (L1) -- [fermion] (L2) -- [fermion] (L3),
+            (L1) -- [scalar] (R1),
+            (R4) -- [photon] (L2),   
+            (R2) -- [photon] (R3),
+        };
+
+        % Draw the loop with arrows
+        \draw[->,line width=0.9pt] (3.7,2) -- +(0,-0.1); % Small arrow on the right side of the loop
+        \draw[->,line width=0.9pt] (2.3,2) -- +(0,+0.1); % Small arrow on the left side of the loop
+        \draw[->,line width=0.9pt] (3, 1.3) -- +(-0.1,0); % Small arrow on the left side of the loop
+
+    \end{feynman}
+\end{tikzpicture}

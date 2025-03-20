@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        % Define vertices
+        \vertex (L) at (0,0) {\(\mu\)};
+        \vertex (a) at (2,0);
+        \vertex (b) at (3,1);
+        \vertex (c) at (3,2) {\(\gamma\)};
+        \vertex (d) at (3,0) [dot];
+        \vertex (e) at (4,0);
+        \vertex (R) at (6,0) {\(\mu\)};
+
+        \vertex at (3,-0.35) {\(\nu_\mu\)};
+        \vertex at (2, 0.6) {\(H^\pm\)};
+        \vertex at (4, 0.6) {\(H^\pm\)};
+
+        % Draw diagram
+        \diagram* {
+            (L) -- [fermion] (a),
+            (a) -- [scalar] (b),
+            (b) -- [photon] (c),
+            (b) -- [scalar] (e),
+            (a) -- [fermion] (d) -- [fermion] (e),
+            (e) -- [fermion] (R),
+        };
+    \end{feynman}
+\end{tikzpicture}

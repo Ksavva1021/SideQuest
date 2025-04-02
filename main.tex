@@ -4,6 +4,7 @@
 \linespread{1.5}
 \usepackage{graphicx}
 \usepackage[a4paper,top=4cm,bottom=4cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\setlength{\headheight}{14.5pt}
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=red]{hyperref}
 \graphicspath{{./Chapter2/}}
 \usepackage{acronym}
@@ -15,16 +16,16 @@
 \usepackage{xcolor}    % Provides color definitions
 \usepackage{mathtools}
 \usepackage{subcaption}
-\usepackage{tikz-feynman}
+\usepackage[compat=1.1.0]{tikz-feynman}
 \definecolor{lightgray}{rgb}{0.8,0.8,0.8} 
 \usepackage{adjustbox}
-
 \usepackage[numbers,sort&compress]{natbib}
 %-------------
 % CMS Packages
 \usepackage{style/ptdr-definitions}
 \usepackage{style/hepparticles}
 \usepackage{style/heppennames2}
+\usepackage{mathrsfs}
 %-------------
 
 \pagestyle{plain}  % Default plain page style
@@ -49,7 +50,7 @@
 \begin{center}
 
 
-{\huge Thesis Plan}
+{\huge Exploring extended Higgs sectors and the CP Nature of the Higgs Yukawa coupling using tau leptons at the CMS Experiment}
 \rule{15cm}{1pt}
 \vspace{2cm}
 
@@ -92,96 +93,97 @@ and the Diploma of Imperial College London
 
 \include{chapters/chapter1}
 \include{chapters/chapter2}
+\include{chapters/chapter3}
 
+% \chapter{The Compact Muon Solenoid experiment}
+% \section{Introduction}
+% \section{The Large Hadron Collider}
+% \section{The CMS detector}
+% \subsection{Coordinate system}
+% \subsection{Tracker}
+% \subsection{Electromagnetic calorimeter}
+% \subsection{Hadronic calorimeter}
+% \subsection{Superconducting solenoid}
+% \subsection{Muon system}
+% \subsection{Trigger system and computing}
+% \subsubsection{RAW and RAW' Data Format}
 
+% \chapter{Object reconstruction}
+% \section{Tracks and vertices}
+% \section{Particle flow}
+% \section{Muons}
+% \section{Electrons}
+% \section{Jets}
+% \section{b-jets}
+% \section{Missing transverse energy}
+% \section{Hadronic Tau identification}
+% \subsection{Hadron-plus-strip algorithm}
+% \subsection{Misidentification of hadronic taus}
+% \subsection{DeepTau}
 
-\chapter{The Compact Muon Solenoid experiment}
-\section{Introduction}
-\section{The Large Hadron Collider}
-\section{The CMS detector}
-\subsection{Coordinate system}
-\subsection{Tracker}
-\subsection{Electromagnetic calorimeter}
-\subsection{Hadronic calorimeter}
-\subsection{Superconducting solenoid}
-\subsection{Muon system}
-\subsection{Trigger system and computing}
-\subsubsection{RAW and RAW' Data Format}
+% \chapter{Search for new physics in aa final states}
+% \section{Signal modelling}
+% \section{Event selection}
+% \subsection{Trigger requirements}
+% \subsection{Offline requirements}
+% \section{Background modelling}
+% \subsection{Genuine Backgrounds}
+% \subsubsection{Uncertainty model}
+% \subsection{Jets misidentified as hadronic tau candidates}
+% \subsubsection{Uncertainty model}
+% \section{Systematic uncertainties}
+% \subsection{Normalisation uncertainties}
+% \subsection{Shape uncertainties}
+% \section{Analysis optimisation}
+% \section{Signal extraction and statistical interpretation}
+% \section{Model independent results}
+% \section{Model dependent results}
 
-\chapter{Object reconstruction}
-\section{Tracks and vertices}
-\section{Particle flow}
-\section{Muons}
-\section{Electrons}
-\section{Jets}
-\section{b-jets}
-\section{Missing transverse energy}
-\section{Hadronic Tau identification}
-\subsection{Hadron-plus-strip algorithm}
-\subsection{Misidentification of hadronic taus}
-\subsection{DeepTau}
+% \chapter{Measurements of Higgs boson CP properties}
+% \section{Acoplanarity angle reconstruction}
+% \subsection{Impact Parameter method}
+% \subsection{Neutral Pion method}
+% \subsection{Polarimetric Vector method}
+% \section{Signal modelling}
+% \section{Event selection}
+% \section{Background modelling}
+% \subsection{Genuine backgrounds}
+% \subsection{Jets misidentified as hadronic tau candidates}
+% \section{Systematic uncertainties}
+% \subsection{Normalisation uncertainties}
+% \subsection{Shape uncertainties}
+% \section{Analysis optimisation}
+% \section{Measurement procedure and statistical interpretation}
+% \section{Results}
 
-\chapter{Search for new physics in aa final states}
-\section{Signal modelling}
-\section{Event selection}
-\subsection{Trigger requirements}
-\subsection{Offline requirements}
-\section{Background modelling}
-\subsection{Genuine Backgrounds}
-\subsubsection{Uncertainty model}
-\subsection{Jets misidentified as hadronic tau candidates}
-\subsubsection{Uncertainty model}
-\section{Systematic uncertainties}
-\subsection{Normalisation uncertainties}
-\subsection{Shape uncertainties}
-\section{Analysis optimisation}
-\section{Signal extraction and statistical interpretation}
-\section{Model independent results}
-\section{Model dependent results}
-
-\chapter{Measurements of Higgs boson CP properties}
-\section{Acoplanarity angle reconstruction}
-\subsection{Impact Parameter method}
-\subsection{Neutral Pion method}
-\subsection{Polarimetric Vector method}
-\section{Signal modelling}
-\section{Event selection}
-\section{Background modelling}
-\subsection{Genuine backgrounds}
-\subsection{Jets misidentified as hadronic tau candidates}
-\section{Systematic uncertainties}
-\subsection{Normalisation uncertainties}
-\subsection{Shape uncertainties}
-\section{Analysis optimisation}
-\section{Measurement procedure and statistical interpretation}
-\section{Results}
-
-\chapter{Conclusions}
+% \chapter{Conclusions}
 
 \addcontentsline{toc}{chapter} {Supplementary Material}
 
 \addcontentsline{lot}{table}{Phantom Table}
 \addcontentsline{lof}{figure}{Phantom Figure}
 
-\begin{figure}
-\centering
-\subfloat[Amazon]{\label{amazon}\includegraphics[width= 0.48\textwidth]{Chapter2/1.jpg}} \quad
-\subfloat[Nile]{\label{nile}\includegraphics[width= 0.48\textwidth]{Chapter2/2.jpeg}} \\ 
-\subfloat[Yangtze]{\label{yangtze}\includegraphics[width= 0.52\textwidth]{Chapter2/3.jpeg}} \quad
-\subfloat[Thames]{\label{thames}\includegraphics[width= 0.44\textwidth]{Chapter2/4.jpeg}}
-\caption{Rivers}\label{rivers}
-\end{figure}
+% \begin{figure}
+% \centering
+% \subfloat[Amazon]{\label{amazon}\includegraphics[width= 0.48\textwidth]{Chapter2/1.jpg}} \quad
+% \subfloat[Nile]{\label{nile}\includegraphics[width= 0.48\textwidth]{Chapter2/2.jpeg}} \\ 
+% \subfloat[Yangtze]{\label{yangtze}\includegraphics[width= 0.52\textwidth]{Chapter2/3.jpeg}} \quad
+% \subfloat[Thames]{\label{thames}\includegraphics[width= 0.44\textwidth]{Chapter2/4.jpeg}}
+% \caption{Rivers}\label{rivers}
+% \end{figure}
 
-\ref{nile} is part of \ref{rivers}.
-\clearpage
-$\diff{y}{x}=\hardmaths$
+% \ref{nile} is part of \ref{rivers}.
+% \clearpage
+% $\diff{y}{x}=\hardmaths$
 
-\clearpage
-\blindtext
-\begin{singlespace}
-\blindtext
-\end{singlespace}
-\blindtext\footnote{\blindtext}
+% \clearpage
+% \blindtext
+% \begin{singlespace}
+% \blindtext
+% \end{singlespace}
+% \blindtext\footnote{\blindtext}
+
+
 \clearpage
 \section{List of Acronyms}
 \begin{acronym}
@@ -191,29 +193,28 @@ $\diff{y}{x}=\hardmaths$
 \acro{QED}{Quantum Electrodynamics}
 \acro{QCD}{Quantum Chromodynamics}
 \acro{BEH}{Brout-Englert-Higgs}
-\acro{SSB}{spontaneous symmetry breaking}
-\acro{VEV}{vacuum expectation value}
-\acro{dof}{degrees of freedom}
+\acro{SSB}{Spontaneous Symmetry Breaking}
+\acro{VEV}{Vacuum Expectation Value}
+\acro{dof}{Degrees of Freedom}
 \acro{LHC}{Large Hadron Collider}
 \acro{EFT}{Effective Field Theory}
 \acro{SUSY}{Supersymmetry}
 \acro{2HDM}{Two-Higgs Doublet Model}
-\acro{FCNC}{flavour-changing-neutral-currents}
-\acro{TLA}{Three Letter Acronym}
-\acro{ICL}{Imperial College London}
+\acro{FCNC}{Flavour-Changing-Neutral-Currents}
+\acro{CMS}{Compact Muon Solenoid}
 \end{acronym}
 
-\section{Main Section}
-You may often find it useful to use a \ac{TLA}. Nothing is more useful that a \ac{TLA}, except many \acp{TLA}. \ac{ICL} is a good \ac{TLA}.
+% \section{Main Section}
+% You may often find it useful to use a \ac{TLA}. Nothing is more useful that a \ac{TLA}, except many \acp{TLA}. \ac{ICL} is a good \ac{TLA}.
 
-\begin{alignat}{2}
-y=&4x \quad & \textrm{for } x < 0\\
-y=&4x+x^{2}-5x^{3} \quad & \textrm{otherwise}\\
-\diff{x}{t}=& 3y\\
-x(t=0)=&-10
-\end{alignat}
+% \begin{alignat}{2}
+% y=&4x \quad & \textrm{for } x < 0\\
+% y=&4x+x^{2}-5x^{3} \quad & \textrm{otherwise}\\
+% \diff{x}{t}=& 3y\\
+% x(t=0)=&-10
+% \end{alignat}
 
-\section{Validation of the acoplanarity angle reconstruction}
+% \section{Validation of the acoplanarity angle reconstruction}
 
 \bibliographystyle{unsrtnat}
 \bibliography{myrefs}

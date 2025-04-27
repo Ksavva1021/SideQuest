@@ -1,9 +1,10 @@
 \documentclass[12pt, a4paper, twoside]{report} 
 \usepackage{blindtext}
+\usepackage{float}
 \usepackage{setspace}
 \linespread{1.5}
 \usepackage{graphicx}
-\usepackage[a4paper,top=3.5cm,bottom=3.5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=3.5cm,bottom=3.5cm,left=2.5cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
 \setlength{\headheight}{14.5pt}
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=red]{hyperref}
 \graphicspath{{./Chapter2/}}
@@ -22,10 +23,75 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{enumitem}
 \setlist[itemize]{topsep=5pt, partopsep=0pt, parsep=0pt, itemsep=0.5\baselineskip}
+\usepackage[perpage]{footmisc}
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength{\abovedisplayskip}{1pt}%
+  \setlength{\belowdisplayskip}{1pt}%
+  \setlength{\abovedisplayshortskip}{1pt}%
+  \setlength{\belowdisplayshortskip}{1pt}%
+}
+\makeatother
+
+\usepackage{minitoc}
+
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{1.5ex}{1ex}
+\titlespacing*{\subsubsection}{0pt}{1.5ex}{1ex}
 
 \usepackage{indentfirst}
 \setlength{\parindent}{15pt}   % Indentation at beginning of paragraphs
 \setlength{\parskip}{0.5em}    % Whitespace between paragraphs
+
+\usepackage[Lenny]{fncychap}   % or whatever style you like
+
+\makeatletter
+\renewcommand{\DOCH}{%
+    \@ifundefined{@chapapp}{\let\@chapapp\chaptername}{}%
+
+    \settowidth{\px}{\CNV\FmN{\@chapapp}}%
+    \addtolength{\px}{2pt}%
+    \settoheight{\py}{\CNV\FmN{\@chapapp}}%
+    \addtolength{\py}{1pt}%
+    
+    \settowidth{\mylen}{\CNV\FmN{\@chapapp}\space\CNoV\thechapter}%
+    \addtolength{\mylen}{1pt}%
+    \settowidth{\pxx}{\CNoV\thechapter}%
+    \addtolength{\pxx}{-1pt}%
+    
+    \settoheight{\pyy}{\CNoV\thechapter}%
+    \addtolength{\pyy}{-2pt}%
+    \setlength{\myhi}{\pyy}%
+    \addtolength{\myhi}{-1\py}%
+    \par
+    \parbox[b]{\textwidth}{%
+        \rule[\py]{\RW}{\myhi}%
+        \hskip -\RW%
+        \rule[\pyy]{\px}{\RW}%
+        \hskip -\px%
+        \raggedright%
+        \CNV\FmN{\@chapapp}\space\CNoV{\color{teal}\thechapter}%
+        \hskip1pt%
+        \mghrulefill{\RW}%
+        \rule{\RW}{\pyy}\par\nobreak%
+        \vskip -\baselineskip%
+        \vskip -\pyy%
+        \hskip \mylen%
+        \mghrulefill{\RW}\par\nobreak%
+        \vskip \pyy%
+    }%
+    \vskip 20\p@%
+}
+\makeatother
+
+% thickness of the box‐rule (optional; adjust to your taste)
+\ChNameUpperCase
+
+\ChNameVar{\fontsize{14}{16}\selectfont}
+\ChNumVar{\fontsize{60}{62}\selectfont}
+\ChTitleVar{\Huge\bfseries}
+\ChRuleWidth{1.15pt}
 
 %-------------
 % CMS Packages
@@ -44,13 +110,30 @@
 }
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 
-
 \newcommand{\hardmaths} {\frac{\sin{(x\pi)}} {2\alpha}}
 
 \newcommand{\diff}[2]  {\frac{\textrm{d}{#1}} {\textrm{d}{#2}}}
 
+% ===== Consistent spacing around math environments =====
+\newenvironment{equation_pad}
+  {\vspace{-0.5pt}\begin{equation}}
+  {\end{equation}\vspace{-0.5pt}}
+
+\newenvironment{align_pad}
+  {\vspace{-0.5pt}\begin{align}}
+  {\end{align}\vspace{-0.5pt}}
+
+\newenvironment{gather_pad}
+  {\vspace{-0.5pt}\begin{gather}}
+  {\end{gather}\vspace{-0.5pt}}
+
+\newenvironment{multline_pad}
+  {\vspace{-0.5pt}\begin{multline}}
+  {\end{multline}\vspace{-0.5pt}}
+
 
 \begin{document}
+\dominitoc
 
 \includegraphics[width=7cm]{IMPERIAL_Wordmark_CMYK_Blue_safe_area_2024.jpg}
 \vspace{5cm}
@@ -86,22 +169,71 @@ and the Diploma of Imperial College London
 \chapter*{Copyright Statement}
 \blindtext
 
-
-
-
-
 \tableofcontents
 \listoffigures
 \listoftables
+
+\clearpage
+\section*{List of Acronyms}
+\begin{acronym}
+\acro{SM}{Standard Model}
+\acro{BSM}{Beyond-the-Standard Model}
+\acro{QFT}{Quantum Field Theory}
+\acro{QED}{Quantum Electrodynamics}
+\acro{QCD}{Quantum Chromodynamics}
+\acro{BEH}{Brout-Englert-Higgs}
+\acro{SSB}{Spontaneous Symmetry Breaking}
+\acro{VEV}{Vacuum Expectation Value}
+\acro{dof}{Degrees of Freedom}
+\acro{LHC}{Large Hadron Collider}
+\acro{EFT}{Effective Field Theory}
+\acro{SUSY}{Supersymmetry}
+\acro{MSSM}{Minimal Supersymmetric Standard Model}
+\acro{2HDM}{Two-Higgs Doublet Model}
+\acro{FCNC}{Flavour-Changing-Neutral-Currents}
+\acro{CMS}{Compact Muon Solenoid}
+\acro{MET}{Missing Transverse Energy}
+\acro{CERN}{European Organization for Nuclear Research}
+\acro{LEP}{Large Electron Positron}
+\acro{LINAC4}{Linear Accelerator 4}
+\acro{PSB}{Proton Synchrotron Booster}
+\acro{PS}{Proton Synchrotron}
+\acro{SPS}{Super Proton Synchrotron}
+\acro{PU}{Pileup}
+\acro{ECAL}{Electromagnetic Calorimeter}
+\acro{HCAL}{Hadronic Calorimeter}
+\acro{BPIX}{Barrel Pixel}
+\acro{FPIX}{Forward Pixel}
+\acro{SST}{Silicon Strip Tracker}
+\acro{TIB}{Tracker Inner Barrel}
+\acro{TID}{Tracker Inner Disks}
+\acro{TOB}{Tracker Outer Barrel}
+\acro{TEC}{Tracker EndCaps}
+\acro{APDs}{Avalanche Photodiodes}
+\acro{VPTs}{Vacuum Phototriodes}
+\acro{HB}{Hadron Barrel}
+\acro{HE}{Hadron Endcap}
+\acro{HO}{Hadron Outer}
+\acro{HF}{Hadron Forward}
+\acro{DTs}{Drift Tubes}
+\acro{CSCs}{Cathode Strip Chambers}
+\acro{RPC}{Resistive Plate Chamber}
+\acro{L1}{Level-1}
+\acro{HLT}{High Level Trigger}
+\end{acronym}
 
 %\include{chapter1}
 \chapter*{Introduction }
 \addcontentsline{toc}{chapter}{Introduction}
 
+\setcounter{mtc}{1}
 \include{chapters/chapter1}
+\setcounter{mtc}{2}
 \include{chapters/chapter2}
+\setcounter{mtc}{3}
 \include{chapters/chapter3}
-
+\setcounter{mtc}{4}
+\include{chapters/chapter4}
 % \chapter{The Compact Muon Solenoid experiment}
 % \section{Introduction}
 % \section{The Large Hadron Collider}
@@ -191,55 +323,7 @@ and the Diploma of Imperial College London
 % \blindtext\footnote{\blindtext}
 
 
-\clearpage
-\section{List of Acronyms}
-\begin{acronym}
-\acro{SM}{Standard Model}
-\acro{BSM}{Beyond-the-Standard Model}
-\acro{QFT}{Quantum Field Theory}
-\acro{QED}{Quantum Electrodynamics}
-\acro{QCD}{Quantum Chromodynamics}
-\acro{BEH}{Brout-Englert-Higgs}
-\acro{SSB}{Spontaneous Symmetry Breaking}
-\acro{VEV}{Vacuum Expectation Value}
-\acro{dof}{Degrees of Freedom}
-\acro{LHC}{Large Hadron Collider}
-\acro{EFT}{Effective Field Theory}
-\acro{SUSY}{Supersymmetry}
-\acro{2HDM}{Two-Higgs Doublet Model}
-\acro{FCNC}{Flavour-Changing-Neutral-Currents}
-\acro{CMS}{Compact Muon Solenoid}
-\acro{MET}{Missing Transverse Energy}
-\acro{CERN}{European Organization for Nuclear Research}
-\acro{LEP}{Large Electron Positron}
-\acro{LINAC4}{Linear Accelerator 4}
-\acro{PSB}{Proton Synchrotron Booster}
-\acro{PS}{Proton Synchrotron}
-\acro{SPS}{Super Proton Synchrotron}
-\acro{PU}{Pileup}
-\acro{ECAL}{Electromagnetic Calorimeter}
-\acro{HCAL}{Hadronic Calorimeter}
-\acro{BPIX}{Barrel Pixel}
-\acro{FPIX}{Forward Pixel}
-\acro{SST}{Silicon Strip Tracker}
-\acro{TIB}{Tracker Inner Barrel}
-\acro{TID}{Tracker Inner Disks}
-\acro{TOB}{Tracker Outer Barrel}
-\acro{TEC}{Tracker EndCaps}
-\acro{APDs}{Avalanche Photodiodes}
-\acro{VPTs}{Vacuum Phototriodes}
-\acro{HB}{Hadron Barrel}
-\acro{HE}{Hadron Endcap}
-\acro{HO}{Hadron Outer}
-\acro{HF}{Hadron Forward}
-\acro{DTs}{Drift Tubes}
-\acro{CSCs}{Cathode Strip Chambers}
-\acro{RPC}{Resistive Plate Chamber}
-\acro{L1}{Level-1}
-\acro{HLT}{High Level Trigger}
 
-
-\end{acronym}
 
 % \section{Main Section}
 % You may often find it useful to use a \ac{TLA}. Nothing is more useful that a \ac{TLA}, except many \acp{TLA}. \ac{ICL} is a good \ac{TLA}.

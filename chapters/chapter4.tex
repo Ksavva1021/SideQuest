@@ -9,7 +9,10 @@ This chapter presents the reconstruction of physics objects in the CMS detector,
 
 However, operating in a high-multiplicity environment introduces additional challenges for the reconstruction and identification of physics objects. There is no guarantee that a reconstructed particle corresponds to a genuine physics object; such cases are referred to as \textit{misidentified} or \textit{``fake'' objects}. For example, jets initiated by quarks or gluons can sometimes be misidentified as hadronic $\PGt$ decays; leptons originating from heavy-flavour decays within jets may mimic prompt electrons or muons; and, conversely, muons and electrons can occasionally be misidentified as jets. To mitigate these effects, object identification algorithms incorporate \textit{multivariate discriminants} and \textit{\acp{WP}} that are tuned to balance efficiency and misidentification rates. However, in some cases, these strategies only partially suppress such backgrounds.
 
-\section{Track reconstruction}
+A more complete and accurate event description is achieved by correlating information from all layers of the CMS detector to reconstruct and identify individual particles. This integrated methodology is known as particle-flow (PF) reconstruction. The implementation of this approach within CMS is detailed in this chapter.
+
+\section{Reconstruction of PF detector elements}
+\subsection{Track reconstruction}
 
 The first stage of the reconstruction process, known as \textbf{local reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, involves clustering zero-suppressed signals above predefined thresholds in the tracker sensors to form hits, referred to as \textit{clusters}. For each cluster, both the position and its associated uncertainty are estimated within a local coordinate system defined by the sensor geometry. These locally reconstructed hits form the basis for the subsequent \textbf{global reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3} of particle trajectories.
 
@@ -22,17 +25,49 @@ Global track reconstruction at CMS is facilitated by the \textbf{\ac{CTF}} algor
     \item \textbf{Track selection}: Tracks are required to pass a set of quality flags.
 \end{enumerate}
 
-The \textbf{iterative tracking} procedure in CMS is performed in six successive iterations, each designed to target different classes of tracks. The initial iterations target tracks that are the easiest to find (\eg high $p_\mathrm{T}$ tracks, and tracks produced near the primary interaction point). After each iteration, the combinatorial complexity is reduced by removing hits associated with tracks. This enables later iterations to target more challenging classes of tracks (\eg low $p_\mathrm{T}$ tracks, and tracks displaced from the interaction point). 
+The \textbf{iterative tracking} procedure in CMS is performed in successive iterations, each designed to target different classes of tracks, as summarised in Table~\ref{Table:Chapter4_IterativeTrackingSeeds}. The initial iterations target tracks that are the easiest to find (\eg high $p_\mathrm{T}$ tracks, and tracks produced near the primary interaction point). After each iteration, the combinatorial complexity is reduced by removing hits associated with tracks. This enables later iterations to target more challenging classes of tracks (\eg low $p_\mathrm{T}$ tracks, and tracks displaced from the interaction point). 
 
-\section{Vertex reconstruction}
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\arrayrulecolor{black} % Ensure outer borders are black
+\begin{tabular}{|c|l|l|l|}
+\hline
+Iteration & Name & Seeding & Targeted Tracks \\ \hline \hline
+1         & InitialStep              & pixel triplets              & prompt, high $p_\mathrm{T}$                     \\
+\arrayrulecolor{lightgray} \hline
+2         & DetachedTriplet          & pixel triplets              & b hadron decays, R $\leq 5\unit{cm}$      \\
+\arrayrulecolor{lightgray} \hline
+3         & LowPtTriplet             & pixel triplets              & prompt, low $p_\mathrm{T}$                      \\
+\arrayrulecolor{lightgray} \hline
+4         & PixelPair                & pixel pairs                 & recover high $p_\mathrm{T}$                     \\
+\arrayrulecolor{lightgray} \hline
+5         & MixedTriplet             & pixel+strip triplets        & displaced, R $\leq 7\unit{cm}$                \\
+\arrayrulecolor{lightgray} \hline
+6         & PixelLess                & strip triplets/pairs        & very displaced, R $\leq 25\unit{cm}$          \\
+\arrayrulecolor{lightgray} \hline
+7         & TobTec                   & strip triplets/pairs        & very displaced, R $\leq 60\unit{cm}$          \\
+\arrayrulecolor{lightgray} \hline
+8         & JetCoreRegional          & pixel+strip pairs           & inside high $p_\mathrm{T}$ jets                 \\
+\arrayrulecolor{lightgray} \hline
+9         & MuonSeededInOut          & muon-tagged tracks          & muons                               \\
+\arrayrulecolor{lightgray} \hline
+10        & MuonSeededOutIn          & muon detectors              & muons                               \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption[Summary of iterative tracking steps in CMS]{Summary of the iterations used in the CMS iterative tracking algorithm. Table taken from Ref.~\cite{ParticleFlow}.}
+\label{Table:Chapter4_IterativeTrackingSeeds}
+\end{table}
 
-The primary goal of the CMS vertex reconstruction~\cite{CMS_TrackerPerformance_2014} is to determine the positions and associated uncertainties of all proton-proton interaction vertices in an event, including both the \textit{\ac{PV}} (associated with the \textit{``signal'' interaction}) and any additional vertices originating from \textit{PU} collisions, using all available reconstructed tracks. The reconstruction process is performed in three main steps: 
+\subsection{Vertex reconstruction}
 
-\begin{itemize}
+The primary goal of the CMS vertex reconstruction~\cite{CMS_TrackerPerformance_2014} is to determine the positions and associated uncertainties of all proton-proton interaction vertices in an event, including both the \textbf{\ac{PV}} (associated with the \textit{``signal'' interaction}) and any additional vertices originating from PU collisions, using all available reconstructed tracks. The reconstruction process is performed in three main steps: 
+
+\begin{enumerate}
     \item \textbf{Track selection}: Tracks consistent with originating promptly near the centre of the luminous region (referred to as the beam spot) are selected. This selection is based on applying quality requirements to the tracks, such as cuts on the transverse impact parameter significance relative to the beam spot and minimum numbers of associated pixel and strip hits.
     \item \textbf{Track clustering}: Tracks are clustered into groups that appear to be originating from the same vertex. This clustering is performed based on their z-coordinate at the point of closest approach to the beam spot using a \textit{deterministic annealing algorithm}~\cite{DeterministicAnnealing}.
     \item \textbf{Vertex fitting}: Candidate vertices composed of at least two tracks are fitted using an \textit{adaptive vertex fitter}~\cite{VertexFitting_2006,VertexFitting_2007} to determine the best estimate of the vertex parameters. These parameters include the $x$, $y$, and $z$ positions, the associated covariance matrix, and indicators of fit quality. Additionally, the adaptive fit assigns a weight between 0 and 1 to each track, reflecting the probability that the track is genuinely associated with the vertex.
-\end{itemize}
+\end{enumerate}
 
 Once all the vertices are reconstructed, a collection is formed, which is ordered by the quadratic sum of the transverse track momenta associated with each vertex, $\sum_{\text{tracks}} p_{\mathrm{T}}^2$. The vertex with the largest sum is assumed to most likely correspond to the vertex of the hard scattering process~\cite{ParticleFlow}. The efficiency to correctly identify the PV when at least three tracks are associated is close to 100\%~\cite{CMS_TrackerPerformance_2014}. The resolution of the PV position, particularly in the $x$ and $z$ coordinates, has been measured using $\sqrt{s} = 13\ \mathrm{TeV}$ collision data~\cite{PrimaryVertex_Resolution} and is found to improve rapidly as the summed $p_{\mathrm{T}}$ of the associated tracks increases, as shown in Fig.~\ref{Figure:Chapter4_PrimaryVertex_Resolution}.
 
@@ -53,6 +88,41 @@ Once all the vertices are reconstructed, a collection is formed, which is ordere
 
 \label{Figure:Chapter4_PrimaryVertex_Resolution}
 \end{figure}
+
+\subsection{Electron tracking}
+
+Electron reconstruction in CMS leverages both tracking information from the silicon tracker and energy deposits in the ECAL. Two complementary seeding strategies are employed: one utilising energetic ECAL clusters ($E_\mathrm{T} > 4\GeV$), referred to as the \textit{ECAL-based approach}, and the other utilising reconstructed tracks, referred to as the \textit{tracker-based approach}.
+
+As electrons traverse the CMS tracker, they emit a sizeable fraction of their energy as bremsstrahlung photons due to the significant material thickness (see Fig.~\ref{Figure:Chapter3_Tracker_MaterialBudget}). The performance of the \textbf{ECAL-based approach} therefore depends on the ability to recover this radiated energy while minimising contamination from nearby particles. These photons are predominantly emitted along the electron’s direction but become laterally displaced in $\phi$ due to the curvature of the track in the magnetic field. To capture this energy, a \textit{supercluster} is constructed by merging multiple ECAL clusters within a narrow $\eta$ window and an extended $\phi$ window around the expected electron trajectory~\cite{ParticleFlow}. However, this method exhibits significant inefficiencies in high-density environments, such as when electrons are embedded in jets, where overlapping energy deposits from nearby particles can bias the supercluster’s energy and position. It also suffers when back-propagating from the supercluster to the interaction point, as the supercluster may be compatible with multiple hits from other charged particles, increasing the risk of misreconstruction. Further inefficiencies arise for low-$p_\mathrm{T}$ electrons, where the radiated energy is spread over a broad $\phi$ range, preventing complete energy recovery within a single supercluster.
+
+To recover electrons missed by the ECAL-based method, the \textbf{tracker-based} approach is employed. This approach leverages the high efficiency of the iterative tracking algorithm, which can reliably reconstruct both non-radiating and radiating electrons. Tracks with $p_\mathrm{T} > 2\GeV$ from iterative tracking are considered as potential electron seeds. When bremsstrahlung emission is minimal, the corresponding track can be well reconstructed, as indicated by a well-behaved $\chi^2$ from the track fit,\footnote{The chi-squared ($\chi^2$) statistic quantifies the agreement between the measured hit positions and the predicted trajectory of the track. A low $\chi^2$ indicates a good-quality fit and, therefore, a well-reconstructed track.} and propagated safely to the ECAL inner surface for matching with the nearest ECAL cluster. However, when bremsstrahlung is more significant, the pattern recognition may still recover the track, but often with degraded fit quality (\ie fewer associated hits or a larger $\chi^2$). To address this, a preselection is applied based on the number of hits and the $\chi^2$ of the initial fit, after which tracks are refitted using a \textbf{\ac{GSF}} algorithm~\cite{GSF_Algorithm}. Unlike the KF used in standard tracking, the GSF is specifically designed to accommodate the sudden and substantial energy losses along the trajectory.
+
+\subsection{Muon tracking}
+
+Muon reconstruction~\cite{ParticleFlow} in CMS combines information from the dedicated muon detection system with precision tracking from the inner tracker. Three complementary reconstruction strategies are employed, leading to different possible definitions for reconstructed muons:
+
+\begin{itemize}
+    \item \textbf{Standalone muon}: In the muon system, hits from each DT or CSC are clustered into track segments, which serve as seeds for pattern recognition. These seeds are used to collect compatible hits across all muon subsystems (DT, CSC, RPC) to reconstruct the muon trajectory. This is referred to as a standalone muon track because the reconstruction is performed using only information from the muon system.
+    \item \textbf{Global muon}: Standalone muon tracks are matched to tracks in the inner tracker. If there is a compatible match, a combined fit of the hits from the inner tracker and muon system is performed to form a global muon track.
+    \item \textbf{Tracker muon}: Inner tracks with sufficient transverse ($> 0.5\GeV$) and total momenta ($>2.5\GeV$) are extrapolated to the muon system and classified as tracker muons if they are spatially compatible with at least one muon segment.
+\end{itemize}
+
+\textit{Global muon reconstruction} is most efficient for muons that traverse multiple muon detector planes. However, at low momenta ($<10\GeV$), larger multiple scattering in the steel return yoke reduces the efficiency of global muon reconstruction, as it becomes more difficult to associate segments in multiple muon stations. In such cases, \textit{tracker muon reconstruction} is more efficient, as it requires only a single matched segment~\cite{CMS_Muon_System_Performance_2}. The high efficiency of both the inner tracker and muon segment reconstruction ensures that approximately 99\% of muons within the detector's acceptance are reconstructed as either global or tracker muons, and often as both.  In such cases, global and tracker muons sharing the same inner track are merged into a single muon candidate.
+
+\subsection{Calorimeter clusters}
+
+The reconstruction of calorimeter-based PF elements in CMS is designed to~\cite{ParticleFlow}:
+
+\begin{itemize}
+    \item Identify and measure the energy and direction of stable neutral particles
+    \item Distinguish neutral particle energy deposits from those of charged hadrons
+    \item Reconstruct electrons along with their associated bremsstrahlung photon energy deposits
+    \item Aid the energy measurement of charged hadrons in cases where the track information is imprecise
+\end{itemize}
+
+A dedicated clustering algorithm~\cite{ParticleFlow} is applied separately in each calorimeter subsystem, including the barrel and endcap regions of the ECAL and HCAL, as well as the ECAL preshower. For the HF subdetector, clustering is not performed; instead, each cell directly forms an electromagnetic or hadronic cluster. 
+
+\textit{Cluster seeds} are identified in the first step of the algorithm. These are calorimeter cells with energy above a specified threshold that also represent local maxima with respect to their neighbouring cells. In the second step, \textit{topological clusters} are grown from the seeds by adding neighbouring cells that share at least a corner with an existing cluster cell and have energy above a threshold, typically set to twice the noise level. In the final step, an expectation-maximisation algorithm based on a Gaussian mixture model is applied to decompose each topological cluster into one or more individual \textit{``PF'' clusters}.
 
 \section{Particle flow}
 

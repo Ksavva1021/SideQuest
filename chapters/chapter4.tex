@@ -166,17 +166,35 @@ A more refined isolation variable is the \textit{PF isolation} ($I_{\text{PF}}^e
 
 \begin{equation_pad}
     I_{\text{PF}}^e = \frac{1}{p_\mathrm{T}^e} \left( \sum_{\text{h}^{\pm}} p_\mathrm{T} + \text{max} \left[0, \sum_{\text{h}^{0}} p_\mathrm{T} + \sum_{\gamma} p_\mathrm{T} - \rho A_{\text{eff}}\right]  \right)
+\label{Equation:Chapter4_PFIso_Electron}
 \end{equation_pad}
 
 where the sums include all PF charged hadrons ($h^\pm$) originating from the primary vertex, neutral hadrons ($h^0$), and photons ($\gamma$). The term $\rho A_{\text{eff}}$ accounts for the contribution from PU interactions.
 
+\subsection{Muons}
 
+As with electrons, a dedicated identification strategy is employed to distinguish genuine prompt muons originating from the primary vertex (PV) from non-prompt muons produced in hadron decays, as well as from charged hadrons misidentified as muons. In this thesis, a \textit{cut-based} muon identification approach is used, specifically adopting the \textit{medium WP}. The criteria of this WP are as follows:
 
+\begin{itemize}
+    \item The muon must be identified by PF, which requires it to be reconstructed as either a tracker or global muon.
+    \item Track must be reconstructed with hits in at least 80\% of the inner tracker layers along its path.
+    \item Muon segment compatibility of tracker-only muons must be greater than 0.451\footnote{Muon segment compatibility~\cite{CMS_Muon_System_Performance} is computed by propagating the tracker track to the muon system and evaluating both the number of matched segments across stations and the closeness of the matches in position and direction. The variable ranges from 0 to 1, with higher values indicating better compatibility with a genuine muon.}.
+    \item For muons reconstructed as both tracker and global muons, the following criteria must be satisfied:
+    \begin{itemize}
+        \item Muon segment compatibility must be greater than 0.303.
+        \item The global track fit must have a reduced $\chi^2$ value below 3.
+        \item The $\chi^2$ of the position match between tracker muon and standalone muon must be less than 12.
+        \item The maximum $\chi^2$ value computed by the kink-finding algorithm\footnote{The kink-finding algorithm evaluates the consistency of the tracker track by splitting it into two separate tracks at multiple points along its trajectory. The resulting segments are compared, and a $\chi^2$ value is assigned to quantify their compatibility with originating from the same continuous track.} must be less than 20.
+    \end{itemize}
+\end{itemize}
 
+Isolation requirements are also applied to reduce backgrounds from non-prompt muons, such as those produced in weak decays of hadrons within jets. Similar to electrons, isolation can be defined using PF candidates. The PF relative isolation~\cite{ParticleFlow} is given by:
 
-% \subsection{Muons}
+\begin{equation_pad}
+    I_{\text{PF}}^\mu = \frac{1}{p_\mathrm{T}^\mu} \left( \sum_{\text{h}^{\pm}} p_\mathrm{T} + \text{max} \left[0, \sum_{\text{h}^{0}} p_\mathrm{T} + \sum_{\gamma} p_\mathrm{T} - \Delta \beta \sum_{\text{h}^{\pm}\text{,PU}} p_\mathrm{T} \right]  \right)
+\end{equation_pad}
 
-
+where the expression follows the same structure as the PF isolation for electrons (Eq.~\ref{Equation:Chapter4_PFIso_Electron}). The sums run over PF charged hadrons ($h^\pm$) associated with the primary vertex, neutral hadrons ($h^0$), and photons ($\gamma$), all within a cone of radius $\Delta R < 0.4$ around the muon direction. The pileup correction term includes the scalar sum of transverse momenta of charged hadrons not associated with the primary vertex, scaled by a factor $\Delta \beta = 0.5$. This factor corresponds approximately to the ratio of neutral to charged hadron particle production in the hadronisation process of inelastic pp collisions.
 
 % \subsection{Jets}
 

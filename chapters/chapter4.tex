@@ -9,9 +9,10 @@ This chapter presents the reconstruction of physics objects in the CMS detector,
 
 However, operating in a high-multiplicity environment introduces additional challenges for the reconstruction and identification of physics objects. There is no guarantee that a reconstructed particle corresponds to a genuine physics object; such cases are referred to as \textit{misidentified} or \textit{``fake'' objects}. For example, jets initiated by quarks or gluons can sometimes be misidentified as hadronic $\PGt$ decays; leptons originating from heavy-flavour decays within jets may mimic prompt electrons or muons; and, conversely, muons and electrons can occasionally be misidentified as jets. To mitigate these effects, object identification algorithms incorporate \textit{multivariate discriminants} and \textit{\acp{WP}} that are tuned to balance efficiency and misidentification rates. However, in some cases, these strategies only partially suppress such backgrounds.
 
-A more complete and accurate event description is achieved by correlating information from all layers of the CMS detector to reconstruct and identify individual particles. This integrated methodology is known as particle-flow (PF) reconstruction. The implementation of this approach within CMS is detailed in this chapter.
+A more complete and accurate event description is achieved by correlating information from all layers of the CMS detector to reconstruct and identify individual particles. This integrated methodology is known as \ac{PF} reconstruction. The implementation of this approach within CMS is detailed in this chapter.
 
-\section{Reconstruction of PF detector elements}
+\section{Reconstruction of Particle Flow detector elements}
+\label{Section:Chapter4_Reconstruction_of_PF_elements}
 \subsection{Track reconstruction}
 
 The first stage of the reconstruction process, known as \textbf{local reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, involves clustering zero-suppressed signals above predefined thresholds in the tracker sensors to form hits, referred to as \textit{clusters}. For each cluster, both the position and its associated uncertainty are estimated within a local coordinate system defined by the sensor geometry. These locally reconstructed hits form the basis for the subsequent \textbf{global reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3} of particle trajectories.
@@ -90,7 +91,7 @@ Once all the vertices are reconstructed, a collection is formed, which is ordere
 \end{figure}
 
 \subsection{Electron tracking}
-
+\label{Section:Chapter4_ElectronTracking}
 Electron reconstruction in CMS leverages both tracking information from the silicon tracker and energy deposits in the ECAL. Two complementary seeding strategies are employed: one utilising energetic ECAL clusters ($E_\mathrm{T} > 4\GeV$), referred to as the \textit{ECAL-based approach}, and the other utilising reconstructed tracks, referred to as the \textit{tracker-based approach}.
 
 As electrons traverse the CMS tracker, they emit a sizeable fraction of their energy as bremsstrahlung photons due to the significant material thickness (see Fig.~\ref{Figure:Chapter3_Tracker_MaterialBudget}). The performance of the \textbf{ECAL-based approach} therefore depends on the ability to recover this radiated energy while minimising contamination from nearby particles. These photons are predominantly emitted along the electron’s direction but become laterally displaced in $\phi$ due to the curvature of the track in the magnetic field. To capture this energy, a \textit{supercluster} is constructed by merging multiple ECAL clusters within a narrow $\eta$ window and an extended $\phi$ window around the expected electron trajectory~\cite{ParticleFlow}. However, this method exhibits significant inefficiencies in high-density environments, such as when electrons are embedded in jets, where overlapping energy deposits from nearby particles can bias the supercluster’s energy and position. It also suffers when back-propagating from the supercluster to the interaction point, as the supercluster may be compatible with multiple hits from other charged particles, increasing the risk of misreconstruction. Further inefficiencies arise for low-$p_\mathrm{T}$ electrons, where the radiated energy is spread over a broad $\phi$ range, preventing complete energy recovery within a single supercluster.
@@ -124,14 +125,61 @@ A dedicated clustering algorithm~\cite{ParticleFlow} is applied separately in ea
 
 \textit{Cluster seeds} are identified in the first step of the algorithm. These are calorimeter cells with energy above a specified threshold that also represent local maxima with respect to their neighbouring cells. In the second step, \textit{topological clusters} are grown from the seeds by adding neighbouring cells that share at least a corner with an existing cluster cell and have energy above a threshold, typically set to twice the noise level. In the final step, an expectation-maximisation algorithm based on a Gaussian mixture model is applied to decompose each topological cluster into one or more individual \textit{``PF'' clusters}.
 
-\section{Particle flow}
+\section{Particle Flow}
+The tracking information and calorimeter clusters described in Section~\ref{Section:Chapter4_Reconstruction_of_PF_elements} form the foundational inputs to the \textit{PF algorithm}. As a single particle generally produces multiple PF elements across the various CMS subdetectors, the reconstruction process begins with a \textit{link algorithm} that connects these elements. The primary limitation of the PF algorithm lies in its dependence on accurately linking detector elements that originate from the same particle. As such, its performance is sensitive to the granularity of the subdetectors, the local density of particles in the event, and the amount of material a particle traverses before reaching the calorimeters and the muon system.
 
-\section{Muons}
+The \textit{linking procedure} begins by evaluating nearby pairs of elements in the $\eta$–$\phi$ plane and, where applicable, defines a distance parameter to quantify the quality of the link. Links between tracks in the central tracker and calorimeter clusters are established by extrapolating a track from its last measured hit in the tracker to different depths in the ECAL (at the expected electron shower maximum) and HCAL (at a depth of one interaction length). A link is created if the extrapolated position falls within the boundaries of the cluster. Similarly, a track-cluster distance parameter is defined as the distance between the extrapolated track position and the cluster position in $\eta$–$\phi$ plane. When multiple HCAL clusters are linked to the same track, or several tracks are associated with the same ECAL cluster, this distance parameter is used to resolve ambiguities by retaining only the link with the smallest value. To recover energy lost via electron bremsstrahlung, tangents to the GSF tracks are extrapolated to the ECAL and used to link clusters within a narrow $\eta$ window ($\Delta\eta < 0.05$), while converted photons are recovered by linking track pairs using a dedicated conversion finder~\cite{DedicatedConversionFinder}. In addition, links between calorimeter clusters (HCAL-ECAL \& ECAL-PS) are established based on their positions in the more granular calorimeter. Similarly, a cluster-cluster distance parameter is defined as the distance between the cluster positions in the $\eta-\phi$ plane. As in the case of track–cluster associations, when multiple clusters are compatible, only the link with the smallest distance is retained. Finally, links between tracks in the central tracker and information in the muon system are established through a global fit, with the distance parameter defined as the $\chi^2$ of the fit. In cases where multiple associations are possible, only the link with the lowest $\chi^2$ is retained to ensure the most compatible match.
 
-\section{Electrons}
+Once all valid links are established, groups of interconnected elements, either through direct or indirect links, are assembled into \textit{PF blocks}. Each PF block is processed by the PF algorithm, which operates on the block following a well-defined sequence of steps to reconstruct and identify a set of particles. The procedure is as follows:
 
-\section{Jets}
+\begin{enumerate}
+    \item \textbf{PF muons}: Global muons present within the block are identified as PF muons if their associated track is consistent with minimal energy deposition in the calorimeters. Once identified, the corresponding tracker and muon elements are removed from the block.
+    \item \textbf{PF electrons}: Tracks not previously identified as muons are submitted to a pre-identification step that selects candidate electrons based on characteristic bremsstrahlung patterns observed in the tracker. As described in Section~\ref{Section:Chapter4_ElectronTracking}, these candidates are refitted with a Gaussian Sum Filter (GSF), and a multivariate discriminant combining tracking and ECAL variables is applied. If the candidate passes the discriminant, it is identified as a PF electron, and the associated track and ECAL clusters are removed from the block.
+    \item \textbf{PF photons \& PF neutral hadrons}: Non-compatible calorimeter clusters with track momentum are interpreted as neutral particles, following:
+    \begin{itemize}
+        \item Depending on the relative energy in each calorimeter, both a PF photon (from ECAL) and a PF neutral hadron (from HCAL) may be created to account for the excess.
+        \item If the excess energy is primarily in the ECAL and exhibits electromagnetic shower characteristics, only a PF photon is created.
+        \item ECAL and HCAL clusters with no associated tracks are interpreted as PF photons and PF neutral hadrons, respectively
+    \end{itemize}
+\end{enumerate}
 
-\section{Missing transverse energy}
+\section{Object identification}
+\label{Section:Chapter4_Object_Identification}
 
-\section{Taus}
+The final output of the PF algorithm is a list of reconstructed particles, referred to as \textit{PF candidates}. However, PF does not inherently guarantee that the candidates correspond to genuine prompt physics objects. Therefore, dedicated identification (ID) algorithms are required to translate these PF candidates into physics objects suitable for analysis. This section serves to describe the object identification strategies used in this thesis.
+
+\subsection{Electrons}
+
+Electrons are identified using a \ac{MVA} approach, where a \ac{BDT} algorithm is employed to distinguish genuine prompt electrons from backgrounds. These backgrounds include electrons from photon conversions, misidentified hadrons, and non-prompt electrons from the decay of hadrons. The set of discriminating variables used by the BDT can be grouped into the following categories:
+
+\begin{itemize}
+    \item \textbf{Track-cluster matching observables}: These variables compare measurements obtained from the ECAL and the tracker, including both geometrical matching between the ECAL supercluster and the tracker, as well as energy-momentum matching.
+    \item \textbf{Calorimetric observables}: These variables are purely calorimetric and are used to improve the separation between genuine and misidentified electrons. One example is the transverse shape of EM showers in the ECAL, where the typically narrow profile of EM showers is exploited in contrast to the broader shape of hadronic showers. Additional calorimetric observables include the hadronic-to-electromagnetic energy ratio ($H/E$), which is expected to be small for electrons, and the energy deposited in the HCAL and preshower (in the endcaps), which further helps to discriminate against hadronic backgrounds.
+    \item \textbf{Tracking observables}: These variables are used to enhance discrimination between electrons and charged hadrons by leveraging detailed information from the GSF track fit, as well as discrepancies between the GSF and KF track reconstructions.
+\end{itemize}
+
+A working point corresponding to 90\% signal efficiency is used in this thesis, meaning that approximately 90\% of genuine prompt electrons are correctly identified~\cite{ElectronID_Performance}. To accommodate different analysis needs, two versions of the BDT discriminator are employed: one that includes isolation variables during training, and one that does not, allowing flexibility in environments with varying levels of surrounding activity. 
+
+In addition to the BDT-based electron identification, isolation requirements are essential for further suppressing backgrounds from misidentified jets or genuine electrons within jets arising from heavy-flavour decays. These background electrons are typically accompanied by significant nearby energy deposits, which can be effectively rejected by imposing an isolation criterion. A simple isolation variable is based on detector-based isolation. This approach computes the scalar sum of transverse energy deposits in the ECAL or HCAL, or the scalar sum of the $p_\mathrm{T}$ of tracks originating from the primary collision vertex, within a cone of radius $\Delta R$ (typically 0.3 or 0.4) around the electron direction. 
+
+A more refined isolation variable is the \textit{PF isolation} ($I_{\text{PF}}^e$, which utilises PF candidates reconstructed within a cone around the electron's direction:
+
+\begin{equation_pad}
+    I_{\text{PF}}^e = \frac{1}{p_\mathrm{T}^e} \left( \sum_{\text{h}^{\pm}} p_\mathrm{T} + \text{max} \left[0, \sum_{\text{h}^{0}} p_\mathrm{T} + \sum_{\gamma} p_\mathrm{T} - \rho A_{\text{eff}}\right]  \right)
+\end{equation_pad}
+
+where the sums include all PF charged hadrons ($h^\pm$) originating from the primary vertex, neutral hadrons ($h^0$), and photons ($\gamma$). The term $\rho A_{\text{eff}}$ accounts for the contribution from PU interactions.
+
+
+
+
+
+% \subsection{Muons}
+
+
+
+% \subsection{Jets}
+
+% \subsection{Missing transverse energy}
+
+% \subsection{Taus}

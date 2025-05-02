@@ -196,8 +196,81 @@ Isolation requirements are also applied to reduce backgrounds from non-prompt mu
 
 where the expression follows the same structure as the PF isolation for electrons (Eq.~\ref{Equation:Chapter4_PFIso_Electron}). The sums run over PF charged hadrons ($h^\pm$) associated with the primary vertex, neutral hadrons ($h^0$), and photons ($\gamma$), all within a cone of radius $\Delta R < 0.4$ around the muon direction. The pileup correction term includes the scalar sum of transverse momenta of charged hadrons not associated with the primary vertex, scaled by a factor $\Delta \beta = 0.5$. This factor corresponds approximately to the ratio of neutral to charged hadron particle production in the hadronisation process of inelastic pp collisions.
 
-% \subsection{Jets}
+\subsection{Jets}
+\label{Section:Chapter4_Jets}
+While electrons and muons are reconstructed on a per-particle basis, hadronic final states give rise to collimated sprays of particles originating from the fragmentation and hadronisation of quarks and gluons, which must be clustered to form jets. In CMS, jet reconstruction is performed using sequential jet clustering algorithms~\cite{Jet_Algorithm_Performance,Jet_Reconstruction_Run2_Run3}. In this thesis, the anti-$k_\mathrm{T}$ algorithm~\cite{anti_kT} is employed to cluster PF candidates, as implemented in the \textsc{FastJet} package~\cite{FastJet}. This algorithm is selected based on two key criteria: infrared and collinear safety.
 
-% \subsection{Missing transverse energy}
+This algorithm iteratively groups particles together based on a distance metric ($d_{ij}$), defined as the distance between two objects $i$ and $j$. An additional distance metric, $d_{iB}$, quantifies the distance between object $i$ and the beam axis. The clustering proceeds by identifying the pair $(i,j)$ with the smallest distance. If the minimum corresponds to $d_{ij}$, the objects $i$ and $j$ are merged; if it corresponds to $d_{iB}$, the object $i$ is deemed a final jet and removed from the clustering sequence. This procedure is repeated until no objects remain to be clustered. The distance metrics used by the anti-$k_\mathrm{T}$ algorithm are defined as follows: 
+
+\begin{equation}
+    \begin{aligned}
+        d_{ij} &= \min\left(p_{\mathrm{T},i}^{-2},\, p_{\mathrm{T},j}^{-2}\right) \frac{\Delta R_{ij}^2}{R^2} \,, \\
+        d_{iB} &= p_{\mathrm{T},i}^{-2} \,,
+    \end{aligned}
+\end{equation}
+
+where $\Delta R_{ij}$ is the distance between objects $i$ and $j$ in the $\eta$–$\phi$ plane, and $R$ is the jet radius parameter, typically set to 0.4. Jets reconstructed with this cone size using the anti-$k_\mathrm{T}$ algorithm are referred to as AK4 jets.
+
+\subsubsection{Pileup mitigation}
+
+One significant constraint to jet clustering in CMS arises from PU. These secondary interactions introduce extra particles that can be clustered into jets, contaminating the jet energy and degrading both the resolution and substructure observables. To mitigate this, CMS employs dedicated PU mitigation strategies~\cite{PU_Mitigation}. The standard method in Run 2 was the \textbf{\ac{CHS}} algorithm~\cite{ParticleFlow}, which leverages information from the tracker to remove charged hadrons that are not associated with the PV before jet clustering. Although CHS substantially improves jet energy resolution, its reliance on post-clustering corrections~\cite{JetEnergyCalibration} on the four-momenta limits its ability to preserve jet shape and subtracture. To overcome this limitation, an alternative approach known as \textbf{\ac{PUPPI}}~\cite{PUPPI} has been developed. PUPPI compute, on an event-by-event basis, a weight for each particle. This weight quantifies the likelihood of the particle originating from the PV, and it is used to scale the particle momenta before clustering. Therefore, allowing jet reconstruction to be less sensitive to PU effects. Both CHS and PUPPI are employed in this thesis: CHS-based jets are used in Chapter~\ref{Section:Chapter_4tau}, while PUPPI-based jets are used in Chapter~\ref{Section:Chapter_CP}. A schematic comparison of the CHS and PUPPI algorithms is shown in Fig.~\ref{Figure:Chapter4_Pileup_Schematic}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/Chapter4/Pileup_Schematic.png}
+\caption[Sketch of pileup suppression techniques]{
+Sketch of pileup suppression techniques. Solid lines correspond to charged PF candidates, while dashed lines indicate neutral PF candidates. The assigned per-particle weights are illustrated by thinner lines.}
+\label{Figure:Chapter4_Pileup_Schematic}
+\end{figure}
+
+To suppress misidentified jets arising from non-hadronic or spurious sources, a dedicated jet identification discriminator is applied. This discriminator evaluates a combination of variables, including the energy fractions carried by different categories of PF candidates (charged hadrons, neutral hadrons, and photons), as well as the charged and neutral particle multiplicities associated with each jet~\cite{Jet_Algorithm_Performance}. In addition, to prevent double-counting of physics objects, jets that spatially overlap with identified $\PGt$ lepton candidates are removed from the collection. Specifically, any jet falling within a cone of $\Delta R < 0.5$ around a selected $\PGt$ candidate is assumed to correspond to the same physical object and is excluded from further analysis.
+
+\subsubsection{Bottom-quark initiated jets}
+
+Jets originating from bottom quarks can be identified using a technique known as \textit{b-tagging}, which exploits the distinctive properties of $b$-hadron decays. A key characteristic of $b$ hadrons is their relatively long lifetime (approximately $1.5\unit{ps}$), which allows them to travel several millimetres from the primary vertex (PV) before decaying. Consequently, the resulting decay products are displaced from the PV and typically leave tracks that can be traced back to a \textbf{\ac{SV}}. The displacement of these tracks is quantified using the \ac{IP}, defined as the distance of closest approach of a charged particle’s trajectory to the PV. The reliability of this observable is further characterised by the \textit{IP significance}, given by the ratio of the IP to its associated uncertainty. The discriminating power of the IP in $b$-tagging is illustrated in Fig.\ref{Figure:Chapter4_IP_bjets}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/Chapter4/IP_bjets.pdf}
+\caption[Distributions of the 3D impact parameter for tracks associated with different types of jets]{Distributions of the 3D IP for tracks associated with different types of jets. Figure taken from Ref.~\cite{HeavyFlavourJets_ID}.}
+\label{Figure:Chapter4_IP_bjets}
+\end{figure}
+
+Algorithms used to identify b-jets typically exploit lifetime-based signatures. They may also incorporate variables sensitive to other distinctive properties of b hadrons, such as their large mass and hard fragmentation behaviour. In this thesis, the employed tagger is \textbf{DeepJet}~\cite{DeepJet}, a deep neural network combining convolutional (CNN) and recurrent (LSTM) layers. DeepJet takes as input a set of global variables, PF candidate features, and SV information, and outputs class probabilities for a jet to be a b, c, or light-flavour jet. Its performance is summarised in Fig.~\ref{Figure:Chapter4_DeepJetPerformance}.
+
+\begin{figure}[h]
+    \centering
+    % First row
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Chapter4/deepJet_lowpt.pdf}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Chapter4/deepjet_mediumpt.pdf}
+        \caption{}
+    \end{subfigure}
+\caption[Performance of the DeepJet algorithm in QCD multijet events]{Performance of the DeepJet algorithm in QCD multijet events compared to DeepCSV~\cite{HeavyFlavourJets_ID}, an alternative b-tagging algorithm. Performance is illustrated at \textbf{(a)} low jet $p_\mathrm{T}$, \textbf{(b)} medium jet $p_\mathrm{T}$. Figures taken from Ref.~\cite{DeepJet}.}
+
+\label{Figure:Chapter4_DeepJetPerformance}
+\end{figure}
+
+\subsection{Missing transverse energy}
+As mentioned in Section~\ref{Section:Chapter3_CMS_Detector_Introduction}, the total transverse momentum of a hard scattering event is assumed to be zero and is conserved. The concept and role of \textbf{MET} was also discussed, but for completeness, its definition~\cite{MET_Reconstruction} is presented here:
+
+\begin{equation}
+    \vec{E}_\mathrm{T}^{\text{miss,PF}} = - \sum_i \vec{p_\mathrm{T}}^i
+\end{equation}
+
+where the sum runs over all PF candidates reconstructed in the event. This definition reflects the imbalance in transverse momentum and serves as an indirect probe for particles that escape detection.
+
+However, PF MET suffers from pileup contamination, similar to PF jets, as discussed in Section~\ref{Section:Chapter4_Jets}. In addition to pileup, the accuracy of $E_\mathrm{T}^{\text{miss}}$ remains sensitive to several detector-related effects: non-linear response of the calorimeter to hadrons, minimum energy thresholds in calorimeters, and track reconstruction inefficiencies. These effects are partially mitigated through the application of jet energy corrections~\cite{JetEnergyCalibration}. To further reduce the impact of pileup on MET, the PUPPI algorithm is exploited, modifying $\vec{E}_\mathrm{T}^{\text{miss}}$ by weighing the $p_\mathrm{T}$ of PF candidates according to their compatibility with the PV:
+
+\begin{equation}
+    \vec{E}_\mathrm{T}^{\text{miss,PUPPI}} = - \sum_i w_i\vec{p_\mathrm{T}}^i
+\end{equation}
+
+
 
 % \subsection{Taus}

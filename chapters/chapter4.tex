@@ -149,6 +149,7 @@ Once all valid links are established, groups of interconnected elements, either 
 The final output of the PF algorithm is a list of reconstructed particles, referred to as \textit{PF candidates}. However, PF does not inherently guarantee that the candidates correspond to genuine prompt physics objects. Therefore, dedicated identification (ID) algorithms are required to translate these PF candidates into physics objects suitable for analysis. This section serves to describe the object identification strategies used in this thesis.
 
 \subsection{Electrons}
+\label{Section:Electron_Identification}
 
 Electrons are identified using a \ac{MVA} approach, where a \ac{BDT} algorithm is employed to distinguish genuine prompt electrons from backgrounds. These backgrounds include electrons from photon conversions, misidentified hadrons, and non-prompt electrons from the decay of hadrons. The set of discriminating variables used by the BDT can be grouped into the following categories:
 
@@ -172,7 +173,7 @@ A more refined isolation variable is the \textit{PF isolation} ($I_{\text{PF}}^e
 where the sums include all PF charged hadrons ($h^\pm$) originating from the primary vertex, neutral hadrons ($h^0$), and photons ($\gamma$). The term $\rho A_{\text{eff}}$ accounts for the contribution from PU interactions.
 
 \subsection{Muons}
-
+\label{Section:Muon_Identification}
 As with electrons, a dedicated identification strategy is employed to distinguish genuine prompt muons originating from the primary vertex (PV) from non-prompt muons produced in hadron decays, as well as from charged hadrons misidentified as muons. In this thesis, a \textit{cut-based} muon identification approach is used, specifically adopting the \textit{medium WP}. The criteria of this WP are as follows:
 
 \begin{itemize}
@@ -271,6 +272,100 @@ However, PF MET suffers from pileup contamination, similar to PF jets, as discus
     \vec{E}_\mathrm{T}^{\text{miss,PUPPI}} = - \sum_i w_i\vec{p_\mathrm{T}}^i
 \end{equation}
 
+\subsection{Taus}
+\label{Section:Chapter4_Taus}
+
+The reconstruction and identification of $\PGt$ leptons are fundamental to this thesis. With a mass of $m_\tau = 1.776\GeV$ and a decay length of $c\tau = 87.03\unit{\mu m}$, the $\PGt$ lepton decays promptly before reaching the pixel tracker, and must therefore be reconstructed from its decay products. Owing to its relatively large mass, it exhibits a rich variety of decay modes, which proceed either leptonically or hadronically, as summarised in Table~\ref{Table:Chapter4_TauDecayModes}. Leptonic decays involve the $\PGt$ lepton decaying into a lighter lepton (electron or muon) and two neutrinos, while hadronic decays produce one or more charged hadrons (pions or kaons) and at least one neutrino. Leptonic $\PGt$ decays are identified using the electron and muon identification algorithms described in Sections~\ref{Section:Electron_Identification} \& \ref{Section:Muon_Identification}, respectively.
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\arrayrulecolor{black} % Ensure outer border is black
+\begin{tabular}{|c|c|c|}
+\hline
+Decay Mode & Resonance & Branching Fraction [\%] \\ \hline \hline 
+\rowcolor{verylightblue}
+Leptonic decays ($e$,$\mu$)                               & - & 35.2 \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau^- \rightarrow e^- \overline{\nu_e} \nu_\tau$ & - & 17.8 \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau^- \rightarrow \mu^- \overline{\nu_\mu} \nu_\tau$ & - & 17.4 \\ 
+\arrayrulecolor{lightgray}  \hline 
+\rowcolor{verylightblue}
+Hadronic decays ($\PGt_h$)   & - & 64.8 \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau^- \rightarrow h^- \nu_\tau$ & - & 11.5 \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau^- \rightarrow h^- \pi^0\nu_\tau$ & $\rho(770)$ & 25.9 \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau^- \rightarrow h^- \pi^0\pi^0\nu_\tau$ & $\mathrm{a_1}(1260)$ & 9.5 \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau^- \rightarrow h^- h^+ h^- \nu_\tau$ & $\mathrm{a_1}(1260)$ & 9.8 \\ 
+\arrayrulecolor{lightgray} \hline
+$\tau^- \rightarrow h^- h^+ h^- \pi^0\nu_\tau$ & - & 4.8 \\ 
+\arrayrulecolor{lightgray} \hline
+Other & - & 3.3 \\ 
+\arrayrulecolor{lightgray} \hline
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption[Dominant $\PGt$ lepton decay modes and branching fractions]{Summary of the dominant decay modes of the $\PGt$ lepton and their branching fractions. The symbol $h^\pm$ denotes a charged hadron, which is typically a charged pion ($\pi^\pm$) and less frequently a charged kaon ($K^\pm$). Values extracted from Ref.~\cite{ParticleMasses}.}
+\label{Table:Chapter4_TauDecayModes}
+\end{table}
+
+To reconstruct $\PGt_h$ candidates, the \textbf{\ac{HPS}} algorithm is employed. The reconstruction begins by identifying seed regions based on PF jets clustered using the anti-$k_T$ algorithm with a distance parameter of $R = 0.4$. All PF candidates within a cone of $\Delta R < 0.5$ around the jet axis are considered, with charged hadrons required to have $p_\mathrm{T} > 0.5\GeV$ and must be compatible with originating from the PV of the event. The second step of the HPS algorithm, known as \textit{dynamic strip reconstruction}, focuses on clustering photon and electron constituents of the jet into $\Delta\eta \times \Delta\phi$ strips. These strips are used to collect energy depositions in the ECAL associated with neutral pions produced in $\PGt_h$ decays. Initially, a fixed strip size was used in the reconstruction; however, this method proved inadequate for containing all secondary particles from the $\PGt_h$ decay in some cases. For example, nuclear interactions of charged pions in the tracker material can produce low-$p_\mathrm{T}$ secondaries outside the strip, and photon conversions can lead to displaced $e^+e^-$ pairs due to scattering and bremsstrahlung. In such cases, the isolation of a $\PGt_h$ candidate would be affected. To address this, the strip size is now dynamically adjusted, and the strip clustering procedure is implemented through the following steps:
+
+\begin{enumerate}
+    \item A new strip is seeded using the electron or photon ($e/\gamma$) with the highest $p_\mathrm{T}$ that has not yet been assigned to any existing strip.
+
+    \item The electron or photon candidate with the second-highest $p_\mathrm{T}$ is merged into the strip if it lies within,
+
+    \begin{equation_pad}
+    \begin{aligned}
+        \Delta \eta &= f\left(p_\mathrm{T}^{e/\gamma}\right) + f\left(p_\mathrm{T}^\text{strip}\right) \quad,\quad \Delta \eta\left[0.05,0.15\right] \\
+        \Delta \phi &= g\left(p_\mathrm{T}^{e/\gamma}\right) + g\left(p_\mathrm{T}^\text{strip}\right) \quad,\quad \Delta \phi\left[0.05,0.30\right]    
+    \end{aligned}
+    \end{equation_pad}
+
+    where the functions $f$ and $g$ are defined as $f(p_\mathrm{T}) = 0.20\,p_\mathrm{T}^{-0.66}$ and $g(p_\mathrm{T}) = 0.35\,p_\mathrm{T}^{-0.71}$, with $p_\mathrm{T}$ in GeV. These values were determined from simulation, such that 95\% of electrons and photons from $\PGt_h$ decays are contained within one strip. The corresponding envelope fits are illustrated in Fig.~\ref{Figure:Chapter4_StripSizeParametrisation}.
+
+    \item The strip position is recalculated as a $p_\mathrm{T}$-weighted average of all $e/\gamma$ strip constituents.
+
+    \begin{equation_pad}
+    \begin{aligned}
+        \eta_{\text{strip}} &= \frac{\sum p_\mathrm{T}^{e/\gamma} \eta_{e/\gamma}}{p_\mathrm{T}^{\text{strip}}} ,\\
+        \phi_{\text{strip}} &= \frac{\sum p_\mathrm{T}^{e/\gamma} \phi_{e/\gamma}}{p_\mathrm{T}^{\text{strip}}}
+    \end{aligned}
+    \end{equation_pad}
+
+    \item The strip construction ends when no further $e/\gamma$ candidates are found within the strip window.
+\end{enumerate}
+
+Once strips are reconstructed, they are combined with charged hadrons to form $\PGt_h$ decay mode hypotheses. The compatibility of each hypothesis is assessed by requiring the invariant mass of the visible decay products ($m_{\PGt_h}$) to lie within a predefined window tailored to each decay mode. The mass windows are optimised to maximise the reconstruction efficiency while minimising the probability of misidentifying jets as hadronic $\PGt$ decays. Each $\PGt_h$ decay mode is reconstructed according to the following criteria:
+
+\begin{itemize}
+    \item \textbf{$h^\pm$}: Single charged hadron with no strips. The mass window is $0 < m_{\PGt_h} < 1\GeV$, and the mass is fixed to the charged pion mass.
+    
+    \item \textbf{$h^\pm \pi^0$}: One charged hadron and one strip. The mass window is $0.3\GeV - \Delta m_{\PGt_h} < m_{\PGt_h} < 1.3\GeV\sqrt{p_\mathrm{T}^{\PGt_h}/(100\GeV)} + \Delta m_{\PGt_h}$, corresponding to the $\rho(770)$ resonance. The mass window is constrained to lie between 1.3 and 4.2$\GeV$.
+
+    \item \textbf{$h^\pm \pi^0 \pi^0$}: One charged hadron and two strips. The mass window is $0.4\GeV - \Delta m_{\PGt_h} < m_{\PGt_h} < 1.2\GeV\sqrt{p_\mathrm{T}^{\PGt_h}/(100\GeV)} + \Delta m_{\PGt_h}$, corresponding to the $\mathrm{a}_1(1260)$. The mass window is constrained to lie between 1.2 and 4.0$\GeV$.
+
+    \item \textbf{$h^\pm h^\mp h^\pm$}: Three charged hadrons, no strips. The mass window is $0.8 < m_{\PGt_h} < 1.5\GeV$, targeting the $\mathrm{a}_1(1260)$ resonance.
+
+    \item \textbf{$h^\pm h^\mp h^\pm \pi^0$}: Three charged hadrons and one strip. The mass window is $0.9\GeV - \Delta m_{\PGt_h}< m_{\PGt_h} < 1.6\GeV + \Delta m_{\PGt_h}$, corresponding to the $\rho(1450)$ resonance.
+\end{itemize}
+
+The performance of the HPS algorithm in correctly identifying these decay modes is illustrated in Fig.~\ref{Figure:Chapter4_HPS_ConfusionMatrix}, which presents a confusion matrix derived from simulated $Z \rightarrow \PGt^+ \PGt^-$ events. 
+
+While the HPS algorithm is essential for reconstructing the decay products of $\PGt_h$ candidates and assigning decay modes, it is not sufficient on its own to effectively discriminate genuine $\PGt_h$ decays from the dominant background of quark- and gluon-initiated jets. Similarly, electrons and muons can form well-isolated single-track jets mimicking the $h^\pm$ signature, while electrons can be further misidentified as the $h^\pm \pi^0$ decay mode due to bremsstrahlung-induced ECAL clusters mimicking the photon signatures of neutral pion decays. To enhance the discrimination power and address these challenges, CMS employs a dedicated identification algorithm known as \textbf{DeepTau}, which attempts to learn whether the input object is $\tau_h$ decay, an electron, a muon or a jet. 
+
+DeepTau is a multiclass neural network combining convolutional and dense layers. The convolutional part of the network is designed to capture complex spatial patterns in the $\eta$–$\phi$ plane, using low-level inputs from particles surrounding the HPS candidate. These include kinematic properties, track quality, vertex compatibility (with the PV or a possible SV), calorimetric energy deposits, and pileup likelihoods. In addition to particle-level inputs, DeepTau incorporates high-level features derived from the HPS candidate, including its four-momentum, charge, decay mode, isolation variables, impact parameters, $\eta$, strip geometry, and event-level quantities such as pileup density. The output of DeepTau consists of four scores $y_\alpha$, where $\alpha \in {\PGt_h,\text{jet},\mu,\text{e}}$, each representing the estimated probability that a given $\PGt_h$ candidate belongs to class $\alpha$. From these scores, three discriminators are constructed,
+
+\begin{equation}
+    D_\alpha(y) = \frac{y_{\PGt_h}}{y_{\PGt_h} + y_\alpha} 
+\end{equation}
+
+which efficiently reject misidentified electrons ($D_\text{e}$), muons ($D_\mu$), and jets ($D_\text{jet}$). To support consistent application across physics analyses, a set of predefined WPs is defined for each discriminator. These working points correspond to fixed target efficiencies for identifying genuine $\PGt_h$ decays, allowing analysts to balance background rejection against signal efficiency. The expected performance of each WP is summarised in Table~\ref{...}.
 
 
-% \subsection{Taus}
+
+

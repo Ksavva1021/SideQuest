@@ -19,6 +19,7 @@
 \usepackage{subcaption}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \definecolor{lightgray}{rgb}{0.8,0.8,0.8} 
+\definecolor{verylightblue}{rgb}{0.90, 0.95, 1.0}
 \usepackage{adjustbox}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{enumitem}
@@ -134,6 +135,7 @@
 
 
 \begin{document}
+\pagenumbering{roman} 
 \dominitoc
 
 \includegraphics[width=7cm]{IMPERIAL_Wordmark_CMYK_Blue_safe_area_2024.jpg}
@@ -237,7 +239,10 @@ and the Diploma of Imperial College London
 
 \end{acronym}
 
-%\include{chapter1}
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
 \chapter*{Introduction }
 \addcontentsline{toc}{chapter}{Introduction}
 

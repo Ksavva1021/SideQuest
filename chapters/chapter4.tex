@@ -5,11 +5,11 @@
 \label{Section:Chapter4}
 \minitoc
 
-This chapter presents the reconstruction of physics objects in the CMS detector, which is foundational to all analyses performed in this thesis. In particular, $\PGt$ lepton reconstruction is a central focus. The reconstruction of $\PGt$ leptons is particularly challenging due to their short lifetime and complex decay modes, which can involve a mix of charged and neutral hadrons, electrons, muons, and undetectable neutrinos. Therefore, accurate $\PGt$ identification requires the excellent performance of multiple reconstruction components, including \textit{charged-particle tracking}, \textit{electromagnetic} and \textit{hadronic calorimetry}, \textit{muon identification}, and \textit{displaced secondary vertexing}.
+This chapter presents the reconstruction and identification of physics objects in the CMS detector, which is foundational to all analyses performed in this thesis. In particular, $\PGt$ lepton reconstruction is a central focus. This is a particularly challenging task due to its short lifetime and complex decay modes, which can involve a mix of charged and neutral hadrons, electrons, muons, and undetectable neutrinos. Therefore, excellent performance of multiple reconstruction components is required, including charged-particle tracking, electromagnetic and hadronic calorimetry, muon identification, and displaced secondary vertexing.
 
 However, operating in a high-multiplicity environment introduces additional challenges for the reconstruction and identification of physics objects. There is no guarantee that a reconstructed particle corresponds to a genuine physics object; such cases are referred to as \textit{misidentified} or \textit{``fake'' objects}. For example, jets initiated by quarks or gluons can sometimes be misidentified as hadronic $\PGt$ decays; leptons originating from heavy-flavour decays within jets may mimic prompt electrons or muons; and, conversely, muons and electrons can occasionally be misidentified as jets. To mitigate these effects, object identification algorithms incorporate \textit{multivariate discriminants} and \textit{\acp{WP}} that are tuned to balance efficiency and misidentification rates. However, in some cases, these strategies only partially suppress such backgrounds.
 
-A more complete and accurate event description is achieved by correlating information from all layers of the CMS detector to reconstruct and identify individual particles. This integrated methodology is known as \ac{PF} reconstruction. The implementation of this approach within CMS is detailed in this chapter.
+A more complete and accurate event description is achieved by correlating information from all layers of the CMS detector to reconstruct and identify individual particles. This integrated methodology is known as \textbf{\ac{PF}} reconstruction. The implementation of this approach within CMS is detailed in this chapter.
 
 \section{Reconstruction of Particle Flow detector elements}
 \label{Section:Chapter4_Reconstruction_of_PF_elements}
@@ -17,7 +17,7 @@ A more complete and accurate event description is achieved by correlating inform
 
 The first stage of the reconstruction process, known as \textbf{local reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, involves clustering zero-suppressed signals above predefined thresholds in the tracker sensors to form hits, referred to as \textit{clusters}. For each cluster, both the position and its associated uncertainty are estimated within a local coordinate system defined by the sensor geometry. These locally reconstructed hits form the basis for the subsequent \textbf{global reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3} of particle trajectories.
 
-Global track reconstruction at CMS is facilitated by the \textbf{\ac{CTF}} algorithm~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, an adaptation of the combinatorial \textit{\ac{KF}}~\cite{KF_1,KF_2,KF_3}\footnote{KF~\cite{KF_4} is recursive algorithm that uses a series of measurements over time to estimate the state of a system. This is done by estimating a joint probability distribution over the variables of interest at each time step.} approach. This adaptation enables pattern recognition and track fitting to be performed within a unified framework, allowing hits to be incrementally added and track parameters to be continuously updated in a process known as \textbf{iterative tracking}. A single iteration of the CTF algorithm proceeds in four steps:
+Global track reconstruction is facilitated by the \textbf{\ac{CTF}} algorithm~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, an adaptation of the combinatorial \textit{\ac{KF}}~\cite{KF_1,KF_2,KF_3}\footnote{KF~\cite{KF_4} is recursive algorithm that uses a series of measurements over time to estimate the state of a system. This is done by estimating a joint probability distribution over the variables of interest at each time step.} approach. This adaptation enables pattern recognition and track fitting to be performed within a unified framework, allowing hits to be incrementally added and track parameters to be continuously updated in a process known as \textbf{iterative tracking}. A single iteration of the CTF algorithm proceeds in four steps:
 
 \begin{enumerate}
     \item \textbf{Seed generation}: Initial track candidates are formed using a small number of hits (typically two or three) in the innermost layers of the tracker. Each \textit{seed} provides an initial estimate of the particle's trajectory parameters, such as position, direction, and momentum, as well as their associated uncertainties. 
@@ -62,10 +62,10 @@ Iteration & Name & Seeding & Targeted Tracks \\ \hline \hline
 
 \subsection{Vertex reconstruction}
 
-The primary goal of the CMS vertex reconstruction~\cite{CMS_TrackerPerformance_2014} is to determine the positions and associated uncertainties of all proton-proton interaction vertices in an event, including both the \textbf{\ac{PV}} (associated with the \textit{``signal'' interaction}) and any additional vertices originating from PU collisions, using all available reconstructed tracks. The reconstruction process is performed in three main steps: 
+The primary goal of the CMS vertex reconstruction~\cite{CMS_TrackerPerformance_2014} is to determine the positions and associated uncertainties of all pp interaction vertices in an event, including both the \textbf{\ac{PV}} (associated with the \textit{``signal'' interaction}) and any additional vertices originating from PU collisions, using all available reconstructed tracks. The reconstruction process is performed in three main steps: 
 
 \begin{enumerate}
-    \item \textbf{Track selection}: Tracks consistent with originating promptly near the centre of the luminous region (referred to as the beam spot) are selected. This selection is based on applying quality requirements to the tracks, such as cuts on the transverse impact parameter significance relative to the beam spot and minimum numbers of associated pixel and strip hits.
+    \item \textbf{Track selection}: Tracks consistent with originating promptly near the centre of the luminous region (referred to as the beam spot) are selected. This selection is based on applying quality requirements to the tracks, such as cuts on the transverse impact parameter\footnote{The impact parameter is defined as the distance of closest approach of a charged particle’s trajectory to the PV} significance relative to the beam spot and minimum numbers of associated pixel and strip hits.
     \item \textbf{Track clustering}: Tracks are clustered into groups that appear to be originating from the same vertex. This clustering is performed based on their z-coordinate at the point of closest approach to the beam spot using a \textit{deterministic annealing algorithm}~\cite{DeterministicAnnealing}.
     \item \textbf{Vertex fitting}: Candidate vertices composed of at least two tracks are fitted using an \textit{adaptive vertex fitter}~\cite{VertexFitting_2006,VertexFitting_2007} to determine the best estimate of the vertex parameters. These parameters include the $x$, $y$, and $z$ positions, the associated covariance matrix, and indicators of fit quality. Additionally, the adaptive fit assigns a weight between 0 and 1 to each track, reflecting the probability that the track is genuinely associated with the vertex.
 \end{enumerate}
@@ -96,7 +96,7 @@ Electron reconstruction in CMS leverages both tracking information from the sili
 
 As electrons traverse the CMS tracker, they emit a sizeable fraction of their energy as bremsstrahlung photons due to the significant material thickness (see Fig.~\ref{Figure:Chapter3_Tracker_MaterialBudget}). The performance of the \textbf{ECAL-based approach} therefore depends on the ability to recover this radiated energy while minimising contamination from nearby particles. These photons are predominantly emitted along the electron’s direction but become laterally displaced in $\phi$ due to the curvature of the track in the magnetic field. To capture this energy, a \textit{supercluster} is constructed by merging multiple ECAL clusters within a narrow $\eta$ window and an extended $\phi$ window around the expected electron trajectory~\cite{ParticleFlow}. However, this method exhibits significant inefficiencies in high-density environments, such as when electrons are embedded in jets, where overlapping energy deposits from nearby particles can bias the supercluster’s energy and position. It also suffers when back-propagating from the supercluster to the interaction point, as the supercluster may be compatible with multiple hits from other charged particles, increasing the risk of misreconstruction. Further inefficiencies arise for low-$p_\mathrm{T}$ electrons, where the radiated energy is spread over a broad $\phi$ range, preventing complete energy recovery within a single supercluster.
 
-To recover electrons missed by the ECAL-based method, the \textbf{tracker-based} approach is employed. This approach leverages the high efficiency of the iterative tracking algorithm, which can reliably reconstruct both non-radiating and radiating electrons. Tracks with $p_\mathrm{T} > 2\GeV$ from iterative tracking are considered as potential electron seeds. When bremsstrahlung emission is minimal, the corresponding track can be well reconstructed, as indicated by a well-behaved $\chi^2$ from the track fit,\footnote{The chi-squared ($\chi^2$) statistic quantifies the agreement between the measured hit positions and the predicted trajectory of the track. A low $\chi^2$ indicates a good-quality fit and, therefore, a well-reconstructed track.} and propagated safely to the ECAL inner surface for matching with the nearest ECAL cluster. However, when bremsstrahlung is more significant, the pattern recognition may still recover the track, but often with degraded fit quality (\ie fewer associated hits or a larger $\chi^2$). To address this, a preselection is applied based on the number of hits and the $\chi^2$ of the initial fit, after which tracks are refitted using a \textbf{\ac{GSF}} algorithm~\cite{GSF_Algorithm}. Unlike the KF used in standard tracking, the GSF is specifically designed to accommodate the sudden and substantial energy losses along the trajectory.
+To recover electrons missed by the ECAL-based method, the \textbf{tracker-based} approach is employed. This approach leverages the high efficiency of the iterative tracking algorithm, which can reliably reconstruct both non-radiating and radiating electrons. Tracks with $p_\mathrm{T} > 2\GeV$ from iterative tracking are considered as potential electron seeds. When bremsstrahlung emission is minimal, the corresponding track can be well reconstructed, as indicated by a well-behaved $\chi^2$ from the track fit\footnote{The chi-squared ($\chi^2$) statistic quantifies the agreement between the measured hit positions and the predicted trajectory of the track. A low $\chi^2$ indicates a good-quality fit and, therefore, a well-reconstructed track.}, and propagated safely to the ECAL inner surface for matching with the nearest ECAL cluster. However, when bremsstrahlung is more significant, the pattern recognition may still recover the track, but often with degraded fit quality (\ie fewer associated hits or a larger $\chi^2$). To address this, a preselection is applied based on the number of hits and the $\chi^2$ of the initial fit, after which tracks are refitted using a \ac{GSF} algorithm~\cite{GSF_Algorithm}. Unlike the KF used in standard tracking, the GSF is specifically designed to accommodate the sudden and substantial energy losses along the trajectory.
 
 \subsection{Muon tracking}
 
@@ -135,12 +135,13 @@ Once all valid links are established, groups of interconnected elements, either 
 \begin{enumerate}
     \item \textbf{PF muons}: Global muons present within the block are identified as PF muons if their associated track is consistent with minimal energy deposition in the calorimeters. Once identified, the corresponding tracker and muon elements are removed from the block.
     \item \textbf{PF electrons}: Tracks not previously identified as muons are submitted to a pre-identification step that selects candidate electrons based on characteristic bremsstrahlung patterns observed in the tracker. As described in Section~\ref{Section:Chapter4_ElectronTracking}, these candidates are refitted with a Gaussian Sum Filter (GSF), and a multivariate discriminant combining tracking and ECAL variables is applied. If the candidate passes the discriminant, it is identified as a PF electron, and the associated track and ECAL clusters are removed from the block.
+    \item \textbf{PF charged hadrons}: Remaining tracks give rise to PF charged hadrons. Associated tracks and calorimeter clusters are removed from the block.
     \item \textbf{PF photons \& PF neutral hadrons}: Non-compatible calorimeter clusters with track momentum are interpreted as neutral particles, following:
-    \begin{itemize}
+    \begin{enumerate}
         \item Depending on the relative energy in each calorimeter, both a PF photon (from ECAL) and a PF neutral hadron (from HCAL) may be created to account for the excess.
         \item If the excess energy is primarily in the ECAL and exhibits electromagnetic shower characteristics, only a PF photon is created.
-        \item ECAL and HCAL clusters with no associated tracks are interpreted as PF photons and PF neutral hadrons, respectively
-    \end{itemize}
+        \item Remaining ECAL and HCAL clusters with no associated tracks are interpreted as PF photons and PF neutral hadrons, respectively.
+    \end{enumerate}
 \end{enumerate}
 
 \section{Object identification}
@@ -151,7 +152,7 @@ The final output of the PF algorithm is a list of reconstructed particles, refer
 \subsection{Electrons}
 \label{Section:Electron_Identification}
 
-Electrons are identified using a \ac{MVA} approach, where a \ac{BDT} algorithm is employed to distinguish genuine prompt electrons from backgrounds. These backgrounds include electrons from photon conversions, misidentified hadrons, and non-prompt electrons from the decay of hadrons. The set of discriminating variables used by the BDT can be grouped into the following categories:
+Electrons are identified using a \ac{MVA} approach, where a \ac{BDT} algorithm~\cite{Electron_ID} is employed to distinguish genuine prompt electrons from backgrounds. These backgrounds include electrons from photon conversions, misidentified hadrons, and non-prompt electrons from the decay of hadrons. The set of discriminating variables used by the BDT can be grouped into the following categories:
 
 \begin{itemize}
     \item \textbf{Track-cluster matching observables}: These variables compare measurements obtained from the ECAL and the tracker, including both geometrical matching between the ECAL supercluster and the tracker, as well as energy-momentum matching.
@@ -163,7 +164,7 @@ A working point corresponding to 90\% signal efficiency is used in this thesis, 
 
 In addition to the BDT-based electron identification, isolation requirements are essential for further suppressing backgrounds from misidentified jets or genuine electrons within jets arising from heavy-flavour decays. These background electrons are typically accompanied by significant nearby energy deposits, which can be effectively rejected by imposing an isolation criterion. A simple isolation variable is based on detector-based isolation. This approach computes the scalar sum of transverse energy deposits in the ECAL or HCAL, or the scalar sum of the $p_\mathrm{T}$ of tracks originating from the primary collision vertex, within a cone of radius $\Delta R$ (typically 0.3 or 0.4) around the electron direction. 
 
-A more refined isolation variable is the \textit{PF isolation} ($I_{\text{PF}}^e$, which utilises PF candidates reconstructed within a cone around the electron's direction:
+A more refined isolation variable is the \textit{PF isolation} ($I_{\text{PF}}^e$)~\cite{ElectronID_Performance}, which utilises PF candidates reconstructed within a cone around the electron's direction:
 
 \begin{equation_pad}
     I_{\text{PF}}^e = \frac{1}{p_\mathrm{T}^e} \left( \sum_{\text{h}^{\pm}} p_\mathrm{T} + \text{max} \left[0, \sum_{\text{h}^{0}} p_\mathrm{T} + \sum_{\gamma} p_\mathrm{T} - \rho A_{\text{eff}}\right]  \right)
@@ -174,19 +175,19 @@ where the sums include all PF charged hadrons ($h^\pm$) originating from the pri
 
 \subsection{Muons}
 \label{Section:Muon_Identification}
-As with electrons, a dedicated identification strategy is employed to distinguish genuine prompt muons originating from the primary vertex (PV) from non-prompt muons produced in hadron decays, as well as from charged hadrons misidentified as muons. In this thesis, a \textit{cut-based} muon identification approach is used, specifically adopting the \textit{medium WP}. The criteria of this WP are as follows:
+As with electrons, a dedicated identification strategy is employed to distinguish genuine prompt muons originating from the PV from non-prompt muons produced in hadron decays, as well as from charged hadrons misidentified as muons. In this thesis, a \textit{cut-based} muon identification approach is used, specifically adopting the \textit{medium WP}. The criteria of this WP are as follows:
 
 \begin{itemize}
     \item The muon must be identified by PF, which requires it to be reconstructed as either a tracker or global muon.
     \item Track must be reconstructed with hits in at least 80\% of the inner tracker layers along its path.
     \item Muon segment compatibility of tracker-only muons must be greater than 0.451\footnote{Muon segment compatibility~\cite{CMS_Muon_System_Performance} is computed by propagating the tracker track to the muon system and evaluating both the number of matched segments across stations and the closeness of the matches in position and direction. The variable ranges from 0 to 1, with higher values indicating better compatibility with a genuine muon.}.
     \item For muons reconstructed as both tracker and global muons, the following criteria must be satisfied:
-    \begin{itemize}
+    \begin{enumerate}
         \item Muon segment compatibility must be greater than 0.303.
         \item The global track fit must have a reduced $\chi^2$ value below 3.
         \item The $\chi^2$ of the position match between tracker muon and standalone muon must be less than 12.
         \item The maximum $\chi^2$ value computed by the kink-finding algorithm\footnote{The kink-finding algorithm evaluates the consistency of the tracker track by splitting it into two separate tracks at multiple points along its trajectory. The resulting segments are compared, and a $\chi^2$ value is assigned to quantify their compatibility with originating from the same continuous track.} must be less than 20.
-    \end{itemize}
+    \end{enumerate}
 \end{itemize}
 
 Isolation requirements are also applied to reduce backgrounds from non-prompt muons, such as those produced in weak decays of hadrons within jets. Similar to electrons, isolation can be defined using PF candidates. The PF relative isolation~\cite{ParticleFlow} is given by:
@@ -195,7 +196,7 @@ Isolation requirements are also applied to reduce backgrounds from non-prompt mu
     I_{\text{PF}}^\mu = \frac{1}{p_\mathrm{T}^\mu} \left( \sum_{\text{h}^{\pm}} p_\mathrm{T} + \text{max} \left[0, \sum_{\text{h}^{0}} p_\mathrm{T} + \sum_{\gamma} p_\mathrm{T} - \Delta \beta \sum_{\text{h}^{\pm}\text{,PU}} p_\mathrm{T} \right]  \right)
 \end{equation_pad}
 
-where the expression follows the same structure as the PF isolation for electrons (Eq.~\ref{Equation:Chapter4_PFIso_Electron}). The sums run over PF charged hadrons ($h^\pm$) associated with the primary vertex, neutral hadrons ($h^0$), and photons ($\gamma$), all within a cone of radius $\Delta R < 0.4$ around the muon direction. The pileup correction term includes the scalar sum of transverse momenta of charged hadrons not associated with the primary vertex, scaled by a factor $\Delta \beta = 0.5$. This factor corresponds approximately to the ratio of neutral to charged hadron particle production in the hadronisation process of inelastic pp collisions.
+where the expression follows the same structure as the PF isolation for electrons (Eq.~\ref{Equation:Chapter4_PFIso_Electron}). The sums run over PF charged hadrons ($h^\pm$) associated with the PV, neutral hadrons ($h^0$), and photons ($\gamma$), all within a cone of radius $\Delta R < 0.4$ around the muon direction. The pileup correction term includes the scalar sum of transverse momenta of charged hadrons not associated with the PV, scaled by a factor $\Delta \beta = 0.5$. This factor corresponds approximately to the ratio of neutral to charged hadron particle production in the hadronisation process of inelastic pp collisions.
 
 \subsection{Jets}
 \label{Section:Chapter4_Jets}
@@ -203,24 +204,24 @@ While electrons and muons are reconstructed on a per-particle basis, hadronic fi
 
 This algorithm iteratively groups particles together based on a distance metric ($d_{ij}$), defined as the distance between two objects $i$ and $j$. An additional distance metric, $d_{iB}$, quantifies the distance between object $i$ and the beam axis. The clustering proceeds by identifying the pair $(i,j)$ with the smallest distance. If the minimum corresponds to $d_{ij}$, the objects $i$ and $j$ are merged; if it corresponds to $d_{iB}$, the object $i$ is deemed a final jet and removed from the clustering sequence. This procedure is repeated until no objects remain to be clustered. The distance metrics used by the anti-$k_\mathrm{T}$ algorithm are defined as follows: 
 
-\begin{equation}
+\begin{equation_pad}
     \begin{aligned}
         d_{ij} &= \min\left(p_{\mathrm{T},i}^{-2},\, p_{\mathrm{T},j}^{-2}\right) \frac{\Delta R_{ij}^2}{R^2} \,, \\
         d_{iB} &= p_{\mathrm{T},i}^{-2} \,,
     \end{aligned}
-\end{equation}
+\end{equation_pad}
 
 where $\Delta R_{ij}$ is the distance between objects $i$ and $j$ in the $\eta$–$\phi$ plane, and $R$ is the jet radius parameter, typically set to 0.4. Jets reconstructed with this cone size using the anti-$k_\mathrm{T}$ algorithm are referred to as AK4 jets.
 
 \subsubsection{Pileup mitigation}
 
-One significant constraint to jet clustering in CMS arises from PU. These secondary interactions introduce extra particles that can be clustered into jets, contaminating the jet energy and degrading both the resolution and substructure observables. To mitigate this, CMS employs dedicated PU mitigation strategies~\cite{PU_Mitigation}. The standard method in Run 2 was the \textbf{\ac{CHS}} algorithm~\cite{ParticleFlow}, which leverages information from the tracker to remove charged hadrons that are not associated with the PV before jet clustering. Although CHS substantially improves jet energy resolution, its reliance on post-clustering corrections~\cite{JetEnergyCalibration} on the four-momenta limits its ability to preserve jet shape and subtracture. To overcome this limitation, an alternative approach known as \textbf{\ac{PUPPI}}~\cite{PUPPI} has been developed. PUPPI compute, on an event-by-event basis, a weight for each particle. This weight quantifies the likelihood of the particle originating from the PV, and it is used to scale the particle momenta before clustering. Therefore, allowing jet reconstruction to be less sensitive to PU effects. Both CHS and PUPPI are employed in this thesis: CHS-based jets are used in Chapter~\ref{Section:Chapter_4tau}, while PUPPI-based jets are used in Chapter~\ref{Section:Chapter_CP}. A schematic comparison of the CHS and PUPPI algorithms is shown in Fig.~\ref{Figure:Chapter4_Pileup_Schematic}.
+One significant constraint to jet clustering in CMS arises from PU. These secondary interactions introduce extra particles that can be clustered into jets, contaminating the jet energy and degrading both the resolution and substructure observables. To mitigate this, CMS employs dedicated PU mitigation strategies~\cite{PU_Mitigation}. The standard method in Run 2 was the \textbf{\ac{CHS}} algorithm~\cite{ParticleFlow}, which leverages information from the tracker to remove charged hadrons that are not associated with the PV before jet clustering. Although CHS substantially improves jet energy resolution, its reliance on post-clustering corrections~\cite{JetEnergyCalibration} on the four-momenta limits its ability to preserve jet shape and subtracture. To overcome this limitation, an alternative approach known as \textbf{\ac{PUPPI}}~\cite{PUPPI} has been developed. PUPPI computes on an event-by-event basis a weight for each particle. This weight quantifies the likelihood of the particle originating from the PV, and it is used to scale the particle momenta before clustering. Therefore, allowing jet reconstruction to be less sensitive to PU effects. Both CHS and PUPPI are employed in this thesis: CHS-based jets are used in Chapter~\ref{Section:Chapter_4tau}, while PUPPI-based jets are used in Chapter~\ref{Section:Chapter_CP}. A schematic comparison of the CHS and PUPPI algorithms is shown in Fig.~\ref{Figure:Chapter4_Pileup_Schematic}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{Figures/Chapter4/Pileup_Schematic.png}
+\includegraphics[width=\textwidth]{Figures/Chapter4/PU_Shematic.pdf}
 \caption[Sketch of pileup suppression techniques]{
-Sketch of pileup suppression techniques. Solid lines correspond to charged PF candidates, while dashed lines indicate neutral PF candidates. The assigned per-particle weights are illustrated by thinner lines.}
+Sketch of PU suppression techniques. Solid lines correspond to charged PF candidates, while dashed lines indicate neutral PF candidates. The assigned per-particle weights (from PUPPI) are illustrated by thinner lines. Figure taken from Ref.~\cite{Jet_Reconstruction_Run2_Run3}.}
 \label{Figure:Chapter4_Pileup_Schematic}
 \end{figure}
 
@@ -228,16 +229,16 @@ To suppress misidentified jets arising from non-hadronic or spurious sources, a 
 
 \subsubsection{Bottom-quark initiated jets}
 
-Jets originating from bottom quarks can be identified using a technique known as \textit{b-tagging}, which exploits the distinctive properties of $b$-hadron decays. A key characteristic of $b$ hadrons is their relatively long lifetime (approximately $1.5\unit{ps}$), which allows them to travel several millimetres from the primary vertex (PV) before decaying. Consequently, the resulting decay products are displaced from the PV and typically leave tracks that can be traced back to a \textbf{\ac{SV}}. The displacement of these tracks is quantified using the \ac{IP}, defined as the distance of closest approach of a charged particle’s trajectory to the PV. The reliability of this observable is further characterised by the \textit{IP significance}, given by the ratio of the IP to its associated uncertainty. The discriminating power of the IP in $b$-tagging is illustrated in Fig.\ref{Figure:Chapter4_IP_bjets}.
+Jets originating from bottom quarks can be identified using a technique known as \textit{b-tagging}, which exploits the distinctive properties of $b$-hadron decays. A key characteristic of $b$ hadrons is their relatively long lifetime (approximately $1.5\unit{ps}$~\cite{ParticleMasses}), which allows them to travel several millimetres from the PV before decaying. Consequently, the resulting decay products are displaced from the PV and typically leave tracks that can be traced back to a \textbf{\ac{SV}}. The displacement of these tracks is quantified using the \ac{IP}, defined as the distance of closest approach of a charged particle’s trajectory to the PV. The reliability of this observable is further characterised by the \textit{IP significance}, given by the ratio of the IP to its associated uncertainty. The discriminating power of the IP in $b$-tagging is illustrated in Fig.\ref{Figure:Chapter4_IP_bjets}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{Figures/Chapter4/IP_bjets.pdf}
+\includegraphics[width=0.7\textwidth]{Figures/Chapter4/IP_bjets.pdf}
 \caption[Distributions of the 3D impact parameter for tracks associated with different types of jets]{Distributions of the 3D IP for tracks associated with different types of jets. Figure taken from Ref.~\cite{HeavyFlavourJets_ID}.}
 \label{Figure:Chapter4_IP_bjets}
 \end{figure}
 
-Algorithms used to identify b-jets typically exploit lifetime-based signatures. They may also incorporate variables sensitive to other distinctive properties of b hadrons, such as their large mass and hard fragmentation behaviour. In this thesis, the employed tagger is \textbf{DeepJet}~\cite{DeepJet}, a deep neural network combining convolutional (CNN) and recurrent (LSTM) layers. DeepJet takes as input a set of global variables, PF candidate features, and SV information, and outputs class probabilities for a jet to be a b, c, or light-flavour jet. Its performance is summarised in Fig.~\ref{Figure:Chapter4_DeepJetPerformance}.
+Algorithms used to identify b-jets typically exploit lifetime-based signatures. They may also incorporate variables sensitive to other distinctive properties of b hadrons, such as their large mass and hard fragmentation behaviour. In this thesis, the employed tagger is \textbf{DeepJet}~\cite{DeepJet}, a deep neural network combining convolutional (CNN) and recurrent (LSTM) layers. DeepJet takes as input a set of global variables, PF candidate features, and SV information, and outputs class probabilities for a jet to be a b-, c-, or light-flavour jet. Its performance is summarised in Fig.~\ref{Figure:Chapter4_DeepJetPerformance}.
 
 \begin{figure}[h]
     \centering
@@ -260,22 +261,22 @@ Algorithms used to identify b-jets typically exploit lifetime-based signatures. 
 \subsection{Missing transverse energy}
 As mentioned in Section~\ref{Section:Chapter3_CMS_Detector_Introduction}, the total transverse momentum of a hard scattering event is assumed to be zero and is conserved. The concept and role of \textbf{MET} was also discussed, but for completeness, its definition~\cite{MET_Reconstruction} is presented here:
 
-\begin{equation}
+\begin{equation_pad}
     \vec{E}_\mathrm{T}^{\text{miss,PF}} = - \sum_i \vec{p_\mathrm{T}}^i
-\end{equation}
+\end{equation_pad}
 
 where the sum runs over all PF candidates reconstructed in the event. This definition reflects the imbalance in transverse momentum and serves as an indirect probe for particles that escape detection.
 
-However, PF MET suffers from pileup contamination, similar to PF jets, as discussed in Section~\ref{Section:Chapter4_Jets}. In addition to pileup, the accuracy of $E_\mathrm{T}^{\text{miss}}$ remains sensitive to several detector-related effects: non-linear response of the calorimeter to hadrons, minimum energy thresholds in calorimeters, and track reconstruction inefficiencies. These effects are partially mitigated through the application of jet energy corrections~\cite{JetEnergyCalibration}. To further reduce the impact of pileup on MET, the PUPPI algorithm is exploited, modifying $\vec{E}_\mathrm{T}^{\text{miss}}$ by weighing the $p_\mathrm{T}$ of PF candidates according to their compatibility with the PV:
+However, PF MET suffers from PU contamination, similar to PF jets, as discussed in Section~\ref{Section:Chapter4_Jets}. In addition to PU, the accuracy of $E_\mathrm{T}^{\text{miss}}$ remains sensitive to several detector-related effects: non-linear response of the calorimeter to hadrons, minimum energy thresholds in calorimeters, and track reconstruction inefficiencies. These effects are partially mitigated through the application of jet energy corrections~\cite{JetEnergyCalibration}. To further reduce the impact of PU on MET, the PUPPI algorithm is exploited, modifying $\vec{E}_\mathrm{T}^{\text{miss}}$ by weighing the $p_\mathrm{T}$ of PF candidates according to their compatibility with the PV:
 
-\begin{equation}
+\begin{equation_pad}
     \vec{E}_\mathrm{T}^{\text{miss,PUPPI}} = - \sum_i w_i\vec{p_\mathrm{T}}^i
-\end{equation}
+\end{equation_pad}
 
 \subsection{Taus}
 \label{Section:Chapter4_Taus}
 
-The reconstruction and identification of $\PGt$ leptons are fundamental to this thesis. With a mass of $m_\tau = 1.776\GeV$ and a decay length of $c\tau = 87.03\unit{\mu m}$, the $\PGt$ lepton decays promptly before reaching the pixel tracker, and must therefore be reconstructed from its decay products. Owing to its relatively large mass, it exhibits a rich variety of decay modes, which proceed either leptonically or hadronically, as summarised in Table~\ref{Table:Chapter4_TauDecayModes}. Leptonic decays involve the $\PGt$ lepton decaying into a lighter lepton (electron or muon) and two neutrinos, while hadronic decays produce one or more charged hadrons (pions or kaons) and at least one neutrino. Leptonic $\PGt$ decays are identified using the electron and muon identification algorithms described in Sections~\ref{Section:Electron_Identification} \& \ref{Section:Muon_Identification}, respectively.
+The reconstruction and identification of $\PGt$ leptons are fundamental to this thesis. With a mass of $m_\tau = 1.776\GeV$ and a decay length of $c\tau = 87.03\unit{\mu m}$~\cite{ParticleMasses}, the $\PGt$ lepton decays promptly before reaching the pixel tracker, and must therefore be reconstructed from its decay products. Owing to its relatively large mass, it exhibits a rich variety of decay modes, which proceed either leptonically or hadronically, as summarised in Table~\ref{Table:Chapter4_TauDecayModes}. Leptonic decays involve the $\PGt$ lepton decaying into a lighter lepton (electron or muon) and two neutrinos, while hadronic decays produce one or more charged hadrons (pions or kaons) and at least one neutrino. Leptonic $\PGt$ decays are identified using the electron and muon identification algorithms described in Sections~\ref{Section:Electron_Identification} \& \ref{Section:Muon_Identification}, respectively.
 
 \begin{table}[htbp]
 \centering
@@ -312,59 +313,102 @@ Other & - & 3.3 \\
 \label{Table:Chapter4_TauDecayModes}
 \end{table}
 
-To reconstruct $\PGt_h$ candidates, the \textbf{\ac{HPS}} algorithm is employed. The reconstruction begins by identifying seed regions based on PF jets clustered using the anti-$k_T$ algorithm with a distance parameter of $R = 0.4$. All PF candidates within a cone of $\Delta R < 0.5$ around the jet axis are considered, with charged hadrons required to have $p_\mathrm{T} > 0.5\GeV$ and must be compatible with originating from the PV of the event. The second step of the HPS algorithm, known as \textit{dynamic strip reconstruction}, focuses on clustering photon and electron constituents of the jet into $\Delta\eta \times \Delta\phi$ strips. These strips are used to collect energy depositions in the ECAL associated with neutral pions produced in $\PGt_h$ decays. Initially, a fixed strip size was used in the reconstruction; however, this method proved inadequate for containing all secondary particles from the $\PGt_h$ decay in some cases. For example, nuclear interactions of charged pions in the tracker material can produce low-$p_\mathrm{T}$ secondaries outside the strip, and photon conversions can lead to displaced $e^+e^-$ pairs due to scattering and bremsstrahlung. In such cases, the isolation of a $\PGt_h$ candidate would be affected. To address this, the strip size is now dynamically adjusted, and the strip clustering procedure is implemented through the following steps:
+To reconstruct $\PGt_h$ candidates, the \textbf{\ac{HPS}} algorithm~\cite{Tau_Reco_ID_2015,Tau_Reco_ID_2018} is employed. The reconstruction begins by identifying seed regions based on PF jets clustered using the anti-$k_T$ algorithm with a distance parameter of $R = 0.4$. All PF candidates within a cone of $\Delta R < 0.5$ around the jet axis are considered, with charged hadrons required to have $p_\mathrm{T} > 0.5\GeV$ and must be compatible with originating from the PV of the event. The second step of the HPS algorithm, known as \textit{dynamic strip reconstruction}, focuses on clustering photon and electron constituents of the jet into $\Delta\eta \times \Delta\phi$ strips. These strips are used to collect energy depositions in the ECAL associated with neutral pions produced in $\PGt_h$ decays. Initially, a fixed strip size was used in the reconstruction; however, this method proved inadequate for containing all secondary particles from the $\PGt_h$ decay in some cases. For example, nuclear interactions of charged pions in the tracker material can produce low-$p_\mathrm{T}$ secondaries outside the strip, and photon conversions can lead to displaced $e^+e^-$ pairs due to scattering and bremsstrahlung. In such cases, the isolation of a $\PGt_h$ candidate would be affected. To address this, the strip size is now dynamically adjusted~\cite{Tau_Reco_ID_2018}, and the strip clustering procedure is implemented through the following steps:
 
 \begin{enumerate}
     \item A new strip is seeded using the electron or photon ($e/\gamma$) with the highest $p_\mathrm{T}$ that has not yet been assigned to any existing strip.
-
     \item The electron or photon candidate with the second-highest $p_\mathrm{T}$ is merged into the strip if it lies within,
-
     \begin{equation_pad}
     \begin{aligned}
         \Delta \eta &= f\left(p_\mathrm{T}^{e/\gamma}\right) + f\left(p_\mathrm{T}^\text{strip}\right) \quad,\quad \Delta \eta\left[0.05,0.15\right] \\
         \Delta \phi &= g\left(p_\mathrm{T}^{e/\gamma}\right) + g\left(p_\mathrm{T}^\text{strip}\right) \quad,\quad \Delta \phi\left[0.05,0.30\right]    
     \end{aligned}
     \end{equation_pad}
-
     where the functions $f$ and $g$ are defined as $f(p_\mathrm{T}) = 0.20\,p_\mathrm{T}^{-0.66}$ and $g(p_\mathrm{T}) = 0.35\,p_\mathrm{T}^{-0.71}$, with $p_\mathrm{T}$ in GeV. These values were determined from simulation, such that 95\% of electrons and photons from $\PGt_h$ decays are contained within one strip. The corresponding envelope fits are illustrated in Fig.~\ref{Figure:Chapter4_StripSizeParametrisation}.
-
     \item The strip position is recalculated as a $p_\mathrm{T}$-weighted average of all $e/\gamma$ strip constituents.
-
     \begin{equation_pad}
     \begin{aligned}
         \eta_{\text{strip}} &= \frac{\sum p_\mathrm{T}^{e/\gamma} \eta_{e/\gamma}}{p_\mathrm{T}^{\text{strip}}} ,\\
         \phi_{\text{strip}} &= \frac{\sum p_\mathrm{T}^{e/\gamma} \phi_{e/\gamma}}{p_\mathrm{T}^{\text{strip}}}
     \end{aligned}
     \end{equation_pad}
-
     \item The strip construction ends when no further $e/\gamma$ candidates are found within the strip window.
 \end{enumerate}
 
-Once strips are reconstructed, they are combined with charged hadrons to form $\PGt_h$ decay mode hypotheses. The compatibility of each hypothesis is assessed by requiring the invariant mass of the visible decay products ($m_{\PGt_h}$) to lie within a predefined window tailored to each decay mode. The mass windows are optimised to maximise the reconstruction efficiency while minimising the probability of misidentifying jets as hadronic $\PGt$ decays. Each $\PGt_h$ decay mode is reconstructed according to the following criteria:
+\begin{figure}[h]
+        \centering
+        % First row
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter4/HPS_Envolope_Deta.pdf}
+            \caption{}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter4/HPS_Envolope_Dphi.pdf}
+            \caption{}
+        \end{subfigure}
+    \caption[Distance between $\PGt_h$ and $e/\gamma$ candidates in $\eta$ and $\phi$ coordinates as a function of the $e/\gamma$ $p_\mathrm{T}$ in simulated $\PGt_h$ decays]{Distance between $\PGt_h$ and $e/\gamma$ candidates in \textbf{(a)} $\eta$ and \textbf{(b)} $\phi$ coordinates as a function of the $e/\gamma$ $p_\mathrm{T}$ in simulated $\PGt_h$ decays. Black dots show 95\% containment boundaries, with red lines showing the corresponding fitted functions ($f,g$). Figures taken from Ref.~\cite{Tau_Reco_ID_2018}.}
+    \label{Figure:Chapter4_StripSizeParametrisation}
+    \end{figure}
+
+Once strips are reconstructed, they are combined with charged hadrons to form $\PGt_h$ decay mode hypotheses. The compatibility of each hypothesis is assessed by requiring the invariant mass of the visible decay products ($m_{\PGt_h}$) to lie within a predefined window tailored to each decay mode. The mass windows are optimised to maximise the reconstruction efficiency while minimising the probability of misidentifying jets as $\PGt_h$ decays. Each $\PGt_h$ decay mode is reconstructed according to the following criteria:
 
 \begin{itemize}
     \item \textbf{$h^\pm$}: Single charged hadron with no strips. The mass window is $0 < m_{\PGt_h} < 1\GeV$, and the mass is fixed to the charged pion mass.
-    
     \item \textbf{$h^\pm \pi^0$}: One charged hadron and one strip. The mass window is $0.3\GeV - \Delta m_{\PGt_h} < m_{\PGt_h} < 1.3\GeV\sqrt{p_\mathrm{T}^{\PGt_h}/(100\GeV)} + \Delta m_{\PGt_h}$, corresponding to the $\rho(770)$ resonance. The mass window is constrained to lie between 1.3 and 4.2$\GeV$.
-
     \item \textbf{$h^\pm \pi^0 \pi^0$}: One charged hadron and two strips. The mass window is $0.4\GeV - \Delta m_{\PGt_h} < m_{\PGt_h} < 1.2\GeV\sqrt{p_\mathrm{T}^{\PGt_h}/(100\GeV)} + \Delta m_{\PGt_h}$, corresponding to the $\mathrm{a}_1(1260)$. The mass window is constrained to lie between 1.2 and 4.0$\GeV$.
-
     \item \textbf{$h^\pm h^\mp h^\pm$}: Three charged hadrons, no strips. The mass window is $0.8 < m_{\PGt_h} < 1.5\GeV$, targeting the $\mathrm{a}_1(1260)$ resonance.
-
     \item \textbf{$h^\pm h^\mp h^\pm \pi^0$}: Three charged hadrons and one strip. The mass window is $0.9\GeV - \Delta m_{\PGt_h}< m_{\PGt_h} < 1.6\GeV + \Delta m_{\PGt_h}$, corresponding to the $\rho(1450)$ resonance.
 \end{itemize}
 
 The performance of the HPS algorithm in correctly identifying these decay modes is illustrated in Fig.~\ref{Figure:Chapter4_HPS_ConfusionMatrix}, which presents a confusion matrix derived from simulated $Z \rightarrow \PGt^+ \PGt^-$ events. 
 
-While the HPS algorithm is essential for reconstructing the decay products of $\PGt_h$ candidates and assigning decay modes, it is not sufficient on its own to effectively discriminate genuine $\PGt_h$ decays from the dominant background of quark- and gluon-initiated jets. Similarly, electrons and muons can form well-isolated single-track jets mimicking the $h^\pm$ signature, while electrons can be further misidentified as the $h^\pm \pi^0$ decay mode due to bremsstrahlung-induced ECAL clusters mimicking the photon signatures of neutral pion decays. To enhance the discrimination power and address these challenges, CMS employs a dedicated identification algorithm known as \textbf{DeepTau}, which attempts to learn whether the input object is $\tau_h$ decay, an electron, a muon or a jet. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/Chapter4/HPS_DecayMode_Performance.pdf}
+\caption[Hadronic tau decay mode confusion matrix]{Confusion matrix of reconstructed and generated $\PGt_h$ decay modes in simulation. Each cell indicates the fraction of generated decay modes reconstructed as a given decay mode. Figure extracted from Ref.~\cite{DeepTau_20-001}.}
+\label{Figure:Chapter4_HPS_ConfusionMatrix}
+\end{figure}
 
-DeepTau is a multiclass neural network combining convolutional and dense layers. The convolutional part of the network is designed to capture complex spatial patterns in the $\eta$–$\phi$ plane, using low-level inputs from particles surrounding the HPS candidate. These include kinematic properties, track quality, vertex compatibility (with the PV or a possible SV), calorimetric energy deposits, and pileup likelihoods. In addition to particle-level inputs, DeepTau incorporates high-level features derived from the HPS candidate, including its four-momentum, charge, decay mode, isolation variables, impact parameters, $\eta$, strip geometry, and event-level quantities such as pileup density. The output of DeepTau consists of four scores $y_\alpha$, where $\alpha \in {\PGt_h,\text{jet},\mu,\text{e}}$, each representing the estimated probability that a given $\PGt_h$ candidate belongs to class $\alpha$. From these scores, three discriminators are constructed,
+While the HPS algorithm is essential for reconstructing the decay products of $\PGt_h$ candidates and assigning decay modes, it is not sufficient on its own to effectively discriminate genuine $\PGt_h$ decays from the dominant background of quark- and gluon-initiated jets. Similarly, electrons and muons can form well-isolated single-track jets mimicking the $h^\pm$ signature, while electrons can be further misidentified as the $h^\pm \pi^0$ decay mode due to bremsstrahlung-induced ECAL clusters mimicking the photon signatures of neutral pion decays. To enhance the discrimination power and address these challenges, CMS employs a dedicated identification algorithm known as \textbf{DeepTau}~\cite{DeepTau_20-001,DeepTau_24-001}, which attempts to learn whether the input object is $\tau_h$ decay, an electron, a muon or a jet. 
 
-\begin{equation}
+DeepTau is a multiclass neural network combining convolutional and dense layers. The convolutional part of the network is designed to capture complex spatial patterns in the $\eta$–$\phi$ plane, using low-level inputs from particles surrounding the HPS candidate. These include kinematic properties, track quality, vertex compatibility (with the PV or a possible SV), calorimetric energy deposits, and pileup likelihoods. In addition to particle-level inputs, DeepTau incorporates high-level features derived from the HPS candidate, including its four-momentum, charge, decay mode, isolation variables, impact parameters, $\eta$, strip geometry, and event-level quantities such as pileup density. The output of DeepTau consists of four scores $y_\alpha$, where \textbf{[$\alpha \in {\PGt_h,\text{jet},\mu,\text{e}}$]}, each representing the estimated probability that a given $\PGt_h$ candidate belongs to class $\alpha$. From these scores, three discriminators are constructed,
+
+\begin{equation_pad}
     D_\alpha(y) = \frac{y_{\PGt_h}}{y_{\PGt_h} + y_\alpha} 
-\end{equation}
+\end{equation_pad}
 
-which efficiently reject misidentified electrons ($D_\text{e}$), muons ($D_\mu$), and jets ($D_\text{jet}$). To support consistent application across physics analyses, a set of predefined WPs is defined for each discriminator. These working points correspond to fixed target efficiencies for identifying genuine $\PGt_h$ decays, allowing analysts to balance background rejection against signal efficiency. The expected performance of each WP is summarised in Table~\ref{...}.
+which efficiently reject misidentified electrons ($D_\text{e}$), muons ($D_\mu$), and jets ($D_\text{jet}$). To support consistent application across physics analyses, a set of predefined WPs is defined for each discriminator. These working points correspond to fixed target efficiencies for identifying genuine $\PGt_h$ decays, allowing analysts to balance background rejection against signal efficiency. The expected performance of each WP is summarised in Table~\ref{Table:Chapter4_DeepTau_WPs}.
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Working Point} & $D_{\text{jet}}$ & $D_e$ & $D_\mu$ \\
+\hline \hline
+VVVLoose & 98\% & 99.5\% & -- \\
+\arrayrulecolor{lightgray} \hline
+VVLoose  & 95\% & 99\%   & -- \\
+\arrayrulecolor{lightgray} \hline
+VLoose   & 90\% & 98\%   & 99.95\% \\
+\arrayrulecolor{lightgray} \hline
+Loose    & 80\% & 95\%   & 99.9\% \\
+\arrayrulecolor{lightgray} \hline
+Medium   & 70\% & 90\%   & 99.8\% \\
+\arrayrulecolor{lightgray} \hline
+Tight    & 60\% & 80\%   & 99.5\% \\
+\arrayrulecolor{lightgray} \hline
+VTight   & 50\% & 70\%   & -- \\
+\arrayrulecolor{lightgray} \hline
+VVTight  & 40\% & 60\%   & -- \\
+\arrayrulecolor{lightgray} \hline
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption[Hadronic $\PGt$ target efficiencies for the different working points of the DeepTau algorithm with respect to the electron, muon and jet discriminators]{Hadronic $\PGt$ target efficiencies for the different WPs of the DeepTau algorithm with respect to the electron, muon and jet discriminators. Values extracted from Ref.~\cite{DeepTau_20-001}.}
+\label{Table:Chapter4_DeepTau_WPs}
+\end{table}
 
 
 

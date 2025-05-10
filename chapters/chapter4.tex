@@ -14,8 +14,7 @@ A more complete and accurate event description is achieved by correlating inform
 \section{Reconstruction of Particle Flow detector elements}
 \label{Section:Chapter4_Reconstruction_of_PF_elements}
 \subsection{Track reconstruction}
-
-The first stage of the reconstruction process, known as \textbf{local reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, involves clustering zero-suppressed signals above predefined thresholds in the tracker sensors to form hits, referred to as \textit{clusters}. For each cluster, both the position and its associated uncertainty are estimated within a local coordinate system defined by the sensor geometry. These locally reconstructed hits form the basis for the subsequent \textbf{global reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3} of particle trajectories.
+The first stage of the reconstruction process, known as \textbf{local reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, uses \textit{clusters}. These are groups of adjacent strips with signals above predefined thresholds, identified during \ac{FED} readout, and are used to reconstruct particle hits in the silicon tracker. For each cluster, both the position and its associated uncertainty are estimated within a local coordinate system defined by the sensor geometry. These locally reconstructed hits form the basis for the subsequent \textbf{global reconstruction}~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3} of particle trajectories.
 
 Global track reconstruction is facilitated by the \textbf{\ac{CTF}} algorithm~\cite{CMS_TrackerPerformance_2014,CMS_Track_Reconstruction_Run2_3}, an adaptation of the combinatorial \textit{\ac{KF}}~\cite{KF_1,KF_2,KF_3}\footnote{KF~\cite{KF_4} is recursive algorithm that uses a series of measurements over time to estimate the state of a system. This is done by estimating a joint probability distribution over the variables of interest at each time step.} approach. This adaptation enables pattern recognition and track fitting to be performed within a unified framework, allowing hits to be incrementally added and track parameters to be continuously updated in a process known as \textbf{iterative tracking}. A single iteration of the CTF algorithm proceeds in four steps:
 
@@ -35,28 +34,32 @@ The \textbf{iterative tracking} procedure in CMS is performed in successive iter
 \begin{tabular}{|c|l|l|l|}
 \hline
 Iteration & Name & Seeding & Targeted Tracks \\ \hline \hline
-1         & InitialStep              & pixel triplets              & prompt, high $p_\mathrm{T}$                     \\
+1         & InitialStep              & pixel quadruplets           & prompt, high $p_\mathrm{T}$    \\
 \arrayrulecolor{lightgray} \hline
-2         & DetachedTriplet          & pixel triplets              & b hadron decays, R $\leq 5\unit{cm}$      \\
+2         & LowPtQuad                & pixel quadruplets           & prompt, low $p_\mathrm{T}$    \\
 \arrayrulecolor{lightgray} \hline
-3         & LowPtTriplet             & pixel triplets              & prompt, low $p_\mathrm{T}$                      \\
+3         & HighPtTriplet            & pixel triplets             & prompt, hight $p_\mathrm{T}$                \\
 \arrayrulecolor{lightgray} \hline
-4         & PixelPair                & pixel pairs                 & recover high $p_\mathrm{T}$                     \\
+4         & LowPtTriplet             & pixel triplets             & prompt, low $p_\mathrm{T}$                \\
 \arrayrulecolor{lightgray} \hline
-5         & MixedTriplet             & pixel+strip triplets        & displaced, R $\leq 7\unit{cm}$                \\
+5         & DetachedQuad             & pixel quadruplets          & b hadron decays, R $\leq 5\unit{cm}$      \\
 \arrayrulecolor{lightgray} \hline
-6         & PixelLess                & strip triplets/pairs        & very displaced, R $\leq 25\unit{cm}$          \\
+6         & DetachedTriplet          & pixel triplets              & b hadron decays, R $\leq 10\unit{cm}$      \\
 \arrayrulecolor{lightgray} \hline
-7         & TobTec                   & strip triplets/pairs        & very displaced, R $\leq 60\unit{cm}$          \\
+7         & MixedTriplet             & pixel+strip triplets        & displaced, R $\leq 7\unit{cm}$                \\
 \arrayrulecolor{lightgray} \hline
-8         & JetCoreRegional          & pixel+strip pairs           & inside high $p_\mathrm{T}$ jets                 \\
+8         & PixelLess                & strip triplets/pairs        & very displaced, R $\leq 25\unit{cm}$          \\
 \arrayrulecolor{lightgray} \hline
-9         & MuonSeededInOut          & muon-tagged tracks          & muons                               \\
+9         & TobTec                   & strip triplets/pairs        & very displaced, R $\leq 60\unit{cm}$          \\
 \arrayrulecolor{lightgray} \hline
-10        & MuonSeededOutIn          & muon detectors              & muons                               \\
+10         & JetCoreRegional          & pixel+strip pairs          & inside high $p_\mathrm{T}$ jets                 \\
+\arrayrulecolor{lightgray} \hline
+11         & MuonSeededInOut         & muon-tagged tracks          & muons                               \\
+\arrayrulecolor{lightgray} \hline
+12        & MuonSeededOutIn          & muon detectors              & muons                               \\
 \arrayrulecolor{black} \hline
 \end{tabular}
-\caption[Summary of iterative tracking steps in CMS]{Summary of the iterations used in the CMS iterative tracking algorithm. Table taken from Ref.~\cite{ParticleFlow}.}
+\caption[Summary of iterative tracking steps in CMS]{Summary of the iterations used in the CMS iterative tracking algorithm. Table taken from Ref.~\cite{ParticleFlow,LocalReconstructionSteps}.}
 \label{Table:Chapter4_IterativeTrackingSeeds}
 \end{table}
 
@@ -350,7 +353,7 @@ To reconstruct $\PGt_h$ candidates, the \textbf{\ac{HPS}} algorithm~\cite{Tau_Re
         \end{subfigure}
     \caption[Distance between $\PGt_h$ and $e/\gamma$ candidates in $\eta$ and $\phi$ coordinates as a function of the $e/\gamma$ $p_\mathrm{T}$ in simulated $\PGt_h$ decays]{Distance between $\PGt_h$ and $e/\gamma$ candidates in \textbf{(a)} $\eta$ and \textbf{(b)} $\phi$ coordinates as a function of the $e/\gamma$ $p_\mathrm{T}$ in simulated $\PGt_h$ decays. Black dots show 95\% containment boundaries, with red lines showing the corresponding fitted functions ($f,g$). Figures taken from Ref.~\cite{Tau_Reco_ID_2018}.}
     \label{Figure:Chapter4_StripSizeParametrisation}
-    \end{figure}
+\end{figure}
 
 Once strips are reconstructed, they are combined with charged hadrons to form $\PGt_h$ decay mode hypotheses. The compatibility of each hypothesis is assessed by requiring the invariant mass of the visible decay products ($m_{\PGt_h}$) to lie within a predefined window tailored to each decay mode. The mass windows are optimised to maximise the reconstruction efficiency while minimising the probability of misidentifying jets as $\PGt_h$ decays. Each $\PGt_h$ decay mode is reconstructed according to the following criteria:
 
@@ -386,7 +389,7 @@ which efficiently reject misidentified electrons ($D_\text{e}$), muons ($D_\mu$)
 \renewcommand{\arraystretch}{1.5} % Increase row height
 \begin{tabular}{|l|c|c|c|}
 \hline
-\textbf{Working Point} & $D_{\text{jet}}$ & $D_e$ & $D_\mu$ \\
+Working Point & $D_{\text{jet}}$ & $D_e$ & $D_\mu$ \\
 \hline \hline
 VVVLoose & 98\% & 99.5\% & -- \\
 \arrayrulecolor{lightgray} \hline

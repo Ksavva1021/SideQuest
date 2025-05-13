@@ -1,0 +1,46 @@
+\chapter{\texorpdfstring{Search for extended Higgs sector signatures in $\PGt^+\PGt^-\PGt^+\PGt^-$ final states}{Search for extended Higgs sector signatures in tautautautau final states}}
+\chaptermark{4tau}  
+\thispagestyle{plain}  % First page has default style
+\pagestyle{chapterpages}
+\label{Section:Chapter_4tau}
+\minitoc
+
+Motivated by the theoretical considerations and the particularly interesting muon $g-2$ measurement discussed in Section~\ref{Section:Chapter2_gminus2}, this chapter presents an analysis targeting final states with four $\PGt$ leptons through the $Z^*\rightarrow\phi A\rightarrow4\PGt$ process. This search for the Type-X 2HDM offers sensitivity to a region of parameter space in extended Higgs sector models that remains largely unexplored at hadron colliders. 
+
+This chapter outlines the analysis strategy employed in the search. It begins with a brief overview of the datasets and simulated background samples used, followed by a description of the signal modelling. The subsequent sections detail the event reconstruction, selection criteria, and trigger requirements. Background estimation techniques are then discussed alongside the corrections applied to simulated samples and the treatment of systematic uncertainties. The chapter concludes with optimisation studies and the signal extraction procedure, which is presented in both a model-independent context and interpreted within the framework of the Type-X 2HDM.
+
+\section{Datasets}
+
+The Type-X 2HDM search presented in this chapter is based on pp collision data collected by the CMS detector during the 2016-2018 Run 2 data-taking period. The collisions were recorded at a centre-of-mass energy of $\sqrt{s} = 13\TeV$, as described in Section~\ref{Section:Chapter3_LHC}. The full dataset corresponds to an integrated luminosity of approximately $138\unit{fb}^{-1}$.
+
+\section{Event simulation}
+
+Simulated samples are an essential component of this analysis, enabling the modelling of both signal and background processes. Before detailing the specific samples used, a brief overview of the event generation procedure is warranted. Monte Carlo simulators are employed to model pp collisions according to theoretical predictions, ensuring that events are sampled with the appropriate level of randomness to reflect the underlying probability distributions of the physical processes involved~\cite{PYTHIA,EventGenerators}.
+
+The simulation of pp collisions proceeds through several distinct steps, each modelling a different stage of the event:
+
+\begin{enumerate}
+    \item \textbf{Hard scattering process:} The hard scattering process is generated using perturbative matrix-element calculations, corresponding to high-energy interactions at short distance scales where QCD remains asymptotically free. This step models the distribution of initial-state partons within the proton via \acp{PDF}, and computes the relevant matrix element, $\mathcal{M}_{i \to f}$, for a given set of model parameters $\vec{\alpha}$. Parton-level final states are then produced with probabilities proportional to the squared matrix element.
+
+    \item \textbf{Parton showers:} In this step, \textit{initial-state} and \textit{final-state} radiation are simulated. This models the emission of coloured partons that can occur before or after the hard scattering process.
+
+    \item \textbf{Hadronisation:} At low energy scales, QCD enters the non-perturbative regime, where the coloured partons from the parton shower combine to form colour-neutral hadrons. This step is modelled using QCD phenomenological models with tunable parameters that are adjusted to match experimental data.
+
+    \item \textbf{Particle decays:} Unstable particles produced in the event are decayed according to their lifetimes and branching fractions, resulting in stable final-state particles.
+
+    \item \textbf{Underlying event:} Additional softer interactions between the remaining proton constituents (spectator partons) are simulated, contributing further particles to the event.
+
+    \item \textbf{Detector simulation:} The final step models the passage of particles through the CMS detector using a detailed simulation of its geometry and material composition.
+\end{enumerate}
+
+\subsection{Simulated Backgrounds}
+
+The main backgrounds to the four $\PGt$ final state arise from SM processes that produce genuine or misidentified tau leptons. Many of the backgrounds of the four $\PGt$ final states are also common to analyses involving two $\PGt$ leptons. The backgrounds include Drell-Yan, $t\overline{t}$, gluon and quark-initiated di-Z production, W+jets, diboson, tribson, single-top and electroweak W and Z boson production.
+
+% \subsubsection{Drell-Yan}
+
+% The Drell--Yan (DY) process, primarily $Z/\gamma^* \to \tau^+\tau^-$, constitutes a major background in analyses involving tau leptons. Although it directly produces only two tau leptons, additional leptons or jets misidentified as taus can result in apparent multi-tau final states. This background is simulated using [insert generator name, e.g., \textsc{MadGraph5\_aMC@NLO}], with parton showering and hadronisation handled by [e.g., \textsc{Pythia8}]. The simulated events are normalised to the next-to-next-to-leading order (NNLO) cross section.
+
+
+
+

@@ -7,7 +7,7 @@
 
 This chapter presents the reconstruction and identification of physics objects in the CMS detector, which is foundational to all analyses performed in this thesis. In particular, $\PGt$ lepton reconstruction is a central focus. This is a particularly challenging task due to its short lifetime and complex decay modes, which can involve a mix of charged and neutral hadrons, electrons, muons, and undetectable neutrinos. Therefore, excellent performance of multiple reconstruction components is required, including charged-particle tracking, electromagnetic and hadronic calorimetry, muon identification, and displaced secondary vertexing.
 
-However, operating in a high-multiplicity environment introduces additional challenges for the reconstruction and identification of physics objects. There is no guarantee that a reconstructed particle corresponds to a genuine physics object; such cases are referred to as \textit{misidentified} or \textit{``fake'' objects}. For example, jets initiated by quarks or gluons can sometimes be misidentified as hadronic $\PGt$ decays; leptons originating from heavy-flavour decays within jets may mimic prompt electrons or muons; and, conversely, muons and electrons can occasionally be misidentified as jets. To mitigate these effects, object identification algorithms incorporate \textit{multivariate discriminants} and \textit{\acp{WP}} that are tuned to balance efficiency and misidentification rates. However, in some cases, these strategies only partially suppress such backgrounds.
+However, operating in a high-multiplicity environment introduces additional challenges for reconstructing and identifying physics objects. There is no guarantee that a reconstructed particle corresponds to a genuine physics object; such cases are referred to as \textit{misidentified} or \textit{``fake'' objects}. For example, jets initiated by quarks or gluons can sometimes be misidentified as hadronic $\PGt$ decays; leptons originating from heavy-flavour decays within jets may mimic prompt electrons or muons; and, conversely, muons and electrons can occasionally be misidentified as jets. To mitigate these effects, object identification algorithms incorporate \textit{multivariate discriminants} and \textit{\acp{WP}} that are tuned to balance efficiency and misidentification rates. However, in some cases, these strategies only partially suppress such backgrounds.
 
 A more complete and accurate event description is achieved by correlating information from all layers of the CMS detector to reconstruct and identify individual particles. This integrated methodology is known as \textbf{\ac{PF}} reconstruction. The implementation of this approach within CMS is detailed in this chapter.
 
@@ -416,15 +416,15 @@ VVTight  & 40\% & 60\%   & -- \\
 \end{table}
 
 \section{Event simulation}
-
-Simulated samples are an essential component of any analysis, enabling the modelling of both signal and background processes. Therefore, a brief overview of the event generation procedure is warranted. Monte Carlo simulators are employed to model pp collisions according to theoretical predictions, ensuring that events are sampled with the appropriate level of randomness to reflect the underlying probability distributions of the physical processes involved~\cite{PYTHIA,EventGenerators}.
+\label{Section:Chapter4_EventSimulation}
+Simulated samples are an essential component of any analysis, enabling the modelling of both signal and background processes. Therefore, a brief overview of the event generation procedure is warranted. \ac{MC} simulators are employed to model pp collisions according to theoretical predictions, ensuring that events are sampled with the appropriate level of randomness to reflect the underlying probability distributions of the physical processes involved~\cite{PYTHIA,EventGenerators}.
 
 The simulation of pp collisions proceeds through several distinct steps, each modelling a different stage of the event:
 
 \begin{enumerate}
     \item \textbf{Hard scattering process:} The hard scattering process is generated using perturbative matrix-element calculations, corresponding to high-energy interactions at short distance scales where QCD remains asymptotically free. This step models the distribution of initial-state partons within the proton via \acp{PDF}, and computes the relevant matrix element, $\mathcal{M}_{i \to f}$, for a given set of model parameters $\vec{\alpha}$. Parton-level final states are then produced with probabilities proportional to the squared matrix element.
 
-    \item \textbf{Parton showers:} In this step, \textit{initial-state} and \textit{final-state} radiation are simulated. This models the emission of coloured partons that can occur before or after the hard scattering process.
+    \item \textbf{Parton showers:} In this step, \textit{\ac{ISR}} and \textit{\ac{FSR}} are simulated. This models the emission of coloured partons that can occur before or after the hard scattering process.
 
     \item \textbf{Hadronisation:} At low energy scales, QCD enters the non-perturbative regime, where the coloured partons from the parton shower combine to form colour-neutral hadrons. This step is modelled using QCD phenomenological models with tunable parameters that are adjusted to match experimental data.
 
@@ -435,15 +435,15 @@ The simulation of pp collisions proceeds through several distinct steps, each mo
     \item \textbf{Detector simulation:} The final step models the passage of particles through the CMS detector using a detailed simulation of its geometry and material composition.
 \end{enumerate}
 
-\section{Simulated Backgrounds}
 
-Analyses targeting final states with multiple $\PGt$ leptons (two or more) are affected by a variety of Standard Model (SM) processes that can produce genuine or misidentified $\PGt$ leptons. This section introduces the main simulated background processes used in such analyses, with a focus on final states containing two $\PGt$ leptons, which provides a clear and representative overview. Although the analysis involving four $\PGt$ leptons is also a major component of this thesis, it introduces additional complexities such as higher rates of object misidentification and a broader range of background contributions. These are discussed in detail in Section~\ref{Section:Chapter_4tau}. The simulated samples used across both analyses are largely the same, with the main exception being quark- or gluon-initiated production of two $\PZ$ bosons.
-
-The dominant backgrounds in the two-$\PGt$ final state are Drell–Yan, $\ttbar$, and diboson processes. Additional contributions arise from $\PW$+jets and QCD multijet events, where jets are misidentified as hadronic $\PGt$ decays. While these account for most of the background, subdominant contributions include triboson production, single-top processes, and electroweak production of $\PW$ and $\PZ$ bosons.
-
-\subsubsection{Drell-Yan}
-
-The Drell--Yan (DY) process, primarily $Z/\gamma^* \to \tau^+\tau^-$, constitutes a major background in analyses involving tau leptons. Although it directly produces only two tau leptons, additional leptons or jets misidentified as taus can result in apparent multi-tau final states. This background is simulated using [insert generator name, e.g., \textsc{MadGraph5\_aMC@NLO}], with parton showering and hadronisation handled by [e.g., \textsc{Pythia8}]. The simulated events are normalised to the next-to-next-to-leading order (NNLO) cross section.
-
-
-
+% The main background processes (excluding W+jets and DY) and the corresponding simulation details are summarised below:
+% \begin{itemize}
+%     \item \textbf{W+jets}: Simulated at LO using $\MADGRAPH$~\cite{MadGraph}.
+%     \item \textbf{Triboson ($\PW\PW\PW$, $\PW\PW\PZ$, $\PW\PZ\PZ$, $\PZ\PZ\PZ$)}: Simulated at NLO using \\ $\MGvATNLO$~\cite{MadGraph}.
+%     \item \textbf{$\ttbar$}: Simulated at NLO accuracy using $\POWHEG$ 2.0~\cite{Powheg_1,Powheg_2,Powheg_3}. Top quark pairs primarily decay via $t\overline{t} \to b \overline{b} \PW^+ \PW^-$, resulting in final states that may include genuine leptons as well as jets that can be misidentified as $\PGt_h$ candidates.
+%     \item \textbf{Diboson ($\PW\PW$, $\PW\PZ$, $\PZ\PZ$)}: Simulated at NLO accuracy with \\ $\MGvATNLO$~\cite{MadGraph}. 
+%     \item \textbf{Triboson ($\PW\PW\PW$, $\PW\PW\PZ$, $\PW\PZ\PZ$, $\PZ\PZ\PZ$)}: Simulated at NLO using \\ $\MGvATNLO$~\cite{MadGraph}.
+%     \item \textbf{Single top}: Includes $t$-channel and $tW$ production, simulated at NLO with \\ 
+%     $\POWHEG$ 1.0~\cite{Powheg_0}.
+%     \item \textbf{Electroweak $\PW$ and $\PZ$}: Simulated at LO with $\MADGRAPH$~\cite{MadGraph}.
+% \end{itemize}

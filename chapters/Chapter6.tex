@@ -1,20 +1,148 @@
 \chapter{\texorpdfstring{Search for extended Higgs sector signatures in $\PGt^+\PGt^-\PGt^+\PGt^-$ final states}{Search for extended Higgs sector signatures in tautautautau final states}}
-\chaptermark{4tau}  
+\chaptermark{Extended Higgs sector search}  
 \thispagestyle{plain}  % First page has default style
 \pagestyle{chapterpages}
 \label{Section:Chapter_4tau}
 \minitoc
 
-Motivated by the theoretical considerations and the particularly interesting muon $g-2$ measurement discussed in Section~\ref{Section:Chapter2_gminus2}, this chapter presents an analysis targeting final states with four $\PGt$ leptons through the $Z^*\rightarrow\phi A\rightarrow4\PGt$ process. This search for the Type-X 2HDM offers sensitivity to a region of parameter space in extended Higgs sector models that remains largely unexplored at hadron colliders. 
+\section{Introduction}
 
-This chapter outlines the analysis strategy employed in the search. It begins with a brief overview of the datasets and simulated background samples used, followed by a description of the signal modelling. The subsequent sections detail the event reconstruction, selection criteria, and trigger requirements. Background estimation techniques are then discussed alongside the corrections applied to simulated samples and the treatment of systematic uncertainties. The chapter concludes with optimisation studies and the signal extraction procedure, which is presented in both a model-independent context and interpreted within the framework of the Type-X 2HDM.
+Motivated by the theoretical considerations and the particularly intriguing measurement of the muon anomalous magnetic moment discussed in Section~\ref{Section:Chapter2_gminus2}, this chapter presents a detailed analysis targeting final states with four tau leptons $\PGt$ through the process $Z^*\rightarrow\phi A\rightarrow4\PGt$.
 
-\section{Datasets}
+The analysis explores a region of parameter space that remains largely unconstrained by existing collider searches. This is primarily because the production mode proceeds via an off-shell $Z^*$ boson. This circumvents the dominant SM Higgs production mechanisms, which are already tightly constrained by current LHC measurements. As such, this search offers unique sensitivity to scenarios in extended Higgs sectors that could otherwise evade detection.
 
-The Type-X 2HDM search presented in this chapter is based on pp collision data collected by the CMS detector during the 2016-2018 Run 2 data-taking period. The collisions were recorded at a centre-of-mass energy of $\sqrt{s} = 13\TeV$, as described in Section~\ref{Section:Chapter3_LHC}. The full dataset corresponds to an integrated luminosity of approximately $138\unit{fb}^{-1}$.
+This chapter provides a comprehensive description of the analysis strategy employed in the CMS experiment to probe this signature. 
+\section{Data and Simulation}
+\subsection{Collision data}
 
+This search is based on pp collision data collected by the CMS detector during the 2016-2018 Run 2 data-taking period. The collisions were recorded at a centre-of-mass energy $\sqrt{s} = 13\TeV$ and the full dataset corresponds to an integrated luminosity of approximately $138\unit{fb}^{-1}$.
 
+\subsection{Backgrounds}
 
+This section provides a brief overview of the SM processes that can contribute to the four-$\PGt$ signal region. The aim is to provide an understanding of how different backgrounds can enter the selection through the presence of genuine or misidentified $\PGt$ leptons. The specific treatment of each background category is described in detail in Section~\ref{Section:Chapter6_Background_Modelling}.
 
+\textit{Diboson} production, specifically $\PZ\PZ \to 4\PGt$, constitutes the primary irreducible background in this analysis. These events contain four genuine $\PGt$ leptons in the final state, matching the signal topology by construction. Although the cross section is small compared to other SM processes, the kinematic features of $\PZ\PZ$ events make them difficult to distinguish from potential signal. In addition, $\PZ\PZ$ events with mixed-flavour decays such as $\PZ\PZ \to \Pe^+\Pe^-, \PGt^+\PGt^-$ or $\Pgm^+\Pgm^-, \PGt^+\PGt^-$ can contribute irreducibly when the final state includes leptonic tau decays, such as $\PGt_e\PGt_e\PGt_h\PGt_h$ or $\PGt_\mu\PGt_\mu\PGt_h\PGt_h$. In such cases, the prompt electrons or muons from the $\PZ$ decay mimic the kinematic signature of non-prompt leptons originating from $\PGt$ decays.
 
+The \textit{\ac{DY}} process, $\PZ/\gamma^* \to \ell^+\ell^-$, is one of the dominant backgrounds in di-$\PGt$ final states, producing genuine $\PGt^+ \PGt^-$ pairs in approximately one-third of events. Although its impact is reduced in four-$\PGt$ final states, it remains relevant in cases where two genuine $\PGt$ leptons are produced and accompanied by jets from ISR or FSR. These jets can be misidentified as $\PGt_h$ candidates, resulting in final states that pass the selection for four reconstructed $\PGt$ leptons. In addition, prompt electrons or muons from $\PZ/\gamma^* \to \Pe^+\Pe^-$ or $\Pgm^+\Pgm^-$ decays may be misidentified as $\PGt_h$ candidates. When combined with one or more jets that are also misidentified as $\PGt_h$, such events can satisfy the four-$\PGt$ selection criteria. despite containing no genuine $\PGt$ leptons. Feynman diagrams illustrating DY production with and without ISR/FSR are shown in Figure~\ref{Figure:Chapter6_DY}.
 
+\textit{Top quark pair production} ($\ttbar \to b\overline{b}W^+W^-$) can also lead to four-$\PGt$ final states when both $\PW$ bosons decay leptonically via $\PW \to \PGt \nu_\PGt$. This results in two genuine $\PGt$ leptons, while additional jets from the top decays can be misidentified as $\PGt_h$ candidates, thereby mimicking the four-$\PGt$ topology. Misidentification can also occur between tau decay modes; for example, a $\PGt_h$ may be reconstructed as $\PGt_e$ or $\PGt_\mu$, or vice versa. Furthermore, prompt electrons or muons originating from $\PW \to e/\mu \nu$ decays may be misidentified as $\PGt_h$, particularly in events where the remaining reconstructed objects are either genuine $\PGt$ leptons from the second $\PW$ decay or additional misidentified jets. In such cases, multiple misidentifications are required to yield an apparent four-$\PGt$ final state.
+
+\textit{W+jets} events can also enter the four-$\PGt$ signal region when the $\PW$ boson decays via $\PW \to \PGt \nu_\PGt$, producing a genuine $\PGt$ lepton. The accompanying jets may be misidentified as $\PGt_h$ candidates. Similar to $\ttbar$, additional contributions arise from misidentified prompt electrons or muons. Since these events typically contain only one genuine lepton, multiple jet misidentifications are needed to satisfy the four-$\PGt$ selection.
+
+\textit{QCD-induced multijet} events can enter the signal region when multiple jets are simultaneously misidentified as $\PGt_h$ candidates. However, QCD events can also contain non-prompt leptons from the decay of hadrons.
+
+\textit{Diboson} processes such as $\PW\PW$ and $\PW\PZ$ may contribute when one or more of the bosons decay leptonically via $\PW/\PZ \to \PGt$. However, such decays yield at most two or three genuine $\PGt$ leptons and therefore cannot, on their own, produce a four-$\PGt$ final state. To satisfy the selection, the remaining $\PGt$ candidates must arise from jets misidentified as $\PGt_h$, originating either from hadronic boson decays (e.g., $\PW \to q \bar{q}'$, $\PZ \to q \bar{q}$) or from ISR or FSR. Additionally, prompt electrons or muons from $\PW$ or $\PZ$ decays may be misidentified as $\PGt_h$. \textit{Triboson} production (e.g., $\PW\PW\PZ$, $\PZ\PZ\PZ$) can also produce multiple genuine leptons, including $\PGt$ decays.
+
+Other subdominant processes also contribute. \textit{Single-top} production may yield a genuine $\PGt$ from a $\PW \to \PGt \nu_\PGt$ decay. Still, due to the typically low jet multiplicity in these events, additional $\PGt_h$ candidates must arise from misidentified jets, often requiring ISR or FSR. Finally, \textit{electroweak production} of $\PZ$ or $\PW$ bosons in association with jets, such as VBF-like $\PZ + jj$, can resemble the signal topology when real or misidentified $\PGt$ candidates are produced alongside forward jets. 
+
+Although many of the backgrounds discussed above are partially reducible through the application of $\PGt$ identification algorithms, lepton isolation requirements, and $b$-jet vetoes, these techniques are not fully efficient, and some backgrounds remain irreducible. To summarise, a common feature across many of these background processes is the presence of prompt electrons or muons that can be reconstructed as leptonic or hadronic $\PGt$ candidates. This, in combination with jet misidentification, enables events with fewer than four genuine $\PGt$ leptons to satisfy the selection criteria. The specific treatment, estimation, and validation of each background category are described in detail in Section~\ref{Section:Chapter6_Background_Modelling}.
+
+The simulated background processes used in this analysis are summarised in Table~\ref{Table:Chapter6_SimulatedBackgrounds}.
+
+\clearpage
+{
+\centering
+\setlength{\LTpost}{-2ex}  % tighten space after table
+\small  % one size smaller than normal
+\begin{longtable}{llc}
+\caption[Summary of the simulated Standard Model backgrounds, including their generators and precision, used in the extended Higgs sector search.]
+{Summary of the simulated SM backgrounds, including their generators and precision, used in the search. The following generators were used: 
+\MADGRAPH~\cite{MadGraph} for leading-order matrix element calculations; 
+\POWHEG~v1.0~\cite{Powheg_0} and v2.0~\cite{Powheg_1,Powheg_2,Powheg_3} for next-to-leading order processes including $\ttbar$ and single top; 
+and \MGvATNLO~\cite{MadGraph} for diboson and triboson production. 
+Parton showering and hadronisation were performed with \PYTHIA~\cite{PYTHIA}.}
+\label{Table:Chapter6_SimulatedBackgrounds} \\
+\hline
+\textbf{Process} & \textbf{Generators} & \textbf{Cross section $\sigma$ [pb]} \\
+\hline \hline
+\endfirsthead
+
+\hline
+\textbf{Process} & \textbf{Generators} & \textbf{Cross section $\sigma$ [pb]} \\
+\hline \hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+\textbf{Drell-Yan, $\PZ/\gamma^* \to \ell^+ \ell^-$ (LO)\hyperlink{DY_W-MLM}{$^1$}} & & \\
++ jets, $10 < m_{\ell \ell} < 50\GeV$ & \MADGRAPH, \PYTHIA & 15810.0 (LO), 18610.0 (NLO) \\
++ jets, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 5379.0 (LO), 6077.2 (NNLO) \\
++1 jets\hyperlink{DY_W-Stitch}{$^2$}, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 997.3 (LO) \\
++2 jets\hyperlink{DY_W-Stitch}{$^2$}, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 347.0 (LO)\\
++3 jets\hyperlink{DY_W-Stitch}{$^2$}, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 126.4 (LO) \\
++4 jets\hyperlink{DY_W-Stitch}{$^2$}, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 71.7 (LO) \\
+
+\arrayrulecolor{lightgray}\hline
+\textbf{W+jets (LO)\hyperlink{DY_W-MLM}{$^1$}} & & \\
++ jets & \MADGRAPH, \PYTHIA & 52940.0 (LO), 61526.7 (NLO) \\
++1 jets\hyperlink{DY_W-Stitch}{$^2$} & \MADGRAPH, \PYTHIA & 9364.4 (LO) \\
++2 jets\hyperlink{DY_W-Stitch}{$^2$} & \MADGRAPH, \PYTHIA & 3168.6 (LO) \\
++3 jets\hyperlink{DY_W-Stitch}{$^2$} & \MADGRAPH, \PYTHIA & 1132.1 (LO) \\
++4 jets\hyperlink{DY_W-Stitch}{$^2$} & \MADGRAPH, \PYTHIA & 633.7 (LO) \\
+
+\arrayrulecolor{lightgray}\hline
+\textbf{\ttbar} & & \\
+Fully hadronic & \POWHEG, \PYTHIA & 377.96 (NNLO)\\
+Semi-leptonic & \POWHEG, \PYTHIA & 365.34 (NNLO)\\
+Fully leptonic & \POWHEG, \PYTHIA & 88.29 (NNLO) \\
+
+\arrayrulecolor{lightgray}\hline
+\textbf{Single top} & & \\
+t-channel ($t$) & \POWHEG, \PYTHIA & 136.02 (NNLO) \\
+t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 136.02 (NNLO) \\
+$t + W^-$ & \POWHEG, \PYTHIA & 35.60 (NNLO) \\
+$t + W^+$ & \POWHEG, \PYTHIA & 35.60 (NNLO) \\
+
+\arrayrulecolor{lightgray}\hline
+\textbf{Diboson} & & \\
+$\PW \PZ \rightarrow \ell \, \nu \, \nu \, \nu$  & \MCATNLO, \PYTHIA & 3.416 (NLO) \\
+$\PW \PZ \rightarrow \ell \, \nu \, q \, q$        & \MCATNLO, \PYTHIA & 10.71 (NLO) \\
+$\PW \PZ \rightarrow q \, q \, \ell \, \ell$            & \MCATNLO, \PYTHIA & 6.419 (NLO) \\
+$\PW \PZ \rightarrow \ell \, \ell \,  \ell \, \nu $          & \MCATNLO, \PYTHIA & 5.213 (NLO) \\
+$\PW \PW \rightarrow \ell \, \nu \, q \,q$        & \MCATNLO, \PYTHIA & 49.99 (NLO) \\
+$\PW \PW \rightarrow \ell \, \nu \, \ell \, \nu$        & \POWHEG, \PYTHIA & 11.09 (NLO) \\
+$\PZ \PZ \rightarrow \ell \, \ell \, \nu \, \nu$         & \POWHEG, \PYTHIA & 0.9740 (NLO) \\
+\arrayrulecolor{lightgray}\hline
+$\text{H}_{\text{VBF}} \rightarrow ZZ \rightarrow \ell \, \ell \, \ell \, \ell $ & \POWHEG, \PYTHIA & $1.040e^{-3}$ (NLO) \\
+$\text{ggH} \rightarrow ZZ \rightarrow \ell \, \ell \, \ell \, \ell $ & \POWHEG, \PYTHIA & $1.333e^{-2}$ (NLO)\\
+$qq \rightarrow ZZ \rightarrow \ell \, \ell \, \ell \, \ell $ & \POWHEG, \PYTHIA & 1.325 (NLO)\\
+$gg \rightarrow ZZ \rightarrow e \, e \, \PGt \, \PGt $ & \PYTHIA & $3.194e^{-3}$ (NLO)\\
+$gg \rightarrow ZZ \rightarrow \mu \, \mu \, \PGt \, \PGt $ & \PYTHIA & $3.194e^{-3}$ (NLO)\\
+$gg \rightarrow ZZ \rightarrow \mu \, \mu \, \mu \, \mu $ & \PYTHIA & $1.585e^{-3}$ (NLO)\\
+$gg \rightarrow ZZ \rightarrow \PGt \, \PGt \, \PGt \, \PGt $ & \PYTHIA & $1.585e^{-3}$ (NLO)\\
+
+\arrayrulecolor{lightgray}\hline
+\textbf{Triboson} & & \\
+$\PW \PW \PZ $ & \MCATNLO, \PYTHIA & 0.1707 (NLO)\\
+$\PW \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0571 (NLO)\\
+$\PW \PW \PW $ & \MCATNLO, \PYTHIA & 0.2158 (NLO)\\
+$\PZ \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0148 (NLO)\\
+
+\arrayrulecolor{lightgray}\hline
+\textbf{Pure Electroweak} & & \\
+$\PW^+ \to \ell^+ \nu$ + 2 jets & \MADGRAPH, \PYTHIA & 25.62 (LO)\\
+$\PW^- \to \ell^- \nu$ + 2 jets & \MADGRAPH, \PYTHIA & 20.25 (LO)\\
+$\PZ \to \ell \ell$ + 2 jets & \MADGRAPH, \PYTHIA & 3.987 (LO)\\
+
+\arrayrulecolor{black}\hline
+\end{longtable}
+}
+{
+\vspace{-1em}
+\footnotesize
+\begin{flushleft}
+\hypertarget{DY_W-MLM}{}$^{1}$ MLM jet matching scheme~\cite{MLM} is employed to avoid double counting between jets produced at the matrix element level and those generated during parton showering. \\
+
+\hypertarget{DY_W-Stitch}{}$^{2}$ To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to reproduce the overall cross-section and kinematic distributions accurately.
+\end{flushleft}
+% For \ac{NLO} simulations, however, the MLM scheme is incompatible with the negative event weights that naturally arise. In such cases, the FxFx jet merging scheme~\cite{FxFx} is used instead. 
+}
+
+% Although the background samples are generated at LO or NLO, the comparison of simulated events to data is performed using higher-order theoretical cross-sections. Specifically, $\PW$+jets, Z+jets, $\ttbar$, and single top quark events in the tW channel are normalised using \ac{NNLO} cross-sections~\cite{HighOrder_XS_1,HighOrder_XS_2,HighOrder_XS_3}, while single top and diboson events are normalised to cross-sections calculated at NLO~\cite{HighOrder_XS_3,HighOrder_XS_4,HighOrder_XS_5}.
+
+\subsection{Modelling of Signal Processes}

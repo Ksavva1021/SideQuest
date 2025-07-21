@@ -146,3 +146,65 @@ $\PZ \to \ell \ell$ + 2 jets & \MADGRAPH, \PYTHIA & 3.987 (LO)\\
 % Although the background samples are generated at LO or NLO, the comparison of simulated events to data is performed using higher-order theoretical cross-sections. Specifically, $\PW$+jets, Z+jets, $\ttbar$, and single top quark events in the tW channel are normalised using \ac{NNLO} cross-sections~\cite{HighOrder_XS_1,HighOrder_XS_2,HighOrder_XS_3}, while single top and diboson events are normalised to cross-sections calculated at NLO~\cite{HighOrder_XS_3,HighOrder_XS_4,HighOrder_XS_5}.
 
 \subsection{Modelling of Signal Processes}
+\label{Section:Chapter6_SignalModelling}
+
+Signal templates targeting the process $Z^* \to \phi A \to \PGt^+\PGt^-\PGt^+\PGt^-$ are modelled in the \MCATNLO (version 2.6.5) framework~\cite{MadGraph,FxFx} at NLO accuracy in QCD. The event generation is performed in the five-flavour scheme using the NNPDF3.1 PDFs~\cite{NNPDF}. Parton showering, hadronisation, and $\PGt$ lepton decays are simulated using \PYTHIA (version 8.230)~\cite{PYTHIA}, with the underlying event modelled according to the CP5 tune~\cite{CP5_Tune}. To reflect realistic running conditions, additional pp interactions are overlaid on simulated events according to the distribution observed in the Run 2 data-taking period. The detector response is simulated using the \GEANTfour-based CMS framework~\cite{GEANT4}, and events are reconstructed with the same software configuration as applied to collision data.
+
+A two-dimensional mass grid is defined to ensure sensitivity across the allowed phase space. All masses are expressed in units of~\GeV. The grid consists of combinations of $m_A$ and $m_\phi$ as follows:
+
+\begin{itemize}
+    \item $m_A$: 40, 50, 60, 70, 80, 90, 100, 125, 140, 160, 200, 250, 300, 400, 600
+    \item For each $m_A$, the following $m_\phi$ values are considered:
+    \begin{itemize}
+        \item $m_A = 40$--$90$: 60, 70, 80, 90, 100, 110, 125, 140, 160, 180, 200, 250, 300
+        \item $m_A = 100$, $125$, $140$, $160$, $200$, $250$:  60-300 (as above), 400
+        \item $m_A = 300$: 60–400 (as above), 600
+        \item $m_A = 400$: 100, 110, 125, 140, 160, 180, 200, 250, 300, 400, 600
+        \item $m_A = 600$: 400, 600, 800
+    \end{itemize}
+\end{itemize}
+
+The signal is simulated under the \textit{alignment limit} of the 2HDM, consistent with current experimental constraints on the couplings of the observed Higgs boson. The specific scenario is dynamically selected at each mass point depending on the value of $m_\phi$:
+\begin{itemize}
+    \item For $m_\phi > 125~\GeV$, the heavier CP-even scalar is identified as $\phi \equiv H$, with $\sin(\beta - \alpha) = 1$.
+    \item For $m_\phi \leq 125~\GeV$, the lighter CP-even scalar is identified as $\phi \equiv h$, with $\cos(\beta - \alpha) = 1$.
+\end{itemize}
+
+Model parameters that do not significantly influence the kinematic properties of the final state, such as the charged Higgs mass and the soft $\mathbb{Z}_2$-breaking term, are fixed to values that preserve perturbative unitarity. This also ensures theoretical consistency~\cite{TypeX_2HDM}. Variations of these parameters within their allowed ranges have negligible impact on the resulting signal kinematics. They are therefore set according to the following prescription:
+\begin{equation_pad}
+m_{H^\pm} = m_\phi, \quad\quad m_{12}^2 = m_\phi^2 \sin\beta \cos\beta.
+\end{equation_pad}
+
+Figure~\ref{fig:ditau_mass_shapes} illustrates the generator-level distributions of the visible di-tau mass, defined as the invariant mass computed using only the visible decay products of the two tau leptons (i.e.\ excluding neutrinos), for selected combinations of $m_\phi$ and $m_A$. These examples illustrate the primary kinematic characteristics of the signal across the mass grid.
+
+\subsection{Production Cross Sections and Branching Fractions}
+
+\subsection{Production Cross Sections and Branching Fractions}
+
+The production cross section is computed at next-to-leading order (NLO) and, within the alignment limit, is independent of $\tan\beta$. It varies across the mass plane, ranging from approximately $10~\unit{fb}$ at $(m_\phi, m_A) = (100, 60)~\GeV$ to $650~\unit{fb}$ at $(300, 160)~\GeV$. These values are summarised in Figure~\ref{fig:signal_xs_grid}, which shows the cross section as a function of the two mass parameters in the alignment scenario.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/signal_xs_grid.pdf}
+  \caption{Calculated production cross sections for $Z^* \to \phi A$ in the alignment limit at NLO. Each point corresponds to a simulated $(m_\phi, m_A)$ mass combination.}
+  \label{fig:signal_xs_grid}
+\end{figure}
+
+Outside the alignment limit, the cross section acquires dependence on the scalar mixing angle. Specifically:
+\begin{itemize}
+    \item It scales with $\sin^2(\beta - \alpha)$ when $\phi \equiv H$ ($m_\phi > 125~\GeV$),
+    \item It scales with $\cos^2(\beta - \alpha)$ when $\phi \equiv h$ ($m_\phi \leq 125~\GeV$).
+\end{itemize}
+
+The decay branching ratios of $\phi$ and $A$ into $\PGt^+\PGt^-$ are computed using \textsc{2HDECAY}~\cite{2HDECAY}. In the alignment limit, the $\PGt^+\PGt^-$ branching ratio of $A$ remains close to unity for $\tan\beta \gtrsim 2$, but decreases rapidly at lower $\tan\beta$, where hadronic decays such as $A \to b\bar{b}$ become dominant. A similar pattern holds for $\phi \to \PGt^+\PGt^-$, except when the mass difference $m_\phi - m_A$ exceeds $m_Z$. In such cases, the decay $\phi \to ZA$ becomes kinematically accessible and can significantly suppress the di-tau branching fraction, even at large $\tan\beta$. These features are illustrated in Figure~\ref{fig:signal_br_tanb}, which shows representative branching fraction maps for selected mass configurations. 
+
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/signal_br_tanb.pdf}
+  \caption{Branching fractions of $\phi$ and $A$ to $\PGt^+\PGt^-$ in the alignment limit as a function of $\tan\beta$, for representative mass points. The di-tau mode dominates at large $\tan\beta$, but falls sharply at low $\tan\beta$ where decays to $b\bar{b}$ become significant.}
+  \label{fig:signal_br_tanb}
+\end{figure}
+
+

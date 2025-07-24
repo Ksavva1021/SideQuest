@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex at (0, 1.5) (i1) {\(q\)};
+        \vertex at (0,-1.5) (i2) {\(\overline{q}\)};
+
+        \vertex at (1.35, 0.5) (g1);
+        \vertex at (2.5, 1.5) (g2);
+
+        \vertex at (2,0) (a);
+        \vertex at (4, 0) (b);
+
+        \vertex at (6.15, 1.5) (c) {\(\ell^-\)};
+        \vertex at (6,-1.5) (d) {\(\ell^+\)};
+
+        \vertex at (3,0.25) () {\(Z/\gamma^*\)};
+
+        \diagram*{
+            (i1) -- [fermion] (a) -- [fermion] (i2),
+            (g1) -- [gluon] (g2),
+            (a) -- [photon] (b),
+            (d) -- [fermion] (b) -- [fermion] (c),
+        };
+    \end{feynman}
+\end{tikzpicture}

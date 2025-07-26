@@ -54,7 +54,7 @@ The \textit{\ac{DY}} process, $\PZ/\gamma^* \to \ell^+\ell^-$, is one of the dom
 
 Other subdominant processes also contribute. \textit{Single-top} production may yield a genuine $\PGt$ from a $\PW \to \PGt \nu_\PGt$ decay. Still, due to the typically low jet multiplicity in these events, additional $\PGt_h$ candidates must arise from misidentified jets, often requiring ISR or FSR. Finally, \textit{electroweak production} of $\PZ$ or $\PW$ bosons in association with jets (\eg VBF-like $\PZ + jj$) can resemble the signal topology when real or misidentified $\PGt$ candidates are produced alongside forward jets. 
 
-Although many of the backgrounds discussed above are partially reducible through the application of $\PGt$ identification algorithms, lepton isolation requirements, and $b$-jet vetoes, these techniques are not fully efficient, and some backgrounds remain irreducible. To summarise, a common feature across many of these background processes is the presence of prompt electrons or muons that can be reconstructed as leptonic or hadronic $\PGt$ candidates. This, in combination with jet misidentification, enables events with fewer than four genuine $\PGt$ leptons to satisfy the selection criteria. The specific treatment, estimation, and validation of each background category are described in detail in Section~\ref{Section:Chapter6_Background_Modelling}.
+Although many of the backgrounds discussed above are partially reducible through the application of $\PGt$ identification algorithms, lepton isolation requirements, and $b$-jet vetoes, these techniques are not fully efficient, and some backgrounds remain irreducible. To summarise, a common feature across many of these background processes is the presence of prompt electrons or muons that can be reconstructed as $\PGt_e$, $\PGt_\mu$ or $\PGt_h$ candidates. This, in combination with jet misidentification, enables events with fewer than four genuine $\PGt$ leptons to satisfy the selection criteria. The specific treatment, estimation, and validation of each background category are described in detail in Section~\ref{Section:Chapter6_Background_Modelling}.
 
 The simulated background processes used in this analysis are summarised in Table~\ref{Table:Chapter6_SimulatedBackgrounds}.
 
@@ -156,15 +156,15 @@ $\PZ \to \ell \ell$ + 2 jets & \MADGRAPH, \PYTHIA & 3.987 (LO)\\
 \arrayrulecolor{black}\hline
 \end{longtable}
 }
-{
+\vspace{0.5em}
+\noindent\begin{minipage}{\linewidth}
 \footnotesize
-\begin{flushleft}
-\hypertarget{DY_W-MLM}{}$^{1}$ MLM jet matching scheme~\cite{MLM} is employed to avoid double counting between jets produced at the matrix element level and those generated during parton showering. \\
-
+\hypertarget{DY_W-MLM}{}$^{1}$ MLM jet matching scheme~\cite{MLM} is employed to avoid double counting between jets produced at the matrix element level and those generated during parton showering.\\
 \hypertarget{DY_W-Stitch}{}$^{2}$ To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to reproduce the overall cross-section and kinematic distributions accurately.
-\end{flushleft}
+\end{minipage}
+
 % For \ac{NLO} simulations, however, the MLM scheme is incompatible with the negative event weights that naturally arise. In such cases, the FxFx jet merging scheme~\cite{FxFx} is used instead. 
-}
+
 
 % Although the background samples are generated at LO or NLO, the comparison of simulated events to data is performed using higher-order theoretical cross-sections. Specifically, $\PW$+jets, Z+jets, $\ttbar$, and single top quark events in the tW channel are normalised using \ac{NNLO} cross-sections~\cite{HighOrder_XS_1,HighOrder_XS_2,HighOrder_XS_3}, while single top and diboson events are normalised to cross-sections calculated at NLO~\cite{HighOrder_XS_3,HighOrder_XS_4,HighOrder_XS_5}.
 
@@ -203,28 +203,30 @@ Figure~\ref{Figure:Chapter6_GenVisDistributions} illustrates the generator-level
 \begin{figure}[h]
         \centering
         % First row
-        \begin{subfigure}[b]{0.49\textwidth}
+        \begin{subfigure}[b]{0.7\textwidth}
             \centering
             \includegraphics[width=\textwidth]{Figures/Chapter6/mvis_A.pdf}
             \caption{}
         \end{subfigure}
-        \begin{subfigure}[b]{0.49\textwidth}
+        \hfill
+        \begin{subfigure}[b]{0.7\textwidth}
             \centering
             \includegraphics[width=\textwidth]{Figures/Chapter6/mvis_phi.pdf}
             \caption{}
         \end{subfigure}
-    \caption[Generator-level visible mass distributions for selected mass points.]{Generator-level distributions of the visible di-$\PGt$ mass for selected combinations of $m_A$ and $m_\phi$. The visible mass is computed using only the decay products of the two $\PGt$ leptons, excluding neutrinos. Distributions are shown for scans over \textbf{(a)} $m_A$ and \textbf{(b)} $m_\phi$.}
+    \caption[Generator-level visible mass distributions for different mass combinations of $\phi$ and A.]{Generator-level distributions of the visible di-$\PGt$ mass for selected combinations of $m_A$ and $m_\phi$. The visible mass is computed using only the decay products of the two $\PGt$ leptons, excluding neutrinos. Distributions are shown for scans over \textbf{(a)} $m_A$ and \textbf{(b)} $m_\phi$.}
     \label{Figure:Chapter6_GenVisDistributions}
 \end{figure}
+\clearpage
 
 \subsubsection{Production Cross Sections and Branching Fractions}
 
 The production cross section is computed at NLO and, within the alignment limit, is independent of $\tan\beta$. It varies across the mass plane, ranging from approximately $10~\unit{fb}$ at $(m_\phi, m_A) = (100, 60)~\GeV$ to $650~\unit{fb}$ at $(300, 160)~\GeV$. These values are summarised in Figure~\ref{Figure:Chapter6_ProductionXS}, which shows the cross section as a function of the two mass parameters in the alignment scenario.
 
-\begin{figure}[htbp]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=0.75\textwidth]{Figures/Chapter6/Production_XS.pdf}
-    \caption[Production cross sections for $Z^* \to \phi A$ in the alignment limit]{Production cross sections for $Z^ \to \phi A$ in the alignment limit at NLO, shown as a function of $m_\phi$ and $m_A$. The values are interpolated over a grid of simulated mass combinations.}
+  \includegraphics[width=0.85\textwidth]{Figures/Chapter6/Production_XS.pdf}
+    \caption[Production cross sections for $Z^* \to \phi A$ in the alignment limit.]{Production cross sections for $Z^ \to \phi A$ in the alignment limit at NLO, shown as a function of $m_\phi$ and $m_A$. The values are interpolated over a grid of simulated mass combinations.}
   \label{Figure:Chapter6_ProductionXS}
 \end{figure}
 
@@ -253,17 +255,16 @@ The decay branching ratios of $\phi$ and $A$ into $\PGt^+\PGt^-$ are computed us
     \label{Figure:Chapter6_BranchingFractions}
 \end{figure}
 
-\section{Object \& Event Selections}
+\section{Event selection strategy}
 \label{sec:ObjectAndEventSelections}
 
-Having established the motivation, signal modelling, and background composition, this section describes the strategy used to identify candidate $Z^* \to \phi A \to 4\PGt$ events. The selection procedure aims to efficiently retain signal-like events while minimising contamination from dominant background processes and maximising the rejection of objects originating from PU interactions.
+Having established the motivation, signal modelling, and background composition, this section describes the strategy used to identify candidate $Z^* \to \phi A \to 4\PGt$ events. The final states considered consist of four tau leptons, each of which may decay either leptonically ($\PGt_e$ and $\PGt_{\mu}$) or hadronically ($\PGt_h$). Figure~\ref{Figure:Chapter6_4tau_decayModes_BF} displays a pie chart of the most frequent $4\PGt$ final states, constructed by enumerating all combinations of leptonic and hadronic tau decays and summing their relative contributions. The dominant modes are those containing two or more hadronic taus, which together comprise 87.1\% of all four-tau decays. These channels form the focus of the analysis. In contrast, Table~\ref{Table:Chapter6_4tau_decayModes_BF_Other} summarises rarer final states that are not considered in the analysis.
 
-The final states considered consist of four tau leptons, each of which may decay either leptonically ($\PGt_e$ and $\PGt_{\mu}$) or hadronically ($\PGt_h$). Figure~\ref{Figure:Chapter6_4tau_decayModes_BF} displays a pie chart of the most frequent $4\PGt$ final states, constructed by enumerating all combinations of leptonic and hadronic tau decays and summing their relative contributions. The dominant modes are those containing two or more hadronic taus, which together comprise 87.1\% of all four-tau decays. These channels form the focus of the analysis. In contrast, Table~\ref{Table:Chapter6_4tau_decayModes_BF_Other} summarises rarer final states that are not considered in the analysis.
-
-\begin{figure}[htbp]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{Figures/Chapter6/pie_BF.pdf}
-    \caption[Production cross sections for $Z^* \to \phi A$ in the alignment limit]{Production cross sections for $Z^ \to \phi A$ in the alignment limit at NLO, shown as a function of $m_\phi$ and $m_A$. The values are interpolated over a grid of simulated mass combinations.}
+  \includegraphics[width=0.8\textwidth]{Figures/Chapter6/pie_BF.pdf}
+    \caption[Branching fractions of the dominant four-$\PGt$ decay modes.]
+    {Branching fractions of the most frequent $4\PGt$ final states, constructed by enumerating all combinations of leptonic ($\PGt_e$, $\PGt_{\mu}$) and hadronic ($\PGt_h$) tau decays.}
   \label{Figure:Chapter6_4tau_decayModes_BF}
 \end{figure}
 
@@ -298,69 +299,214 @@ $\PGt_{\mu} \PGt_{\mu} \PGt_{\mu} \PGt_{\mu}$                  & 0.1  \\
 \label{Table:Chapter6_4tau_decayModes_BF_Other}
 \end{table}
 
-\subsection{Physics Object Selection}
+In addition to focusing on the dominant final states with two or more hadronic taus, the analysis includes an orthogonal $\PGt_h\PGt_h\PGt_h$ channel. This channel targets events where one $\PGt_h$ in the fully hadronic $\PGt_h\PGt_h\PGt_h\PGt_h$ decay mode fails to be reconstructed, often due to limited trigger and identification efficiencies or high $p_\text{T}$ thresholds. In total, seven final states are retained for the analysis. Furthermore, a $\tau_\mu\tau_\mu\tau_\mu\tau_\mu$ control region is used to constrain the background prediction; this region is discussed in more detail in Section~\ref{Section:Chapter6_Background_Modelling}.
+
+\subsection{Triggering}
+
+Identifying events with four tau leptons poses a challenge, as there is no dedicated trigger that directly targets this specific final state. Instead, the selection relies on a combination of existing triggers designed to capture subsets of the decay products. The triggers considered include double-electron, double-muon, electron–muon, and single-lepton (electron or muon) triggers, as well as cross-triggers involving an electron or muon paired with a hadronic tau ($\tau_h$), specifically $e+\tau_h$ and $\mu+\tau_h$. Single-$\tau_h$ triggers, although available, are not used due to their high $p_T$ thresholds, which are too restrictive for the phase space targeted by this analysis. Cross-triggers and electron–muon triggers were also evaluated but found to offer negligible gains in signal acceptance. Therefore, they are excluded to simplify the calculation of trigger efficiencies. The set of triggers used, along with the relevant online $p_\text{T}$ thresholds for each data-taking period, is summarised in Table~\ref{Table:Chapter6_TriggerThresholdsExpanded}.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt} % Increase column width
+\begin{tabular}{|c|cc|cc|cc|}
+\hline
+\multirow{3}{*}{\text{Trigger}} 
+& \multicolumn{6}{c|}{$p_\text{T}$ \text{Threshold (GeV)}} \\ \cline{2-7}
+& \multicolumn{2}{c|}{\text{2016}} & \multicolumn{2}{c|}{\text{2017}} & \multicolumn{2}{c|}{\text{2018}} \\ \cline{2-7}
+& \text{Obj$_1$} & \text{Obj$_2$} & \text{Obj$_1$} & \text{Obj$_2$} & \text{Obj$_1$} & \text{Obj$_2$} \\ \hline \hline
+Single Electron (e)                   & 26     & --     & 28     & --     & 33     & --     \\
+\arrayrulecolor{lightgray} \hline
+Single Muon ($\mu$)                       & 23     & --     & 25     & --     & 25     & --     \\
+\arrayrulecolor{lightgray} \hline
+Double Tau ($\PGt \PGt$)         & 40     & 40     & 40     & 40     & 40     & 40     \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption{Table of minimum online $p_\text{T}$ thresholds (in GeV) for the triggers used in the analysis. Subcolumns refer to thresholds for the first and second trigger objects.}
+\label{Table:Chapter6_TriggerThresholdsExpanded}
+\end{table}
+
+The specific trigger configuration used for each four-$\PGt$ final state is summarised in Table~\ref{Table:Chapter6_TriggersPerChannel}. These configurations are constructed as combinations of the single- and double-object triggers listed in Table~\ref{Table:Chapter6_TriggerThresholdsExpanded}. For each event category, the trigger is considered to have fired if at least one of the listed object combinations satisfies the corresponding online threshold. The use of logical OR($\lor$) between object pairs reflects the inclusive nature of the selection.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt}
+\begin{tabular}{|c|c|}
+\hline
+\text{Channel} & \text{Trigger Configuration} \\ \hline \hline
+
+$\tau_h\tau_h\tau_h\tau_h$ &  
+$\tau_1\tau_2 \mathbin{\lor} \tau_1\tau_3 \mathbin{\lor} \tau_1\tau_4 \mathbin{\lor} \tau_2\tau_3 \mathbin{\lor} \tau_2\tau_4 \mathbin{\lor} \tau_3\tau_4$ \\ 
+\arrayrulecolor{lightgray} \hline
+
+$\tau_h\tau_h\tau_h$ &
+$\tau_1\tau_2 \mathbin{\lor} \tau_1\tau_3 \mathbin{\lor} \tau_2\tau_3$ \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_e\tau_h\tau_h\tau_h$ &
+$e_1 \mathbin{\lor} \tau_2\tau_3 \mathbin{\lor} \tau_2\tau_4 \mathbin{\lor} \tau_3\tau_4$ \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_\mu\tau_h\tau_h\tau_h$ &
+$\mu_1 \mathbin{\lor} \tau_2\tau_3 \mathbin{\lor} \tau_2\tau_4 \mathbin{\lor} \tau_3\tau_4$ \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_e\tau_e\tau_h\tau_h$ &
+$e_1 \mathbin{\lor} e_2 \mathbin{\lor} \tau_3\tau_4$ \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_\mu\tau_\mu\tau_h\tau_h$ &
+$\mu_1 \mathbin{\lor} \mu_2 \mathbin{\lor} \tau_3\tau_4$ \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_e\tau_\mu\tau_h\tau_h$ &
+$e_1 \mathbin{\lor} \mu_1 \mathbin{\lor} \tau_3\tau_4$ \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_\mu \tau_\mu \tau_\mu \tau_\mu$ &
+$\mu_1 \mathbin{\lor} \mu_2 \mathbin{\lor} \mu_3 \mathbin{\lor} \mu_4$ \\
+\arrayrulecolor{black} \hline
+
+\end{tabular}
+\caption{Trigger configuration used for each four-$\PGt$ final state.}
+\label{Table:Chapter6_TriggersPerChannel}
+\end{table}
+
+\subsection{Offline object selections}
 \label{sec:ObjectSelection}
 
-All reconstructed objects are derived from the CMS particle-flow (PF) algorithm, which combines tracking and calorimeter information to build a global event description. The following baseline requirements are applied:
+The object selections defined in this section are applied to reconstructed electrons, muons, and hadronically decaying tau candidates ($\tauh$), as discussed in Chapter~\ref{Section:Chapter4}. These selections are designed to suppress backgrounds from misidentified and non-prompt objects, while retaining high signal efficiency. 
 
-\begin{itemize}
-    \item \textbf{Electrons} are required to have $p_T > 10~\GeV$ and $|\eta| < 2.5$, excluding the transition region between barrel and endcap calorimeters ($1.44 < |\eta| < 1.57$). Candidates must satisfy tight identification criteria based on shower shape, impact parameter, and PF isolation.
+To reduce contamination from PU vertices, all leptons and $\tauh$ candidates are required to be consistent with the PV. This is enforced by applying cuts on the transverse and longitudinal impact parameters. Electrons and muons must satisfy $|d_{xy}| < 0.045\unit{cm}$ and $|d_z| < 0.2\unit{cm}$, while $\tauh$ candidates are required to have $|d_z| < 0.2~\unit{cm}$. 
 
-    \item \textbf{Muons} must have $p_T > 10~\GeV$ and $|\eta| < 2.4$. Candidates are required to pass tight PF muon identification and isolation thresholds.
+Electrons and muons are additionally required to be isolated from surrounding hadronic activity in order to suppress backgrounds from non-prompt sources. The relative isolation variables used for this purpose are defined in Chapter~\ref{Section:Chapter4}, Equations~\ref{Equation:Chapter4_PFIso_Electron} and~\ref{Equation:Chapter4_PFIso_Muon}. A threshold of $I^{e/\mu}_\text{PF} < 0.15$ is applied to electrons and muons. For $\tauh$ candidates, no explicit isolation requirement is imposed, as isolation information is already incorporated into the DeepTau discriminators.
 
-    \item \textbf{Hadronic taus} ($\PGt_h$) are reconstructed using the DeepTau discriminator. Candidates must have $p_T > 20~\GeV$, $|\eta| < 2.3$, and satisfy the Medium working point of the DeepTau ID.
+The identification criteria for electrons and muons follow the strategies described in Chapter~\ref{Section:Chapter4}, where electrons are identified using a multivariate (BDT-based) discriminator targeting a 90\% signal efficiency, and muons are selected using the cut-based medium working point.  For hadronically decaying tau leptons, a looser identification strategy is employed to ensure sufficient event yields. Specifically, $\tauh$ candidates are required to pass the \texttt{Loose} working point of the $D_{\text{jet}}$ discriminator. To further reduce contamination from electrons and muons misidentified as tau candidates, the \texttt{VVLoose} working point of the $D_e$ discriminator and the \texttt{VLoose} working point of the $D_\mu$ discriminator are employed. These working points are chosen as an optimal compromise between background rejection and signal retention, tailored to the statistical requirements of the analysis. For reference, the corresponding DeepTau score thresholds for these working points are listed in Table~\ref{Table:Chapter4_DeepTau_WPs}.
 
-    \item \textbf{Jets} are clustered using the anti-$k_T$ algorithm with a radius parameter $R = 0.4$. Selected jets must have $p_T > 30~\GeV$ and $|\eta| < 4.7$. Jets overlapping within $\Delta R = 0.4$ of any selected lepton or $\PGt_h$ are removed.
+To ensure consistency between online and offline event selection, reconstructed objects in each event must match the trigger-level objects responsible for firing the trigger. Matching is performed using a cone radius of $\Delta R < 0.5$. The number of required matches varies depending on the trigger configuration used for each final state, as summarised in Table~\ref{Table:Chapter6_TriggersPerChannel}. For channels using double-object triggers (e.g.\ $\tauh\tauh\tauh\tauh$), it is sufficient for any two reconstructed $\tauh$ candidates to match the corresponding trigger objects. In contrast, for channels that rely on single-lepton triggers (e.g.\ $e\,\tauh\tauh\tauh$), only one reconstructed object may be required to match the trigger, depending on which trigger path fired. For matched objects, stricter offline $p_T$ thresholds are applied to ensure operation within the plateau of the trigger efficiency turn-on curve: a margin of $+1\GeV$ is added for electrons and muons, and $+5\GeV$ for $\tauh$ candidates. Objects not responsible for triggering the event (i.e.\ unmatched) are allowed to satisfy looser baseline $p_T$ thresholds. This conditional approach ensures optimal signal acceptance while maintaining accurate modelling of the trigger response.
 
-    \item \textbf{Missing transverse energy (MET)} is computed from all PF candidates and corrected for pileup and jet energy scale variations using standard CMS procedures.
-\end{itemize}
+The complete set of offline object selection criteria is summarised in Table~\ref{Table:Chapter6_ObjectSelectionSummary}.
 
-All objects are required to be separated by at least $\Delta R = 0.4$ from one another to ensure clean reconstruction and avoid overlaps between signal and background candidates.
+{
+\setlength{\arrayrulewidth}{1pt}
 
-\subsection{Trigger Selection}
-\label{sec:TriggerSelection}
+% Move the caption BEFORE the table
+\begin{table}[h]
+\centering
+\caption[Summary of baseline object selection criteria]{
+Summary of baseline selection criteria applied to reconstructed electrons, muons, and hadronically decaying tau candidates ($\tauh$). Trigger-matched $p_T$ thresholds are defined relative to those in Table~\ref{Table:Chapter6_TriggerThresholdsExpanded}.
+}
+\label{Table:Chapter6_ObjectSelectionSummary}
 
-Trigger paths are selected to match the dominant final states expected in the signal. Since the signal often includes multiple light leptons, the event selection relies on single- and double-lepton triggers with thresholds matched to the final object selection.
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt}
+\arrayrulecolor{black}
 
-\begin{itemize}
-    \item \textbf{Single-lepton triggers} are used for events containing at least one high-$p_T$ lepton. The thresholds are $p_T > 27~\GeV$ for isolated electrons and $p_T > 24~\GeV$ for isolated muons.
+\begin{tabular}{cccc}
+\hline
+\textbf{Criteria} & \textbf{Electron} & \textbf{Muon} & \textbf{Hadronic Tau} \\
+\hline
 
-    \item \textbf{Dilepton triggers} are included to maintain efficiency for events with lower-$p_T$ leptons. The primary paths require two leptons with thresholds of $p_T > 17~\GeV$ and $p_T > 12~\GeV$.
+$p_\text{T}$  & > $10\GeV$ & > $10\GeV$ & > $20\GeV$\\ 
+\arrayrulecolor{lightgray} \hline
 
-    \item \textbf{Tau-inclusive triggers} were found to contribute minimally to the overall efficiency due to high thresholds and lower purity, and are not used in the main selection.
-\end{itemize}
+$p_\text{T}^{\text{Trigger}}$ & \multicolumn{3}{c}{$> \text{Table~\ref{Table:Chapter6_TriggerThresholdsExpanded}} + [1,\,1,\,5]$} \\
+\arrayrulecolor{lightgray} \hline
 
-To ensure consistency between data and simulation, per-event trigger efficiency corrections are applied to simulated events using scale factors derived from tag-and-probe studies in control samples. The trigger requirement is enforced at the preselection stage and determines whether an event is retained for further analysis.
+$|\eta|$ & < $2.5$ & < $2.4$ & < $2.3$/$2.1$\hyperlink{DoubleTauTrigger-EtaCut}{$^1$} \\
+\arrayrulecolor{lightgray} \hline
 
-\subsection{Event Reconstruction and Channel Selection}
-\label{sec:EventReconstruction}
+$|d_{xy}|$ & < $0.045\unit{cm}$ & < $0.045\unit{cm}$ & -- \\
+\arrayrulecolor{lightgray} \hline
 
-Candidate events are built by selecting combinations of four reconstructed objects consistent with the signal topology. For the targeted channels — $\PGt_e \PGt_e \PGt_{\mu} \PGt_h$, $\PGt_e \PGt_{\mu} \PGt_{\mu} \PGt_h$, and related variants — events are required to contain exactly three light leptons and one $\PGt_h$ passing the object selection criteria.
+$|d_z|$ & < $0.2\unit{cm}$ & < $0.2\unit{cm}$ & < $0.2\unit{cm}$ \\
+\arrayrulecolor{lightgray} \hline
 
-A combinatorial algorithm is used to evaluate all possible groupings consistent with the target decay modes. The pairing is prioritised using the scalar sum of lepton $p_T$, minimisation of total invariant mass, and charge constraints. Ambiguous configurations are resolved using a fixed hierarchy of lepton flavour combinations, prioritising electrons over muons in cases of duplication, consistent with signal composition and reconstruction performance.
+Isolation & $I^e_\text{PF}$ < 0.15 & $I^\mu_\text{PF}$ < 0.15 & -- \\
+\arrayrulecolor{lightgray} \hline
 
-Each final state has dedicated selection criteria optimised to suppress background contamination:
+Identification
+& \makecell{MVA w/o isolation\\(90\% WP)}
+& Medium ID
+& \makecell{
+$D_{\text{jet}} \geq \texttt{Loose}$ \\
+$D_{e} \geq \texttt{VVLoose}$ \\
+$D_{\mu} \geq \texttt{VLoose}$
+} \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\vspace{0.5em}
+\begin{minipage}{0.95\linewidth}
+\raggedright
+\footnotesize\hypertarget{DoubleTauTrigger-EtaCut}{}$^{1}$\,$|\eta| < 2.1$ is required for $\tauh$ candidates matched to trigger objects, reflecting the online trigger acceptance region.
+\end{minipage}
 
-\begin{itemize}
-    \item Events must contain \textbf{at least one opposite-sign same-flavour (OSSF) lepton pair}, which helps discriminate against non-resonant backgrounds and facilitates the definition of control regions.
+\end{table}
+}
 
-    \item \textbf{Invariant mass cuts} are applied to OSSF lepton pairs to suppress contributions from low-mass resonances and, where applicable, from on-shell $Z \to \ell\ell$ decays.
+\subsection{Event-level selections}
+Beyond object-level requirements, additional criteria are imposed at the event level to enhance signal purity and enforce statistical orthogonality between final states. These include constraints on the number and charge of reconstructed objects, as well as vetoes on additional leptons and $b$-tagged jets. The complete set of event-level selections applied in each final state is summarised in Table~\ref{Table:Chapter6_Event_Channel_Selections}.
 
-    \item Events with more than one $\PGt_h$ candidate or more than three light leptons are vetoed to ensure exclusivity.
-\end{itemize}
+{
+\setlength{\arrayrulewidth}{1pt}
 
-\subsection{Additional Vetoes}
-\label{sec:Vetoes}
+% Move the caption BEFORE the table
+\begin{table}[h]
+\caption[Event-level selection requirements by channel.]{
+Event-level selection criteria applied to each four-$\PGt$ final state. The table specifies the required number of electrons ($e$), muons ($\mu$), hadronic taus ($\tauh$), and $b$-tagged jets ($b_\text{jets}$), as well as the total charge requirement ($\sum q$) for the selected objects.}
+\label{Table:Chapter6_Event_Channel_Selections}
+\centering
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt}
+\arrayrulecolor{black}
 
-To further reduce background contributions, especially from processes such as $\ttbar$, Drell--Yan with jets, and multiboson production, the following vetoes are applied:
+\begin{tabular}{cccccc}
+\hline
+\textbf{Channel} & \textbf{$e$} & \textbf{$\mu$} & \textbf{$\tauh$} & \textbf{$b_\text{jets}$}\hyperlink{b-jet_selections}{$^1$} & \textbf{$\sum$\text{q}}\\
+\hline
 
-\begin{itemize}
-    \item \textbf{b-jet veto}: Events containing any jet passing the Medium working point of the DeepCSV b-tagging discriminator are rejected to suppress top-quark backgrounds.
+$\tau_h\tau_h\tau_h\tau_h$ &  0 & 0 & $\geq 4$ & $\geq 0$ & 0\\
+\arrayrulecolor{lightgray} \hline
 
-    \item \textbf{Extra lepton veto}: Events with more than the expected number of reconstructed leptons ($N_\ell > 3$) are rejected to avoid contamination from multilepton backgrounds or misreconstructed events.
+$\tau_h\tau_h\tau_h$ & 0 & 0 & 3 & $\geq 0$ & $\pm 1$\\
+\arrayrulecolor{lightgray} \hline
 
-    \item \textbf{Z-veto}: In specific channels, events are rejected if the invariant mass of an OSSF pair lies within the $Z$ boson mass window $76 < m_{\ell\ell} < 106~\GeV$, depending on the background composition and control region strategy.
-\end{itemize}
+$\tau_e\tau_h\tau_h\tau_h$ & 1 & 0 & $\geq3$ & $0$  & 0 \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_\mu\tau_h\tau_h\tau_h$ & 0 & 1 & $\geq 3$ & $0$ & 0 \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_e\tau_e\tau_h\tau_h$ & 2 & 0 & $\geq 2$ & $0$ & 0\\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_\mu\tau_\mu\tau_h\tau_h$ & 0 & 2 & $\geq 2$ & $0$ & 0 \\
+\arrayrulecolor{lightgray} \hline
+
+$\tau_e\tau_\mu\tau_h\tau_h$ & 1 & 1 & $\geq 2$ & $0$ & 0 \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\vspace{0.5em}
+\begin{minipage}{0.95\linewidth}
+\raggedright
+\footnotesize\hypertarget{b-jet_selections}{}$^{1}$\,Jets are required to pass the $b$-tagging criteria defined in Chapter~\ref{Section:Chapter4}, have $p_T > 30\GeV$, $|\eta| < 4.7$ and not overlap with any selected electron, muon or $\tauh$ candidates within $\Delta R < 0.5$.
+
+\end{minipage}
+\end{table}
+}
+
+These selections reflect the assumptions of the signal model and are tailored to optimise background rejection. In particular, $b$-jet vetoes are applied in channels with light leptonic tau decays to suppress $\ttbar$ contamination, while charge requirements ensure compatibility with the expected tau multiplicity and Higgs boson charge neutrality. The $\pm1$ charge condition in the $\tauh\tauh\tauh$ channel accounts for a potentially unreconstructed tau.
+
+\section{Search Optimisation}
+
+\section{Corrections to simulated events}
+
+\section{Background modelling}
+\label{Section:Chapter6_Background_Modelling}
+
+
+
 
 
 

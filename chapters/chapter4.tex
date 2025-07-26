@@ -199,6 +199,7 @@ Isolation requirements are also applied to reduce backgrounds from non-prompt mu
 
 \begin{equation_pad}
     I_{\text{PF}}^\mu = \frac{1}{p_\mathrm{T}^\mu} \left( \sum_{\text{h}^{\pm}} p_\mathrm{T} + \text{max} \left[0, \sum_{\text{h}^{0}} p_\mathrm{T} + \sum_{\gamma} p_\mathrm{T} - \Delta \beta \sum_{\text{h}^{\pm}\text{,PU}} p_\mathrm{T} \right]  \right)
+\label{Equation:Chapter4_PFIso_Muon}
 \end{equation_pad}
 
 where the expression follows the same structure as the PF isolation for electrons (Eq.~\ref{Equation:Chapter4_PFIso_Electron}). The sums run over PF charged hadrons ($h^\pm$) associated with the PV, neutral hadrons ($h^0$), and photons ($\gamma$), all within a cone of radius $\Delta R < 0.4$ around the muon direction. The pileup correction term includes the scalar sum of transverse momenta of charged hadrons not associated with the PV, scaled by a factor $\Delta \beta = 0.5$. This factor corresponds approximately to the ratio of neutral to charged hadron particle production in the hadronisation process of inelastic pp collisions.
@@ -318,7 +319,7 @@ Other & - & 3.3 \\
 \label{Table:Chapter4_TauDecayModes}
 \end{table}
 
-To reconstruct $\PGt_h$ candidates, the \textbf{\ac{HPS}} algorithm~\cite{Tau_Reco_ID_2015,Tau_Reco_ID_2018} is employed. The reconstruction begins by identifying seed regions based on PF jets clustered using the anti-$k_T$ algorithm with a distance parameter of $R = 0.4$. All PF candidates within a cone of $\Delta R < 0.5$ around the jet axis are considered, with charged hadrons required to have $p_\mathrm{T} > 0.5\GeV$ and must be compatible with originating from the PV of the event. The second step of the HPS algorithm, known as \textit{dynamic strip reconstruction}, focuses on clustering photon and electron constituents of the jet into $\Delta\eta \times \Delta\phi$ strips. These strips are used to collect energy depositions in the ECAL associated with neutral pions produced in $\PGt_h$ decays. Initially, a fixed strip size was used in the reconstruction; however, this method proved inadequate for containing all secondary particles from the $\PGt_h$ decay in some cases. For example, nuclear interactions of charged pions in the tracker material can produce low-$p_\mathrm{T}$ secondaries outside the strip, and photon conversions can lead to displaced $e^+e^-$ pairs due to scattering and bremsstrahlung. In such cases, the isolation of a $\PGt_h$ candidate would be affected. To address this, the strip size is now dynamically adjusted~\cite{Tau_Reco_ID_2018}, and the strip clustering procedure is implemented through the following steps:
+To reconstruct hadronic tau candidates, the \textbf{\ac{HPS}} algorithm~\cite{Tau_Reco_ID_2015,Tau_Reco_ID_2018} is employed. The reconstruction begins by identifying seed regions based on PF jets clustered using the anti-$k_T$ algorithm with a distance parameter of $R = 0.4$. All PF candidates within a cone of $\Delta R < 0.5$ around the jet axis are considered, with charged hadrons required to have $p_\mathrm{T} > 0.5\GeV$ and must be compatible with originating from the PV of the event. The second step of the HPS algorithm, known as \textit{dynamic strip reconstruction}, focuses on clustering photon and electron constituents of the jet into $\Delta\eta \times \Delta\phi$ strips. These strips are used to collect energy depositions in the ECAL associated with neutral pions produced in $\PGt_h$ decays. Initially, a fixed strip size was used in the reconstruction; however, this method proved inadequate for containing all secondary particles from the $\PGt_h$ decay in some cases. For example, nuclear interactions of charged pions in the tracker material can produce low-$p_\mathrm{T}$ secondaries outside the strip, and photon conversions can lead to displaced $e^+e^-$ pairs due to scattering and bremsstrahlung. In such cases, the isolation of a $\PGt_h$ candidate would be affected. To address this, the strip size is now dynamically adjusted~\cite{Tau_Reco_ID_2018}, and the strip clustering procedure is implemented through the following steps:
 
 \begin{enumerate}
     \item A new strip is seeded using the electron or photon ($e/\gamma$) with the highest $p_\mathrm{T}$ that has not yet been assigned to any existing strip.
@@ -411,7 +412,7 @@ VVTight  & 40\% & 60\%   & -- \\
 \arrayrulecolor{lightgray} \hline
 \arrayrulecolor{black} \hline
 \end{tabular}
-\caption[Hadronic $\PGt$ target efficiencies for the different working points of the DeepTau algorithm with respect to the electron, muon and jet discriminators]{Hadronic $\PGt$ target efficiencies for the different WPs of the DeepTau algorithm with respect to the electron, muon and jet discriminators. Values extracted from Ref.~\cite{DeepTau_20-001}.}
+\caption[Hadronic tau target efficiencies for the different working points of the DeepTau algorithm with respect to the electron, muon and jet discriminators]{Hadronic $\PGt$ target efficiencies for the different WPs of the DeepTau algorithm with respect to the electron, muon and jet discriminators. Values extracted from Ref.~\cite{DeepTau_20-001}.}
 \label{Table:Chapter4_DeepTau_WPs}
 \end{table}
 

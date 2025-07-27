@@ -498,12 +498,33 @@ $\tau_e\tau_\mu\tau_h\tau_h$ & 1 & 1 & $\geq 2$ & $0$ & 0 \\
 
 These selections reflect the assumptions of the signal model and are tailored to optimise background rejection. In particular, $b$-jet vetoes are applied in channels with light leptonic tau decays to suppress $\ttbar$ contamination, while charge requirements ensure compatibility with the expected tau multiplicity and Higgs boson charge neutrality. The $\pm1$ charge condition in the $\tauh\tauh\tauh$ channel accounts for a potentially unreconstructed tau.
 
-\section{Search Optimisation}
+\section{Object and event corrections}
 
-\section{Corrections to simulated events}
+Simulated events are prone to imperfections, and discrepancies between simulation and data can arise from multiple sources. These include the limited accuracy of MC event generators, approximations in detector simulation, and differences in object reconstruction performance. In particular, simulated events may differ from real data in the rates at which objects pass selection criteria such as identification, isolation, and trigger requirements. Additionally, mismatches in detector response can lead to systematic shifts in reconstructed object energies.
 
-\section{Background modelling}
+To mitigate these effects, a series of corrections is applied to simulated events to improve agreement with observed data. These include object-level adjustments, such as energy scale and resolution corrections, as well as event-level weights derived from object-specific efficiency scale factors. For example, identification, isolation and trigger efficiencies are measured separately for each reconstructed object and are then combined multiplicatively to yield a total event weight correction. Additional event-level weights are applied to account for pileup reweighting and generator-level mismodelling.
+
+Wherever possible, corrections derived centrally by the CMS collaboration are used. However, in cases where analysis-specific selections or trigger paths are employed, dedicated corrections are derived to ensure consistency with the data-taking conditions and selection strategy used in this search. The remainder of this section provides an overview of the key corrections applied to simulated events in this analysis.
+
+\subsection{Pileup Reweighting}
+
+To ensure realistic event modelling, the distribution of pileup (PU) interactions per bunch crossing, referred to as the PU profile, must accurately reflect the conditions observed during data taking. In simulation, this PU profile is constructed by generating a distribution of the \textit{mean number of interactions per bunch crossing} for a given year. This distribution encodes the variation in instantaneous luminosity over the run period.
+
+For each simulated event, a value of the mean number of interactions, denoted by $\mu^{\text{PU}}$, is randomly drawn from this reference PU profile. This $\mu^{\text{PU}}$ is then treated as the true mean of a Poisson distribution from which the actual number of PU interactions for the event is sampled. However, the PU profile used in simulation may only approximate the true distribution observed in data. To correct for this, PU reweighting is applied, where each simulated event is assigned a weight to match the PU distribution in simulation to that observed in data. The PU profiles for data and simulation used during Run 2 are shown in Fig.~\ref{Figure:Chapter6_PU_Profiles}, highlighting the need for reweighting to align the distributions.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/Chapter6/PU_Profile.pdf}
+\caption{Comparison of the distributions of the mean number of proton-proton interactions per bunch crossing between data and simulation in CMS Run 2.}
+\label{Figure:Chapter6_PU_Profiles}
+\end{figure}
+
+\subsection{Z $p_\text{T}$/mass Reweighting}
+
+\section{Background Modelling}
 \label{Section:Chapter6_Background_Modelling}
+
+\section{Search strategy and statistical procedure}
 
 
 

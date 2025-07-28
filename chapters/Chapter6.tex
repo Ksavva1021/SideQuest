@@ -18,7 +18,7 @@ This chapter provides a comprehensive description of the analysis strategy emplo
 This search is based on pp collision data collected by the CMS detector during the 2016-2018 Run 2 data-taking period. The collisions were recorded at a centre-of-mass energy $\sqrt{s} = 13\TeV$ and the full dataset corresponds to an integrated luminosity of approximately $138\unit{fb}^{-1}$.
 
 \subsection{Backgrounds}
-
+\label{Section:Chapter6_Backgrounds}
 This section provides a brief overview of the SM processes that can contribute to the four-$\PGt$ signal region. The aim is to provide an understanding of how different backgrounds can enter the selection through the presence of genuine or misidentified $\PGt$ leptons. The specific treatment of each background category is described in detail in Section~\ref{Section:Chapter6_Background_Modelling}.
 
 \textit{Diboson} production, specifically $\PZ\PZ \to 4\PGt$, constitutes the primary irreducible background in this analysis. These events contain four genuine $\PGt$ leptons in the final state, matching the signal topology by construction. Although the cross section is small compared to other SM processes, the kinematic features of $\PZ\PZ$ events make them difficult to distinguish from potential signal. In addition, $\PZ\PZ$ events with mixed-flavour decays can contribute irreducibly when the final state includes leptonic tau decays, such as $\PGt_e\PGt_e\PGt_h\PGt_h$ or $\PGt_\mu\PGt_\mu\PGt_h\PGt_h$. In such cases, the prompt electrons or muons from the $\PZ$ decay could mimic the kinematic signature of non-prompt leptons originating from $\PGt$ decays.
@@ -519,7 +519,7 @@ For each simulated event, a value of the mean number of interactions, denoted by
 \label{Figure:Chapter6_PU_Profiles}
 \end{figure}
 
-\subsection{Electron and Muon Efficiencies}
+\subsection{Electron and Muon efficiencies}
 
 While simulated leptons are reconstructed using algorithms that closely replicate those applied to real data, differences inevitably arise due to detector effects, reconstruction inefficiencies, and selection criteria. These differences are corrected through the application of efficiency \ac{SF}.
 
@@ -596,6 +596,43 @@ To assess the robustness of the extracted efficiency values and their correspond
     \caption[Impact of tag-and-probe configuration variations on efficiency extraction.]{Impact of tag-and-probe configuration variations on the measurement of electron identification efficiency in the $p_{\mathrm{T}}$ bin $20–25\GeV$ and $|\eta|$ region 0.0–0.8. Shown are invariant mass distributions and corresponding fits for: \textbf{(a)} an alternative signal model, and \textbf{(b)} a tighter tag lepton $p_\text{T}$ selection. These are compared to the nominal configuration shown in Fig.~\ref{Figure:Chapter6-TagAndProbeFits_Nominal}.}
     \label{Figure:Chapter6-TagAndProbeFits_Alternative}
 \end{figure}
+
+\subsection{\texorpdfstring{$\PGt_h$ efficiencies}{Hadronic tau efficiencies}}
+
+\subsubsection{Identification and Energy Scale}
+
+Efficiency SFs are applied to simulated $\tau_h$ candidates to correct for differences in reconstruction and identification performance between data and simulation. These corrections are derived centrally by the CMS collaboration and are therefore only briefly summarised here.
+
+The SFs are obtained for $\tau_h$ objects passing the $D_\text{jet}$ discriminator using a \textit{tag-and-probe} technique in events enriched with $\PZ/\gamma^* \to \tau_\mu \tau_h$ decays. The primary observable is the visible mass of the muon and $\tau_h$ pair, $m_{\text{vis}}$, defined over the range $50 < m_{\text{vis}} < 150\GeV$. This range captures the resonance while including sidebands to help constrain backgrounds. A binned maximum-likelihood fit is performed to the $m_{\text{vis}}$ distribution, comparing data to simulation.
+
+To improve the robustness of the extraction, a control region enriched in $\PZ/\gamma^* \to \mu\mu$ events is included simultaneously. The DY yield is treated with a common rate parameter across both categories, while the $\tau_h$ identification SF is extracted as the parameter of interest. Systematic uncertainties—including muon efficiencies, luminosity, background normalisations, and MC statistics—are incorporated into the fit as nuisance parameters.
+
+The resulting SFs are binned in decay mode for $\pt^{\tauh} > 20\GeV$ to account for variations across kinematic regions and decay topologies. They are applied to simulated $\tau_h$ candidates matched to genuine hadronic tau decays at generator level.
+
+In parallel, the \ac{TES} is extracted using external template fits. For each decay mode, a set of $m_{\text{vis}}$ templates is generated with varied TES values, and the best-fit value is determined via a maximum-likelihood fit. This TES is then fixed in the subsequent extraction of the $\tau_h$ identification SFs. The corrections are typically within $\pm 2\%$, consistent with the high accuracy of CMS $\tau_h$ energy reconstruction.
+
+\subsubsection{Trigger}
+
+Trigger efficiency corrections for $\tau_h$ candidates are measured using the same $\PZ/\gamma^* \to \tau_\mu \tau_h$ events described above, leveraging the clean topology and well-reconstructed muon leg. As with the identification and TES corrections, these measurements are performed centrally by the CMS collaboration and are only briefly summarised here.
+
+The trigger efficiencies are extracted using a \textit{tag-and-probe} approach, where the muon serves as the tag and the $\tau_h$ as the probe. To ensure that the $\tau_h$ leg is unbiased, dedicated \textit{monitoring triggers} are used. These apply tight requirements to the muon leg while replicating the online selection of the trigger under study on the $\tau_h$ leg. This allows a direct measurement of the $\tau_h$ trigger efficiency.
+
+Corrections are derived for both lepton+tau and double-tau triggers, and are applied to simulated events to correct for residual differences in trigger response between data and simulation.
+
+\subsubsection{Lepton Misidentification Rates and Energy Scale}
+
+As discussed in Section~\ref{Section:Chapter6_Backgrounds}, electrons and muons can be misidentified as hadronic taus by the DeepTau algorithm, contributing to backgrounds in $\tau_h$ final states. The associated corrections for such misidentifications are derived centrally by the CMS collaboration and are summarised briefly here.
+
+Misidentification probabilities are measured using a similar \textit{tag-and-probe} method in $\PZ/\gamma^* \to ee$ and $\PZ/\gamma^* \to \mu\mu$ events. One lepton serves as the tag, while the probe is required to be misreconstructed as a $\tau_h$ candidate. Events are categorised based on whether the probe passes or fails the DeepTau discriminants for electrons ($D_e$) and for muons ($D_\mu$). The misidentification rates are measured as a function of $\eta_{\tau_h}$, and the ratio of misidentification probabilities in data and simulation is extracted as the SF. These are applied to simulated misidentified $e \to \tau_h$ and $\mu \to \tau_h$ events to correct mismodelling. In addition to misidentification efficiencies, separate energy scale corrections are applied to $\tau_h$ candidates originating from misidentified leptons. 
+
+\subsection{B-tagging efficiency}
+
+Corrections for differences in b-tagging performance between data and simulation are applied using SFs derived centrally by the CMS collaboration. These corrections account for discrepancies in the tagging efficiency of jets originating from b-quarks, c-quarks, and light-flavour partons.
+
+In this analysis, rather than applying a multiplicative event weight, the b-tagging status of each jet is updated on a jet-by-jet basis using the SFs. A random number generator is used to probabilistically upgrade or downgrade the tagging status of individual jets, depending on whether the SF is greater or less than one. This approach allows the modified simulated events to be treated equivalently to data in downstream selections and categorisations, eliminating the need for additional per-event weights.
+
+% This method is beneficial for analyses where the b-tag multiplicity defines the event category, since it allows for natural migration between categories and avoids complications associated with weighted event yields. However, it is not recommended in analyses that rely on variables which could become ill-defined when upgrading untagged jets—such as those involving secondary vertex information—since upgraded jets lack associated vertex reconstruction. Care must also be taken when SFs cross unity due to systematic variations, as this may affect the stability of such variables.
+
 
 \clearpage
 \section{Background Modelling}

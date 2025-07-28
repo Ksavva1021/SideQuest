@@ -315,11 +315,11 @@ Identifying events with four tau leptons poses a challenge, as there is no dedic
 & \multicolumn{6}{c|}{$p_\text{T}$ \text{Threshold (GeV)}} \\ \cline{2-7}
 & \multicolumn{2}{c|}{\text{2016}} & \multicolumn{2}{c|}{\text{2017}} & \multicolumn{2}{c|}{\text{2018}} \\ \cline{2-7}
 & \text{Obj$_1$} & \text{Obj$_2$} & \text{Obj$_1$} & \text{Obj$_2$} & \text{Obj$_1$} & \text{Obj$_2$} \\ \hline \hline
-Single Electron (e)                   & 26     & --     & 28     & --     & 33     & --     \\
+Single-Electron (e)                   & 26     & --     & 28     & --     & 33     & --     \\
 \arrayrulecolor{lightgray} \hline
-Single Muon ($\mu$)                       & 23     & --     & 25     & --     & 25     & --     \\
+Single-Muon ($\mu$)                       & 23     & --     & 25     & --     & 25     & --     \\
 \arrayrulecolor{lightgray} \hline
-Double Tau ($\PGt \PGt$)         & 40     & 40     & 40     & 40     & 40     & 40     \\
+Double-Tau ($\PGt \PGt$)         & 40     & 40     & 40     & 40     & 40     & 40     \\
 \arrayrulecolor{black} \hline
 \end{tabular}
 \caption{Table of minimum online $p_\text{T}$ thresholds (in GeV) for the triggers used in the analysis. Subcolumns refer to thresholds for the first and second trigger objects.}
@@ -506,7 +506,7 @@ To mitigate these effects, a series of corrections is applied to simulated event
 
 Wherever possible, corrections derived centrally by the CMS collaboration are used. However, in cases where analysis-specific selections or trigger paths are employed, dedicated corrections are derived to ensure consistency with the data-taking conditions and selection strategy used in this search. The remainder of this section provides an overview of the key corrections applied to simulated events in this analysis.
 
-\subsection{Pileup Reweighting}
+\subsection{Pileup reweighting}
 
 To ensure realistic event modelling, the distribution of pileup (PU) interactions per bunch crossing, referred to as the PU profile, must accurately reflect the conditions observed during data taking. In simulation, this PU profile is constructed by generating a distribution of the \textit{mean number of interactions per bunch crossing} for a given year. This distribution encodes the variation in instantaneous luminosity over the run period.
 
@@ -519,38 +519,85 @@ For each simulated event, a value of the mean number of interactions, denoted by
 \label{Figure:Chapter6_PU_Profiles}
 \end{figure}
 
-\subsection{\texorpdfstring{Z $p_\text{T}$-mass reweighting}{Z pT-mass reweighting}}
+\subsection{Electron and Muon Efficiencies}
+
+While simulated leptons are reconstructed using algorithms that closely replicate those applied to real data, differences inevitably arise due to detector effects, reconstruction inefficiencies, and selection criteria. These differences are corrected through the application of efficiency \ac{SF}.
+
+The efficiencies under consideration include tracking, identification, isolation, and trigger efficiencies. Tracking efficiencies are derived centrally by the CMS collaboration for both electrons and muons and are applied as provided. However, the remaining efficiencies are measured within the scope of this analysis using a dedicated implementation of the \textit{tag-and-probe} method~\cite{CMS_Muon_System_Performance,CMS_Muon_System_Performance_2}. This is necessary because of the object selection criteria in Table~\ref{Table:Chapter6_ObjectSelectionSummary}). In particular, the impact parameter requirements $d_{xy}$ and $d_z$, deviate from those used in the derivation of the official CMS corrections. 
+
+The tag-and-probe technique is applied to leptons from $Z \rightarrow \ell^+\ell^-$ decays, providing a clean and unbiased sample for measuring the performance of individual selection stages. Events are selected by requiring a pair of opposite-charge, same-flavour leptons with an invariant mass $m_{\ell\ell}$ between $65\GeV$ and $115\GeV$, enhancing the purity of the $Z$ boson signal. One lepton in the pair, the \textit{tag}, must satisfy tight identification and isolation criteria as well as single-lepton trigger requirements. This ensures that the tag lepton does not bias the efficiency measurement of the second lepton, referred to as the \textit{probe}. The probe is then used to evaluate the efficiency of a specific selection requirement. To maximise statistical precision, both leptons are alternately treated as tag and probe. 
+
+Efficiency measurements are performed in bins of the probe $p_{\mathrm{T}}$ and $\eta$, to account for variations in detector performance across different kinematic and detector regions. 
+
+\begin{itemize}
+    \item Identification efficiency:
+    \begin{itemize}
+        \item No isolation or trigger requirement is applied on the probe.
+    \end{itemize}
+    
+    \item Isolation efficiency:
+    \begin{itemize}
+        \item The probe must satisfy the identification criteria.
+        \item No trigger requirement is applied.
+    \end{itemize}
+
+    \item Trigger efficiency:
+    \begin{itemize}
+        \item The probe must satisfy both identification and isolation criteria.
+    \end{itemize}
+\end{itemize}
+
+In each ($p_{\mathrm{T}}$, $\eta$) bin, events are further split into ``pass'' and ``fail'' categories depending on whether the probe satisfies the selection under investigation. To account for residual background contamination, a simultaneous fit is performed to the invariant mass distribution of the dilepton system in both categories. The $ Z\rightarrow\ell^+\ell^-$ signal is modelled using a superposition of Voigtian functions, with the Breit-Wigner width fixed to the natural width of the $Z$ boson. The background is described using:
+
+\begin{itemize}
+    \item A decaying exponential for the isolation and trigger efficiency fits.
+    \item An error function transitioning into a decaying exponential for the ID fits. In this regime, background contamination is typically larger and must be modelled more precisely, especially in the turn-on region.
+\end{itemize}
+
+The efficiency is then extracted as:
+
+\begin{equation_pad}
+    \epsilon = \frac{N_{\text{pass}}}{N_{\text{pass}} + N_{\text{fail}}}
+\end{equation_pad}
+
+where $N_{\text{pass}}$ and $N_{\text{fail}}$ are the best-fit $Z \rightarrow \ell^+\ell^-$ signal yields in the pass and fail categories, respectively. To illustrate the procedure, Fig.~\ref{Figure:Chapter6-TagAndProbeFits_Nominal} shows an example of the invariant mass distributions for muon probes in a representative $\eta$ bin, along with the corresponding signal and background fits in the pass and fail categories. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{Figures/Chapter6/data_id_pt_20_to_25_eta_0.0_to_0.8_tpzee_nominal.pdf}
+\caption{Example of the tag-and-probe fit used to extract electron identification efficiency in data. This plot corresponds to the $p_{\mathrm{T}}$ bin $20–25\GeV$ and the $|\eta|$ region 0.0–0.8.}
+\label{Figure:Chapter6-TagAndProbeFits_Nominal}
+\end{figure}
+
+Efficiency \acp{SF} are computed as the ratio of data to simulation efficiencies:
+
+\begin{equation_pad}
+    \text{SF}(p_\text{T},\eta) = \frac{\epsilon_\text{data}(p_\text{T},\eta)}{\epsilon_\text{MC}(p_\text{T},\eta)}
+\end{equation_pad}
+
+These SFs are applied per object, and the total event-level weight is obtained by multiplying the per-object SFs for all relevant leptons in the event.
+
+To assess the robustness of the extracted efficiency values and their corresponding scale factors, variations in the tag-and-probe procedure are explored. These include changes in the tag selection criteria ($\eg$ increasing the minimum $p_{\text{T}}$ threshold from $25\GeV$ to $35\GeV$), alternative signal modelling choices, and different background modelling functions. These variations result in shifts in the extracted $N_{\text{pass}}$ and $N_{\text{fail}}$ values, and consequently, in the computed efficiencies. Figure~\ref{Figure:Chapter6-TagAndProbeFits_Alternative} illustrates representative examples of these variations compared to the nominal configuration. Any residual differences are considered as systematic uncertainties in the final SF derivation.
 
 \begin{figure}[h]
         \centering
         % First row
-        \begin{subfigure}[b]{0.49\textwidth}
+        \begin{subfigure}[b]{\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{Figures/Chapter6/zpt_mvis_without.pdf}
+            \includegraphics[width=\textwidth]{Figures/Chapter6/data_id_pt_20_to_25_eta_0.0_to_0.8_tpzee_signal.pdf}
             \caption{}
         \end{subfigure}
-        \begin{subfigure}[b]{0.49\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Figures/Chapter6/zpt_ptvis_without.pdf}
-            \caption{}
-        \end{subfigure}
-
         \vspace{0.5cm}
-
-        \begin{subfigure}[b]{0.49\textwidth}
+        \begin{subfigure}[b]{\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{Figures/Chapter6/zpt_mvis_with.pdf}
+            \includegraphics[width=\textwidth]{Figures/Chapter6/data_id_pt_20_to_25_eta_0.0_to_0.8_tpzee_tightTag.pdf}
             \caption{}
         \end{subfigure}
-        \begin{subfigure}[b]{0.49\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Figures/Chapter6/zpt_ptvis_with.pdf}
-            \caption{}
-        \end{subfigure}
-    \caption[Comparison of the track reconstruction efficiency as a function of $\eta$ and $p_\mathrm{T}$ between the original RAW format, and the alternative RAW' definitions.]{Comparison of the track reconstruction efficiency as a function of \textbf{(a)} $\eta$ and \textbf{(b)} $p_\mathrm{T}$ between the original RAW format, and the alternative RAW' definitions. Results are based on simulated $t\bar{t}$ events.} 
-    \label{Figure:Chapter5_TrackingPerformance_2}
+    \caption[Impact of tag-and-probe configuration variations on efficiency extraction.]{Impact of tag-and-probe configuration variations on the measurement of electron identification efficiency in the $p_{\mathrm{T}}$ bin $20–25\GeV$ and $|\eta|$ region 0.0–0.8. Shown are invariant mass distributions and corresponding fits for: \textbf{(a)} an alternative signal model, and \textbf{(b)} a tighter tag lepton $p_\text{T}$ selection. These are compared to the nominal configuration shown in Fig.~\ref{Figure:Chapter6-TagAndProbeFits_Nominal}.}
+    \label{Figure:Chapter6-TagAndProbeFits_Alternative}
 \end{figure}
 
+\clearpage
 \section{Background Modelling}
 \label{Section:Chapter6_Background_Modelling}
 

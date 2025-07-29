@@ -634,9 +634,124 @@ In this analysis, rather than applying a multiplicative event weight, the b-tagg
 % This method is beneficial for analyses where the b-tag multiplicity defines the event category, since it allows for natural migration between categories and avoids complications associated with weighted event yields. However, it is not recommended in analyses that rely on variables which could become ill-defined when upgrading untagged jets—such as those involving secondary vertex information—since upgraded jets lack associated vertex reconstruction. Care must also be taken when SFs cross unity due to systematic variations, as this may affect the stability of such variables.
 
 
-\clearpage
 \section{Background Modelling}
 \label{Section:Chapter6_Background_Modelling}
+
+As outlined in Section~\ref{Section:Chapter6_Backgrounds}, a variety of Standard Model (SM) processes can mimic the $Z^* \to \phi A \to 4\PGt$ signal signature either through the presence of genuine $\PGt$ leptons or via misidentification of jets or prompt leptons as $\PGt_h$ candidates. This section details the strategies used to model these background processes and validate their contributions in the context of the analysis.
+
+To structure the treatment, the backgrounds are categorised into three main classes:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Processes with four genuine $\PGt$ leptons:} The dominant irreducible background in this category is diboson production, particularly $\PZ\PZ \to 4\PGt$. These are modelled using simulation, with corrections applied to account for known mismodelling and detector effects.
+\item \textbf{Processes with one or more jets misidentified as $\PGt_h$ candidates (jet $\to \PGt_h$):} This includes processes such as Drell–Yan, $\ttbar$, and W+jets, where jets from ISR/FSR or hadronic activity are misreconstructed as hadronic tau decays. These backgrounds are estimated using a data-driven fake factor method, with the modelling approach described in Section~\ref{Section:Chapter6_FakeFactors}.
+\item \textbf{Processes with prompt electrons or muons misidentified as $\PGt_h$ candidates (lepton $\to \PGt_h$):} Although subdominant, these backgrounds are not negligible in some final states and are estimated using simulation with dedicated misidentification corrections derived as discussed in Section~\ref{Section:Chapter6_ObjectAndEventCorrections}.
+\end{enumerate}
+
+\subsection{Genuine Background}
+\label{Section:Chapter6_GenuineBackground}
+
+The dominant irreducible background in this analysis arises from processes in which all four $\PGt$ leptons are genuine, with the most significant contribution originating from $\PZ\PZ \to 4\PGt$ events. These are modelled using Monte Carlo (MC) simulation and are corrected for known mismodelling effects to ensure consistency with higher-order theoretical predictions and data.
+
+As summarised in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, the $\PZ\PZ$ samples used in this analysis are generated using \POWHEG for quark-initiated production and \PYTHIA for the gluon-fusion component. To account for missing higher-order contributions, multiplicative correction factors—commonly referred to as $K$-factors—are applied as a function of the four-lepton invariant mass $m_{4\ell}$. These corrections are derived from state-of-the-art theoretical calculations. For quark-initiated $\PZ\PZ$ production, NNLO/NLO QCD and electroweak corrections are applied based on results from \textsc{Powheg-BOX} v2.0~\cite{Powheg_1,Powheg_2}, yielding an average $K$-factor of approximately 1.2. For gluon-initiated production, which is loop-suppressed at leading order but becomes non-negligible at higher mass, a significantly larger correction—typically around a factor of 2—is obtained from NNLO QCD calculations using \textsc{HNNLO}~\cite{HNNLO}.
+
+To ensure accurate modelling of this background, the simulation is validated in a control region enriched in $\PZ\PZ \to \PGm^+\PGm^-\PGm^+\PGm^-$ decays. This channel features a clean experimental signature with minimal contamination from reducible backgrounds, allowing a high-purity validation of both the event selection and the applied corrections. The same object reconstruction and selection criteria outlined in Section~\ref{sec:ObjectSelection} are applied, with minor adaptations to increase statistical precision—specifically, the muon isolation threshold is relaxed to $I^{\mu}_\text{PF} < 0.35$, and no $b$-jet veto is imposed. The overall event charge is required to be zero to reflect the expected neutral final state of $\PZ\PZ$ events. Agreement between simulation and data in this control region is found to be within uncertainties across key observables, providing confidence in the modelling of genuine four-lepton backgrounds.
+
+Events in which one or more of the $\PGt$ leptons decay hadronically are treated identically, with generator-level matching applied to ensure that only events with genuine $\PGt_h$ candidates contribute to this category. This gen-matching requirement suppresses contamination from jets or prompt electrons/muons misidentified as $\PGt_h$, which are addressed separately in the reducible background estimation described in Section~\ref{Section:Chapter6_FakeFactors}. Residual contributions from processes involving lepton $\to \PGt_h$ misidentification are estimated using simulation, as discussed in Section~\ref{Section:Chapter6_MisID}.
+
+\subsection{Fake Factor Background Estimation}
+\label{Section:Chapter6_FakeFactors}
+
+\subsubsection{Classical Fake Factor Method}
+\label{Section:Chapter6_FakeFactors_Classical}
+
+The dominant reducible background in this analysis arises from events in which one or more reconstructed $\PGt_h$ candidates originate from jets rather than genuine hadronic tau decays. As outlined in Section~\ref{Section:Chapter6_Backgrounds}, these jet~$\to$~$\PGt_h$ misidentifications are especially prevalent in processes such as Drell–Yan, $\ttbar$, and W+jets, and they are known to be poorly modelled by MC simulation. To address this, a data-driven estimation technique known as the \textit{Fake Factor (FF)} method is employed.
+
+The core idea of the classical FF method is to estimate the fake rate in a control region enriched with jet~$\to$~$\PGt_h$ events, and then apply this rate to predict the contribution in the signal region. This is achieved by selecting events where one or more $\PGt_h$ candidates fail the nominal identification working point but pass a looser baseline selection. In each bin of a chosen variable (typically $p_T$ or $\eta$), the FF is defined as:
+
+\begin{equation}
+    \text{FF}(x) = \frac{N_\text{pass}(x)}{N_\text{fail}(x)},
+\end{equation}
+
+where $x$ denotes the binning variable, and $N_\text{pass}$ and $N_\text{fail}$ represent the number of events that pass and fail the nominal $\PGt_h$ ID, respectively, within that bin. These FFs are then applied as weights to events in the fail region to predict their contribution in the pass region (signal-like region).
+
+While the FF method is simple and robust, it has notable drawbacks:
+
+\begin{itemize}
+    \item It typically uses only one or two variables to parameterise the fake rate, limiting its ability to model complex dependencies.
+    \item The kinematics of the fail region may not perfectly match those of the signal region, leading to extrapolation errors.
+    \item Process dependence and correlations with other event features (e.g.\ jet multiplicity, object overlap, or missing energy) are difficult to capture.
+\end{itemize}
+
+To partially mitigate these issues, correction factors may be derived using additional control regions, often structured into ABCD-like topologies, as illustrated in Figure~\ref{Figure:FakeFactorSchematic}. However, such corrections still rely on careful binning and can be sensitive to statistical fluctuations and modelling assumptions.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.55\textwidth]{Figures/Chapter6/FakeFactorSchematic.pdf}
+%     \caption[Schematic of control and application regions in the Fake Factor method.]{Illustration of the typical control region topology used in the classical Fake Factor method. Corrections are applied to bridge kinematic mismatches between regions.}
+%     \label{Figure:FakeFactorSchematic}
+% \end{figure}
+
+These limitations motivate the development of more flexible reweighting strategies that can incorporate multiple variables simultaneously without the constraints of explicit binning.
+
+\subsubsection{Multivariable Reweighting}
+\label{Section:Chapter6_FakeFactors_Reweighting}
+
+An extension of the classical FF approach involves performing multivariable reweighting based on observed discrepancies between control and signal-like regions. In this method, event weights are derived from the ratio of data to MC event densities in each region of phase space. The simplest implementation involves dividing both distributions into a multi-dimensional histogram and computing the ratio in each bin:
+
+\begin{equation}
+    r_\text{bin} = \frac{w^\text{data}_\text{bin}}{w^\text{MC}_\text{bin}},
+\end{equation}
+
+where $w^\text{data}_\text{bin}$ and $w^\text{MC}_\text{bin}$ are the total event weights in bin $x$ for data and MC, respectively. These weights are then applied to MC events to match the data distribution in the control region.
+
+While intuitive, this histogram division approach faces several limitations:
+
+\begin{itemize}
+    \item \textbf{Low-dimensional feasibility}: Only a small number of variables can be used simultaneously (typically one or two) before bin sparsity and statistical noise become problematic.
+    \item \textbf{Bias from variable choice}: Improving agreement in one dimension can worsen it in others if correlations are neglected.
+    \item \textbf{Curse of dimensionality}: The number of bins grows exponentially with the number of variables, quickly exhausting available statistics and producing unstable weights.
+\end{itemize}
+
+To alleviate these issues, one may smooth the weights by fitting them to analytic functions or coarsening the binning. However, these fixes still limit the ability to model nontrivial dependencies and introduce further user-defined assumptions.
+
+\subsubsection{BDT-Based Reweighting}
+\label{Section:Chapter6_FakeFactors_BDT}
+
+To overcome the limitations of both histogram division and standard multivariable reweighting, a more powerful and adaptive approach is implemented based on \textit{Boosted Decision Tree (BDT) reweighting}. Unlike standard classifiers trained to separate classes, this method directly targets the task of density ratio estimation by maximising a reweighting-specific objective function.
+
+Instead of attempting to estimate the underlying probability densities $f_\text{data}(x)$ and $f_\text{MC}(x)$ separately, the BDT reweighter learns a direct approximation of their ratio. To do this, the algorithm recursively splits the phase space into regions (tree leaves) that exhibit the largest discrepancies between the data and MC distributions. The figure of merit for each split is the \textit{symmetrised $\chi^2$}, defined as:
+
+\begin{equation}
+    \chi^2 = \sum_\text{leaf} \frac{(w_\text{MC} - w_\text{data})^2}{w_\text{MC} + w_\text{data}}.
+\end{equation}
+
+This metric highlights regions of phase space where the disagreement between MC and data is large and prioritises those areas during training. In contrast, standard BDT classifiers minimise a classification loss (such as cross-entropy), which tends to underemphasise regions of extreme ratio—precisely those most in need of correction. This is illustrated in Figure~\ref{Figure:BDTvsClassifier}, which compares the objectives of standard classification BDTs and $\chi^2$-optimised reweighters.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.75\textwidth]{Figures/Chapter6/BDT_Classifier_vs_Reweighter.pdf}
+%     \caption[Comparison between standard BDT classifier and $\chi^2$-based BDT reweighter.]{Illustration of the difference between standard BDT classification loss (left), which focuses on decision boundaries, and the $\chi^2$-based BDT reweighter (right), which targets regions with the largest MC--data discrepancies.}
+%     \label{Figure:BDTvsClassifier}
+% \end{figure}
+
+The training proceeds as follows:
+
+\begin{enumerate}
+    \item A shallow decision tree is trained to partition phase space and maximise the $\chi^2$ between MC and data weights in each region.
+    \item For each tree leaf, the reweighting factor is computed as:
+    \[
+        r_\text{leaf} = \log \left( \frac{w_\text{MC}}{w_\text{data}} \right).
+    \]
+    \item Each MC event is reweighted using:
+    \[
+        w_\text{new} = w_\text{old} \times \exp(r_\text{leaf}).
+    \]
+    \item Steps 1–3 are repeated for multiple boosting rounds, with each new tree targeting residual mismodelling not corrected by previous iterations.
+\end{enumerate}
+
+This boosting procedure ensures convergence across the full phase space. Since each tree focuses on regions with significant disagreement, the method is highly effective even in regions with low statistics or strong kinematic imbalance.
+
+The BDT reweighter thus provides a robust, scalable alternative to classical FF estimation, especially in complex final states with high jet multiplicity and strong correlations among observables. In this analysis, the BDT-based reweighting is used to refine fake background estimates and serves as the baseline method in the most challenging channels.
+
 
 \section{Search strategy and statistical procedure}
 

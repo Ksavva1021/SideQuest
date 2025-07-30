@@ -620,7 +620,7 @@ The trigger efficiencies are extracted using a \textit{tag-and-probe} approach, 
 Corrections are derived for both lepton+tau and double-tau triggers, and are applied to simulated events to correct for residual differences in trigger response between data and simulation.
 
 \subsubsection{Lepton Misidentification Rates and Energy Scale}
-
+\label{Section:Chapter6_Lepton_MisID_SF}
 As discussed in Section~\ref{Section:Chapter6_Backgrounds}, electrons and muons can be misidentified as hadronic taus by the DeepTau algorithm, contributing to backgrounds in $\tau_h$ final states. The associated corrections for such misidentifications are derived centrally by the CMS collaboration and are summarised briefly here.
 
 Misidentification probabilities are measured using a similar \textit{tag-and-probe} method in $\PZ/\gamma^* \to ee$ and $\PZ/\gamma^* \to \mu\mu$ events. One lepton serves as the tag, while the probe is required to be misreconstructed as a $\tau_h$ candidate. Events are categorised based on whether the probe passes or fails the DeepTau discriminants for electrons ($D_e$) and for muons ($D_\mu$). The misidentification rates are measured as a function of $\eta_{\tau_h}$, and the ratio of misidentification probabilities in data and simulation is extracted as the SF. These are applied to simulated misidentified $e \to \tau_h$ and $\mu \to \tau_h$ events to correct mismodelling. In addition to misidentification efficiencies, separate energy scale corrections are applied to $\tau_h$ candidates originating from misidentified leptons. 
@@ -637,25 +637,57 @@ In this analysis, rather than applying a multiplicative event weight, the b-tagg
 \section{Background Modelling}
 \label{Section:Chapter6_Background_Modelling}
 
-As outlined in Section~\ref{Section:Chapter6_Backgrounds}, a variety of Standard Model (SM) processes can mimic the $Z^* \to \phi A \to 4\PGt$ signal signature either through the presence of genuine $\PGt$ leptons or via misidentification of jets or prompt leptons as $\PGt_h$ candidates. This section details the strategies used to model these background processes and validate their contributions in the context of the analysis.
+As outlined in Section~\ref{Section:Chapter6_Backgrounds}, several processes can mimic the $Z^* \to \phi A \to 4\PGt$ signal signature, either through the presence of genuine $\PGt$ leptons, misidentification of jets or light leptons ($e$,$\mu$) as $\PGt_h$ candidates, or a combination of both. This section details the strategies used to model these background processes and validate their contributions in the context of the analysis. To structure the modelling, the background events are categorised into three main classes:
 
-To structure the treatment, the backgrounds are categorised into three main classes:
 \begin{enumerate}[label=(\roman*)]
-\item \textbf{Processes with four genuine $\PGt$ leptons:} The dominant irreducible background in this category is diboson production, particularly $\PZ\PZ \to 4\PGt$. These are modelled using simulation, with corrections applied to account for known mismodelling and detector effects.
-\item \textbf{Processes with one or more jets misidentified as $\PGt_h$ candidates (jet $\to \PGt_h$):} This includes processes such as Drell–Yan, $\ttbar$, and W+jets, where jets from ISR/FSR or hadronic activity are misreconstructed as hadronic tau decays. These backgrounds are estimated using a data-driven fake factor method, with the modelling approach described in Section~\ref{Section:Chapter6_FakeFactors}.
-\item \textbf{Processes with prompt electrons or muons misidentified as $\PGt_h$ candidates (lepton $\to \PGt_h$):} Although subdominant, these backgrounds are not negligible in some final states and are estimated using simulation with dedicated misidentification corrections derived as discussed in Section~\ref{Section:Chapter6_ObjectAndEventCorrections}.
+\item Events with only genuine $\PGt$ leptons: These irreducible backgrounds, dominated by $\PZ\PZ \to 4\PGt$ production, are modelled using simulation.
+
+\item Events with one or more jets misidentified as $\PGt_h$ candidates (jet $\to \PGt_h$): These backgrounds are modelled using a data-driven fake factor method.
+
+\item Events with light leptons misidentified as $\PGt_h$ candidates (lepton $\to \PGt_h$): Although typically subdominant, these backgrounds can affect some final states and are modelled using simulation with dedicated corrections, as described in Section~\ref{Section:Chapter6_Lepton_MisID_SF}.
 \end{enumerate}
 
-\subsection{Genuine Background}
+\subsection{\texorpdfstring{Genuine-\boldmath{$\PGt$} Backgrounds from $\PZ\PZ$}{Genuine tau Backgrounds from ZZ}}
+
 \label{Section:Chapter6_GenuineBackground}
 
-The dominant irreducible background in this analysis arises from processes in which all four $\PGt$ leptons are genuine, with the most significant contribution originating from $\PZ\PZ \to 4\PGt$ events. These are modelled using Monte Carlo (MC) simulation and are corrected for known mismodelling effects to ensure consistency with higher-order theoretical predictions and data.
+These events are primarily produced via quark–antiquark annihilation, with a subdominant contribution from gluon–gluon fusion. Owing to their fully leptonic final state and close kinematic resemblance to the signal, they represent the most challenging background to suppress. As summarised in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, the quark-initiated component is modelled using $\POWHEG$ at NLO in QCD. At the same time, the gluon-initiated contribution is simulated at LO using $\PYTHIA$.  To account for missing higher-order corrections, both components are scaled using multiplicative $\mathcal{K}$-factors~\cite{Kfactors_ZZ} as a function of the four-lepton invariant mass $m_{4\ell}$.
 
-As summarised in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, the $\PZ\PZ$ samples used in this analysis are generated using \POWHEG for quark-initiated production and \PYTHIA for the gluon-fusion component. To account for missing higher-order contributions, multiplicative correction factors—commonly referred to as $K$-factors—are applied as a function of the four-lepton invariant mass $m_{4\ell}$. These corrections are derived from state-of-the-art theoretical calculations. For quark-initiated $\PZ\PZ$ production, NNLO/NLO QCD and electroweak corrections are applied based on results from \textsc{Powheg-BOX} v2.0~\cite{Powheg_1,Powheg_2}, yielding an average $K$-factor of approximately 1.2. For gluon-initiated production, which is loop-suppressed at leading order but becomes non-negligible at higher mass, a significantly larger correction—typically around a factor of 2—is obtained from NNLO QCD calculations using \textsc{HNNLO}~\cite{HNNLO}.
+\begin{itemize}
+\item Quark-initiated $\PZ\PZ$: NLO-to-NNLO QCD $K$-factors are determined using $\POWHEG$ 2.0~\cite{Powheg_1,Powheg_2}. These corrections are applied as a function of $m_{4\ell}$, with an average $K$-factor of approximately 1.2 across the relevant phase space.
 
-To ensure accurate modelling of this background, the simulation is validated in a control region enriched in $\PZ\PZ \to \PGm^+\PGm^-\PGm^+\PGm^-$ decays. This channel features a clean experimental signature with minimal contamination from reducible backgrounds, allowing a high-purity validation of both the event selection and the applied corrections. The same object reconstruction and selection criteria outlined in Section~\ref{sec:ObjectSelection} are applied, with minor adaptations to increase statistical precision—specifically, the muon isolation threshold is relaxed to $I^{\mu}_\text{PF} < 0.35$, and no $b$-jet veto is imposed. The overall event charge is required to be zero to reflect the expected neutral final state of $\PZ\PZ$ events. Agreement between simulation and data in this control region is found to be within uncertainties across key observables, providing confidence in the modelling of genuine four-lepton backgrounds.
+\item Gluon-initiated $\PZ\PZ$: A significantly larger $K$-factor, typically around 2.0, is applied to match NNLO QCD predictions derived from \textsc{HNNLO v2}~\cite{PhysRevLett.98.222002}. The correction is used as a function of $m_{4\ell}$, in the same way as for the quark-initiated component.
+\end{itemize}
 
-Events in which one or more of the $\PGt$ leptons decay hadronically are treated identically, with generator-level matching applied to ensure that only events with genuine $\PGt_h$ candidates contribute to this category. This gen-matching requirement suppresses contamination from jets or prompt electrons/muons misidentified as $\PGt_h$, which are addressed separately in the reducible background estimation described in Section~\ref{Section:Chapter6_FakeFactors}. Residual contributions from processes involving lepton $\to \PGt_h$ misidentification are estimated using simulation, as discussed in Section~\ref{Section:Chapter6_MisID}.
+To ensure accurate modelling of this background, the simulation is validated in a control region enriched in $\PZ\PZ \to \mu^+\mu^-\mu^+\mu^-$ decays. This channel features a clean experimental signature with minimal contamination from other backgrounds. The same selection criteria outlined in Table~\ref{Table:Chapter6_ObjectSelectionSummary} are applied, with minor adaptations to increase statistical precision. Specifically, the muon isolation threshold is relaxed to $I^{\mu}_\text{PF} < 0.35$, while the overall charge of the final state is required to be zero. To complete the definition of the control region, the trigger configuration used to select events in this region is summarised in Table~\ref{Table:Chapter6_TriggersPerChannel}. Figure~\ref{Figure:Chapter6_ZZ_KfactorImpact} illustrates the effect of applying the $\mathcal{K}$-factors on the $\PZ\PZ$ background prediction, showing improved agreement with data in the $\mu^+\mu^-\mu^+\mu^-$ invariant mass distribution.
+
+\begin{figure}[h]
+        \centering
+        % First row
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter6/mmmm_wo_kfactors.pdf}
+            \caption{}
+        \end{subfigure}
+        \vspace{0.5cm}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter6/mmmm_with_kfactors.pdf}
+            \caption{}
+        \end{subfigure}
+    \caption[Impact of $\mathcal{K}$-factors on the $\PZ\PZ$ background prediction in the four-muon control region.]{Impact of $\mathcal{K}$-factors on the $\PZ\PZ$ background prediction in the four-muon control region. Shown are the invariant mass distributions of the $\PGm^+\PGm^-\PGm^+\PGm^-$ system before (\textbf{a}) and after (\textbf{b}) applying $\mathcal{K}$-factors.}
+    \label{Figure:Chapter6_ZZ_KfactorImpact}
+\end{figure}
+
+Although the $\PZ\PZ$ background is considered irreducible by definition, it can still be effectively suppressed through targeted offline selections that exploit subtle kinematic differences between the signal and background. For instance, in the $\PGt_e\PGt_h\PGt_h\PGt_h$ final state, the signal typically displays a harder $p_{\mathrm{T}}$ spectrum for the subleading leptons compared to the background. The object selection criteria applied in this analysis take advantage of this distinction. Figure~\ref{Figure:Chapter6_ThirdLepPt} shows the $p_{\mathrm{T}}$ distribution of the third lepton in this channel, demonstrating how the applied cuts significantly reduce the $\PZ\PZ$ background while retaining the majority of the signal.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter6/ZZ_OfflineCutImpact.pdf}
+    \caption[$p_{\mathrm{T}}$ spectrum of the third lepton in the $\PGt_e\PGt_h\PGt_h\PGt_h$ channel.]{Distribution of the transverse momentum of the third lepton in the $\PGt_e\PGt_h\PGt_h\PGt_h$ final state, comparing the expected $\PZ\PZ$ background to the signal prediction. The solid line at $20\GeV$ region indicates the $p_{\mathrm{T}}$ selection threshold applied.}
+    \label{Figure:Chapter6_ThirdLepPt}
+\end{figure}
+
 
 \subsection{Fake Factor Background Estimation}
 \label{Section:Chapter6_FakeFactors}

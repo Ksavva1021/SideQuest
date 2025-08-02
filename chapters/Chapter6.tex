@@ -688,102 +688,123 @@ Although the $\PZ\PZ$ background is considered irreducible by definition, it can
     \label{Figure:Chapter6_ThirdLepPt}
 \end{figure}
 
+\subsection{\texorpdfstring{Background from Jets Misidentified as $\PGt_h$ (Jet $\to \PGt_h$)}{Background from Jets Misidentified as hadronic taus}}
 
-\subsection{Fake Factor Background Estimation}
-\label{Section:Chapter6_FakeFactors}
+\label{Section:Chapter6_JetToTauBackground}
+
+This section discusses how the background from jets misidentified as $\PGt_h$ candidates is modelled. These backgrounds arise when jets from processes such as the ones outlined in Section~\ref{Section:Chapter6_Backgrounds} are misidentified as hadronic tau decays. Such misidentifications are particularly problematic to model in simulation, as the jet-to-$\PGt_h$ fake rate is poorly described in MC simulations. Moreover, the small probability of a jet being misidentified as a $\PGt_h$ candidate makes it necessary to generate high-statistics MC samples, which comes with a significant computational expense. These limitations and the difficulty in capturing the full range of misidentification scenarios in simulation motivate the use of a data-driven approach, such as the Fake Factor ($\mathcal{F_F}$) method.
 
 \subsubsection{Classical Fake Factor Method}
 \label{Section:Chapter6_FakeFactors_Classical}
 
-The dominant reducible background in this analysis arises from events in which one or more reconstructed $\PGt_h$ candidates originate from jets rather than genuine hadronic tau decays. As outlined in Section~\ref{Section:Chapter6_Backgrounds}, these jet~$\to$~$\PGt_h$ misidentifications are especially prevalent in processes such as Drell–Yan, $\ttbar$, and W+jets, and they are known to be poorly modelled by MC simulation. To address this, a data-driven estimation technique known as the \textit{Fake Factor (FF)} method is employed.
-
-The core idea of the classical FF method is to estimate the fake rate in a control region enriched with jet~$\to$~$\PGt_h$ events, and then apply this rate to predict the contribution in the signal region. This is achieved by selecting events where one or more $\PGt_h$ candidates fail the nominal identification working point but pass a looser baseline selection. In each bin of a chosen variable (typically $p_T$ or $\eta$), the FF is defined as:
+This classical $\mathcal{F_F}$ method begins with the definition of a \textbf{\ac{DR}}, which is a region in data enriched with jet-to-$\PGt_h$ events. The DR is purified by subtracting any non-jet$\to\PGt_h$ events using simulation. This ensures that the region predominantly contains events where jets are misidentified as $\PGt_h$. Once the DR is established, the $\mathcal{F_F}$ is calculated as the ratio of events that \textit{pass} the \texttt{Nominal} tau identification requirement to those that \textit{fail} it but pass a looser \texttt{Alternative} tau identification requirement.
 
 \begin{equation}
-    \text{FF}(x) = \frac{N_\text{pass}(x)}{N_\text{fail}(x)},
+\mathcal{F_F} = \frac{\mathcal{N}(\texttt{Nominal})}{\mathcal{N}(\texttt{Alternative and not Nominal})}
 \end{equation}
 
-where $x$ denotes the binning variable, and $N_\text{pass}$ and $N_\text{fail}$ represent the number of events that pass and fail the nominal $\PGt_h$ ID, respectively, within that bin. These FFs are then applied as weights to events in the fail region to predict their contribution in the pass region (signal-like region).
+The choice of the alternative identification requirement introduces a trade-off. Looser identification thresholds reduce the statistical uncertainty by increasing the number of events in the denominator. However, this comes at the cost of increased systematic uncertainty, as the looser $\PGt_h$ candidates are less representative of those in the SR. 
 
-While the FF method is simple and robust, it has notable drawbacks:
+The $\mathcal{F_F}$ is computed differentially in key variables such as $p_\text{T}$, jet multiplicity ($\mathcal{N}_{\text{jets}}$), and other observables that influence the misidentification rate. Furthermore, because the $\mathcal{F_F}$ can depend on the choice of variable defining the DR, additional corrections are often derived using sideband regions. These corrections aim to account for residual dependencies and improve the robustness of the background estimation.
 
+Once derived, the Fake Factor is applied to the \ac{AR}, which is constructed to resemble the SR. Specifically, the AR requires the jet-to-$\PGt_h$ events to pass the \texttt{Alternative} requirement but to fail the \texttt{Nominal} requirement. This allows for a data-driven estimate of the jet-to-$\PGt_h$ background contribution in the SR. 
+
+While the classic FF method is simple and robust, it has notable drawbacks:
 \begin{itemize}
-    \item It typically uses only one or two variables to parameterise the fake rate, limiting its ability to model complex dependencies.
-    \item The kinematics of the fail region may not perfectly match those of the signal region, leading to extrapolation errors.
-    \item Process dependence and correlations with other event features (e.g.\ jet multiplicity, object overlap, or missing energy) are difficult to capture.
+\item \textit{Curse of dimensionality}: Adding more variables exponentially increases the number of bins needed to capture correlations, rapidly depleting available statistics. This leads to sparsely populated bins, large statistical fluctuations, and unstable $\mathcal{F_F}$ values that can compromise the reliability of the background estimate.
+
+\item The limited dimensionality of the parameterisation means that correlations with variables not explicitly included in the fit are not accounted for. As a result, these unfitted variables may be poorly modelled, and corrections derived from control or sideband regions are often needed. However, such corrections can improve agreement in one set of variables at the expense of others, highlighting the limitations of low-dimensional tuning.
+
+\item In final states with multiple $\PGt_h$ candidates, such as $ \PGt_h \PGt_h \PGt_h \PGt_h $, the $\mathcal{F_F}$ method becomes increasingly cumbersome. A separate $\mathcal{F_F}$ must be derived and applied for each $\PGt_h$ candidate, typically starting from the leading one and sequentially correcting the subleading ones. This iterative procedure amplifies the statistical challenges, particularly in low-yield regimes, and complicates the background estimation.
 \end{itemize}
 
-To partially mitigate these issues, correction factors may be derived using additional control regions, often structured into ABCD-like topologies, as illustrated in Figure~\ref{Figure:FakeFactorSchematic}. However, such corrections still rely on careful binning and can be sensitive to statistical fluctuations and modelling assumptions.
+This multi-$\PGt_h$ final state problem is further illustrated by previous CMS analyses~\cite{CMS:2022goy,Mb:2022rxu}, where the $\mathcal{F_F}$ was typically derived only for the leading $\PGt_h$ candidate. Events where the leading object was a genuine $\tau$ were corrected using simulation. This simplification was acceptable in those studies, as events with one genuine and one misidentified $\PGt_h$ candidate were subdominant. In contrast, this analysis features final states with two or more misidentified $\PGt_h$ candidates, making this assumption invalid. A more general and flexible approach is therefore required to consistently account for all $\PGt_h$ candidates.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=0.55\textwidth]{Figures/Chapter6/FakeFactorSchematic.pdf}
-%     \caption[Schematic of control and application regions in the Fake Factor method.]{Illustration of the typical control region topology used in the classical Fake Factor method. Corrections are applied to bridge kinematic mismatches between regions.}
-%     \label{Figure:FakeFactorSchematic}
-% \end{figure}
-
-These limitations motivate the development of more flexible reweighting strategies that can incorporate multiple variables simultaneously without the constraints of explicit binning.
-
-\subsubsection{Multivariable Reweighting}
-\label{Section:Chapter6_FakeFactors_Reweighting}
-
-An extension of the classical FF approach involves performing multivariable reweighting based on observed discrepancies between control and signal-like regions. In this method, event weights are derived from the ratio of data to MC event densities in each region of phase space. The simplest implementation involves dividing both distributions into a multi-dimensional histogram and computing the ratio in each bin:
-
-\begin{equation}
-    r_\text{bin} = \frac{w^\text{data}_\text{bin}}{w^\text{MC}_\text{bin}},
-\end{equation}
-
-where $w^\text{data}_\text{bin}$ and $w^\text{MC}_\text{bin}$ are the total event weights in bin $x$ for data and MC, respectively. These weights are then applied to MC events to match the data distribution in the control region.
-
-While intuitive, this histogram division approach faces several limitations:
-
-\begin{itemize}
-    \item \textbf{Low-dimensional feasibility}: Only a small number of variables can be used simultaneously (typically one or two) before bin sparsity and statistical noise become problematic.
-    \item \textbf{Bias from variable choice}: Improving agreement in one dimension can worsen it in others if correlations are neglected.
-    \item \textbf{Curse of dimensionality}: The number of bins grows exponentially with the number of variables, quickly exhausting available statistics and producing unstable weights.
-\end{itemize}
-
-To alleviate these issues, one may smooth the weights by fitting them to analytic functions or coarsening the binning. However, these fixes still limit the ability to model nontrivial dependencies and introduce further user-defined assumptions.
-
-\subsubsection{BDT-Based Reweighting}
+\subsubsection{Machine Learning-based reweighting}
 \label{Section:Chapter6_FakeFactors_BDT}
 
-To overcome the limitations of both histogram division and standard multivariable reweighting, a more powerful and adaptive approach is implemented based on \textit{Boosted Decision Tree (BDT) reweighting}. Unlike standard classifiers trained to separate classes, this method directly targets the task of density ratio estimation by maximising a reweighting-specific objective function.
+To overcome the limitations of the classical binning-based approach, \ac{ML}-based density ratio estimation can be employed. The goal is to estimate the misidentification rate as a function of multiple observables, which mathematically corresponds to estimating the ratio of probability densities $f_{\text{pass}}(x)/f_{\text{fail}}(x) $. This can be achieved using \ac{ML} techniques such as \acp{BDT}, which provide class probabilities that approximate this density ratio:
 
-Instead of attempting to estimate the underlying probability densities $f_\text{data}(x)$ and $f_\text{MC}(x)$ separately, the BDT reweighter learns a direct approximation of their ratio. To do this, the algorithm recursively splits the phase space into regions (tree leaves) that exhibit the largest discrepancies between the data and MC distributions. The figure of merit for each split is the \textit{symmetrised $\chi^2$}, defined as:
+\begin{equation_pad}
+\frac{f_{\text{pass}}(x)}{f_{\text{fail}}(x)} \sim \frac{p_{\text{pass}}(x)}{p_{\text{fail}}(x)}.
+\end{equation_pad}
 
-\begin{equation}
-    \chi^2 = \sum_\text{leaf} \frac{(w_\text{MC} - w_\text{data})^2}{w_\text{MC} + w_\text{data}}.
-\end{equation}
+However, classical classification algorithms can struggle in regions where the density ratio is large. In these cases, the classification task becomes trivial because most events belong to a single class. Consequently, the model focuses its learning on regions where the classes are more balanced and harder to distinguish. High-density-ratio regions contribute little to the training objective\footnote{The standard loss function is cross-entropy, which assigns lower weight to well-separated (\ie, high-ratio) regions due to their ease of classification.}, resulting in less accurate predictions in precisely the regions where reliable reweighting is most needed for the $\mathcal{F_F}$ method.
 
-This metric highlights regions of phase space where the disagreement between MC and data is large and prioritises those areas during training. In contrast, standard BDT classifiers minimise a classification loss (such as cross-entropy), which tends to underemphasise regions of extreme ratio—precisely those most in need of correction. This is illustrated in Figure~\ref{Figure:BDTvsClassifier}, which compares the objectives of standard classification BDTs and $\chi^2$-optimised reweighters.
+To address this, a custom objective function is introduced to target discrepancies between the pass and fail distributions. In tree-based models, this function is optimised over sets of events grouped into \textit{leaves}\footnote{Leaves are the terminal nodes of a decision tree; each leaf contains events satisfying the same set of decision rules.}. Rather than focusing on balanced regions, the objective prioritises leaves where the difference between the two distributions is largest. In this context, the \textit{symmetrised} $\chi^2$ metric is used:
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=0.75\textwidth]{Figures/Chapter6/BDT_Classifier_vs_Reweighter.pdf}
-%     \caption[Comparison between standard BDT classifier and $\chi^2$-based BDT reweighter.]{Illustration of the difference between standard BDT classification loss (left), which focuses on decision boundaries, and the $\chi^2$-based BDT reweighter (right), which targets regions with the largest MC--data discrepancies.}
-%     \label{Figure:BDTvsClassifier}
-% \end{figure}
+\begin{equation_pad}
+    \chi^2 = \sum_{\text{leaf}} \frac{(w_{\text{leaf}, \text{fail}} - w_{\text{leaf}, \text{pass}})^2}{w_{\text{leaf}, \text{fail}} + w_{\text{leaf}, \text{pass}}}
+\end{equation_pad}
 
-The training proceeds as follows:
+where $w_{\text{leaf}, \text{fail}}$ and $w_{\text{leaf}, \text{pass}}$ denote the total event weights from the fail and pass samples, respectively, in each leaf. By maximising this objective during training, the classifier is encouraged to concentrate on leaves with the largest discrepancies, which are the most critical for improving the accuracy of the reweighting.
 
-\begin{enumerate}
-    \item A shallow decision tree is trained to partition phase space and maximise the $\chi^2$ between MC and data weights in each region.
-    \item For each tree leaf, the reweighting factor is computed as:
-    \[
-        r_\text{leaf} = \log \left( \frac{w_\text{MC}}{w_\text{data}} \right).
-    \]
-    \item Each MC event is reweighted using:
-    \[
-        w_\text{new} = w_\text{old} \times \exp(r_\text{leaf}).
-    \]
-    \item Steps 1–3 are repeated for multiple boosting rounds, with each new tree targeting residual mismodelling not corrected by previous iterations.
-\end{enumerate}
+The training proceeds in a boosting-like fashion, where multiple shallow decision trees are trained sequentially. Each tree focuses on correcting discrepancies not addressed by the previous ones. At each iteration, the following steps are performed:
 
-This boosting procedure ensures convergence across the full phase space. Since each tree focuses on regions with significant disagreement, the method is highly effective even in regions with low statistics or strong kinematic imbalance.
+\begin{itemize}
+    \item A shallow decision tree that maximises the symmetrised $\chi^2$ is built.
+    \item For each leaf, the log-ratio of total weights is computed:
+    \begin{equation_pad}
+        r_\text{leaf} = \log \left( \frac{w_{\text{leaf}, \text{fail}}}{w_{\text{leaf}, \text{pass}}} \right)
+    \end{equation_pad}
+    \item In each leaf, the events of the fail distribution are reweighted by multiplying by $w = w \times e^{r{_\text{leaf}}}$.
+\end{itemize}
 
-The BDT reweighter thus provides a robust, scalable alternative to classical FF estimation, especially in complex final states with high jet multiplicity and strong correlations among observables. In this analysis, the BDT-based reweighting is used to refine fake background estimates and serves as the baseline method in the most challenging channels.
+This procedure is repeated over multiple iterations, allowing each tree to iteratively refine the reweighting by focusing on the residual differences between the distributions.
 
+\subsubsection{Parameterisation and application}
+
+Having described the machine learning-based reweighting approach conceptually, this section presents its implementation in the context of this analysis. This includes the definition of the fitting regions, the choice of input variables used to train the classifier, and the procedure for applying the resulting weights to estimate the jet $\to~\PGt_h$ background in the signal region. 
+
+As introduced in Section~\ref{Section:Chapter6_FakeFactors_Classical}, the classical $\mathcal{F_F}$ method relies on defining a set of control regions. Figure~\ref{Figure:Chapter6_ABCD} illustrates how these regions can be organised into a traditional ABCD-style framework, with sideband selections based on variables such as tau identification and total charge.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter6/ABCD.pdf}
+    \caption[ABCD-style region definition for fake factor estimation.]{Schematic illustration of an ABCD-style region definition used in the fake factor method.}
+    \label{Figure:Chapter6_ABCD}
+\end{figure}
+
+The sideband selections used to define the ABCD regions vary by channel and are summarised below:
+
+\begin{itemize}
+    \item \textbf{For the $\Pe\Pe\PGt_h\PGt_h$, $\Pe\Pgm\PGt_h\PGt_h$, $\Pgm\Pgm\PGt_h\PGt_h$, $\Pe\PGt_h\PGt_h\PGt_h$, and $\Pgm\PGt_h\PGt_h\PGt_h$ channels:}
+    \begin{itemize}
+        \item \textit{y-axis (charge category):}
+        \begin{itemize}
+            \item Region C: $\sum q_{\PGt_h} = 0$
+            \item Region A: $\sum q_{\PGt_h} \ne 0$
+        \end{itemize}
+        \item \textit{x-axis (tau ID category):}
+        \begin{itemize}
+            \item Region C: All alternative $\PGt_h$ candidates pass the Loose DeepTauVsJets working point.
+            \item Region D: At least one alternative $\PGt_h$ candidate fails the Loose working point but has raw DeepTau score $> 0.1$.
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{For the $\PGt_h\PGt_h\PGt_h\PGt_h$ channel:}
+    \begin{itemize}
+        \item \textit{y-axis (charge category):}
+        \begin{itemize}
+            \item Region C: $|\sum q_{\PGt_h}| = 1$
+            \item Region A: $|\sum q_{\PGt_h}| \ne 1$
+        \end{itemize}
+        \item \textit{x-axis:} Same as above, based on Loose WP and DeepTau score threshold.
+    \end{itemize}
+\end{itemize}
+
+
+While the ABCD schematic in Figure~\ref{Figure:Chapter6_ABCD} appears straightforward when applied to a single $\PGt_h$ candidate, it becomes significantly more complex in events with multiple candidates. In classical applications, fake factors are typically derived separately for each candidate—most commonly the leading one—by applying nominal and alternative identification criteria in sideband-defined regions. However, when more than one $\PGt_h$ candidate is present, this necessitates constructing a separate ABCD diagram for each, dramatically increasing the dimensionality and fragmenting the data into many statistically limited subsets.
+
+The machine learning-based approach overcomes this limitation by removing the need to define ABCD regions explicitly. Instead, each $\PGt_h$ candidate is treated as a separate training instance, contributing an individual row to the training dataset. Candidate-level and event-level input features—including those that would traditionally define ABCD axes, such as identification status and sideband classifications—are passed directly to the model. This allows the reweighting function to be learned over the entire parameter space without the need to construct or populate distinct ABCD regions. As a result, all candidates across all events are used in a single high-statistics training procedure, enabling flexible and comprehensive modelling of the jet $\to \PGt_h$ fake rate. The variables used in this parameterisation are summarised in Table~\ref{Table:Chapter6_InputVars}.
+
+While in the classical fake factor method (Section~\ref{Section:Chapter6_FakeFactors_Classical}), backgrounds from non-jet$\to\PGt_h$ candidates are removed by subtracting simulation from data at the histogram level. Generator-matched MC is used to identify and subtract these non-target contributions, resulting in a hybrid histogram enriched in genuine jet$\to\PGt_h$ events. However, this approach is not feasible in the machine learning-based framework, which operates on full datasets rather than histograms and does not support negative event weights.
+
+One possible solution would be template matching: for each entry in data, a closely matching non-jet$\to\PGt_h$ MC event could be identified and removed to mimic histogram subtraction at the event level. However, this method is computationally prohibitive given the high dimensionality of the input space and the large size of the datasets.
+
+Instead, a custom binary BDT classifier is trained on simulation to distinguish jet$\to\PGt_h$ from non-jet$\to\PGt_h$ candidates, using the same input variables as the reweighter. This reduces the problem to a single BDT score, providing a one-dimensional representation of how "non-jet$\to\PGt_h$-like" each candidate is. A histogram of these scores is built from the non-jet$\to\PGt_h$ MC and scaled to match the expected cross section. The same BDT is then applied to the data. For each bin of the MC histogram, candidates in data with matching BDT scores are randomly removed until the predicted contamination is accounted for.
+
+This procedure results in a purified dataset of jet$\to\PGt_h$-like candidates that closely mimics the outcome of histogram-level subtraction, but in a form compatible with the machine learning-based reweighting method.
 
 \section{Search strategy and statistical procedure}
 

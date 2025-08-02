@@ -430,7 +430,7 @@ Identification
 & \makecell{MVA w/o isolation\\(90\% WP)}
 & Medium ID
 & \makecell{
-$D_{\text{jet}} \geq \texttt{Loose}$ \\
+$D_{\text{jet}} \geq \texttt{Loose}$\hyperlink{Alternative-FFcut}{$^2$} \\
 $D_{e} \geq \texttt{VVLoose}$ \\
 $D_{\mu} \geq \texttt{VLoose}$
 } \\
@@ -439,7 +439,10 @@ $D_{\mu} \geq \texttt{VLoose}$
 \vspace{0.5em}
 \begin{minipage}{0.95\linewidth}
 \raggedright
-\footnotesize\hypertarget{DoubleTauTrigger-EtaCut}{}$^{1}$\,$|\eta| < 2.1$ is required for $\tauh$ candidates matched to trigger objects, reflecting the online trigger acceptance region.
+\footnotesize
+\hypertarget{DoubleTauTrigger-EtaCut}{}$^{1}$\,$|\eta| < 2.1$ is required for $\tauh$ candidates matched to trigger objects, reflecting the online trigger acceptance region. \\
+\hypertarget{Alternative-FFcut}{}$^{2}$\,The \texttt{Loose} working point is referred to as the \texttt{Nominal} tau identification in the fake factor method. An \texttt{Alternative} selection, defined as $D_{\text{jet}} > 0.1$, is used to construct control regions, as described in Section~\ref{Section:Chapter6_JetToTauBackground}.
+
 \end{minipage}
 
 \end{table}
@@ -754,57 +757,134 @@ This procedure is repeated over multiple iterations, allowing each tree to itera
 
 \subsubsection{Parameterisation and application}
 
-Having described the machine learning-based reweighting approach conceptually, this section presents its implementation in the context of this analysis. This includes the definition of the fitting regions, the choice of input variables used to train the classifier, and the procedure for applying the resulting weights to estimate the jet $\to~\PGt_h$ background in the signal region. 
-
-As introduced in Section~\ref{Section:Chapter6_FakeFactors_Classical}, the classical $\mathcal{F_F}$ method relies on defining a set of control regions. Figure~\ref{Figure:Chapter6_ABCD} illustrates how these regions can be organised into a traditional ABCD-style framework, with sideband selections based on variables such as tau identification and total charge.
+Having described the machine learning-based reweighting approach conceptually, this section presents its implementation in the context of this analysis. This includes the definition of the fitting regions, the choice of input variables used to train the classifier, and the procedure for applying the resulting weights to estimate the jet $\to~\PGt_h$ background in the signal region. As introduced in Section~\ref{Section:Chapter6_FakeFactors_Classical}, the classical $\mathcal{F_F}$ method relies on defining a set of control regions. Figure~\ref{Figure:Chapter6_ABCD} illustrates how these regions can be organised into a traditional ABCD-style framework, with sideband selections based on variables such as tau identification and total charge $\PGt_h$ ($\sum q_{\PGt_h}$). 
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\textwidth]{Figures/Chapter6/ABCD.pdf}
-    \caption[ABCD-style region definition for fake factor estimation.]{Schematic illustration of an ABCD-style region definition used in the fake factor method.}
-    \label{Figure:Chapter6_ABCD}
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/Chapter6/ABCD.pdf}
+\caption[ABCD-style region definition for fake factor estimation.]{Schematic illustration of an ABCD-style region definition used in the fake factor method.}
+\label{Figure:Chapter6_ABCD}
 \end{figure}
 
-The sideband selections used to define the ABCD regions vary by channel and are summarised below:
+In final states with multiple $\PGt_h$ candidates, the Fake Factor ($\mathcal{F_F}$) is derived for one candidate at a time. To avoid biasing the measurement, the ABCD sideband definitions are constructed using the remaining $\PGt_h$ candidates, referred to as the alternative $\PGt_h$ candidates. The channel-specific sideband selections used to define these regions are summarised below:
 
-\begin{itemize}
-    \item \textbf{For the $\Pe\Pe\PGt_h\PGt_h$, $\Pe\Pgm\PGt_h\PGt_h$, $\Pgm\Pgm\PGt_h\PGt_h$, $\Pe\PGt_h\PGt_h\PGt_h$, and $\Pgm\PGt_h\PGt_h\PGt_h$ channels:}
+\begin{enumerate}[label=(\roman*)]
+    \item For the channels: $\PGt_e\PGt_h\PGt_h\PGt_h$, $\PGt_e\PGt_e\PGt_h\PGt_h$, $\PGt_e\PGt_\mu\PGt_h\PGt_h$, $\PGt_\mu\PGt_h\PGt_h\PGt_h$, $\PGt_\mu\PGt_\mu\PGt_h\PGt_h$, and $\PGt_h\PGt_h\PGt_h\PGt_h$:
     \begin{itemize}
-        \item \textit{y-axis (charge category):}
-        \begin{itemize}
-            \item Region C: $\sum q_{\PGt_h} = 0$
-            \item Region A: $\sum q_{\PGt_h} \ne 0$
-        \end{itemize}
-        \item \textit{x-axis (tau ID category):}
-        \begin{itemize}
-            \item Region C: All alternative $\PGt_h$ candidates pass the Loose DeepTauVsJets working point.
-            \item Region D: At least one alternative $\PGt_h$ candidate fails the Loose working point but has raw DeepTau score $> 0.1$.
-        \end{itemize}
+        \item Region A (SR-like): All alternative $\PGt_h$ candidates pass the \texttt{Nominal} tau ID; $\sum q_{\PGt_h} = 0$.
+
+        \item Region B (Inverted Identification): At least one alternative $\PGt_h$ candidate fails the \texttt{Nominal} tau identification but passes the \texttt{Alternative} selection; $\sum q_{\PGt_h} = 0$.
+
+        \item Region C (Inverted Charge): All alternative $\PGt_h$ candidates pass the \texttt{Nominal} tau ID; charge sum requirement is $\sum q_{\PGt_h} \neq 0$.
+
+        \item Region D (Inverted ID and Charge): At least one alternative $\PGt_h$ candidate fails the \texttt{Nominal} tau ID but passes the \texttt{Alternative} selection; $\sum q_{\PGt_h} \neq 0$.
     \end{itemize}
-    
-    \item \textbf{For the $\PGt_h\PGt_h\PGt_h\PGt_h$ channel:}
+
+    \item For the $\PGt_h\PGt_h\PGt_h$ channel, the same ID criteria apply, but the charge requirement is modified:
     \begin{itemize}
-        \item \textit{y-axis (charge category):}
-        \begin{itemize}
-            \item Region C: $|\sum q_{\PGt_h}| = 1$
-            \item Region A: $|\sum q_{\PGt_h}| \ne 1$
-        \end{itemize}
-        \item \textit{x-axis:} Same as above, based on Loose WP and DeepTau score threshold.
+        \item Region A/B: $|\sum q_{\PGt_h}| = 1$
+        \item Region C/D: $|\sum q_{\PGt_h}| \neq 1$
     \end{itemize}
-\end{itemize}
+\end{enumerate}
+
+While the ABCD schematic in Figure~\ref{Figure:Chapter6_ABCD} appears relatively straightforward when applied to a single $\PGt_h$ candidate, the situation becomes more complex in events containing several. Each candidate must be treated separately, with its own ABCD categorisation defined in terms of the others. As a result, multiple overlapping sets of control regions must be constructed within the same event, significantly increasing the dimensionality of the problem and fragmenting the dataset into many statistically limited subsets.
+
+The machine learning-based approach overcomes this limitation by removing the need to define ABCD regions explicitly. Instead, each $\PGt_h$ candidate is treated as a separate training instance, contributing an individual row to the training dataset. Candidate-level and event-level input features, including those that define ABCD axes, are passed directly to the model. This allows the reweighting function to be learned over the entire parameter space without the need to construct or populate distinct ABCD regions. As a result, all candidates across all events are used in a single high-statistics training procedure, enabling flexible modelling of the jet $\to \PGt_h$ misidentification rate. The variables used in this parameterisation are summarised below:
+
+\begin{enumerate}[label=(\roman*)]
+
+    \item \textbf{Properties of the target $\PGt_h$ candidate:}
+    \begin{itemize}
+        \item HPS decay mode
+        \item $p_\text{T}^{\PGt_h}$
+        \item $p_\text{T}^\text{jet} / p_\text{T}^{\PGt_h}$, where the jet is the one seeding the HPS reconstruction
+        \item $\eta$
+        \item Charge
+        \item Whether the candidate passes the corresponding leg of the double-$\tau$ trigger
+    \end{itemize}
+
+    \item \textbf{Sideband-specific variables:}
+    \begin{itemize}
+        \item Total charge of all $\PGt_h$ candidates
+        \item A boolean indicating whether the DeepTau discriminator of the alternative $\PGt_h$ candidates (sorted by $p_\text{T}$) passes the \texttt{Nominal} tau identification requirement
+    \end{itemize}
+
+    \item \textbf{Global event variables:}
+    \begin{itemize}
+        \item Data-taking period identifier
+        \item $p_\text{T}$ rank of the target $\PGt_h$ candidate within the event
+    \end{itemize}
+
+\end{enumerate}
 
 
-While the ABCD schematic in Figure~\ref{Figure:Chapter6_ABCD} appears straightforward when applied to a single $\PGt_h$ candidate, it becomes significantly more complex in events with multiple candidates. In classical applications, fake factors are typically derived separately for each candidate—most commonly the leading one—by applying nominal and alternative identification criteria in sideband-defined regions. However, when more than one $\PGt_h$ candidate is present, this necessitates constructing a separate ABCD diagram for each, dramatically increasing the dimensionality and fragmenting the data into many statistically limited subsets.
+As discussed in Section~\ref{Section:Chapter6_FakeFactors_Classical}), backgrounds from non-jet$\to\PGt_h$ candidates are removed by subtracting simulation from data at the histogram level. However, this approach is not feasible in the machine learning-based framework, which operates on full datasets rather than histograms and does not support negative event weights. One possible solution would be template matching: for each entry in data, a closely matching non-jet$\to\PGt_h$ MC event could be identified and removed to mimic histogram subtraction at the event level. However, this method is computationally prohibitive given the high dimensionality of the input space and the large size of the datasets.
 
-The machine learning-based approach overcomes this limitation by removing the need to define ABCD regions explicitly. Instead, each $\PGt_h$ candidate is treated as a separate training instance, contributing an individual row to the training dataset. Candidate-level and event-level input features—including those that would traditionally define ABCD axes, such as identification status and sideband classifications—are passed directly to the model. This allows the reweighting function to be learned over the entire parameter space without the need to construct or populate distinct ABCD regions. As a result, all candidates across all events are used in a single high-statistics training procedure, enabling flexible and comprehensive modelling of the jet $\to \PGt_h$ fake rate. The variables used in this parameterisation are summarised in Table~\ref{Table:Chapter6_InputVars}.
+Instead, a binary BDT classifier is trained on simulation to distinguish jet$\to\PGt_h$ from non-jet$\to\PGt_h$ candidates, using the same input variables as in the reweighting model. This reduces the problem to a single BDT score, providing a one-dimensional representation of how "non-jet$\to\PGt_h$-like" each candidate is. The BDT is applied to both simulated and real events. A histogram of BDT scores is first constructed from simulated non-jet$\to\PGt_h$ candidates and scaled to the expected cross section to predict the expected contamination in data.
 
-While in the classical fake factor method (Section~\ref{Section:Chapter6_FakeFactors_Classical}), backgrounds from non-jet$\to\PGt_h$ candidates are removed by subtracting simulation from data at the histogram level. Generator-matched MC is used to identify and subtract these non-target contributions, resulting in a hybrid histogram enriched in genuine jet$\to\PGt_h$ events. However, this approach is not feasible in the machine learning-based framework, which operates on full datasets rather than histograms and does not support negative event weights.
+To remove this contamination, the same BDT is applied to the data. For each bin of the BDT score histogram, data events with scores falling within the bin's range are identified. These are then randomly sampled and removed until the number of removed events matches the predicted number of non-jet$\to\PGt_h$ candidates in that bin, as estimated from simulation. This results in a purified dataset of jet$\to\PGt_h$-like candidates, closely mimicking the effect of histogram-level subtraction but in a form that remains compatible with the machine learning-based reweighting method. An example comparing this procedure to traditional histogram-level subtraction can be seen in Figure~\ref{Figure:Chapter6_BDTPurificationExample}.
 
-One possible solution would be template matching: for each entry in data, a closely matching non-jet$\to\PGt_h$ MC event could be identified and removed to mimic histogram subtraction at the event level. However, this method is computationally prohibitive given the high dimensionality of the input space and the large size of the datasets.
 
-Instead, a custom binary BDT classifier is trained on simulation to distinguish jet$\to\PGt_h$ from non-jet$\to\PGt_h$ candidates, using the same input variables as the reweighter. This reduces the problem to a single BDT score, providing a one-dimensional representation of how "non-jet$\to\PGt_h$-like" each candidate is. A histogram of these scores is built from the non-jet$\to\PGt_h$ MC and scaled to match the expected cross section. The same BDT is then applied to the data. For each bin of the MC histogram, candidates in data with matching BDT scores are randomly removed until the predicted contamination is accounted for.
+\begin{figure}[h]
+        \centering
+        % First row
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter6/subtraction_plot_q_sum_ttt_fail.pdf}
+            \caption{}
+        \end{subfigure}
+        \vspace{0.5cm}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter6/subtraction_plot_q_sum_ttt_pass.pdf}
+            \caption{}
+        \end{subfigure}
+    \caption[Comparison of subtraction techniques applied to the total charge distribution of $\PGt_h$ candidates.]{Comparison of subtraction techniques applied to the total charge distribution ($\sum q_{\PGt_h}$) of $\PGt_h$ candidates in the \textbf{(a)} fail and \textbf{(b)} pass regions.}
 
-This procedure results in a purified dataset of jet$\to\PGt_h$-like candidates that closely mimics the outcome of histogram-level subtraction, but in a form compatible with the machine learning-based reweighting method.
+    \label{Figure:Chapter6_BDTPurificationExample}
+\end{figure}
+
+In events with multiple $\PGt_h$ candidates, the application of Fake Factors must account for all possible combinations of jet$\to\PGt_h$ misidentifications. A naive approach—such as applying the Fake Factor only to the leading candidate—fails to capture events where a subleading $\PGt_h$ is the misidentified object. Conversely, applying the Fake Factor to every candidate without adjustment leads to double-counting. To address this, an inclusion-exclusion principle is used to construct additive and subtractive combinations of weights that properly model the total jet$\to\PGt_h$ background contribution. The combinations used for up to three $\PGt_h$ candidates are summarised in Table~\ref{Table:FFApplication}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+FF & $\PGt_h$ \textcolor{red}{$\PGt_h$} & \textcolor{red}{$\PGt_h$} $\PGt_h$ & \textcolor{red}{$\PGt_h \PGt_h$} \\
+
+$\mathcal{F_F}^1$ & 0 & 1 & 1 \\
+$\mathcal{F_F}^2$ & 1 & 0 & 1 \\
+$-\mathcal{F_F}^1 \times \mathcal{F_F}^2$ & 0 & 0 & 1 \\
+\bottomrule
+Combined & 1 & 1 & 1 \\
+\end{tabular}
+\caption[Combinatoric application of Fake Factors for multiple $\PGt_h$ candidates.]{Combinatoric application of Fake Factors in events with multiple $\PGt_h$ candidates. $R_i$ denotes the application region where only the $i$-th candidate is treated as a jet$\to\PGt_h$ object; $R_{ij}$ indicates regions where both candidates $i$ and $j$ are treated as fakes, and so on.}
+\label{Table:FFApplication}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccccc}
+\toprule
+FF & \textcolor{red}{$\PGt_h$} $\PGt_h$ $\PGt_h$ & \textcolor{red}{$\PGt_h \PGt_h$} $\PGt_h$ & \textcolor{red}{$\PGt_h \PGt_h \PGt_h$} & $\PGt_h$ \textcolor{red}{$\PGt_h \PGt_h$} & $\PGt_h$ \textcolor{red}{$\PGt_h$} $\PGt_h$ & \textcolor{red}{$\PGt_h$} $\PGt_h$ \textcolor{red}{$\PGt_h$} \\
+
+$\mathcal{F_F}^1$ & 1 & 1 & 1 & 0 & 0 & 1 \\
+$\mathcal{F_F}^2$ & 0 & 1 & 1 & 1 & 1 & 0 \\
+$\mathcal{F_F}^3$ & 0 & 0 & 1 & 1 & 0 & 1 \\
+$-\mathcal{F_F}^1 \times \mathcal{F_F}^2$ & 0 & 1 & 1 & 0 & 0 & 0 \\
+$-\mathcal{F_F}^1 \times \mathcal{F_F}^3$ & 0 & 0 & 1 & 0 & 0 & 1 \\
+$-\mathcal{F_F}^2 \times \mathcal{F_F}^3$ & 0 & 0 & 1 & 1 & 0 & 0 \\
+$\mathcal{F_F}^1 \times \mathcal{F_F}^2 \times\mathcal{F_F}^3$ & 0 & 0 & 1 & 0 & 0 & 0 \\
+\bottomrule
+Combined & 1 & 1 & 1 & 1 & 1 & 1 \\
+\end{tabular}
+\caption[Combinatoric application of Fake Factors for multiple $\PGt_h$ candidates.]{Combinatoric application of Fake Factors in events with multiple $\PGt_h$ candidates. $R_i$ denotes the application region where only the $i$-th candidate is treated as a jet$\to\PGt_h$ object; $R_{ij}$ indicates regions where both candidates $i$ and $j$ are treated as fakes, and so on.}
+\label{Table:FFApplication}
+\end{table}
+
+In the $\PGt_h\PGt_h\PGt_h\PGt_h$ channel, applying the full four-object expression would introduce overlap with the $\PGt_h\PGt_h\PGt_h$ signal region. To prevent this, the application formula is modified by excluding regions that would contaminate the 3-$\PGt_h$ SR. This means that singly-fake events are not modelled explicitly in this channel; however, due to the dominance of multi-fake QCD events, the missing contribution is expected to be negligible.
+
 
 \section{Search strategy and statistical procedure}
 

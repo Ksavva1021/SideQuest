@@ -809,6 +809,7 @@ The ML approach circumvents these issues entirely by eliminating the need for ex
 \end{enumerate}
 
 \subsubsection{\texorpdfstring{Non-jet$\to \PGt_h$ background removal}{Non-jet to hadronic tau background removal}}
+\label{Section:Chapter6_BDT_NonJet_BkgRemoval}
 
 As noted in Section~\ref{Section:Chapter6_FakeFactors_Classical}, backgrounds from non-jet$\to\PGt_h$ candidates are traditionally removed by subtracting simulated events from data at the histogram level. However, this approach is not compatible with the ML-based method, which operates on full unbinned datasets and does not support negative event weights. One possible workaround is template matching, where a simulated non-jet$\to\PGt_h$ candidate for every matching data event is removed to emulate histogram subtraction at the event level. Yet, this method is computationally infeasible given the high dimensionality of the input space and the size of the datasets.
 
@@ -836,7 +837,7 @@ The result is a purified dataset of jet$\to\PGt_h$-like candidates, closely mimi
 \end{figure}
 
 \subsubsection{\texorpdfstring{Application of the $F_F$}{Application of the Fake Factor}}
-
+\label{Section:Chapter6_FF_Application}
 As discussed in Section~\ref{Section6:Fitting_Parametrisation}, the ML-based method enables the derivation of a $F_{F}^i$, for each $\PGt_h$ candidate $i$ in the event. However, in events containing multiple $\PGt_h$ candidates, care must be taken to account for all possible misidentification combinations without introducing overcounting. For example, applying $F_{F}^1$ only to the leading candidate neglects subleading misidentified contributions, while applying all $F_{F}^i$ simultaneously results in double-counting. To resolve this, additive and subtractive combinations of the $F_{F}^i$ are used to properly model the full jet$\to\PGt_h$ background. The application logic for events with two and three $\PGt_h$ candidates is summarised in Tables~\ref{Table:Chapter_6_FFApplication_2Taus} and~\ref{Table:Chapter_6_FFApplication_3Taus}, respectively.
 
 \begin{table}[!htbp]
@@ -906,7 +907,7 @@ This approach provides a consistent and statistically robust means of estimating
 \section{Uncertainty model}
 \label{Section:Chapter6_Uncertainty_Model}
 
-To account for statistical fluctuations arising from the finite size of the simulated signal and background samples, the Barlow–Beeston "lite" method is used~\cite{BARLOW1993219,Conway:2011in}. This method introduces per-bin uncertainties on the predicted yields, ensuring a correct treatment of statistical limitations in the MC templates. n addition to statistical uncertainties, two main categories of systematic uncertainties are included in the model: 
+This section will discuss the statistical and systematic uncertainties that are taken into account in this analysis. A short overview of the systematic uncertainties is provided first, followed by a discussion of the statistical component. Systematic uncertainties are grouped into two main categories:
 
 \begin{enumerate}[label=(\roman*)]
 
@@ -915,8 +916,6 @@ To account for statistical fluctuations arising from the finite size of the simu
 \item \textbf{Shape}: Alter both the yield and shape of the distributions
 
 \end{enumerate}
-
-A summary of the systematic uncertainties considered in this analysis is presented below.
 
 \subsection{Luminosity}
 
@@ -937,7 +936,7 @@ Uncertainties associated with the reconstruction and selection of light leptons 
 A 2\% uncertainty is applied to account for residual variations in the corresponding SFs, due to modelling choices in the tag-and-probe procedure (\eg, tag selection, background and signal parameterisation). Though conceptually a normalisation uncertainty, it is implemented as a shape uncertainty to reflect the kinematic dependence of the SFs across $p_{\mathrm{T}}$ and $\eta$.
 
 \item \textbf{Trigger}: \\
-A separate 2\% uncertainty accounts for lepton trigger efficiencies. It is also implemented as a shape uncertainty and applied only to events selected via single-lepton triggers.
+A separate 2\% uncertainty accounts for lepton trigger efficiencies. It is also implemented as a shape uncertainty as they only affect events selected via single-lepton triggers.
 
 \end{enumerate}
 
@@ -960,14 +959,13 @@ All $\tauh$ uncertainties are implemented as shape variations to capture their d
 
 \subsection{Lepton misidentification rates and energy scale}
 
-Uncertainties associated with electrons and muons misidentified as $\tauh$ candidates are treated as shape uncertainties and parameterised as functions of the $p_{\mathrm{T}}$ of the misidentified lepton. 
+Uncertainties associated with electrons and muons misidentified as $\tauh$ candidates are treated as shape uncertainties, parameterised as functions of the $p_{\text{T}}$ of the misidentified lepton and binned in $\eta$.
 
-\begin{itemize}
-    \item For muons misidentified as $\tauh$, a flat 1.0\% uncertainty is applied across all data-taking years.
-    \item For electrons misidentified as $\tauh$, the uncertainty ranges between 0.5\% and 6.6\%, depending on $p_{\mathrm{T}}$ and $\eta$.
-\end{itemize}
+For electrons misidentified as $\tauh$, the SF uncertainties are dominated by statistical sources and are treated as uncorrelated across data-taking years and $\eta$ bins, resulting in one nuisance parameter per year and per $\eta$ bin. The uncertainties in the electron$\to\tauh$ energy scale (ranging from 0.5 to 6\%) are treated as uncorrelated across decay modes and years.
 
-These uncertainties are applied as shape variations to account for the dependence on the underlying lepton kinematics.
+For muons misidentified as $\tauh$, the SF uncertainties are also dominated by statistical sources and are treated as uncorrelated across years and $\eta$ bins. There is no dedicated muon$\rightarrow\tauh$ energy scale correction; instead, a 1\% uncertainty is applied to the energy scale, treated as uncorrelated across DMs.
+
+These uncertainties are applied as shape variations to account for the dependence on the underlying lepton kinematics. These uncertainties are implemented as shape variations to account for their dependence on the underlying lepton kinematics and binning scheme.
 
 \subsection{Jet energy scale and resolution}
 
@@ -982,47 +980,51 @@ Estimated by smearing the jet momenta in simulation to match the resolution obse
 
 \end{enumerate}
 
-Both JES and JER uncertainties are treated as shape uncertainties. Additionally, an uncertainty is included for the energy scale of the unclustered component of $\vec{E}_\mathrm{T}^{\text{miss,PF}}$\footnote{Unclustered energy refers to PF objects not clustered into jets or associated to leptons.}.
+Both JES and JER uncertainties are treated as shape uncertainties ranging from subpercent to $\mathcal{O}(10\%)$. Additionally, an uncertainty is included for the energy scale of the unclustered component of $\vec{E}_\mathrm{T}^{\text{miss,PF}}$\footnote{Unclustered energy refers to PF candidates not clustered into jets or associated to identified leptons or photons.}.
 
 \subsection{Prefiring}
-The prefiring uncertainty accounts for the incorrect identification of the bunch crossing by the Level-1 trigger, primarily due to ECAL endcap misalignments in 2016 and 2017 data. Event-by-event prefiring weights are applied to simulated events based on jet and photon kinematics. The uncertainty associated with these weights is implemented as a shape variation, decorrelated by year.
+The prefiring uncertainty accounts for the incorrect identification of the bunch crossing by the L1 trigger, primarily due to ECAL endcap misalignments in 2016 and 2017 data. Event-by-event prefiring weights are applied to simulated events based on jet and photon kinematics. The associated uncertainty is implemented as a normalisation effect via shape variations decorrelated by year, with an average magnitude of about 1%.
 
 \subsection{B-tagging efficiencies}
-Uncertainties associated with the b-tagging efficiency corrections are parameterised as functions of jet $p_{\text{T}}$ and $\eta$. These uncertainties are propagated by varying the corresponding b-tagging scale factors within their prescribed uncertainties. The resulting impact on event yields typically ranges from 0\% to 3\%.
+Uncertainties associated with the b-tagging efficiency corrections are parameterised as functions of jet $p_{\mathrm{T}}$ and $\eta$. These are treated as normalisation uncertainties by varying the corresponding b-tagging scale factors within their prescribed uncertainties. The resulting variations in event yields typically range from 0\% to 3\%.
 
 \subsection{Theoretical Uncertainties on \texorpdfstring{$\PZ\PZ \rightarrow 4\ell$}{ZZ → 4l} Samples}
 
-The $\PZ\PZ \rightarrow 4\ell$ background is affected by higher-order theoretical corrections. A dedicated uncertainty is assigned by comparing the yield obtained with the $k$-factor applied twice to that obtained with no $k$-factor applied. The resulting variation is treated as a normalisation uncertainty. This uncertainty is applied to all relevant samples and considered correlated across channels and years.
+The $\PZ\PZ \rightarrow 4\ell$ background is affected by higher-order theoretical corrections. A dedicated uncertainty is assigned by comparing the yield obtained with the $\mathcal{K}$-factor applied twice to that obtained with no $\mathcal{K}$-factor applied. The resulting variation is treated as a normalisation uncertainty. This uncertainty is applied to all relevant samples and considered correlated across channels and years.
 
 \subsection{Signal theory uncertainties}
 
-Uncertainties related to the theoretical modelling of the signal include:
+Uncertainties related to the theoretical modelling of the signal include both shape and normalisation components. Depending on the type of statistical interpretation, these variations may be treated differently. In interpretations that set limits directly on the number of observed signal events in each category (without assuming a specific production cross section), uncertainties that affect only the kinematic distributions are retained as shape variations, while the overall yield change from each variation is removed. In interpretations where the expected signal yield is tied to a theoretical cross section, the same shape variations are included, but the associated yield changes are also propagated as normalisation uncertainties.
 
 \begin{itemize}
-    \item \textbf{PDFs}: A 6\% normalisation uncertainty, derived from the envelope of PDF variations.
-    \item \textbf{$\alpha_s$}: A 1\% normalisation uncertainty.
-    \item \textbf{Renormalisation and factorisation scales ($\mu_R$, $\mu_F$)}: A 2\% uncertainty, reflecting yield variations under scale variations.
+\item \textbf{PDFs}: Derived from the envelope of PDF weight variations; $\sim$6\% when included as a normalisation effect.
+\item \boldmath$\alpha_s$\unboldmath: From dedicated $\alpha_s$ weight variations in \MCATNLO; $\sim$1\%.
+\item \textbf{Renormalisation and factorisation scales ($\mu_R$, $\mu_F$)}: From independent scale variations, taking the largest acceptance change; $\sim$2\%.
 \end{itemize}
 
 \subsection{Jets \texorpdfstring{$\to \PGt_h$}{to hadronic tau} background}
 
-Multiple sources of uncertainty are associated with the ML-based $F_F$ method. These uncertainties are treated as uncorrelated across final states, with the exception of the $\tauh\tauh\tauh\tauh$ and $\tauh\tauh\tauh$ channels, where the same ML FF fit is used. The main sources of uncertainty are summarised below:
+Multiple sources of uncertainty are associated with the ML-based $F_F$ method. These uncertainties are treated as uncorrelated across final states, with the exception of the $\tauh\tauh\tauh\tauh$ and $\tauh\tauh\tauh$ channels, where the same fit is used (see Section~\ref{Section:Chapter6_FF_Application}). The main sources of uncertainty are summarised below:
 
 \begin{itemize}
-    \item \textbf{Contamination from non-jet backgrounds in the fit region:}
+    \item \textbf{Contamination from non-jet$\to\PGt_h$ backgrounds in the fit region:}
     \begin{itemize}
-        \item \textit{BDT subtraction:} An uncertainty is assigned by comparing the variable distributions obtained using standard histogram subtraction and those obtained with the BDT-based subtraction. The largest observed deviation in each variable is taken as the systematic uncertainty. This comparison is performed separately in the pass and fail $\tauh$ identification regions.
-        \item \textit{MC mismodelling of non-jet contributions:} To account for uncertainties in the simulation of non-jet $\rightarrow \tauh$ objects, the MC contributions are varied by $\pm$10\%. The BDT subtraction and $F_F$ procedures are repeated using the varied samples, and the resulting changes are taken as systematic uncertainties.
+        \item \textit{BDT-based background removal}(Section~\ref{Section:Chapter6_BDT_NonJet_BkgRemoval}): An uncertainty is assigned by comparing the variable distributions obtained using standard histogram subtraction and those obtained with the BDT-based subtraction. The largest observed deviation in each event is taken as the systematic uncertainty. This comparison is performed separately in the pass and fail $\tauh$ identification regions.
+        \item \textit{MC mismodelling of non-jet$\to\PGt_h$ contributions:} To account for uncertainties in the simulation of these objects, the MC contributions are varied by $\pm$10\%. The BDT-based subtraction and $F_F$ procedures are repeated using the varied samples, and the resulting changes are taken as systematic uncertainties.
     \end{itemize}
 
-    \item \textbf{BDT $F_F$ fit:}
+    \item \textbf{BDT-based $F_F$ fit:}
     \begin{itemize}
         \item \textit{Fit closure:} An uncertainty is derived by comparing the reweighted distributions in the fail $\tauh$ identification region to those in the pass region. Any observed non-closure is propagated as a systematic uncertainty.
-        \item \textit{Sideband variable dependence:} An uncertainty is placed to cover any potential dependency of the $F_F$ on the choice of sideband variables. To quantify this, alternative sideband variable combinations are used in the fit. The largest resulting deviation is taken as the uncertainty and is decorrelated across each variable combination.
+        \item \textit{Sideband variable dependence:} An uncertainty is placed to cover any potential dependency of the $F_F$ on the choice of sideband variables. To quantify this, alternative sideband variable combinations are used in separate fits. The largest resulting deviation is taken as the uncertainty.
     \end{itemize}
 \end{itemize}
 
-\section{Search strategy and statistical procedure}
+\subsection{Statistical uncertainties in simulated templates}
+
+Statistical uncertainties from the finite size of the simulated signal and background samples are modelled using the Barlow–Beeston “lite” method~\cite{BARLOW1993219,Conway:2011in}. This introduces one uncorrelated nuisance parameter per bin and process, scaling the corresponding bin yield. In the BB-lite implementation, the maximum likelihood estimator for each nuisance parameter can be computed analytically, avoiding the need to float them in the main likelihood fit. This approach improves computational stability and reduces fit time while retaining the correct treatment of per‑bin statistical fluctuations.
+
+\section{Signal extraction and statistical interpretation}
 
 
 
@@ -1030,3 +1032,4 @@ Multiple sources of uncertainty are associated with the ML-based $F_F$ method. T
 
 
 
+ 

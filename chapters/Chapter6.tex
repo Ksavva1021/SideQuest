@@ -255,7 +255,7 @@ The production cross section is computed at NLO in QCD and is independent of $\t
   \label{Figure:Chapter6_ProductionXS}
 \end{figure}
 
-The decay branching fractions of $\phi$ and $A$ into $\PGt^+\PGt^-$ are computed using \textsc{2HDECAY}~\cite{2HDECAY}, a dedicated tool for 2HDM decay widths and branching fractions. In the alignment limit, the $\PGt^+\PGt^-$ branching ratio of $A$ is close to unity for $\tan\beta \gtrsim 2$, but falls sharply at lower values, where hadronic decays such as $A \to b\bar{b}$ become dominant. A similar pattern holds for $\phi \to \PGt^+\PGt^-$, except when the mass difference $m_\phi - m_A$ exceeds $m_Z$. In such cases, the decay $\phi \to ZA$ becomes kinematically accessible and can significantly suppress the ditau branching fraction, even at large $\tan\beta$. These features are illustrated in Figure~\ref{Figure:Chapter6_BranchingFractions}, which shows representative branching fraction maps for selected mass configurations. 
+The decay branching fractions of $\phi$ and $A$ into $\PGt^+\PGt^-$ are computed using \textsc{2HDECAY}~\cite{2HDECAY}, a dedicated tool for 2HDM decay widths and branching fractions. In the alignment limit, the $\PGt^+\PGt^-$ branching ratio of $A$ is close to unity for $\tan\beta \gtrsim 2$, but falls sharply at lower values, where hadronic decays such as $A \to b\bar{b}$ become dominant. A similar pattern holds for $\phi \to \PGt^+\PGt^-$, except when the mass difference $m_\phi - m_A$ exceeds $m_Z$. In such cases, the decay $\phi \to ZA$ becomes kinematically accessible and can significantly suppress the ditau branching fraction, even at large $\tan\beta$. These features are illustrated in Fig.~\ref{Figure:Chapter6_BranchingFractions}, which shows representative branching fraction maps for selected mass configurations. 
 
 \begin{figure}[!htbp]
         \centering
@@ -680,7 +680,7 @@ Simulation is validated in a control region enriched in $\PZ\PZ \to \mu^+\mu^-\m
     \label{Figure:Chapter6_ZZ_KfactorImpact}
 \end{figure}
 
-While $\PZ\PZ$ constitutes an irreducible background, it can still be reduced through targeted kinematic selections. For example, in the $\PGt_e\PGt_h\PGt_h\PGt_h$ channel, signal events tend to exhibit harder $p_{\mathrm{T}}$ spectra for subleading leptons. The object selection thresholds conveniently exploit this difference. As illustrated in Figure~\ref{Figure:Chapter6_ThirdLepPt}, applying a $p_{\mathrm{T}}$ cut at $20\GeV$ significantly reduces this background while preserving the majority of the signal.
+While $\PZ\PZ$ constitutes an irreducible background, it can still be reduced through targeted kinematic selections. For example, in the $\PGt_e\PGt_h\PGt_h\PGt_h$ channel, signal events tend to exhibit harder $p_{\mathrm{T}}$ spectra for subleading leptons. The object selection thresholds conveniently exploit this difference. As illustrated in Fig.~\ref{Figure:Chapter6_ThirdLepPt}, applying a $p_{\mathrm{T}}$ cut at $20\GeV$ significantly reduces this background while preserving the majority of the signal.
 
 \begin{figure}[!htbp]
     \centering
@@ -752,7 +752,7 @@ This procedure is iterated multiple times, allowing the model to refine the rewe
 
 \subsubsection{Fitting and Parametrisation}
 \label{Section6:Fitting_Parametrisation}
-Having introduced the ML-based reweighting approach, this section outlines its implementation in the context of this analysis. This includes the definition of fitting regions and the choice of input variables for training. As described in Section~\ref{Section:Chapter6_FakeFactors_Classical}, the classical $F_F$ method relies on defining a set of control regions. These regions can be organised into an ABCD-style framework, as illustrated in Figure~\ref{Figure:Chapter6_ABCD}, with sidebands constructed from variables such as hadronic tau identification and total charge.
+Having introduced the ML-based reweighting approach, this section outlines its implementation in the context of this analysis. This includes the definition of fitting regions and the choice of input variables for training. As described in Section~\ref{Section:Chapter6_FakeFactors_Classical}, the classical $F_F$ method relies on defining a set of control regions. These regions can be organised into an ABCD-style framework, as illustrated in Fig.~\ref{Figure:Chapter6_ABCD}, with sidebands constructed from variables such as hadronic tau identification and total charge.
 
 \begin{figure}[!htbp]
 \centering
@@ -1105,6 +1105,73 @@ The exclusion limits are set using CL$_\mathrm{s}$ value, defined as
 The smallest $\mu$ value satisfying $\mathrm{CL}_\mathrm{s} < \alpha$ is quoted as the upper limit at confidence level $(1 - \alpha)$. In this analysis, $\alpha = 0.05$ defines the $95\%$~CL. 
 
 While CL$_\mathrm{s}$ values can be computed using pseudo‑experiments (toys), in practice, the asymptotic approximation~\cite{Cowan:2010js} is used. This approach relies on Wilks' theorem and avoids the computational cost of generating large toy datasets. The median expected limits and their associated $\pm 1\sigma$ and $\pm 2\sigma$ uncertainty bands are obtained using the properties of the \textit{Asimov dataset}\footnote{The Asimov dataset is an idealised dataset in which the observed counts in each bin are set exactly equal to the expected values under the hypothesis being tested}.
+
+\section{Search optimisation}
+\label{Section:Chapter6_Search_Optimisation}
+
+The sensitivity of the search is maximised through a set of optimisation studies, covering the choice of the final discriminating variable, the $D_{\text{jet}}$ identification WP, the event categorisation strategy, and the binning of the final histograms used in the statistical inference. Each optimisation step is described in this section.
+
+\subsection{Discriminating variable}
+Events in each analysis channel and category are represented in terms of a single discriminating variable used as the input to the maximum-likelihood fit. In this analysis, the \textit{total transverse mass}, $m_T^\mathrm{tot}$, is used. This observable combines the transverse masses of all visible $\PGt$ decay products with the missing transverse momentum, as well as the transverse masses of all possible visible decay product combinations:
+
+\begin{equation}
+m_T^\mathrm{tot} =
+\sqrt{ \sum_{i=1}^{N_\tau} m_T^2(\vec{p}_{T}^{\,\tau_i}, \vec{p}_T^{\,\text{miss}}) 
++ \sum_{\substack{i,j=1 \\ i\neq j}}^{N_\tau} m_T^2(\vec{p}_T^{\,\tau_i}, \vec{p}_T^{\,\tau_j}) } \, ,
+\end{equation}
+where $N_\tau$ is the number of reconstructed $\tau$ candidates in the final state and $m_T$ denotes the transverse mass between two objects.  
+
+The selection of $m_T^\mathrm{tot}$ as the discriminant was guided by the expected sensitivity, quantified using the statistical framework in Section~\ref{Section:Chapter6_LimitExtraction}. For each candidate variable, median expected limits on the signal strength $\mu$ were obtained from the CL$_\mathrm{s}$ method in the asymptotic approximation, using an Asimov dataset generated under the signal‑plus‑background hypothesis with $\mu = 1$. The optimisation was performed entirely on this dataset, ensuring no use of observed data, and the variable yielding the lowest median expected limit was chosen. Comparisons against alternative observables such as the scalar sum of transverse momenta, $S_T$, or the highest visible mass of a $\tau$ pair confirmed $m_T^\mathrm{tot}$ to yield the best expected limits.
+
+\subsection{\texorpdfstring{$D_{\text{jet}}$}{Djet} working point}
+The rejection of jets misidentified as $\PGt_h$ candidates is critical for the sensitivity of the search. The optimal $D_{\text{jet}}$ WP is determined from a dedicated study using simulated signal and background samples, with a binary classifier. All dominant background processes discussed in Section~\ref{Section:Chapter6_Backgrounds} are included from simulation, scaled to the full Run 2 integrated luminosity. To optimise rejection performance in the more challenging kinematic regime, a low-mass signal benchmark is used in the training.  
+
+The trained BDT is then applied to the testing subset to produce, for each event, a probability score representing its likelihood of being signal. From these scores, signal and background distributions are drawn without normalising them to each other, thereby preserving the relative event yields expected from the simulation. This is important, as the relative normalisation directly impacts figures of merit such as the \ac{AMS}, which is computed on the BDT scores as
+
+\begin{equation_pad}
+\text{AMS} = \sqrt{ 2 \left[ (S+B)\,\ln\left(1+\frac{S}{B}\right) - S \right] } 
+\end{equation_pad}
+
+where $S$ and $B$ are the expected signal and background event counts passing a given threshold.  
+
+For each $D_{\text{jet}}$ working point, the threshold on the BDT score is chosen such that $68\%$ of the signal events in the testing subset pass. The WP that maximises the AMS, both for nominal signal yields and for scenarios where the signal yield is scaled down to 10\% of its value\footnote{The signal yield is scaled down to account for signal acceptance; for example, a tighter WP might reduce background but could also remove a large fraction of the signal, which is suboptimal when the signal is already small.} is selected as the optimal choice. This dual optimisation ensures that the selected WP delivers strong sensitivity in background‑dominated regimes while maintaining robustness in low‑signal scenarios.
+
+\subsection{Event categorisation}
+Given the limited statistics in some channels and the fact that most of the sensitivity gains come from the $D_\text{jet}$ WP optimisation, event categorisation is kept minimal in this analysis. In channels containing two light leptons and two $\tau_h$ candidates, events are divided according to the relative charge of the light‑lepton pair into \texttt{OS Leptons} (opposite‑sign) and \texttt{SS Leptons} (same‑sign) categories. In the signal model, the light leptons can originate from the leptonic decays of two different $\tau$ leptons in a four‑$\tau$ final state. Since the parent $\tau$ leptons are not required to form an opposite‑sign pair, a fraction of signal events naturally fall into the \texttt{SS Leptons} category. For the backgrounds, processes such as $\mathrm{Z\to\ell\ell}$ and $\mathrm{t\bar{t}}$ predominantly populate the \texttt{OS Leptons} category and are strongly suppressed in \texttt{SS Leptons}, leaving only smaller contributions from charge mis‑identification, mis‑reconstructed leptons, and rare processes. In all channels containing light leptons, a b‑jet veto is applied to suppress backgrounds. Although the absolute signal yield is smaller in \texttt{SS Leptons} than in \texttt{OS Leptons}, the reduced background leads to a higher signal‑to‑background ratio, making \texttt{SS Leptons} a cleaner and complementary category in the combined fit. Other channels are kept as single inclusive categories to retain statistical power. The complete set of analysis categories is summarised in Table~\ref{Table:Chapter6_EventCategorisation}.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\setlength{\tabcolsep}{10pt} % Increase column width
+\arrayrulecolor{black} % Ensure outer border is black
+\begin{tabular}{ccccc}
+\hline
+Channel & \texttt{OS Leptons} & \texttt{SS Leptons} & \texttt{b-veto} & \texttt{No b-veto} \\
+\hline
+$\tau_e\tau_\mu\tau_h\tau_h$       & \cmark & \cmark & \cmark & \xmark\\
+\arrayrulecolor{lightgray} \hline
+$\tau_e\tau_e\tau_h\tau_h$         & \cmark & \cmark & \cmark & \xmark \\
+\arrayrulecolor{lightgray} \hline
+$\tau_\mu\tau_\mu\tau_h\tau_h$     & \cmark & \cmark & \cmark & \xmark \\
+\arrayrulecolor{lightgray} \hline
+$\tau_e\tau_h\tau_h\tau_h$    & \xmark & \xmark & \cmark & \xmark \\
+\arrayrulecolor{lightgray} \hline
+$\tau_\mu\tau_h\tau_h\tau_h$  & \xmark & \xmark & \cmark & \xmark \\
+\arrayrulecolor{lightgray} \hline
+$\tau_h\tau_h\tau_h\tau_h$ & \xmark & \xmark & \xmark & \cmark \\
+\arrayrulecolor{lightgray} \hline
+$\tau_h\tau_h\tau_h$     & \xmark & \xmark & \xmark & \cmark \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption[Summary of event categorisation for the extended Higgs sector search.]{Summary of event categorisation. A tick indicates that the corresponding category is defined in the analysis; a cross indicates that it is not used.}
+\label{Table:Chapter6_EventCategorisation}
+\end{table}
+
+\subsection{Binning strategy}
+The choice of binning for the $m_T^\mathrm{tot}$ templates is also optimised to reduce statistical fluctuations in low‑yield bins while maintaining the discrimination power of the observable.  
+Starting from a binning guided by the ``mass'' resolution, neighbouring bins are merged if the relative statistical uncertainty on the background yield exceeds 25\%, unless doing so would reduce sensitivity (quantified using AMS) in the region near the turn‑on of the lowest‑mass signal hypothesis.  
+This approach results in fine binning in high‑yield categories and coarser binning in low‑yield categories, preserving sensitivity to possible resonant structures while minimising the impact of statistical fluctuations on the fit templates.
+
 
 
 

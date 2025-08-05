@@ -1020,11 +1020,99 @@ Multiple sources of uncertainty are associated with the ML-based $F_F$ method. T
     \end{itemize}
 \end{itemize}
 
-\subsection{Statistical uncertainties in simulated templates}
-
-Statistical uncertainties from the finite size of the simulated signal and background samples are modelled using the Barlow–Beeston “lite” method~\cite{BARLOW1993219,Conway:2011in}. This introduces one uncorrelated nuisance parameter per bin and process, scaling the corresponding bin yield. In the BB-lite implementation, the maximum likelihood estimator for each nuisance parameter can be computed analytically, avoiding the need to float them in the main likelihood fit. This approach improves computational stability and reduces fit time while retaining the correct treatment of per‑bin statistical fluctuations.
-
 \section{Signal extraction and statistical interpretation}
+\label{Section:Chapter6_SignalExtraction}
+
+The extraction of the signal is performed via a simultaneous binned maximum‑likelihood fit to the distribution of the final discriminating variable in all channels and categories. The likelihood function, denoted by $\mathscr{L}$, is defined as:
+
+\begin{equation}
+\mathscr{L}(\text{data} \mid \mu, \theta) = \prod_{i=1}^{N_{\mathrm{c}}}
+\mathrm{Poisson} 
+\left(
+n_i \,\middle|\,
+\sum_{j=1}^{N_{\mathrm{s}}} g_j(\mu_{ij}) \cdot s_{ij}(\theta)
++ \sum_{k=1}^{N_{\mathrm{b}}} b_{ik}(\theta)
+\right)
+\cdot
+p(\hat{\theta} \mid \theta)
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $n_i$ is the number of observed events in bin $i$ of the fit.
+    \item $\theta$ is the set of nuisance parameters, corresponding to the systematic uncertainties described in Section~\ref{Section:Chapter6_Uncertainty_Model}.
+    \item $s_{ij}(\theta)$ and $b_{ik}(\theta)$ are the expected signal and background yields in bin $i$, respectively, both dependent on $\theta$.
+    \item The index $j \in [1, N_{\mathrm{s}}]$ runs over all signal processes, and $k \in [1, N_{\mathrm{b}}]$ runs over all background processes.
+    \item $g_j(\mu_{ij})$ scales the yield of process $j$ according to its signal strength parameter $\mu_j$.
+    \item $p(\hat{\theta} \mid \theta)$ is discussed in in the following subsection.
+
+\end{itemize}
+
+\subsection{Treatment of nuisance parameters}
+
+The term $p(\hat{\theta} \mid \theta)$ in the likelihood encodes the set of \acp{P.D.F} constraining the nuisance parameters $\theta$ to their nominal values $\hat{\theta}$. Each constraint term expresses the probability that the true value of a nuisance parameter is equal to its best estimate, with the likelihood penalising deviations. Two classes of nuisance parameters are considered, depending on whether they affect only the normalisation of a process or also modify the shape of a distribution.
+
+\subsection{Log-normal P.D.Fs}  
+Nuisance parameters that influence only the overall normalisation of a process are modelled with log-normal PDFs. This choice ensures that the scaling factors applied to template yields remain strictly positive. The functional form of this P.D.F is:
+
+\begin{equation_pad}
+f(x; \mu, \sigma) = \frac{1}{x \, \sigma \sqrt{2\pi}} 
+\exp\left[ -\frac{(\ln x - \mu)^2}{2\sigma^2} \right]
+\end{equation_pad}
+where $\mu$ and $\sigma$ are the mean and standard deviation of the normally distributed variable $\ln x$.
+
+\subsection{Gaussian P.D.Fs}  
+Nuisance parameters that modify the shape of a distribution are assigned Gaussian PDFs. The functional form of this P.D.F is:
+
+\begin{equation_pad}
+f(x; \mu, \sigma) = \frac{1}{\sigma \sqrt{2\pi}} 
+\exp\left[ -\frac{(x - \mu)^2}{2\sigma^2} \right] \,.
+\end{equation_pad}
+
+For each shape-related uncertainty, two additional templates are provided: one for an upward variation ($+1\sigma$) and one for a downward variation ($-1\sigma$) relative to the nominal shape. \textit{These variations do not need to produce effects of the same magnitude in both directions}. A vertical morphing algorithm~\cite{Conway:2011in} is used to smoothly interpolate between the nominal and each shifted template independently, and to extrapolate beyond them if needed. This approach ensures a continuous and stable dependence of the bin contents on the nuisance parameter, even in cases where the up and down variations are asymmetric.
+
+\section{Limit extraction}
+\label{Section:Chapter6_LimitExtraction}
+
+\subsection{Limits and significance}
+
+Upper limits on the signal strength $\mu$ are set using the modified frequentist approach~\cite{Junk:1999kv,Read:2002hq}, denoted as the CL$_\mathrm{s}$ method. The test statistic is defined as
+
+\begin{equation_pad}
+q_\mu = -2 \ln \left( \frac{\mathscr{L}(\text{data} \mid \mu, \hat{\theta}_\mu)}{\mathscr{L}(\text{data} \mid \hat{\mu}, \hat{\theta}_{\hat{\mu}})} \right) \quad , \quad 0 \leq \hat{\mu} \leq \mu
+\end{equation_pad}
+
+where $\mu$ is the tested signal strength, $\hat{\mu}$ is its best‑fit value, $\theta$ is the set of nuisance parameters, $\hat{\theta}_\mu$ are the nuisance parameters maximising the likelihood for fixed $\mu$, and $\hat{\theta}_{\hat{\mu}}$ are those maximising it when $\mu$ is left free. The bounds on $\hat{\mu}$ ensure a positive signal strength and a one‑sided confidence interval.
+
+The probability of obtaining a test statistic value at least as large as that observed, assuming a signal‑plus‑background hypothesis with strength $\mu$,
+
+\begin{equation_pad}
+\text{CL}_\text{s+b} = \int_{q_\mu^{\mathrm{obs}}}^{\infty} f(q_\mu \mid \mu, \hat{\theta}_\mu^{\mathrm{obs}}) \, dq_\mu 
+\end{equation_pad}
+
+where $f(q_\mu \mid \mu, \hat{\theta}_\mu^{\mathrm{obs}})$ is the P.D.F of $q_\mu$. The corresponding background‑only probability is
+
+\begin{equation_pad}
+\text{CL}_\text{b} = \int_{q_\mu^{\mathrm{obs}}}^{\infty} f(q_\mu \mid 0, \hat{\theta}_0^{\mathrm{obs}}) \, dq_\mu \
+\end{equation_pad}
+
+The exclusion limits are set using CL$_\mathrm{s}$ value, defined as
+
+\begin{equation_pad}
+\mathrm{CL}_\mathrm{s} = \frac{\text{CL}_\text{s+b}}{\text{CL}_\text{b}}
+\end{equation_pad}
+
+The smallest $\mu$ value satisfying $\mathrm{CL}_\mathrm{s} < \alpha$ is quoted as the upper limit at confidence level $(1 - \alpha)$. In this analysis, $\alpha = 0.05$ defines the $95\%$~CL. 
+
+While CL$_\mathrm{s}$ values can be computed using pseudo‑experiments (toys), in practice, the asymptotic approximation~\cite{Cowan:2010js} is used. This approach relies on Wilks' theorem and avoids the computational cost of generating large toy datasets. The median expected limits and their associated $\pm 1\sigma$ and $\pm 2\sigma$ uncertainty bands are obtained using the properties of the \textit{Asimov dataset}\footnote{The Asimov dataset is an idealised dataset in which the observed counts in each bin are set exactly equal to the expected values under the hypothesis being tested}.
+
+
+
+
+
+
+
+
 
 
 

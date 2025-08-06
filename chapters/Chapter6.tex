@@ -1174,24 +1174,20 @@ This approach results in fine binning in high‑yield categories and coarser bin
 
 \section{Results}
 
-Building on the analysis strategy outlined in the previous sections, this section presents the post-fit distributions, along with the model-independent and model-dependent interpretations of the results. Further details are discussed in the corresponding subsections.
-
-\subsection{Postfit distributions}
+Building on the analysis strategy outlined in the previous sections, this section presents postfit distributions, along with the model-independent and model-dependent interpretations of the results. Further details are discussed in the corresponding subsections.
 
 \subsection{Postfit distributions}
 \label{sec:postfit_distributions}
 
-Postfit distributions of the $m_\mathrm{T}^\mathrm{tot}$ discriminator are shown after performing a simultaneous background-only fit to the data. The fit is carried out across all bins in all analysis categories. For visual clarity, the categories are grouped into three figures corresponding to low-, medium-, and high-statistics categories. This ordering facilitates both visual inspection and the discussion of statistical features in different event selections.  
-
-The expected backgrounds are stacked and separated into the three groups defined in Section~\ref{Section:Chapter6_Background_Modelling}:  
+Postfit distributions of the $m_\mathrm{T}^\mathrm{tot}$ discriminator are presented following a simultaneous background-only fit to the data, performed across all bins in all analysis categories. For improved visual clarity, the categories are grouped into three separate figures, corresponding to low-, medium-, and high-statistics regions. The expected backgrounds are shown as stacked histograms and are subdivided into the three groups defined in Section~\ref{Section:Chapter6_Background_Modelling}:
 
 \begin{enumerate}
-    \item Events with genuine $\tau_{h}$ leptons.
+    \item Events with only genuine $\tau_{h}$ leptons.
     \item Events with one or more jets misidentified as $\tau_{h}$ candidates.
     \item Events in which light leptons are misidentified as $\tau_{h}$ candidates (no jet$\to\tau_\mathrm{h}$ misidentification).
 \end{enumerate}
 
-A benchmark signal hypothesis ($m_A = 160\GeV$, $m_\phi = 200\GeV$) is also shown in the distributions, scaled to $0.01\unit{pb}$, approximately three times smaller than the predicted cross section for this process. Figure~\ref{Figure:Chapter6_PostfitDistributions} presents the results.  
+The distributions also include a benchmark signal hypothesis with $m_A = 160\GeV$ and $m_\phi = 200\GeV$, scaled to $0.01\unit{pb}$. This is approximately a factor of three smaller than the predicted cross section for this process. The full set of postfit results is shown in Figure~\ref{Figure:Chapter6_PostfitDistributions}.
 
 \begin{figure}[!htbp]
         \centering
@@ -1218,30 +1214,29 @@ A benchmark signal hypothesis ($m_A = 160\GeV$, $m_\phi = 200\GeV$) is also show
     \label{Figure:Chapter6_PostfitDistributions}
 \end{figure}
 
-No significant excess is observed in any category or bin, and the combined results are consistent with the background-only hypothesis. Small local deficits in the number of observed events relative to the expectation are visible in certain bins, such as the $\PGt_e\PGt_\mu\PGt_h\PGt_h$ SS lepton category in the low-statistics group. 
+No significant excess is observed in any category or bin, and the combined results are consistent with the background-only hypothesis. Small local deficits in the number of observed events relative to the expectation are visible in certain bins, such as the $\PGt_e\PGt_\mu\PGt_h\PGt_h$ SS lepton category in the low-statistics group. To validate the dominant background contribution (jet$\to\PGt_h$) in these regions, an alternative approach was employed. The method estimates jet$\to\PGt_h$ contributions using simulated samples of processes (see Section~\ref{Section:Chapter6_Backgrounds}) with at least one jet reconstructed as a $\tau_{h}$, while the QCD multijet background is obtained via a simple ABCD method in the $\sum q \neq 0$ region. The comparison shows predictions from this method to be in good agreement with those from the ML-based $F_F$ approach.
 
-To validate the dominant background contribution (jet$\to\PGt_h$) in these regions, an alternative approach was employed. The method estimates jet$\to\PGt_h$ contributions using simulated samples of processes (see Section~\ref{Section:Chapter6_Backgrounds}) with at least one jet reconstructed as a $\tau_{h}$, while the QCD multijet background is obtained via a simple ABCD method in the $\sum q \neq 0$ region. The comparison shows predictions from this method to be in good agreement with those from the ML-based $F_F$ approach.
-
+\newpage
 \subsection{Model-independent interpretation}
 
-For the model‑independent interpretation, the signal yield is normalised to a reference cross section of $1\unit{pb}$, with the parameter of interest defined as the cross section for the $Z^* \to A\phi$ process multiplied by the branching fractions $\mathcal{B}(\phi \to \tau\tau)$ and $\mathcal{B}(A \to \tau\tau)$, under the assumption of a linear scaling $g(\mu) = \mu$. Observed upper limits at the 95\% CL are extracted for all mass hypotheses considered, following the procedure outlined in Section~\ref{Section:Chapter6_LimitExtraction}. The results, shown in Fig.~\ref{Figure:Chapter6_model_independent} as a two‑dimensional heatmap across the $(m_A, m_\phi)$ mass plane, span from $190\unit{fb}$ at $(m_A, m_\phi) = (40, 60)\GeV$ to $0.4\unit{fb}$ at $(m_A, m_\phi) = (600, 800)\GeV$.
+For the model‑independent interpretation, the signal yield is normalised to a reference cross section of $1\unit{pb}$. The parameter of interest is defined as the cross section for the $Z^* \to A\phi$ process multiplied by the branching fractions $\mathcal{B}(\phi \to \tau\tau)$ and $\mathcal{B}(A \to \tau\tau)$, under the assumption of a linear scaling $g(\mu) = \mu$. Observed upper limits at the 95\% CL are extracted for all mass hypotheses considered, following the procedure outlined in Section~\ref{Section:Chapter6_LimitExtraction}. The results, shown in Fig.~\ref{Figure:Chapter6_model_independent} as a two‑dimensional heatmap across the $(m_A, m_\phi)$ mass plane, span from $190\unit{fb}$ at $(m_A, m_\phi) = (40, 60)\GeV$ to $0.4\unit{fb}$ at $(m_A, m_\phi) = (600, 800)\GeV$.
 
 \begin{figure}[!htbp]
     \centering        
     \includegraphics[width=0.7\textwidth]{Figures/Chapter6/mi_2d.pdf}
-    \caption{Observed 95\% CL upper limits on the product of the cross section ($\sigma$) for the production of two BSM Higgs bosons produced via an off-shell Z boson, and the branching fractions ($\mathcal{B}$) for their decay into $\PGt$ leptons. This is shown as a function of $m_A$ and $m_\phi$. No limits are set in the red hatched region.}
+    \caption[Observed 95\% CL upper limits on $\sigma_\text{prod} \times \mathcal{B}(\phi\to\tau\tau)\times\mathcal{B}(A\to\tau\tau)$]{Observed 95\% CL upper limits on the product of the cross section ($\sigma_\text{prod}$) for the production of two BSM Higgs bosons produced via an off-shell Z boson, and the branching fractions ($\mathcal{B}$) for their decay into $\PGt$ leptons. This is shown as a function of $m_A$ and $m_\phi$. No limits are set in the red hatched region.}
     \label{Figure:Chapter6_model_independent}
 \end{figure}
 
-
-A condensed view of the results for all 72 tested mass points is given in Fig.~\ref{Figure:Chapter6_model_independent_all}, where limits at higher $m_A$ values are scaled by increasing negative powers of ten for visual clarity.  Across the full mass range, the observed limits typically lie between the lower $1\sigma$ and $2\sigma$ expected bands, consistent with the small local deficits seen in Fig.~\ref{Figure:Chapter6_PostfitDistributions}, which slightly strengthen the exclusion. All observed limits are well below the predicted cross sections shown in Fig.~\ref{Figure:Chapter6_ProductionXS}, demonstrating the strong sensitivity of the analysis to the Type-X 2HDM in the alignment scenario.
+A condensed view of the results for all 72 tested mass points is given in Fig.~\ref{Figure:Chapter6_model_independent_all}, where limits at higher $m_A$ values are scaled by increasing negative powers of ten for visual clarity.  Across the full mass range, the observed limits typically lie between the lower $1\sigma$ and $2\sigma$ expected bands. This is consistent with the small local deficits seen in Fig.~\ref{Figure:Chapter6_PostfitDistributions}, which strengthen the exclusion. All observed limits are well below the predicted cross sections shown in Fig.~\ref{Figure:Chapter6_ProductionXS}, demonstrating the strong sensitivity of the analysis to the Type-X 2HDM in the alignment scenario.
 
 \begin{figure}[!htbp]
     \centering        
     \includegraphics[width=0.7\textwidth]{Figures/Chapter6/model_independent_limit_all.pdf}
-    \caption{Model‑independent 95\% CL upper limits on the production cross-section, $\sigma_{\text{prod}}(Z^* \to A\phi) \times \mathcal{B}(\phi \to \tau\tau) \times \mathcal{B}(A \to \tau\tau)$, shown as a function of $m_A$ and $m_\phi$ for all tested mass hypotheses. Expected and observed limits are displayed together with their $\pm 1\sigma$ and $\pm 2\sigma$ uncertainty bands. For visual clarity, limits at higher $m_A$ values are scaled by increasing negative powers of ten, as indicated next to each curve.}
+    \caption[Observed and expected 95\% CL upper limits on $\sigma_\text{prod} \times \mathcal{B}(\phi\to\tau\tau)\times\mathcal{B}(A\to\tau\tau)$]{Model-independent 95\% CL upper limits on the product of the production cross section ($\sigma_\text{prod}$) for two BSM Higgs bosons—produced via an off-shell Z boson—and their branching fractions ($\mathcal{B}$) into $\PGt$ leptons, shown as a function of $m_A$ and $m_\phi$. Both expected and observed limits are presented, along with $\pm1\sigma$ and $\pm2\sigma$ uncertainty bands. For visual clarity, the limits at higher $m_A$ values are rescaled by increasing negative powers of ten, as indicated next to each curve.}
     \label{Figure:Chapter6_model_independent_all}
 \end{figure}
+
 \newpage
 \subsection{Model-dependent interpretation}
 
@@ -1265,8 +1260,7 @@ For the model-dependent interpretation, the search results are translated into c
     \label{Figure:Chapter6_Model_Dependent}
 \end{figure}
 
-In the $m_\phi = 100\GeV$ case, the limit is largely flat across $m_A$ and excludes values of $\tan\beta \gtrsim 2$.  
-Below this, the branching fractions of the $h$ and $A$ bosons to $\tau$ leptons decrease sharply, with decays to $b\bar{b}$ becoming dominant as discussed in Section\ref{Section:Chapter6_production_xs_bf}.  For $m_\phi = 200\GeV$, in regions where $m_A$ is larger than $m_\phi-m_{\PZ}$ and $m_\phi$ is larger than $m_A-m_{\PZ}$, the exclusion limit does not depend strongly on $m_A$ and reaches a $\tan\beta$ value of approximately 1.5. However, in regions where the separation of $m_\phi$ and $m_A$ is greater than $m_{\PZ}$, the sensitivity is reduced, as the $\PH\rightarrow\PZ A$ or $A\rightarrow\PZ\PH$ decay channels become kinematically accessible and dominate the branching fraction.
+In the $m_\phi = 100\GeV$ scenario, the exclusion limit remains largely flat as a function of $m_A$, excluding values of $\tan\beta \gtrsim 2$. Below this threshold, the branching fractions of the $h$ and $A$ bosons to $\tau$ leptons drop sharply, with decays to $b\bar{b}$ becoming dominant, as discussed in Section~\ref{Section:Chapter6_production_xs_bf}. For $m_\phi = 200\GeV$, the exclusion is approximately constant in regions where both $m_A > m_\phi - m_{\PZ}$ and $m_\phi > m_A - m_{\PZ}$, reaching down to $\tan\beta \approx 1.5$. However, when the mass separation between $m_\phi$ and $m_A$ exceeds $m_{\PZ}$, the sensitivity degrades due to the opening of the $\PH \to \PZ A$ or $A \to \PZ \PH$ decay channels, which dominate the branching fractions in these regions (see Section~\ref{Section:Chapter6_production_xs_bf}).
 
 A summary of the exclusion contours in the $m_A-m_\phi$ plane is shown in Fig.~\ref{Figure:Chapter6_model_dependent_2d}. This also shows the complete exclusion contours of the Type-X 2HDM alignment scenario from the union of the observed results and the limits obtained using $\textsc{HiggsTools-1}$~\cite{Bahl:2022igd}, as well as the allowed regions for an explanation of the muon anomalous magnetic moment~\cite{TypeX_2HDM}. Figure~\ref{Figure:Chapter6_model_dependent_2d} demonstrates the exclusion of this model as an explanation for the muon anomalous magnetic moment, as the allowed regions at high $\tan\beta$ in both the normal and inverted scenarios (green contours) are contained within the $\tanb > 15$ observed exclusion contour.
 It also presents the complete exclusion of the Type-X 2HDM alignment scenario down a diagonal in the $m_A-m_\phi$ plane (red contour), with an approximate width of $100\GeV$, from the lowest mass point searched for at $m_A = 40\GeV$ and $m_\phi = 60\GeV$ to $m_\phi\approx m_A\approx360\GeV$.
@@ -1274,15 +1268,15 @@ It also presents the complete exclusion of the Type-X 2HDM alignment scenario do
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.6\textwidth]{Figures/Chapter6/md_2d_hb_gm2_contour.pdf}
-  \caption{
+  \caption[Summary of exclusion contours in the $m_A-m_\phi$ plane.]{
    Observed 95\% CL exclusions of the Type-X 2HDM alignment scenario in the $m_A$-$m_\phi$ plane are shown as black solid contours, with the $\tan\beta$ exclusion of each bounded region written on the plot.
    The complete exclusion of this model from the union of the observed limits and those obtained by $\textsc{HiggsTools-1}$~\cite{Bahl:2022igd} is enclosed by the red dot-dashed contour.
-   The allowed regions accommodating the current measurement of the muon anomalous magnetic moment, as detailed in Ref.~\cite{Jueid:2021avn}, are shown as green dashed boxes, with the $\tan\beta$ allowed range written on the plot.
+   The allowed regions accommodating the current measurement of the muon anomalous magnetic moment, as detailed in Ref.~\cite{TypeX_2HDM}, are shown as green dashed boxes, with the $\tan\beta$ allowed range written on the plot.
   }
-  \label{Figures:Chapter6_model_dependent_2d}
+  \label{Figure:Chapter6_model_dependent_2d}
 \end{figure}
 
-In summary, a search has been performed for signatures of extended Higgs sectors in the four‑tau final state, targeting the process $Z^* \to \phi A \to \PGt^+\PGt^-\PGt^+\PGt^-$ in pp collisions at $\sqrt{s} = 13\TeV$ with the CMS detector, using the full Run 2 dataset corresponding to an integrated luminosity of $138~\mathrm{fb}^{-1}$. No significant excess above the SM expectation is observed, and the results are interpreted as upper limits on the production cross section times branching fraction, which range from $\mathcal{O}(0.4~\mathrm{fb})$ at high $(m_A, m_\phi)$ to $\mathcal{O}(200~\mathrm{fb})$ at low masses. These constraints exclude a substantial fraction of the parameter space of the Type‑X two‑Higgs‑doublet model, including the region compatible with an explanation of the muon anomalous magnetic moment as proposed in Ref.~\cite{TypeX_2HDM}.
+In summary, a search has been performed for signatures of extended Higgs sectors in the four‑tau final state, targeting the process $Z^* \to \phi A \to \PGt^+\PGt^-\PGt^+\PGt^-$ in pp collisions at $\sqrt{s} = 13\TeV$ with the CMS detector, using the full Run 2 dataset corresponding to an integrated luminosity of $138\unit{fb}^{-1}$. No significant excess above the SM expectation is observed, and the results are interpreted as upper limits on the production cross section times branching fraction, which range from $\mathcal{O}(0.4\unit{fb})$ at high $(m_A, m_\phi)$ to $\mathcal{O}(190\unit{fb})$ at low masses. These constraints exclude a substantial fraction of the parameter space of the Type‑X 2HDM, including the region compatible with an explanation of the muon anomalous magnetic moment as proposed in Ref.~\cite{TypeX_2HDM}.
 
 
 

@@ -7,7 +7,20 @@
 
 \section{Introduction}
 
-Motivated by the theoretical considerations and the particularly intriguing measurement of the muon anomalous magnetic moment discussed in Section~\ref{Section:Chapter2_gminus2}, this chapter presents a detailed analysis targeting final states with four tau leptons through the process $Z^*\rightarrow\phi A\rightarrow4\PGt$. The analysis explores a region of parameter space that remains largely unconstrained by existing collider searches. This is primarily because the production mode proceeds via an off-shell $Z^*$ boson. This circumvents the dominant SM Higgs production mechanisms, which are already tightly constrained by current LHC measurements. As such, this search offers unique sensitivity to scenarios in extended Higgs sectors that could otherwise evade detection. This chapter provides a comprehensive description of the analysis strategy employed in the CMS experiment to probe this signature. 
+Motivated by the theoretical considerations and the particularly intriguing measurement of the muon anomalous magnetic moment discussed in Section~\ref{Section:Chapter2_gminus2}, this chapter presents a detailed analysis targeting final states with four tau leptons through the process $Z^*\rightarrow\phi A\rightarrow4\PGt$.
+
+The analysis explores a region of parameter space that remains largely unconstrained by existing collider searches. The production mode proceeds via an off-shell $\PZ^*$ boson, avoiding the dominant SM Higgs production mechanisms that are tightly constrained by current LHC measurements. As a result, this region lies beyond the sensitivity of single-Higgs searches such as Ref.~\cite{CMS:2022goy}, which are only sensitive to low values of $\tan \beta$ due to suppressed production rates.
+
+Furthermore, existing LHC di-Higgs searches, sensitive to heavy Higgs bosons, typically fall into three categories:
+\begin{enumerate}
+    \item non-resonant SM Higgs pair production ($H_{125}H_{125}$),
+    \item heavy resonance decays to a Higgs and another scalar ($X \to YH_{125}$), and
+    \item heavy resonance decays to two Higgs bosons ($X \to H_{125}H_{125}$).
+\end{enumerate}
+
+Searches excluding $\PGt$ leptons are incompatible with the signal model, given the dominant branching fractions of the additional Higgs bosons to $\PGt$ pairs. Those requiring the tagging of an SM-like Higgs boson also lose sensitivity, as the $\PZ^* \to \phi A$ signal does not contain an $\PH_{125}$. Consequently, none of the existing multi-$\PGt$ analyses target the unique topology of \emph{non-resonant} $\PZ^* \to \phi A \to 4\PGt$ production, in which both bosons decay exclusively to leptons.
+
+This search, therefore, addresses a critical gap in experimental coverage. This chapter provides a comprehensive description of the analysis strategy employed in the CMS experiment to probe this signature. 
 
 \section{Collision data}
 
@@ -1233,7 +1246,7 @@ A condensed view of the results for all 72 tested mass points is given in Fig.~\
 \begin{figure}[!htbp]
     \centering        
     \includegraphics[width=0.7\textwidth]{Figures/Chapter6/model_independent_limit_all.pdf}
-    \caption[Observed and expected 95\% CL upper limits on $\sigma_\text{prod} \times \mathcal{B}(\phi\to\tau\tau)\times\mathcal{B}(A\to\tau\tau)$]{Model-independent 95\% CL upper limits on the product of the production cross section ($\sigma_\text{prod}$) for two BSM Higgs bosons—produced via an off-shell Z boson—and their branching fractions ($\mathcal{B}$) into $\PGt$ leptons, shown as a function of $m_A$ and $m_\phi$. Both expected and observed limits are presented, along with $\pm1\sigma$ and $\pm2\sigma$ uncertainty bands. For visual clarity, the limits at higher $m_A$ values are rescaled by increasing negative powers of ten, as indicated next to each curve.}
+    \caption[Observed and expected 95\% CL upper limits on $\sigma_\text{prod} \times \mathcal{B}(\phi\to\tau\tau)\times\mathcal{B}(A\to\tau\tau)$]{Model-independent 95\% CL upper limits on the product of the production cross section ($\sigma_\text{prod}$) for two BSM Higgs bosons, produced via an off-shell Z boson, and their branching fractions ($\mathcal{B}$) into $\PGt$ leptons, shown as a function of $m_A$ and $m_\phi$. Both expected and observed limits are presented, along with $\pm1\sigma$ and $\pm2\sigma$ uncertainty bands. For visual clarity, the limits at higher $m_A$ values are rescaled by increasing negative powers of ten, as indicated next to each curve.}
     \label{Figure:Chapter6_model_independent_all}
 \end{figure}
 
@@ -1271,7 +1284,7 @@ It also presents the complete exclusion of the Type-X 2HDM alignment scenario do
   \caption[Summary of exclusion contours in the $m_A-m_\phi$ plane.]{
    Observed 95\% CL exclusions of the Type-X 2HDM alignment scenario in the $m_A$-$m_\phi$ plane are shown as black solid contours, with the $\tan\beta$ exclusion of each bounded region written on the plot.
    The complete exclusion of this model from the union of the observed limits and those obtained by $\textsc{HiggsTools-1}$~\cite{Bahl:2022igd} is enclosed by the red dot-dashed contour.
-   The allowed regions accommodating the current measurement of the muon anomalous magnetic moment, as detailed in Ref.~\cite{TypeX_2HDM}, are shown as green dashed boxes, with the $\tan\beta$ allowed range written on the plot.
+   The allowed regions accommodating the current measurement of the muon anomalous magnetic moment, as detailed in Ref.~\cite{TypeX_2HDM}, are shown as green dashed boxes, with the $\tan\beta$ allowed range written on the plot. Hatched regions indicate parameter space for which no exclusion limit is set.
   }
   \label{Figure:Chapter6_model_dependent_2d}
 \end{figure}

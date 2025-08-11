@@ -15,7 +15,6 @@ The most precise determination to date was performed by the CMS Collaboration us
 
 This chapter presents a complementary measurement targeting only the $\PGt_h \PGt_h$ final state. The dataset corresponds to the partial Run 3 data-taking period and is substantially smaller in integrated luminosity than in Run 2, leading to reduced statistical reach. Despite the smaller dataset, this analysis aims to approach the precision of the Run 2 results by targeting improvements in key components such as:
 
-To mitigate this, several improvements have been implemented:
 \begin{enumerate}[label=(\roman*)]
     \item Tau identification
     \item Triggering
@@ -24,7 +23,136 @@ To mitigate this, several improvements have been implemented:
     \item Reconstruction of the sensitive observable
 \end{enumerate}
 
-These developments demonstrate that a competitive measurement can be achieved well before the \ac{HL}-LHC era, and will be discussed in more detail throughout this chapter, along with an improved analysis strategy.
+These developments are aimed at paving the way to a competitive measurement well before the \ac{HL}-LHC era, and will be discussed in more detail throughout this chapter, along with an improved analysis strategy.
+
+\section{Collision data}
+
+This analysis uses proton–proton collision data recorded by the CMS detector during the initial part of the Run 3 period (2022–2023). The collisions were produced at a centre-of-mass energy of $\sqrt{s} = 13.6\TeV$, and the dataset corresponds to an integrated luminosity of about $61.9\unit{fb}^{-1}$.
+
+\section{Backgrounds}
+\label{Section:Chapter7_Backgrounds}
+
+Many of the background processes relevant to the fully hadronic ditau ($\PGt_h\PGt_h$) final state are the same as those discussed for the four-tau analysis in Section~\ref{Section:Chapter6_Backgrounds}. The main difference is that the present selection requires only two reconstructed tau candidates, both hadronically decaying, rather than four tau candidates of any DM. Events can enter the signal region through three main mechanisms:  
+
+\begin{enumerate}[label=(\roman*)]
+    \item Production of two genuine $\PGt_h$ leptons,  
+    \item Production of one genuine $\PGt_h$ and one misidentified object (jet or prompt electron/muon reconstructed as $\PGt_h$), and  
+    \item Production of two misidentified objects, typically jets or nonprompt electrons/muons, both reconstructed as $\PGt_h$ candidates.  
+\end{enumerate}
+
+Relative to the four-tau case, the composition and ranking of backgrounds change noticeably.  DY ($\PZ/\gamma^*\to\PGt^+\PGt^-$) with both taus decaying hadronically is now the dominant source of genuine $\PGt_h\PGt_h$ pairs. Top-quark pair production ($\ttbar$) also makes a large contribution, both through $\PW\to\PGt\nu_\PGt$ decays (genuine $\PGt_h$) and through the misidentification of jets or prompt leptons as $\PGt_h$, with the associated $b$-jets increasing the likelihood of additional jet activity. Reducible backgrounds from $\PW$+jets and QCD multijet production are similarly important, as only one or two jet$\to\PGt_h$ (or $e/\mu\to\PGt_h$) misidentifications are needed to pass the $\PGt_h\PGt_h$ selection.  
+
+In contrast to the four-tau analysis, where $ZZ\to4\PGt$ was the most important irreducible background, $ZZ$ production is subdominant in the fully hadronic di-tau channel. This is because events with four taus rarely pass the $\PGt_h\PGt_h$ selection unless two of the taus are outside the detector acceptance or fail identification.  
+Instead, diboson contributions arise mainly from  
+$\PZ\PZ\to\PGt\PGt\nu\nu$ (two genuine $\PGt$ + $\MET$),  
+$\PW\PW\to\PGt\nu\,\PGt\nu$,  
+or channels such as $\PZ\PZ\to\ell\ell\nu\nu$ and $\PW\PZ\to\ell\nu\,\ell\ell$ where prompt $e/\mu$ (and occasionally jets) are misidentified as $\PGt_h$.  
+Other processes, including electroweak boson production with jets, rare triboson production, and single-top, remain subdominant.
+
+The modelling and estimation strategies for these background contributions, including the treatment of jet and lepton misidentification, are detailed in Section~\ref{Section:Chapter7_Background_Modelling}. The full list of simulated background processes is broadly similar to that presented for the four-tau analysis in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, and is reproduced here in Table~\ref{Table:Chapter7_SimulatedBackgrounds} for completeness.
+
+{
+\centering
+\setlength{\LTpost}{-2ex}  % tighten space after table
+\small  % one size smaller than normal
+\begin{longtable}{llc}
+\caption[Summary of simulated SM backgrounds for the $H \to \PGt_h\PGt_h$ CP measurement.]
+{Summary of the simulated SM background processes used in the measurement of the CP structure of the Higgs–tau Yukawa coupling in $H \to \PGt_h\PGt_h$ decays, listing the event generators and the theoretical precision of their cross sections. 
+The following generators were used: 
+\MADGRAPH~\cite{MadGraph} for LO matrix element calculations; 
+\POWHEG~v1.0~\cite{Powheg_0} and v2.0~\cite{Powheg_1,Powheg_2,Powheg_3} for NLO processes including $\ttbar$ and single top; 
+and \MGvATNLO~\cite{MadGraph} for diboson and triboson production. 
+Parton showering and hadronisation were performed with \PYTHIA~\cite{PYTHIA}.}
+
+\label{Table:Chapter7_SimulatedBackgrounds} \\
+\hline
+\textbf{Process} & \textbf{Generators} & \textbf{Cross section $\sigma$ [pb]} \\
+\hline \hline
+\endfirsthead
+
+\hline
+\textbf{Process} & \textbf{Generators} & \textbf{Cross section $\sigma$ [pb]} \\
+\hline \hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\hline
+\endlastfoot
+\rowcolor{verylightblue}
+\textbf{Drell-Yan, $\PZ/\gamma^* \to \ell^+ \ell^-$ (LO)} & & \\
++1 jets\hyperlink{DY-Excl}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 1788.0 (NLO) \\
++2 jets\hyperlink{DY-Excl}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 339.6 (NLO)\\
++3 jets\hyperlink{DY-Excl}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 125.1 (NLO) \\
+
+\arrayrulecolor{lightgray}\hline
+\rowcolor{verylightblue}
+\textbf{W+jets (LO)\hyperlink{W-MLM}{$^2$}} & & \\
++ jets & \MADGRAPH, \PYTHIA & 55300.0 (LO), 63425.1 (NLO) \\
++1 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 9128.0 (LO) \\
++2 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 2922.0 (LO) \\
++3 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 861.3 (LO) \\
++4 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 415.4 (LO) \\
+
+\arrayrulecolor{lightgray}\hline
+\rowcolor{verylightblue}
+\textbf{\ttbar} & & \\
+Fully hadronic & \POWHEG, \PYTHIA & 419.81 (NNLO)\\
+Semi-leptonic & \POWHEG, \PYTHIA & 405.75 (NNLO)\\
+Fully leptonic & \POWHEG, \PYTHIA & 98.04 (NNLO) \\
+
+\arrayrulecolor{lightgray}\hline
+\rowcolor{verylightblue}
+\textbf{Single top} & & \\
+t-channel ($t$) & \POWHEG, \PYTHIA & 136.02 (NNLO) \\
+t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 136.02 (NNLO) \\
+$t + W^-$ & \POWHEG, \PYTHIA & 35.60 (NNLO) \\
+$t + W^+$ & \POWHEG, \PYTHIA & 35.60 (NNLO) \\
+
+\arrayrulecolor{lightgray}\hline
+\rowcolor{verylightblue}
+\textbf{Diboson} & & \\
+$\PW \PZ \rightarrow \ell \, \nu \, \nu \, \nu$  & \MCATNLO, \PYTHIA & 3.416 (NLO) \\
+$\PW \PZ \rightarrow \ell \, \nu \, q \, q$        & \MCATNLO, \PYTHIA & 10.71 (NLO) \\
+$\PW \PZ \rightarrow q \, q \, \ell \, \ell$            & \MCATNLO, \PYTHIA & 6.419 (NLO) \\
+$\PW \PZ \rightarrow \ell \, \ell \,  \ell \, \nu $          & \MCATNLO, \PYTHIA & 5.213 (NLO) \\
+$\PW \PW \rightarrow \ell \, \nu \, q \,q$        & \MCATNLO, \PYTHIA & 49.99 (NLO) \\
+$\PW \PW \rightarrow \ell \, \nu \, \ell \, \nu$        & \POWHEG, \PYTHIA & 11.09 (NLO) \\
+$\PZ \PZ \rightarrow \ell \, \ell \, \nu \, \nu$         & \POWHEG, \PYTHIA & 0.9740 (NLO) \\
+
+\arrayrulecolor{lightgray}\hline
+\rowcolor{verylightblue}
+\textbf{Triboson} & & \\
+$\PW \PW \PZ $ & \MCATNLO, \PYTHIA & 0.1707 (NLO)\\
+$\PW \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0571 (NLO)\\
+$\PW \PW \PW $ & \MCATNLO, \PYTHIA & 0.2158 (NLO)\\
+$\PZ \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0148 (NLO)\\
+
+\arrayrulecolor{lightgray}\hline
+\rowcolor{verylightblue}
+\textbf{Pure Electroweak} & & \\
+$\PW^+ \to \ell^+ \nu$ + 2 jets & \MADGRAPH, \PYTHIA & 25.62 (LO)\\
+$\PW^- \to \ell^- \nu$ + 2 jets & \MADGRAPH, \PYTHIA & 20.25 (LO)\\
+$\PZ \to \ell \ell$ + 2 jets & \MADGRAPH, \PYTHIA & 3.987 (LO)\\
+
+\arrayrulecolor{black}\hline
+\end{longtable}
+}
+\vspace{0.5em}
+\noindent\begin{minipage}{\linewidth}
+\footnotesize
+\hypertarget{DY_FxFx}{}$^{1}$For the DY samples, only exclusive jet multiplicity samples are generated at NLO using the FxFx jet merging scheme~\cite{FxFx}. No inclusive sample is produced in this case.
+
+\hypertarget{W-MLM}{}$^{2}$In the W+jets simulation, the MLM jet matching scheme~\cite{MLM} is employed to consistently combine partons generated at the matrix-element level with those from the parton shower, avoiding double counting of ISR/FSR jets.
+
+\hypertarget{W-Stitch}{}$^{3}$ To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to reproduce the overall cross-section and kinematic distributions accurately.
+\end{minipage}
+
+\section{Modelling of signal processes}
+\label{Section:Chapter7_SignalModelling}
+
 
 \section{Object and event corrections}
 
@@ -96,3 +224,6 @@ The performance of the reweighting procedure is illustrated in Figure~\ref{Figur
 
     \label{Figure:Chapter6_ZPT_Reweighting_ee}
 \end{figure}
+
+\section{Background modelling}
+\label{Section:Chapter7_Background_Modelling}

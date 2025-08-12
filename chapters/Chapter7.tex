@@ -40,14 +40,14 @@ Many of the background processes relevant to the fully hadronic ditau ($\PGt_h\P
     \item Production of two misidentified objects, typically jets or nonprompt electrons/muons, both reconstructed as $\PGt_h$ candidates.  
 \end{enumerate}
 
-Relative to the four-tau case, the composition and ranking of backgrounds change noticeably.  DY ($\PZ/\gamma^*\to\PGt^+\PGt^-$) with both taus decaying hadronically is now the dominant source of genuine $\PGt_h\PGt_h$ pairs. Top-quark pair production ($\ttbar$) also makes a large contribution, both through $\PW\to\PGt\nu_\PGt$ decays (genuine $\PGt_h$) and through the misidentification of jets or prompt leptons as $\PGt_h$, with the associated $b$-jets increasing the likelihood of additional jet activity. Reducible backgrounds from $\PW$+jets and QCD multijet production are similarly important, as only one or two jet$\to\PGt_h$ (or $e/\mu\to\PGt_h$) misidentifications are needed to pass the $\PGt_h\PGt_h$ selection.  
+Relative to the four-tau case, the composition and ranking of backgrounds change noticeably.  \textbf{DY} ($\PZ/\gamma^*\to\PGt^+\PGt^-$) with both taus decaying hadronically is now the dominant source of genuine $\PGt_h\PGt_h$ pairs. \textbf{Top-quark pair production} ($\ttbar$) also makes a large contribution, both through $\PW\to\PGt\nu_\PGt$ decays (genuine $\PGt_h$) and through the misidentification of jets or prompt leptons as $\PGt_h$, with the associated $b$-jets increasing the likelihood of additional jet activity. Reducible backgrounds from \textbf{$\PW$+jets} and \textbf{QCD multijet production} are similarly important, as only one or two jet$\to\PGt_h$ (or $e/\mu\to\PGt_h$) misidentifications are needed to pass the $\PGt_h\PGt_h$ selection.  
 
-In contrast to the four-tau analysis, where $ZZ\to4\PGt$ was the most important irreducible background, $ZZ$ production is subdominant in the fully hadronic di-tau channel. This is because events with four taus rarely pass the $\PGt_h\PGt_h$ selection unless two of the taus are outside the detector acceptance or fail identification.  
-Instead, diboson contributions arise mainly from  
+In contrast to the four-tau analysis, where \textbf{$ZZ\to4\PGt$} was the most important irreducible background, $ZZ$ production is subdominant in the fully hadronic di-tau channel. This is because events with four taus rarely pass the $\PGt_h\PGt_h$ selection unless two of the taus are outside the detector acceptance or fail identification.  
+Instead, \textbf{diboson} contributions arise mainly from  
 $\PZ\PZ\to\PGt\PGt\nu\nu$ (two genuine $\PGt$ + $\MET$),  
 $\PW\PW\to\PGt\nu\,\PGt\nu$,  
 or channels such as $\PZ\PZ\to\ell\ell\nu\nu$ and $\PW\PZ\to\ell\nu\,\ell\ell$ where prompt $e/\mu$ (and occasionally jets) are misidentified as $\PGt_h$.  
-Other processes, including electroweak boson production with jets, rare triboson production, and single-top, remain subdominant.
+Other processes, including triboson production, and single-top, remain subdominant.
 
 The modelling and estimation strategies for these background contributions, including the treatment of jet and lepton misidentification, are detailed in Section~\ref{Section:Chapter7_Background_Modelling}. The full list of simulated background processes is broadly similar to that presented for the four-tau analysis in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, and is reproduced here in Table~\ref{Table:Chapter7_SimulatedBackgrounds} for completeness.
 
@@ -57,12 +57,7 @@ The modelling and estimation strategies for these background contributions, incl
 \small  % one size smaller than normal
 \begin{longtable}{llc}
 \caption[Summary of simulated SM backgrounds for the $H \to \PGt_h\PGt_h$ CP measurement.]
-{Summary of the simulated SM background processes used in the measurement of the CP structure of the Higgs–tau Yukawa coupling in $H \to \PGt_h\PGt_h$ decays, listing the event generators and the theoretical precision of their cross sections. 
-The following generators were used: 
-\MADGRAPH~\cite{MadGraph} for LO matrix element calculations; 
-\POWHEG~v1.0~\cite{Powheg_0} and v2.0~\cite{Powheg_1,Powheg_2,Powheg_3} for NLO processes including $\ttbar$ and single top; 
-and \MGvATNLO~\cite{MadGraph} for diboson and triboson production. 
-Parton showering and hadronisation were performed with \PYTHIA~\cite{PYTHIA}.}
+{Summary of the simulated SM background processes used in the measurement of the CP structure of the Higgs–tau Yukawa coupling in $H \to \PGt_h\PGt_h$ decays, listing the event generators and the theoretical precision of their cross sections.}
 
 \label{Table:Chapter7_SimulatedBackgrounds} \\
 \hline
@@ -106,36 +101,25 @@ Fully leptonic & \POWHEG, \PYTHIA & 98.04 (NNLO) \\
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{Single top} & & \\
-t-channel ($t$) & \POWHEG, \PYTHIA & 136.02 (NNLO) \\
-t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 136.02 (NNLO) \\
-$t + W^-$ & \POWHEG, \PYTHIA & 35.60 (NNLO) \\
-$t + W^+$ & \POWHEG, \PYTHIA & 35.60 (NNLO) \\
+t-channel ($t$) & \POWHEG, \PYTHIA & 145.0 (NNLO) \\
+t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 87.2 (NNLO) \\
+$t + W^-$ & \POWHEG, \PYTHIA & 43.95 (NNLO) \\
+$t + W^+$ & \POWHEG, \PYTHIA & 43.95 (NNLO) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{Diboson} & & \\
-$\PW \PZ \rightarrow \ell \, \nu \, \nu \, \nu$  & \MCATNLO, \PYTHIA & 3.416 (NLO) \\
-$\PW \PZ \rightarrow \ell \, \nu \, q \, q$        & \MCATNLO, \PYTHIA & 10.71 (NLO) \\
-$\PW \PZ \rightarrow q \, q \, \ell \, \ell$            & \MCATNLO, \PYTHIA & 6.419 (NLO) \\
-$\PW \PZ \rightarrow \ell \, \ell \,  \ell \, \nu $          & \MCATNLO, \PYTHIA & 5.213 (NLO) \\
-$\PW \PW \rightarrow \ell \, \nu \, q \,q$        & \MCATNLO, \PYTHIA & 49.99 (NLO) \\
-$\PW \PW \rightarrow \ell \, \nu \, \ell \, \nu$        & \POWHEG, \PYTHIA & 11.09 (NLO) \\
-$\PZ \PZ \rightarrow \ell \, \ell \, \nu \, \nu$         & \POWHEG, \PYTHIA & 0.9740 (NLO) \\
+$\PW \PZ$  & \PYTHIA & 44.35 (NNLO) \\
+$\PW \PW$  & \PYTHIA & 122.27 (NNLO) \\
+$\PZ \PZ$  & \PYTHIA & 19.43 (NNLO) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{Triboson} & & \\
-$\PW \PW \PZ $ & \MCATNLO, \PYTHIA & 0.1707 (NLO)\\
-$\PW \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0571 (NLO)\\
-$\PW \PW \PW $ & \MCATNLO, \PYTHIA & 0.2158 (NLO)\\
-$\PZ \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0148 (NLO)\\
-
-\arrayrulecolor{lightgray}\hline
-\rowcolor{verylightblue}
-\textbf{Pure Electroweak} & & \\
-$\PW^+ \to \ell^+ \nu$ + 2 jets & \MADGRAPH, \PYTHIA & 25.62 (LO)\\
-$\PW^- \to \ell^- \nu$ + 2 jets & \MADGRAPH, \PYTHIA & 20.25 (LO)\\
-$\PZ \to \ell \ell$ + 2 jets & \MADGRAPH, \PYTHIA & 3.987 (LO)\\
+$\PW \PW \PZ $ & \MCATNLO, \PYTHIA & 0.1851 (NLO)\\
+$\PW \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0621 (NLO)\\
+$\PW \PW \PW $ & \MCATNLO, \PYTHIA & 0.2328 (NLO)\\
+$\PZ \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0159 (NLO)\\
 
 \arrayrulecolor{black}\hline
 \end{longtable}
@@ -147,7 +131,7 @@ $\PZ \to \ell \ell$ + 2 jets & \MADGRAPH, \PYTHIA & 3.987 (LO)\\
 
 \hypertarget{W-MLM}{}$^{2}$In the W+jets simulation, the MLM jet matching scheme~\cite{MLM} is employed to consistently combine partons generated at the matrix-element level with those from the parton shower, avoiding double counting of ISR/FSR jets.
 
-\hypertarget{W-Stitch}{}$^{3}$ To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to reproduce the overall cross-section and kinematic distributions accurately.
+\hypertarget{W-Stitch}{}$^{3}$To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to reproduce the overall cross-section and kinematic distributions accurately.
 \end{minipage}
 
 \section{Modelling of signal processes}
@@ -162,7 +146,7 @@ DY events generated at LO using $\MADGRAPH$ do not accurately describe the kinem
 
 The $\PZ \, \, p_\text{T}$-mass reweighting is derived from a control region enriched in $Z/\gamma^* \to \mu\mu$ events. Events are selected by requiring a pair of oppositely charged muons, separated by $\Delta R > 0.5$, that satisfy the baseline selection criteria summarised in Table~\ref{Table:Chapter6_ObjectSelectionSummary}. Additionally, the leading muon must pass the single muon trigger at both the online and offline reconstruction levels. This condition ensures that the selected events reflect the same trigger efficiency conditions as those applied in the main analysis, thereby avoiding potential biases in the reconstructed dimuon $p_\text{T}$ distribution.
 
-The $\PZ \, \, p_\text{T}$-mass reweighting is derived from a control region enriched in $Z/\gamma^*\to\mu\mu$ events. Events are selected by requiring two oppositely charged muons with a separation $\Delta R > 0.5$. The set of selection requirements is listed in Table~\ref{Table:Chapter6_ObjectSelectionSummary}, including the condition that the leading muon must pass the single-muon trigger, both at the online and offline levels. This ensures consistency with the trigger requirements used in the analysis and suppresses potential biases in the $p_\text{T}$ spectrum.
+The $\PZ \, \, p_\text{T}$-mass reweighting is derived from a control region enriched in $Z/\gamma^*\to\mu\mu$ events. Events are selected by requiringc two oppositely charged muons with a separation $\Delta R > 0.5$. The set of selection requirements is listed in Table~\ref{Table:Chapter6_ObjectSelectionSummary}, including the condition that the leading muon must pass the single-muon trigger, both at the online and offline levels. This ensures consistency with the trigger requirements used in the analysis and suppresses potential biases in the $p_\text{T}$ spectrum.
 
 The reweighting factors are measured in a two-dimensional histogram of the dimuon transverse momentum ($p_\text{T}^{\ell\ell}$) and invariant mass ($m_{\ell\ell}$). In each bin of this histogram, the weight is computed as:
 
@@ -176,7 +160,7 @@ To preserve the overall DY normalisation, the weights are normalised such that t
 
 The performance of the reweighting procedure is illustrated in Figure~\ref{Figure:Chapter6_ZPT_Reweighting}, which shows the distributions of the reconstructed dimuon $p_\text{T}$ and mass before and after reweighting. In the context of the dimuon channel, these observables are also referred to as the visible transverse momentum ($p_\text{T}^\text{vis}$) and visible mass ($m_\text{vis}$) of the dilepton system. The method exhibits good closure in $Z/\gamma^* \to \mu\mu$ events, validating the assumption of reconstructed–generator level agreement. Additional cross-checks using $Z/\gamma^* \to ee$ events provide orthogonal validation; however, their effectiveness is limited by the comparatively poorer resolution of the CMS ECAL. A representative closure test in the $ee$ channel is shown in Figure~\ref{Figure:Chapter6_ZPT_Reweighting_ee}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
         \centering
         % First row
         \begin{subfigure}[b]{0.49\textwidth}
@@ -207,7 +191,7 @@ The performance of the reweighting procedure is illustrated in Figure~\ref{Figur
     \label{Figure:Chapter6_ZPT_Reweighting}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
         \centering
         % First row
         \begin{subfigure}[b]{0.49\textwidth}

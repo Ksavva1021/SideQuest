@@ -12,16 +12,16 @@ The motivation to improve the RAW data format stems from the growing demands on 
 This chapter will outline the main contributor to event size in the current RAW data format. This will be followed by the most recent data-reduction developments introduced in an alternative format, referred to as \textbf{RAW'}.
 
 \section{Impact of the Silicon Strip Tracker on RAW size}
-The \textbf{RAW} data format is constructed by collecting data fragments from all \ac{CMS} subdetectors and assembling them into complete events. These fragments are read out by FEDs, which digitise the analogue signals and perform initial digital processing before passing the data to the event builder. Each subdetector is served by a number of FEDs, with the number depending on the its complexity and channel count.
+The \textbf{RAW} data format is constructed by collecting data fragments from all \ac{CMS} subdetectors and assembling them into complete events. These fragments are read out by \acp{FED}, which digitise the analogue signals and perform initial digital processing before passing the data to the event builder. Each subdetector is served by a number of \acp{FED}, with the number depending on its complexity and channel count.
 
-The tracking subdetectors contribute the largest share of data to the RAW data format due to their exceptionally high channel density compared to other \ac{CMS} subdetectors. In particular, the \ac{SST} is the dominant contributor corresponding to roughly $\sim 50\%$ of the RAW event size because of the large number of FEDs dedicated to its readout. An overview of the number of channels and associated FEDs for all \ac{CMS} subdetectors is provided in Table~\ref{Table:Chapter4_RAW_Channels_FED}.
+The tracking subdetectors contribute the largest share of data to the RAW data format due to their exceptionally high channel density compared to other \ac{CMS} subdetectors. In particular, the \ac{SST} is the dominant contributor corresponding to roughly $\sim 50\%$ of the RAW event size because of the large number of \acp{FED} dedicated to its readout. An overview of the number of channels and associated \acp{FED} for all \ac{CMS} subdetectors is provided in Table~\ref{Table:Chapter4_RAW_Channels_FED}.
 
 \begin{table}[htbp]
 \centering
 \renewcommand{\arraystretch}{1.5} % Increase row height
 \begin{tabular}{|l|c|c|}
 \hline
-Subdetector & Number of Channels & Number of FEDs \\
+Subdetector & Number of Channels & Number of \acp{FED} \\
 \hline \hline
 Pixel tracker & $\sim124\unit{M}$ & 108 \\
 \arrayrulecolor{lightgray} \hline
@@ -45,7 +45,7 @@ Muons \ac{DT} & $\sim195\unit{k}$ & 10 \\
 \label{Table:Chapter4_RAW_Channels_FED}
 \end{table}
 
-Given the significant contribution of the \ac{SST} to the overall RAW event size, a promising strategy for data reduction is to optimise the information retained from the FED output. As discussed in Section~\ref{Section:Chapter4_Reconstruction_of_PF_elements}, clusters in the tracker are formed from contiguous strips with signal above predefined thresholds. For each cluster, the information stored in the RAW data includes the index of the first strip in the cluster and the ADC amplitudes for each strip within the cluster. Hence, exploring alternative representations of cluster information in the RAW data may offer additional opportunities for reducing the \ac{SST} data volume.
+Given the significant contribution of the \ac{SST} to the overall RAW event size, a promising strategy for data reduction is to optimise the information retained from the \ac{FED} output. As discussed in Section~\ref{Section:Chapter4_Reconstruction_of_PF_elements}, clusters in the tracker are formed from contiguous strips with signal above predefined thresholds. For each cluster, the information stored in the RAW data includes the index of the first strip in the cluster and the ADC amplitudes for each strip within the cluster. Hence, exploring alternative representations of cluster information in the RAW data may offer additional opportunities for reducing the \ac{SST} data volume.
 
 \section{RAW' Data Format: Iteration 1}
 \label{Section:Chapter5-RAW'_Iteration_1}
@@ -154,7 +154,7 @@ The central question for this updated RAW' format is whether it can recover the 
 \end{figure}
 
 In addition to these global metrics, tracking performance can be further evaluated by
-examining the \textit{resolution} of reconstructed quantities such as the IP projections in the transverse plane ($d_{xy}$) and along the beam axis ($d_z$). Comparisons between the different data formats are presented in Figure~\ref{Figure:Chapter5_ResolutionComparison}.
+examining the \textit{resolution} of reconstructed quantities such as the \ac{IP} projections in the transverse plane ($d_{xy}$) and along the beam axis ($d_z$). Comparisons between the different data formats are presented in Figure~\ref{Figure:Chapter5_ResolutionComparison}.
 
 \begin{figure}[h]
         \centering
@@ -170,11 +170,11 @@ examining the \textit{resolution} of reconstructed quantities such as the IP pro
             \caption{}
         \end{subfigure}
         
-    \caption[Resolution of IP projections vs $\eta$ for RAW and RAW']{Comparison of the resolution of the \textbf{(a)} transverse and \textbf{(b)} longitudinal impact parameter (IP) projections as a function of $\eta$, comparing the original RAW format to the alternative RAW' definitions. Results are based on simulated $t\bar{t}$ events.}
+    \caption[Resolution of IP projections vs $\eta$ for RAW and RAW']{Comparison of the resolution of the \textbf{(a)} transverse and \textbf{(b)} longitudinal \ac{IP} projections as a function of $\eta$, comparing the original RAW format to the alternative RAW' definitions. Results are based on simulated $t\bar{t}$ events.}
     \label{Figure:Chapter5_ResolutionComparison}
 \end{figure}
 
-While the tracking efficiencies and resolutions achieved with the alternative RAW' format are promising, it is equally important to assess its impact on the reconstruction of long-lived particles with displaced decay signatures, such as the $\mathrm{K}_\mathrm{S}^0$ meson ($c\tau = 2.68\,\unit{cm}$)~\cite{ParticleMasses}. Key performance metrics include the number of reconstructed $\mathrm{K}_\mathrm{S}^0$ candidates and the transverse distance between the particle’s decay point and the primary vertex ($L_{xy}$). As shown in Fig.~\ref{Figure:Chapter5_KsReconstruction}, the updated format exhibits a significant improvement over the first RAW' iteration and achieves performance comparable to the original format. These results further highlight the effectiveness of the enhancements in restoring displaced tracking capabilities.
+While the tracking efficiencies and resolutions achieved with the alternative RAW' format are promising, it is equally important to assess its impact on the reconstruction of long-lived particles with displaced decay signatures, such as the $\mathrm{K}_\mathrm{S}^0$ meson ($c\tau = 2.68\,\unit{cm}$)~\cite{ParticleMasses}. Key performance metrics include the number of reconstructed $\mathrm{K}_\mathrm{S}^0$ candidates and the transverse distance between the particle’s decay point and the \ac{PV} ($L_{xy}$). As shown in Fig.~\ref{Figure:Chapter5_KsReconstruction}, the updated format exhibits a significant improvement over the first RAW' iteration and achieves performance comparable to the original format. These results further highlight the effectiveness of the enhancements in restoring displaced tracking capabilities.
 
 \begin{figure}[h]
         \centering

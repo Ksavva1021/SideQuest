@@ -5,16 +5,16 @@
 \label{Section:Chapter5}
 \minitoc
 
-Within the CMS computing model, the \textbf{RAW} data format represents the full detector output and is the first available offline copy of an event following its acceptance by the HLT. It contains ``raw'' detector information, the L1 trigger result, the result of the HLT selections and other metadata.  The \textbf{RECO} format is derived from this complete record, and is the most CPU-intensive part of the CMS data processing chain because it involves reconstructing physics objects. This is followed by the \textbf{AOD} data format, a ``distilled" version of RECO designed to enable a broad range of physics analyses. Beyond AOD, CMS provides increasingly compact data formats, each offering different levels of information and precision.
+Within the \ac{CMS} computing model, the \textbf{RAW} data format represents the full detector output and is the first available offline copy of an event following its acceptance by the \ac{HLT}. It contains ``raw'' detector information, the \ac{L1} trigger result, the result of the \ac{HLT} selections and other metadata.  The \textbf{RECO} format is derived from this complete record, and is the most CPU-intensive part of the \ac{CMS} data processing chain because it involves reconstructing physics objects. This is followed by the \textbf{AOD} data format, a ``distilled" version of RECO designed to enable a broad range of physics analyses. Beyond AOD, \ac{CMS} provides increasingly compact data formats, each offering different levels of information and precision.
 
-The motivation to improve the RAW data format stems from the growing demands on the CMS data processing system. One of the primary challenges is the increasing complexity of events resulting from higher PU conditions. This complexity has a direct impact on the size of RAW events, imposing considerable strain on storage and bandwidth.  On average, RAW data currently occupies around $1.5\unit{MB}$ per event for pp collision data and approximately $2\unit{MB}$ per event for simulated events, with size expected to scale approximately linearly with PU. Therefore, it is necessary to explore improvements or data-reduction strategies for the RAW data format to prepare CMS for the higher PU conditions anticipated in future runs. 
+The motivation to improve the RAW data format stems from the growing demands on the \ac{CMS} data processing system. One of the primary challenges is the increasing complexity of events resulting from higher \ac{PU} conditions. This complexity has a direct impact on the size of RAW events, imposing considerable strain on storage and bandwidth.  On average, RAW data currently occupies around $1.5\unit{MB}$ per event for pp collision data and approximately $2\unit{MB}$ per event for simulated events, with size expected to scale approximately linearly with \ac{PU}. Therefore, it is necessary to explore improvements or data-reduction strategies for the RAW data format to prepare \ac{CMS} for the higher \ac{PU} conditions anticipated in future runs. 
 
 This chapter will outline the main contributor to event size in the current RAW data format. This will be followed by the most recent data-reduction developments introduced in an alternative format, referred to as \textbf{RAW'}.
 
 \section{Impact of the Silicon Strip Tracker on RAW size}
-The \textbf{RAW} data format is constructed by collecting data fragments from all CMS subdetectors and assembling them into complete events. These fragments are read out by FEDs, which digitise the analogue signals and perform initial digital processing before passing the data to the event builder. Each subdetector is served by a number of FEDs, with the number depending on the its complexity and channel count.
+The \textbf{RAW} data format is constructed by collecting data fragments from all \ac{CMS} subdetectors and assembling them into complete events. These fragments are read out by FEDs, which digitise the analogue signals and perform initial digital processing before passing the data to the event builder. Each subdetector is served by a number of FEDs, with the number depending on the its complexity and channel count.
 
-The tracking subdetectors contribute the largest share of data to the RAW data format due to their exceptionally high channel density compared to other CMS subdetectors. In particular, the SST is the dominant contributor corresponding to roughly $\sim 50\%$ of the RAW event size because of the large number of FEDs dedicated to its readout. An overview of the number of channels and associated FEDs for all CMS subdetectors is provided in Table~\ref{Table:Chapter4_RAW_Channels_FED}.
+The tracking subdetectors contribute the largest share of data to the RAW data format due to their exceptionally high channel density compared to other \ac{CMS} subdetectors. In particular, the \ac{SST} is the dominant contributor corresponding to roughly $\sim 50\%$ of the RAW event size because of the large number of FEDs dedicated to its readout. An overview of the number of channels and associated FEDs for all \ac{CMS} subdetectors is provided in Table~\ref{Table:Chapter4_RAW_Channels_FED}.
 
 \begin{table}[htbp]
 \centering
@@ -25,27 +25,27 @@ Subdetector & Number of Channels & Number of FEDs \\
 \hline \hline
 Pixel tracker & $\sim124\unit{M}$ & 108 \\
 \arrayrulecolor{lightgray} \hline
-Strip tracker & $\sim9.3\unit{M}$ & 440 \\
+\ac{SST} & $\sim9.3\unit{M}$ & 440 \\
 \arrayrulecolor{lightgray} \hline
 Preshower & $\sim144\unit{k}$ & 56 \\
 \arrayrulecolor{lightgray} \hline
-ECAL & $\sim75\unit{k}$ & 54 \\
+\ac{ECAL} & $\sim75\unit{k}$ & 54 \\
 \arrayrulecolor{lightgray} \hline
-HCAL & $\sim9\unit{k}$ & 32 \\
+\ac{HCAL} & $\sim9\unit{k}$ & 32 \\
 \arrayrulecolor{lightgray} \hline
-Muons CSC & $\sim500\unit{k}$ & 8 \\
+Muons \ac{CSC} & $\sim500\unit{k}$ & 8 \\
 \arrayrulecolor{lightgray} \hline
-Muons RPC & $\sim192\unit{k}$ & 3 \\
+Muons \ac{RPC} & $\sim192\unit{k}$ & 3 \\
 \arrayrulecolor{lightgray} \hline
-Muons DT & $\sim195\unit{k}$ & 10 \\
+Muons \ac{DT} & $\sim195\unit{k}$ & 10 \\
 \arrayrulecolor{lightgray} \hline
 \arrayrulecolor{black} \hline
 \end{tabular}
-\caption[CMS subdetector read-out parameters]{CMS subdetector read-out parameters. Values extracted from Ref.~\cite{LHC_CMS,CMS_Tracker_Phase1_Upgrade_2}.}
+\caption[CMS subdetector read-out parameters]{\ac{CMS} subdetector read-out parameters. Values extracted from Ref.~\cite{LHC_CMS,CMS_Tracker_Phase1_Upgrade_2}.}
 \label{Table:Chapter4_RAW_Channels_FED}
 \end{table}
 
-Given the significant contribution of the SST to the overall RAW event size, a promising strategy for data reduction is to optimise the information retained from the FED output. As discussed in Section~\ref{Section:Chapter4_Reconstruction_of_PF_elements}, clusters in the tracker are formed from contiguous strips with signal above predefined thresholds. For each cluster, the information stored in the RAW data includes the index of the first strip in the cluster and the ADC amplitudes for each strip within the cluster. Hence, exploring alternative representations of cluster information in the RAW data may offer additional opportunities for reducing the SST data volume.
+Given the significant contribution of the \ac{SST} to the overall RAW event size, a promising strategy for data reduction is to optimise the information retained from the FED output. As discussed in Section~\ref{Section:Chapter4_Reconstruction_of_PF_elements}, clusters in the tracker are formed from contiguous strips with signal above predefined thresholds. For each cluster, the information stored in the RAW data includes the index of the first strip in the cluster and the ADC amplitudes for each strip within the cluster. Hence, exploring alternative representations of cluster information in the RAW data may offer additional opportunities for reducing the \ac{SST} data volume.
 
 \section{RAW' Data Format: Iteration 1}
 \label{Section:Chapter5-RAW'_Iteration_1}
@@ -63,11 +63,11 @@ These observations suggest that much of the cluster structure can be effectively
     \item \textbf{Average charge}: The total charge (sum of ADC counts) in the cluster divided by the width of the cluster.
 \end{itemize}
 
-In the \textbf{RAW'} data format, the SST contribution to the event size is reduced to approximately 70\% of its original size. This corresponds to an overall event size reduction of approximately 20–25\% compared to the original \textbf{RAW} data format.
+In the \textbf{RAW'} data format, the \ac{SST} contribution to the event size is reduced to approximately 70\% of its original size. This corresponds to an overall event size reduction of approximately 20–25\% compared to the original \textbf{RAW} data format.
 
 \subsection{Tracking performance}
 
-While this new data format provides a significant reduction in the SST data volume, its viability ultimately depends on whether it preserves the physics performance necessary for CMS analyses. Therefore, it is essential to verify that this reduced cluster representation does not degrade the quality of track reconstruction. This can be assessed through the \textit{tracking efficiency}, defined as the fraction of simulated particles successfully reconstructed. The tracking performance of the RAW' data format is shown in Fig.~\ref{Figure:Chapter5_TrackingPerformance_1}, where comparisons of tracking efficiency as a function of $p_\mathrm{T}$ and $\phi$ are presented relative to the standard RAW format.
+While this new data format provides a significant reduction in the \ac{SST} data volume, its viability ultimately depends on whether it preserves the physics performance necessary for \ac{CMS} analyses. Therefore, it is essential to verify that this reduced cluster representation does not degrade the quality of track reconstruction. This can be assessed through the \textit{tracking efficiency}, defined as the fraction of simulated particles successfully reconstructed. The tracking performance of the RAW' data format is shown in Fig.~\ref{Figure:Chapter5_TrackingPerformance_1}, where comparisons of tracking efficiency as a function of $p_\mathrm{T}$ and $\phi$ are presented relative to the standard RAW format.
 
 \begin{figure}[h]
         \centering
@@ -100,13 +100,13 @@ To understand the observed degradation for displaced vertices, Table~\ref{Table:
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/Chapter5/efficiency_with_ratio.pdf}
-\caption[Track reconstruction efficiency for the different iterations of the CMS iterative tracking algorithm.]{Track reconstruction efficiency for the different iterations of the CMS iterative tracking algorithm. Results are based on simulated $t\bar{t}$ events.}
+\caption[Track reconstruction efficiency for the different iterations of the CMS iterative tracking algorithm.]{Track reconstruction efficiency for the different iterations of the \ac{CMS} iterative tracking algorithm. Results are based on simulated $t\bar{t}$ events.}
 \label{Figure:Chapter5_TrackingPerformance_bystep}
 \end{figure}
 
 \subsection{Complications from cluster shape approximation}
 
-The observed inefficiency in the \textit{PixelLess} and \textit{TobTec} iterations is attributed to the use of cluster shape filters within the CMS iterative tracking algorithm. These filters are particularly effective in the high-combinatorial environment of the CMS tracker, where they help suppress the rate of misreconstructed tracks. However, the rectangular approximation of the cluster charge distribution in RAW' effectively removes the characteristic peaks and tails essential for shape-based discrimination.
+The observed inefficiency in the \textit{PixelLess} and \textit{TobTec} iterations is attributed to the use of cluster shape filters within the \ac{CMS} iterative tracking algorithm. These filters are particularly effective in the high-combinatorial environment of the \ac{CMS} tracker, where they help suppress the rate of misreconstructed tracks. However, the rectangular approximation of the cluster charge distribution in RAW' effectively removes the characteristic peaks and tails essential for shape-based discrimination.
 
 One of the first checks performed by the cluster shape filters targets \textbf{saturated strips}. A cluster is flagged as saturated if it contains three consecutive strips with ADC counts above a predefined threshold. However, in this format, only the average cluster charge is stored, rather than the individual strip charges. This approximation can lead to incorrect filter outcomes. For example, if a single strip is sufficiently saturated, this can artificially elevate the average charge of the entire cluster above the saturation threshold, leading to a false positive from the filter. Conversely, clusters that genuinely meet the saturation condition may fail the filter if the average charge falls below the threshold due to dilution from strips with low ADC counts, resulting in a false negative. In comparison to the original format, approximately 99\% of saturated clusters fail this check.
 

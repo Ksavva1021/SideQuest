@@ -639,24 +639,23 @@ To correct for differences in $b$-tagging performance between data and simulatio
 \section{Background modelling}
 \label{Section:Chapter6_Background_Modelling}
 
-As described in Section~\ref{Section:Chapter6_Backgrounds}, several processes can mimic the $Z^* \to \phi A \to 4\PGt$ signal signature, either through the presence of genuine $\PGt$ leptons, misidentified jets or light leptons reconstructed as $\PGt_h$ candidates, or a combination of both. This section outlines the strategies used to model these backgrounds and validate their contributions. For clarity, background processes are grouped into three main categories:
+As described in Section~\ref{Section:Chapter6_Backgrounds}, several processes can mimic the $Z^* \to \phi A \to 4\PGt$ signal signature, either through the presence of genuine $\PGt$ leptons, misidentified jets or light leptons reconstructed as $\PGt_h$, or a combination of both. This section outlines the strategies used to model these backgrounds and validate their contributions. For clarity, background processes are grouped into three main categories:
 
 
 \begin{enumerate}[label=(\roman*)]
 
 \item \textbf{Genuine-$\PGt$ backgrounds:} Events containing only genuine $\PGt$ leptons, primarily from $\PZ\PZ \to 4\PGt$, form an irreducible background and are estimated using simulation.
 
-\item \textbf{Jet $\to \PGt_h$ misidentification:} Backgrounds with one or more jets misidentified as $\PGt_h$ candidates are modelled using a data-driven fake factor method.
+\item \textbf{Jet $\to \PGt_h$ misidentification:} Backgrounds with one or more jets misidentified as $\PGt_h$ are modelled using a data-driven fake factor ($F_F$) method.
 
-\item \textbf{Lepton $\to \PGt_h$ misidentification:} Although subdominant, backgrounds from electrons or muons misidentified as $\PGt_h$ candidates can affect specific channels. These are estimated using simulation with dedicated corrections, as detailed in Section~\ref{Section:Chapter6_Lepton_MisID_SF}.
+\item \textbf{Lepton $\to \PGt_h$ misidentification:} Although subdominant, backgrounds from electrons or muons misidentified as $\PGt_h$ can affect specific channels. These are estimated using simulation with dedicated corrections, as detailed in Section~\ref{Section:Chapter6_Lepton_MisID_SF}.
 
 \end{enumerate}
 
 \subsection{\texorpdfstring{Genuine-\boldmath{$\PGt$} backgrounds from $\PZ\PZ$}{Genuine tau backgrounds from ZZ}}
 \label{Section:Chapter6_GenuineBackground}
 
-
-These backgrounds arise predominantly from quark–antiquark annihilation, with a smaller contribution from gluon–gluon fusion. As discussed in Section~\ref{Section:Chapter6_Backgrounds}, these backgrounds, owing to their fully leptonic final state and close kinematic resemblance to the signal, are particularly challenging to suppress. As listed in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, the quark-initiated process is simulated using \POWHEG at \ac{NLO} in \ac{QCD}, while the gluon-initiated component is generated at \ac{LO} with \PYTHIA. To account for missing higher-order effects, both samples are corrected using multiplicative $\mathcal{K}$-factors~\cite{Kfactors_ZZ} applied as a function of the four-lepton invariant mass, $m_{4\ell}$:
+These backgrounds arise predominantly from quark–antiquark annihilation, with a smaller contribution from gluon–gluon fusion. As discussed in Section~\ref{Section:Chapter6_Backgrounds}, the fully leptonic final state and close kinematic resemblance to the signal make this background particularly challenging to suppress. As listed in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, the quark-initiated process is simulated using \POWHEG at \ac{NLO} in \ac{QCD}, while the gluon-initiated component is generated at \ac{LO} with \PYTHIA. To account for missing higher-order effects, both samples are corrected using multiplicative $\mathcal{K}$-factors~\cite{Kfactors_ZZ} applied as a function of the four-lepton invariant mass, $m_{4\ell}$:
 
 \begin{itemize}
 \item Quark-initiated $\PZ\PZ$:  A mass-dependent \ac{NLO}-to-\ac{NNLO} \ac{QCD} $\mathcal{K}$-factor derived from \POWHEG~2.0\cite{Powheg_1,Powheg_2} is applied, with a typical value of around 1.2 across the relevant phase space.
@@ -683,7 +682,7 @@ Simulation is validated in a control region enriched in $\PZ\PZ \to \mu^+\mu^-\m
     \label{Figure:Chapter6_ZZ_KfactorImpact}
 \end{figure}
 
-While $\PZ\PZ$ constitutes an irreducible background, it can still be reduced through targeted kinematic selections. For example, in the $\PGt_e\PGt_h\PGt_h\PGt_h$ channel, signal events tend to exhibit harder $p_{\mathrm{T}}$ spectra for subleading leptons. The object selection thresholds conveniently exploit this difference. As illustrated in Fig.~\ref{Figure:Chapter6_ThirdLepPt}, applying a $p_{\mathrm{T}}$ cut at $20\GeV$ significantly reduces this background while preserving the majority of the signal.
+While $\PZ\PZ$ is classed as an irreducible background, it can still be reduced through targeted kinematic selections. For example, in the $\PGt_e\PGt_h\PGt_h\PGt_h$ channel, signal events tend to exhibit harder $p_{\mathrm{T}}$ spectra for subleading leptons. The object selection thresholds conveniently exploit this difference. As illustrated in Fig.~\ref{Figure:Chapter6_ThirdLepPt}, applying a $p_{\mathrm{T}}$ cut at $20\GeV$ significantly reduces this background while preserving the majority of the signal.
 
 \begin{figure}[!htbp]
     \centering
@@ -696,9 +695,9 @@ While $\PZ\PZ$ constitutes an irreducible background, it can still be reduced th
 
 \label{Section:Chapter6_JetToTauBackground}
 
-This section discusses how the background from jets misidentified as $\PGt_h$ candidates is modelled. These backgrounds arise from misidentified jets from processes such as the ones outlined in Section~\ref{Section:Chapter6_Backgrounds}. Such misidentifications are particularly problematic to model in simulation, as the jet-to-$\PGt_h$ misidentification rate is poorly described in \ac{MC} simulations. Moreover, the small probability of such a jet misidentification makes it necessary to generate high-statistics \ac{MC} samples, which come with a significant computational expense. These limitations and the difficulty in capturing the full range of misidentification scenarios in simulation motivate the use of a data-driven approach, such as the Fake Factor ($F_F$) method.
+This section discusses how the background from jets misidentified as $\PGt_h$ (abbreviated as Jet $\to \PGt_h$) is modelled. These backgrounds arise from misidentified jets from processes such as the ones outlined in Section~\ref{Section:Chapter6_Backgrounds}. Such misidentifications are particularly problematic to model in simulation, as the jet-to-$\PGt_h$ misidentification rate is poorly described in \ac{MC} simulations. Moreover, the small probability of such a jet misidentification makes it necessary to generate high-statistics \ac{MC} samples, which come with a significant computational expense. These limitations and the difficulty in capturing the full range of misidentification scenarios in simulation motivate the development and use of a data-driven approach, known as the $F_F$ method.
 
-\subsubsection{Classical Fake Factor Method}
+\subsubsection{Classical \texorpdfstring{$F_F$}{Fake Factor} Method}
 \label{Section:Chapter6_FakeFactors_Classical}
 
 The classical $F_F$ approach begins by defining a dedicated \ac{DR}, enriched in jet$\to\PGt_h$ events. Any non-jet$\to\PGt_h$ contributions are estimated using simulation and subtracted to isolate the misidentified component, ensuring a pure region. In this region, the $F_F$ is computed as the ratio of events passing a \texttt{Nominal} tau ID requirement to those failing it but satisfying a looser \texttt{Alternative} ID:
@@ -709,7 +708,7 @@ F_F = \frac{\mathcal{N}(\texttt{Nominal})}{\mathcal{N}(\texttt{Alternative and n
 
 The choice of the alternative identification requirement introduces a trade-off. Looser identification thresholds reduce the statistical uncertainty by increasing the number of events in the denominator. However, this comes at the cost of increased systematic uncertainty, as the looser $\PGt_h$ candidates are less representative of those in the \ac{SR}. 
 
-Regarding its determination, the $F_F$ is computed differentially in key variables such as $p_\text{T}$, jet multiplicity ($\mathcal{N}_{\text{jets}}$), and other observables that parametrise the misidentification rate. Since the $F_F$ can also depend on the definition of the \ac{DR}, additional corrections are often derived in sideband regions to mitigate residual dependencies and improve the robustness of the estimate. The $F_F$ is then applied to the \ac{AR}, which is constructed to resemble the \ac{SR}. Specifically, the \ac{AR} requires the $\PGt_h$ candidates to pass the \texttt{Alternative} ID and fail the \texttt{Nominal} one. This enables a fully data-driven estimate of the jet-induced background in the \ac{SR}.
+Regarding its determination, the $F_F$ is computed differentially in key variables such as $p_\text{T}$, jet multiplicity ($\mathcal{N}_{\text{jets}}$), and other observables that parametrise the misidentification rate. As the $F_F$ can also depend on the definition of the \ac{DR}, additional corrections are often derived in sideband regions to mitigate residual dependencies and improve the robustness of the estimate. The $F_F$ is then applied to the \ac{AR}, which is constructed to resemble the \ac{SR}. Specifically, the \ac{AR} requires the $\PGt_h$ candidates to pass the \texttt{Alternative} ID and fail the \texttt{Nominal} one. This enables a fully data-driven estimate of the jet-induced background in the \ac{SR}.
 
 Despite its simplicity and robustness, the classical method faces several limitations:
 
@@ -814,7 +813,7 @@ The \ac{ML} approach circumvents these issues entirely by eliminating the need f
 \subsubsection{\texorpdfstring{Non-jet$\to \PGt_h$ background removal}{Non-jet to hadronic tau background removal}}
 \label{Section:Chapter6_BDT_NonJet_BkgRemoval}
 
-As noted in Section~\ref{Section:Chapter6_FakeFactors_Classical}, backgrounds from non-jet$\to\PGt_h$ candidates are traditionally removed by subtracting simulated events from data at the histogram level. However, this approach is not compatible with the \ac{ML}-based method, which operates on full unbinned datasets and does not support negative event weights. One possible workaround is template matching, where a simulated non-jet$\to\PGt_h$ candidate for every matching data event is removed to emulate histogram subtraction at the event level. Yet, this method is computationally infeasible given the high dimensionality of the input space and the size of the datasets.
+As noted in Section~\ref{Section:Chapter6_FakeFactors_Classical}, backgrounds from non-jet$\to\PGt_h$ candidates are traditionally removed by subtracting simulated events from data at the histogram level. However, this approach is not compatible with the \ac{ML}-based method, which operates on full unbinned datasets and does not support negative event weights. One possible approach is template matching, where a simulated non-jet $\to \PGt_h$ candidate is removed for every matching data event to emulate histogram subtraction at the event level. Yet, this method is computationally unfeasible given the high dimensionality of the input space and the size of the datasets.
 
 Instead, a binary \ac{BDT} is trained to distinguish jet$\to\PGt_h$ from non-jet$\to\PGt_h$ candidates, using the same input variables as the main reweighting model. This reduces the classification problem to a single discriminant: the \ac{BDT} score, which quantifies how ``non-jet$\to\PGt_h$-like'' each candidate is. The trained \ac{BDT} is applied to both simulation and data. A histogram of \ac{BDT} scores is constructed from simulated non-jet$\to\PGt_h$ candidates and normalised to the expected cross section, yielding a bin-by-bin prediction of the expected contamination in data. The same \ac{BDT} is then applied to data, and for each bin of the \ac{BDT} score distribution, data events falling within that range are randomly sampled and removed. This is repeated until the number of removed events matches the predicted contamination in that bin.
 
@@ -997,7 +996,7 @@ The $\PZ\PZ \rightarrow 4\ell$ background is affected by higher-order theoretica
 
 \subsection{Signal theory uncertainties}
 
-Uncertainties related to the theoretical modelling of the signal include both shape and normalisation components. Depending on the type of statistical interpretation, these variations may be treated differently. In interpretations that set limits directly on the number of observed signal events in each category (without assuming a specific production cross section), uncertainties that affect only the kinematic distributions are retained as shape variations, while the overall yield change from each variation is removed. In interpretations where the expected signal yield is tied to a theoretical cross section, the same shape variations are included, but the associated yield changes are also propagated as normalisation uncertainties.
+Uncertainties related to the theoretical modelling of the signal include both shape and normalisation components. Depending on the type of statistical interpretation, these variations may be treated differently. In interpretations that set limits directly on the number of observed signal events in each category (without assuming a specific production cross section), uncertainties that affect only the kinematic distributions are retained as shape variations, while the overall yield change from each variation is removed. In interpretations where the expected signal yield is tied to a theoretical cross section, the same shape variations are included, but the associated yield changes are also propagated as normalisation uncertainties. The theoretical signal modelling uncertainties considered are:
 
 \begin{itemize}
 \item \textbf{\ac{PDF}}: Derived from the envelope of \ac{PDF} weight variations; $\sim$6\% when included as a normalisation effect.
@@ -1012,7 +1011,7 @@ Multiple sources of uncertainty are associated with the \ac{ML}-based $F_F$ meth
 \begin{itemize}
     \item \textbf{Contamination from non-jet$\to\PGt_h$ backgrounds in the fit region:}
     \begin{itemize}
-        \item \textit{\ac{BDT}-based background removal}(Section~\ref{Section:Chapter6_BDT_NonJet_BkgRemoval}): An uncertainty is assigned by comparing the variable distributions obtained using standard histogram subtraction and those obtained with the \ac{BDT}-based subtraction. The largest observed deviation in each event is taken as the systematic uncertainty. This comparison is performed separately in the pass and fail $\tauh$ identification regions.
+        \item \textit{\ac{BDT}-based background removal} (Section~\ref{Section:Chapter6_BDT_NonJet_BkgRemoval}): An uncertainty is assigned by comparing the variable distributions obtained using standard histogram subtraction and those obtained with the \ac{BDT}-based subtraction. The largest observed deviation in each event is taken as the systematic uncertainty. This comparison is performed separately in the pass and fail $\tauh$ identification regions.
         \item \textit{\ac{MC} mismodelling of non-jet$\to\PGt_h$ contributions:} To account for uncertainties in the simulation of these objects, the \ac{MC} contributions are varied by $\pm$10\%. The \ac{BDT}-based subtraction and $F_F$ procedures are repeated using the varied samples, and the resulting changes are taken as systematic uncertainties.
     \end{itemize}
 
@@ -1079,7 +1078,7 @@ For each shape-related uncertainty, two additional templates are provided: one f
 
 \subsection{Limits and significance}
 
-Upper limits on the signal strength $\mu$ are set using the modified frequentist approach~\cite{Junk:1999kv,Read:2002hq}, denoted as the CL$_\mathrm{s}$ method. The test statistic is defined as
+Upper limits on the signal strength $\mu$ are set using the modified frequentist approach~\cite{Junk:1999kv,Read:2002hq}, known as the CL$_\mathrm{s}$ method. The test statistic is defined as
 
 \begin{equation_pad}
 q_\mu = -2 \ln \left( \frac{\mathscr{L}(\text{data} \mid \mu, \hat{\theta}_\mu)}{\mathscr{L}(\text{data} \mid \hat{\mu}, \hat{\theta}_{\hat{\mu}})} \right) \quad , \quad 0 \leq \hat{\mu} \leq \mu
@@ -1115,7 +1114,7 @@ While CL$_\mathrm{s}$ values can be computed using pseudo‑experiments (toys), 
 The sensitivity of the search is maximised through a set of optimisation studies, covering the choice of the final discriminating variable, the $D_{\text{jet}}$ identification \ac{WP}, the event categorisation strategy, and the binning of the final histograms used in the statistical inference. Each optimisation step is described in this section.
 
 \subsection{Discriminating variable}
-Events in each analysis channel and category are represented in terms of a single discriminating variable used as the input to the maximum-likelihood fit. In this analysis, the \textit{total transverse mass}, $m_T^\mathrm{tot}$, is used. This observable combines the transverse masses of all visible $\PGt$ decay products with the missing transverse momentum, as well as the transverse masses of all possible visible decay product combinations:
+Events in each analysis channel and category are represented in terms of a single discriminating variable used as the input to the maximum-likelihood fit. In this analysis, the \textit{total transverse mass}, $m_T^\mathrm{tot}$, is used as the final fit observable to extract the signal strength. This observable combines the transverse masses of all visible $\PGt$ decay products with the missing transverse momentum, as well as the transverse masses of all possible visible decay product combinations:
 
 \begin{equation}
 m_T^\mathrm{tot} =
@@ -1127,7 +1126,7 @@ where $N_\tau$ is the number of reconstructed $\tau$ candidates in the final sta
 The selection of $m_T^\mathrm{tot}$ as the discriminant was guided by the expected sensitivity, quantified using the statistical framework in Section~\ref{Section:Chapter6_LimitExtraction}. For each candidate variable, median expected limits on the signal strength $\mu$ were obtained from the CL$_\mathrm{s}$ method in the asymptotic approximation, using an Asimov dataset generated under the signal‑plus‑background hypothesis with $\mu = 1$. The optimisation was performed entirely on this dataset, ensuring no use of observed data, and the variable yielding the lowest median expected limit was chosen. Comparisons against alternative observables such as the scalar sum of transverse momenta, $S_T$, or the highest visible mass of a $\tau$ pair confirmed $m_T^\mathrm{tot}$ to yield the best expected limits.
 
 \subsection{\texorpdfstring{$D_{\text{jet}}$}{Djet} working point}
-The rejection of jets misidentified as $\PGt_h$ candidates is critical for the sensitivity of the search. The optimal $D_{\text{jet}}$ \ac{WP} is determined from a dedicated study using simulated signal and background samples, with a binary classifier. All dominant background processes discussed in Section~\ref{Section:Chapter6_Backgrounds} are included from simulation, scaled to the full Run 2 integrated luminosity. To optimise rejection performance in the more challenging kinematic regime, a low-mass signal benchmark is used in the training.  
+The rejection of jets misidentified as $\PGt_h$ candidates is critical for the sensitivity of the search. The optimal $D_{\text{jet}}$ \ac{WP} is determined from a dedicated study using simulated signal and background samples, with a binary classifier. All dominant background processes discussed in Section~\ref{Section:Chapter6_Backgrounds} are included from simulation, scaled to the full Run 2 integrated luminosity. A low-mass signal benchmark is chosen as the training benchmark to optimise rejection performance in the most challenging regime; consistency checks with higher-mass benchmarks confirmed that the selected working point also performs robustly across the full mass range.
 
 The trained \ac{BDT} is then applied to the testing subset to produce, for each event, a probability score representing its likelihood of being signal. From these scores, signal and background distributions are drawn without normalising them to each other, thereby preserving the relative event yields expected from the simulation. This is important, as the relative normalisation directly impacts figures of merit such as the \ac{AMS}, which is computed on the \ac{BDT} scores as
 
@@ -1219,7 +1218,6 @@ The distributions also include a benchmark signal hypothesis with $m_A = 160\GeV
 
 No significant excess is observed in any category or bin, and the combined results are consistent with the background-only hypothesis. Small local deficits in the number of observed events relative to the expectation are visible in certain bins, such as the $\PGt_e\PGt_\mu\PGt_h\PGt_h$ SS lepton category in the low-statistics group. To validate the dominant background contribution (jet$\to\PGt_h$) in these regions, an alternative approach was employed. The method estimates jet$\to\PGt_h$ contributions using simulated samples of processes (see Section~\ref{Section:Chapter6_Backgrounds}) with at least one jet reconstructed as a $\tau_{h}$, while the \ac{QCD} multijet background is obtained via a simple ABCD method in the $\sum q \neq 0$ region. The comparison shows predictions from this method to be in good agreement with those from the \ac{ML}-based $F_F$ approach.
 
-\newpage
 \subsection{Model-independent interpretation}
 
 For the model‑independent interpretation, the signal yield is normalised to a reference cross section of $1\unit{pb}$. The parameter of interest is defined as the cross section for the $Z^* \to A\phi$ process multiplied by the branching fractions $\mathcal{B}(\phi \to \tau\tau)$ and $\mathcal{B}(A \to \tau\tau)$, under the assumption of a linear scaling $g(\mu) = \mu$. Observed upper limits at the 95\% CL are extracted for all mass hypotheses considered, following the procedure outlined in Section~\ref{Section:Chapter6_LimitExtraction}. The results, shown in Fig.~\ref{Figure:Chapter6_model_independent} as a two‑dimensional heatmap across the $(m_A, m_\phi)$ mass plane, span from $190\unit{fb}$ at $(m_A, m_\phi) = (40, 60)\GeV$ to $0.4\unit{fb}$ at $(m_A, m_\phi) = (600, 800)\GeV$.
@@ -1265,7 +1263,7 @@ For the model-dependent interpretation, the search results are translated into c
 
 In the $m_\phi = 100\GeV$ scenario, the exclusion limit remains largely flat as a function of $m_A$, excluding values of $\tan\beta \gtrsim 2$. Below this threshold, the branching fractions of the $h$ and $A$ bosons to $\tau$ leptons drop sharply, with decays to $b\bar{b}$ becoming dominant, as discussed in Section~\ref{Section:Chapter6_production_xs_bf}. For $m_\phi = 200\GeV$, the exclusion is approximately constant in regions where both $m_A > m_\phi - m_{\PZ}$ and $m_\phi > m_A - m_{\PZ}$, reaching down to $\tan\beta \approx 1.5$. However, when the mass separation between $m_\phi$ and $m_A$ exceeds $m_{\PZ}$, the sensitivity degrades due to the opening of the $\PH \to \PZ A$ or $A \to \PZ \PH$ decay channels, which dominate the branching fractions in these regions (see Section~\ref{Section:Chapter6_production_xs_bf}).
 
-A summary of the exclusion contours in the $m_A-m_\phi$ plane is shown in Fig.~\ref{Figure:Chapter6_model_dependent_2d}. This also shows the complete exclusion contours of the Type-X \ac{2HDM} alignment scenario from the union of the observed results and the limits obtained using $\textsc{HiggsTools-1}$~\cite{Bahl:2022igd}, as well as the allowed regions for an explanation of the muon anomalous magnetic moment~\cite{TypeX_2HDM}. Figure~\ref{Figure:Chapter6_model_dependent_2d} demonstrates the exclusion of this model as an explanation for the muon anomalous magnetic moment, as the allowed regions at high $\tan\beta$ in both the normal and inverted scenarios (green contours) are contained within the $\tanb > 15$ observed exclusion contour.
+A summary of the exclusion contours in the $m_A-m_\phi$ plane is shown in Fig.~\ref{Figure:Chapter6_model_dependent_2d}. This also shows the complete exclusion contours of the Type-X \ac{2HDM} alignment scenario, obtained from the union of the observed results and the limits from $\textsc{HiggsTools-1}$~\cite{Bahl:2022igd}. In addition, the allowed regions compatible with an explanation of the muon anomalous magnetic moment are shown~\cite{TypeX_2HDM}. Figure~\ref{Figure:Chapter6_model_dependent_2d} demonstrates the exclusion of this model as an explanation for the muon anomalous magnetic moment, as the allowed regions at high $\tan\beta$ in both the normal and inverted scenarios (green contours) are contained within the $\tanb > 15$ observed exclusion contour.
 It also presents the complete exclusion of the Type-X \ac{2HDM} alignment scenario down a diagonal in the $m_A-m_\phi$ plane (red contour), with an approximate width of $100\GeV$, from the lowest mass point searched for at $m_A = 40\GeV$ and $m_\phi = 60\GeV$ to $m_\phi\approx m_A\approx360\GeV$.
 
 \begin{figure}[!htbp]

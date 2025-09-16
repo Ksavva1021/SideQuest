@@ -32,22 +32,17 @@ This analysis uses proton–proton collision data recorded by the \ac{CMS} detec
 \section{Backgrounds}
 \label{Section:Chapter7_Backgrounds}
 
-Many of the background processes relevant to the fully hadronic ditau ($\PGt_h\PGt_h$) final state are the same as those discussed for the four-tau analysis in Section~\ref{Section:Chapter6_Backgrounds}. The main difference is that the present selection requires only two reconstructed tau candidates, both hadronically decaying, rather than four tau candidates of any \ac{DM}. Events can enter the signal region through three main mechanisms:  
+Many of the background processes relevant to the fully hadronic ditau ($\PGt_h\PGt_h$) final state are the same as those discussed for the four-tau analysis in Section~\ref{Section:Chapter6_Backgrounds}. The main difference is that the present selection requires only two reconstructed tau candidates, both hadronically decaying. Events can enter the signal region through three main mechanisms:  
 
 \begin{enumerate}[label=(\roman*)]
-    \item Production of two genuine $\PGt_h$ leptons,  
-    \item Production of one genuine $\PGt_h$ and one misidentified object (jet or prompt electron/muon reconstructed as $\PGt_h$), and  
-    \item Production of two misidentified objects, typically jets or nonprompt electrons/muons, both reconstructed as $\PGt_h$ candidates.  
+    \item Production of two genuine $\PGt_h$ leptons  
+    \item Production of one genuine $\PGt_h$ and one misidentified object (jet or prompt electron/muon reconstructed) as $\PGt_h$
+    \item Production of two misidentified objects, typically jets or nonprompt electrons/muons, both reconstructed as $\PGt_h$
 \end{enumerate}
 
-Relative to the four-tau case, the composition and ranking of backgrounds change noticeably.  \textbf{\ac{DY}} ($\PZ/\gamma^*\to\PGt^+\PGt^-$) with both taus decaying hadronically is now the dominant source of genuine $\PGt_h\PGt_h$ pairs. \textbf{Top-quark pair production} ($\ttbar$) also makes a large contribution, both through $\PW\to\PGt\nu_\PGt$ decays (genuine $\PGt_h$) and through the misidentification of jets or prompt leptons as $\PGt_h$, with the associated $b$-jets increasing the likelihood of additional jet activity. Reducible backgrounds from \textbf{$\PW$+jets} and \textbf{\ac{QCD}-induced multijet production} are similarly important, as only one or two jet$\to\PGt_h$ (or $e/\mu\to\PGt_h$) misidentifications are needed to pass the $\PGt_h\PGt_h$ selection.  
+Relative to the four-tau case, the composition and ranking of backgrounds change noticeably.  \textbf{\ac{DY}} ($\PZ/\gamma^*\to\PGt^+\PGt^-$) with both taus decaying hadronically is now the dominant source of genuine $\PGt_h\PGt_h$ pairs. \textbf{Top-quark pair production} ($\ttbar$) also makes a large contribution, both through $\PW\to\PGt\nu_\PGt$ decays (genuine $\PGt_h$) and through the misidentification of jets or prompt leptons as $\PGt_h$, with the associated $b$-jets increasing the likelihood of additional jet activity. Backgrounds from \textbf{$\PW$+jets} and \textbf{\ac{QCD}-induced multijet production} are similarly important, as only one or two jet$\to\PGt_h$ (or $e/\mu\to\PGt_h$) misidentifications are needed to pass the $\PGt_h\PGt_h$ selection.  
 
-In contrast to the four-tau analysis, where \textbf{$ZZ\to4\PGt$} was the most important irreducible background, $ZZ$ production is subdominant in the fully hadronic di-tau channel. This is because events with four taus rarely pass the $\PGt_h\PGt_h$ selection unless two of the taus are outside the detector acceptance or fail identification.  
-Instead, \textbf{diboson} contributions arise mainly from  
-$\PZ\PZ\to\PGt\PGt\nu\nu$ (two genuine $\PGt$ + \ac{MET}),  
-$\PW\PW\to\PGt\nu\,\PGt\nu$,  
-or channels such as $\PZ\PZ\to\ell\ell\nu\nu$ and $\PW\PZ\to\ell\nu\,\ell\ell$ where prompt $e/\mu$ (and occasionally jets) are misidentified as $\PGt_h$.  
-Other processes, including triboson production, and single-top, remain subdominant.
+In contrast to the four-tau analysis, where \textbf{$ZZ\to4\PGt$} was the most important irreducible background, $ZZ$ production is subdominant. This is because events with four taus rarely pass the $\PGt_h\PGt_h$ selection unless two of the taus are outside the detector acceptance or fail identification. Other processes, including triboson and single-top production, remain subdominant.
 
 The modelling and estimation strategies for these background contributions, including the treatment of jet and lepton misidentification, are detailed in Section~\ref{Section:Chapter7_Background_Modelling}. The full list of simulated background processes is broadly similar to that presented for the four-tau analysis in Table~\ref{Table:Chapter6_SimulatedBackgrounds}, and is reproduced here in Table~\ref{Table:Chapter7_SimulatedBackgrounds} for completeness.
 
@@ -84,23 +79,23 @@ The modelling and estimation strategies for these background contributions, incl
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
-\textbf{W+jets (\ac{LO})\hyperlink{W-MLM}{$^2$}} & & \\
+\textbf{W+jets (\ac{LO})} & & \\
 + jets & \MADGRAPH, \PYTHIA & 55300.0 (\ac{LO}), 63425.1 (\ac{NLO}) \\
-+1 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 9128.0 (\ac{LO}) \\
-+2 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 2922.0 (\ac{LO}) \\
-+3 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 861.3 (\ac{LO}) \\
-+4 jets\hyperlink{W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 415.4 (\ac{LO}) \\
++1 jets & \MADGRAPH, \PYTHIA & 9128.0 (\ac{LO}) \\
++2 jets & \MADGRAPH, \PYTHIA & 2922.0 (\ac{LO}) \\
++3 jets & \MADGRAPH, \PYTHIA & 861.3 (\ac{LO}) \\
++4 jets & \MADGRAPH, \PYTHIA & 415.4 (\ac{LO}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
-\textbf{\ttbar} & & \\
+\textbf{\ttbar (\ac{NLO})} & & \\
 Fully hadronic & \POWHEG, \PYTHIA & 419.81 (\ac{NNLO})\\
 Semi-leptonic & \POWHEG, \PYTHIA & 405.75 (\ac{NNLO})\\
 Fully leptonic & \POWHEG, \PYTHIA & 98.04 (\ac{NNLO}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
-\textbf{Single top} & & \\
+\textbf{Single top (\ac{NLO})} & & \\
 t-channel ($t$) & \POWHEG, \PYTHIA & 145.0 (\ac{NNLO}) \\
 t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 87.2 (\ac{NNLO}) \\
 $t + W^-$ & \POWHEG, \PYTHIA & 43.95 (\ac{NNLO}) \\
@@ -108,14 +103,14 @@ $t + W^+$ & \POWHEG, \PYTHIA & 43.95 (\ac{NNLO}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
-\textbf{Diboson} & & \\
+\textbf{Diboson (\ac{LO})} & & \\
 $\PW \PZ$  & \PYTHIA & 44.35 (\ac{NNLO}) \\
 $\PW \PW$  & \PYTHIA & 122.27 (\ac{NNLO}) \\
 $\PZ \PZ$  & \PYTHIA & 19.43 (\ac{NNLO}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
-\textbf{Triboson} & & \\
+\textbf{Triboson (\ac{NLO})} & & \\
 $\PW \PW \PZ $ & \MCATNLO, \PYTHIA & 0.1851 (\ac{NLO})\\
 $\PW \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0621 (\ac{NLO})\\
 $\PW \PW \PW $ & \MCATNLO, \PYTHIA & 0.2328 (\ac{NLO})\\
@@ -128,10 +123,6 @@ $\PZ \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0159 (\ac{NLO})\\
 \noindent\begin{minipage}{\linewidth}
 \footnotesize
 \hypertarget{DY_FxFx}{}$^{1}$For the \ac{DY} samples, only exclusive jet multiplicity samples are generated at \ac{NLO} using the FxFx jet merging scheme~\cite{FxFx}. No inclusive sample is produced in this case.
-
-\hypertarget{W-MLM}{}$^{2}$In the W+jets simulation, the MLM jet matching scheme~\cite{MLM} is employed to consistently combine partons generated at the matrix-element level with those from the parton shower, avoiding double counting of \ac{ISR}/\ac{FSR} jets.
-
-\hypertarget{W-Stitch}{}$^{3}$To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to reproduce the overall cross-section and kinematic distributions accurately.
 \end{minipage}
 
 \section{Signal Modelling}

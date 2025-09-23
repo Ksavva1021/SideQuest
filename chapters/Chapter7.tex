@@ -9,9 +9,9 @@
 
 As outlined in Section~\ref{Section:Chapter2_CP_Yukawa_Structure}, the CP structure of the Higgs-tau Yukawa coupling can be probed through spin correlations in $H \to \tau\tau$ decays. These correlations are captured in the acoplanarity angle $\phi_{CP}$ between the $\tau^+$ and $\tau^-$ decay planes, which serves as the primary CP-sensitive observable.
 
-In the \ac{SM}, this measurement is expressed in terms of the effective CP mixing angle $\alpha_{\tau\tau}$, predicted to be essentially zero for a purely CP-even interaction. A significant deviation of $\alpha_{\tau\tau}$ from zero would be direct evidence for CP violation in the Higgs–fermion sector, with important implications for physics beyond the \ac{SM}. Minimal supersymmetric models predict only negligible CP-violating effects in Yukawa couplings, whereas extended Higgs sectors such as the next-to-minimal supersymmetric model can accommodate values up to ${\sim}27^\circ$~\cite{King:2015oxa}.
+In the \ac{SM}, this measurement is expressed in terms of the effective CP mixing angle $\alpha^{\PH\tau\tau}$ (defined in Section~\ref{Section:Chapter2_HiggsCPStructurethroughHttdecays}), predicted to be essentially zero for a purely CP-even interaction. A significant deviation of $\alpha^{\PH\tau\tau}$ from zero would be direct evidence for CP violation in the Higgs–fermion sector, with important implications for physics beyond the \ac{SM}. Minimal supersymmetric models predict only negligible CP-violating effects in Yukawa couplings, whereas extended Higgs sectors such as the next-to-minimal supersymmetric model can accommodate values up to ${\sim}27^\circ$~\cite{King:2015oxa}.
 
-The most precise determination to date was performed by the \ac{CMS} Collaboration using the full Run 2 dataset of $137~\mathrm{fb}^{-1}$ at $\sqrt{s} = 13~\mathrm{TeV}$~\cite{HiggsCP_CMS_2021}. That analysis combined multiple $\tau$ decay channels, including leptonic modes ($\tau_e^\pm,\ \tau_\mu^\pm$) and the dominant hadronic modes ($\pi^\pm$, $\rho^\pm \to \pi^\pm \pi^0$, $a_1^\pm \to \pi^\pm \pi^0 \pi^0$, $a_1^\pm \to \pi^\pm \pi^\mp \pi^\pm$). The result, $\alpha_{\tau\tau} = -1 \pm 19^\circ$ (expected $0 \pm 21^\circ$) at the 68.3\% CL, disfavouring the pure CP-odd scenario at $3.0\sigma$, was dominated by statistical uncertainty. Feasibility studies indicate that a precision of ${\sim}5$-$10^\circ$ could be achieved with $3\unit{ab}^{-1}$ of data~\cite{Harnik:2013aja,Berge:2014sra}.
+The most precise determination to date was performed by the \ac{CMS} Collaboration using the full Run 2 dataset of $137~\mathrm{fb}^{-1}$ at $\sqrt{s} = 13~\mathrm{TeV}$~\cite{HiggsCP_CMS_2021}. That analysis combined multiple $\tau$ decay channels, including leptonic modes ($\tau_e^\pm,\ \tau_\mu^\pm$) and the dominant hadronic modes ($\pi^\pm$, $\rho^\pm \to \pi^\pm \pi^0$, $a_1^\pm \to \pi^\pm \pi^0 \pi^0$, $a_1^\pm \to \pi^\pm \pi^\mp \pi^\pm$). The result, $\alpha^{\PH\tau\tau} = -1 \pm 19^\circ$, compared to an expected $0 \pm 21^\circ$ at the 68.3\% CL, disfavouring the pure CP-odd scenario at $3.0\sigma$, was dominated by statistical uncertainty. Feasibility studies indicate that a precision of ${\sim}5$-$10^\circ$ could be achieved with $3\unit{ab}^{-1}$ of data~\cite{Harnik:2013aja,Berge:2014sra}.
 
 This chapter presents a complementary measurement targeting only the $\PGt_h \PGt_h$ final state. The dataset corresponds to the partial Run 3 data-taking period and is substantially smaller in integrated luminosity than in Run 2, leading to reduced statistical reach. Despite the smaller dataset, this analysis aims to approach the precision of the Run 2 results by targeting improvements in key components such as:
 
@@ -125,8 +125,148 @@ $\PZ \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0159 (\ac{NLO})\\
 \hypertarget{DY_FxFx}{}$^{1}$For the \ac{DY} samples, only exclusive jet multiplicity samples are generated at \ac{NLO} using the FxFx jet merging scheme~\cite{FxFx}. No inclusive sample is produced in this case.
 \end{minipage}
 
-\section{Signal Modelling}
+\section{Modelling of signal processes}
 \label{Section:Chapter7_SignalModelling}
+
+The signal samples used in this analysis correspond to Higgs boson production through \ac{ggH}, \ac{VBF}, and \ac{VH} ($\PW\PH$, $\PZ\PH$). All samples are generated with the \POWHEG v2.0 event generator~\cite{Powheg_0,Powheg_1,Powheg_2,Powheg_3}. To ensure that the measurement of $\alpha_{\PH\tau\tau}$ remains unbiased with respect to possible assumptions about the CP structure in the Higgs boson production mechanism, observables that are directly sensitive to the production CP properties are not considered. In particular, variables such as the azimuthal separation between the two leading jets are excluded from the event selection.
+
+As for the background samples discussed in Section~\ref{Section:Chapter7_Backgrounds}, the $\PGt$ decays are simulated with \PYTHIA (version 8.230)~\cite{PYTHIA}. At this stage, the spins of the tau pair are treated as uncorrelated. The proper spin correlations, which encode the CP-sensitive effects of the $\PH \to \tau\tau$ interaction, are subsequently incorporated using the \TAUSPINNER package~\cite{Przedzinski:2018ett}. This tool computes per-event weights corresponding to benchmark CP scenarios:
+
+\begin{itemize}
+    \item Pure CP-even ($\alpha^{\PH\tau\tau} = 0^\circ$) 
+    \item Pure CP-odd ($\alpha^{\PH\tau\tau} = 90^\circ$) 
+    \item Maximally mixed ($\alpha^{\PH\tau\tau} = 45^\circ$) 
+\end{itemize}  
+
+These weights allow the construction of differential distributions at arbitrary values of the effective mixing angle through linear combinations of the benchmark templates. In practice, this is achieved using the decomposition:  
+
+\begin{equation_pad}
+\begin{aligned}
+    \frac{d\sigma}{dx}(\alpha^{\PH\tau\tau}) 
+    &= (\cos^2\alpha^{\PH\tau\tau} - \cos\alpha^{\PH\tau\tau}\sin\alpha^{\PH\tau\tau})  \frac{d\sigma}{dx}\Big|_{\text{CP-even}} \\
+    &+ (\sin^2\alpha^{\PH\tau\tau} - \cos\alpha^{\PH\tau\tau}\sin\alpha^{\PH\tau\tau})  \frac{d\sigma}{dx}\Big|_{\text{CP-odd}}\\
+    &+ 2\cos\alpha^{\PH\tau\tau}\sin\alpha^{\PH\tau\tau} \, \frac{d\sigma}{dx}\Big|_{\text{CP-mix}}
+\end{aligned}
+\end{equation_pad} 
+
+\section{Reconstruction of \texorpdfstring{$\phi_{CP}$}{phiCP}}
+
+As discussed in Section~\ref{Section:Chapter2_HiggsCPStructurethroughHttdecays}, $\phi_{CP}$ is formally defined through the polarimetric vectors of the two $\tau$ leptons. In the Higgs boson rest frame, this construction provides the optimal estimator of the $\tau$ spin correlations and therefore of the CP structure of the $\PH\tau\tau$ interaction. 
+
+Experimentally, a full reconstruction of the polarimetric vector is rarely possible. Most $\tau$ decays involve one or more neutrinos, whose momenta cannot be well constrained, hence preventing the complete reconstruction of the $\tau$ rest frames. As a result, direct access to the Higgs rest frame is limited to only a subset of \acp{DM}. To overcome these challenges, alternative reconstruction frames and methods have been developed. 
+
+To make the measurement experimentally accessible, $\phi_{CP}$ is reconstructed in the zero-momentum frame (ZMF) of two visible $\tau$ decay products. This is justified by the fact that the spin information of the $\tau$ leptons is imprinted onto their decay products. The planes reconstructed from these visible products therefore inherit the spin correlations, and their relative orientation continues to encode the CP properties of the $\PH\tau\tau$ coupling. 
+
+In the remainder of this section, the different reconstruction strategies employed are described in more detail. Throughout, the symbol $\phi_{CP}$ is used generically to denote the reconstructed acoplanarity angle, irrespective of the specific method chosen.
+
+\subsection{Impact parameter method}
+
+The \ac{IP} method exploits the finite lifetime of $\tau$ leptons to approximate their decay planes using tracking information. This method offers \textit{optimal CP sensitivity} when both taus decay into a single charged particle.
+
+The basic principle of the method is to reconstruct each $\tau$ decay plane using the spatial momentum of the charged decay product ($\mathbf{q^\pm}$) together with its associated \ac{IP} vector ($\mathbf{n^\pm}$), as defined in Section~\ref{Section:Chapter4_Vertex_reconstruction}. These quantities are expressed as four-vectors: the charged-particle momentum $q^\pm$ and the impact-parameter vector $n^\pm=(0,\mathbf{n^\pm})$, both measured in the laboratory frame. The set of four-vectors is then boosted into the rest frame of the two charged particles, \ie the visible ditau \ac{ZMF} (denoted by $_\text{ZMF}$). In the \ac{ZMF}, the boosted \ac{IP} three-vector is normalised and decomposed into components parallel and transverse to the direction of the corresponding normalised three-momentum vector of the charged particle. From these vectors, two key observables are constructed: $\phi_{\text{ZMF}}$ and $O_{\text{ZMF}}$\footnote{The triple product observable $O_{\text{ZMF}}$ resolves the twofold ambiguity inherent in the angle between decay planes, which would otherwise be confined to the interval $[0,\pi]$. Its sign encodes the relative orientation (clockwise or anticlockwise) of the planes, thereby unfolding the acoplanarity angle to the full range $[0,2\pi]$ and retaining sensitivity to the CP phase of the $\PH\tau\tau$ coupling.}.
+
+\begin{equation}
+    \phi_{\text{ZMF}} = \arccos(\hat{\mathbf{n}}_{\text{ZMF},\perp}^{+} \, \, \cdot \, \, \hat{\mathbf{n}}_{\text{ZMF},\perp}^{-})
+\end{equation}
+
+\begin{equation}
+    O_{\text{ZMF}} = q^-_\text{ZMF} \, \, \cdot \, \,(\hat{\mathbf{n}}_{\text{ZMF},\perp}^{+} \, \, \times \, \, \hat{\mathbf{n}}_{\text{ZMF},\perp}^{-})
+\end{equation}
+
+The acoplanarity angle is then defined over the full range $[0,2\pi]$ by:
+
+\begin{equation}
+\phi_{CP} \;=\;
+\begin{cases}
+\phi_{\text{ZMF}}, & O_{\text{ZMF}} \ge 0 \\
+2\pi - \phi_{\text{ZMF}}, & O_{\text{ZMF}} < 0
+\end{cases}
+\end{equation}
+
+\subsection{Neutral-pion method}
+
+
+
+
+
+
+
+
+ 
+
+
+
+\section{Event selection strategy}
+
+This analysis targets the process $\PH \to \tau\tau$ in the fully hadronic final state ($\tau_h\tau_h$), which accounts for the largest branching fraction of all ditau topologies ($\sim$42\%). The event selection is designed to maximise signal efficiency while suppressing large backgrounds.
+
+\subsection{Triggering}
+Events are selected online using two complementary triggers: a dedicated double-$\tau_h$ trigger and a double-$\tau_h$+jet trigger. The corresponding online $p_\text{T}$ thresholds are summarised in Table~\ref{Table:Chapter7_Triggers_TauhTauh}.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt} % Increase column width
+\begin{tabular}{|c|ccc|}
+\hline
+\multirow{3}{*}{Trigger}
+  & \multicolumn{3}{c|}{$p_\text{T}$ (GeV)} \\ \cline{2-4}
+  & \multicolumn{3}{c|}{2022--2023} \\ \cline{2-4}
+  & Obj$_1$ & Obj$_2$ & Jet$_1$ \\ \hline\hline
+Double-Tau ($\tau\tau$) & 35 & 35 & -- \\
+\arrayrulecolor{lightgray}\hline
+Double-Tau + jet ($\tau\tau$ + jet) & 30 & 30 & 60 \\
+\arrayrulecolor{black}\hline
+\end{tabular}
+\caption{Table of the minimum online $p_\text{T}$ thresholds for the triggers used in the analysis.}
+\label{Table:Chapter7_Triggers_TauhTauh}
+\end{table}
+
+The double-$\tau_h$ trigger provides the baseline selection, while the additional double-$\tau_h$+jet path extends acceptance to events with lower-$p_\text{T}$ $\tau_h$ candidates and enhances sensitivity in jet-rich topologies such as \ac{VBF}. Although the two triggers could in principle be used in an orthogonal way, restricting the double-$\tau_h$+jet trigger to its specific phase space, the analysis instead employs their logical OR. This choice increases the complexity of determining trigger efficiency, as overlaps between the paths must be carefully handled. However, it delivers a considerable gain in overall performance and ensures that no signal events are lost in the transition region between the two triggers. 
+
+\subsection{Offline object selections}
+
+As in Chapter~\ref{Section:Chapter6_ObjectSelection}, baseline impact parameter requirements are applied to ensure consistency with the primary vertex and to suppress contamination from pileup. In particular, $\tau_h$ candidates are required to satisfy $|d_z| < 0.2\unit{cm}$, consistent with the selections defined in Chapter~\ref{Section:Chapter4}. Each selected $\tau_h$ must also be matched to a corresponding trigger object within $\Delta R < 0.5$, with stricter $p_\text{T}$ thresholds applied to the matched candidates to ensure operation in the efficiency plateau.
+
+At the event level, exactly two oppositely charged $\tau_h$ candidates are required. Events containing additional isolated electrons or muons are vetoed in order to maintain orthogonality with leptonic channels and to suppress backgrounds with prompt leptons. This final selection yields a high-purity sample of hadronic ditau events suitable for probing the CP structure of the Higgs–tau Yukawa coupling.
+
+{
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{table}[!htbp]
+\centering
+\caption[Summary of baseline selection criteria for $\tau_h$ candidates in the $\tau_h\tau_h$ channel.]{
+Summary of baseline selection criteria applied to hadronically decaying tau candidates in the $\tau_h\tau_h$ final state. Trigger-matched $p_T$ thresholds are defined relative to the online values of the double-$\tau_h$ trigger.}
+\label{Table:Chapter7_TauhSelectionSummary}
+
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt}
+\arrayrulecolor{black}
+
+\begin{tabular}{lc}
+\hline
+Criteria & Hadronic Tau ($\tau_h$) \\
+\hline
+$p_\text{T}$ (baseline) & $> 20\GeV$ \\
+\arrayrulecolor{lightgray} \hline
+
+$p_\text{T}^{\text{Trigger}}$ & $> 40\GeV$ (HLT), +5\GeV offline match \\
+\arrayrulecolor{lightgray} \hline
+
+$|\eta|$ & $< 2.3$ \\
+\arrayrulecolor{lightgray} \hline
+
+$|d_z|$ & $< 0.2\unit{cm}$ (see Chapter~\ref{Section:Chapter4}) \\
+\arrayrulecolor{lightgray} \hline
+
+Identification & $D_{\text{jet}} \geq$ Loose \\
+\arrayrulecolor{lightgray} \hline
+
+Lepton vetoes & $D_e \geq$ VVLoose, $D_\mu \geq$ VLoose \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\end{table}
+}
 
 
 \section{Object and event corrections}

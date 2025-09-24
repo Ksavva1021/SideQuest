@@ -735,11 +735,28 @@ This procedure maps the simulated recoil distribution onto that observed in data
 
 To address the limitations of the large-$m_t$ approximation used in gluon-fusion Higgs production, corrections for finite top-quark mass effects are applied. In this approximation, the top-quark loop is replaced by a pointlike interaction, which provides an accurate description of the inclusive cross section but does not capture the correct $m_t$ dependence at high Higgs transverse momentum. For $p_T^H \gtrsim m_t$, the internal loop structure is resolved and the approximation overestimates the cross section. To recover the correct kinematic behaviour, differential reweighting factors are obtained using \textsc{HRes}~\cite{deFlorian:2012mx,Grazzini:2013mca}, which computes the Higgs $p_T$ spectrum both in the large-$m_t$ limit and with exact top-mass dependence. The ratio of these predictions is applied to simulated events to restore the mass dependence in the high-$p_T$ region.
 
-
 \section{Background modelling}
 \label{Section:Chapter7_Background_Modelling}
 
-% \section{Uncertainty model}
+The backgrounds in the $\tauh\tauh$ channel are grouped into three classes:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Genuine-$\PGt$ backgrounds:} Events containing only genuine $\tau_h$. This class is dominated by $\PZ/\gamma^*\!\to\!\tau\tau$, with additional contributions from $\ttbar$ (via $\PW\!\to\!\tau\nu$) and dibosons. These contributions are estimated using simulation
+
+\item \textbf{Jet$\to\tauh$ misidentification:} Backgrounds with one or more jets are misidentified as $\tau_h$. This class is modelled using a data-driven $F_F$ method.
+
+\item \textbf{Lepton$\to\tauh$ misidentification:} Although, subdominant in $\tauh\tauh$ thanks to dedicated anti-$e/\mu$ discriminators, this class is estimated from simulation.
+\end{enumerate}
+
+\subsection{\texorpdfstring{Background from Jets Misidentified as $\PGt_h$ (Jet $\to \PGt_h$)}{Background from Jets Misidentified as hadronic taus}}
+\label{Section:Chapter7_FF}
+
+As discussed in Section~\ref{Section:Chapter6_JetToTauBackground}, MC simulation does not provide a reliable description of the jet$\to\tauh$ misidentification rate. Therefore, as in the four-tau analysis, a Fake-Factor ($F_F$) method is employed. In this channel, a simplified implementation closer to the Classical Fake Factor approach (Section~\ref{Section:Chapter6_FakeFactors_Classical}) is used, rather than the \ac{ML}-based reweighting strategy of Section~\ref{Section:Chapter6_FakeFactors_BDT}. 
+
+In brief, the method estimates the jet$\to\tauh$ contribution in the \ac{SR} by extrapolating from a sideband region defined through $\tauh$ identification criteria. The raw $F_F$ is computed as the ratio of events passing the nominal ID to those failing it but passing a looser requirement (Equation~\ref{Equation:Chapter6_FF}). The \ac{WP} used to define these regions are summarised in Table~\ref{Table:Chapter7_TauhSelectionSummary}.
+
+Once derived, the $F_F$ is corrected using dedicated closure and extrapolation factors to account for residual mismodelling. These arise both from differences between the signal and determination regions, and from the limited set of variables used to parameterise the misidentification rate. The corrected $F_F$ is then applied to events in the \ac{SR} that fail the nominal ID but pass the alternative ID, yielding an estimate of the jet$\to\tauh$ background. As noted in Section~\ref{Section:Chapter6_FakeFactors_Classical}, the $F_F$ is measured only for the leading $\tauh$ candidate. Consequently, events where the leading $\tauh$ is genuine but the subleading candidate is a misidentified jet are not covered. These subdominant contributions are taken from simulation and added back to the estimate.
+
+\section{Uncertainty model}
 
 % \section{Measurement procedure and statistical interpretation}
 

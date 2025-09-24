@@ -6,7 +6,7 @@
 \minitoc
 
 \section{Introduction}
-
+\label{Section:Chapter7_Introduction}
 As outlined in Section~\ref{Section:Chapter2_CP_Yukawa_Structure}, the CP structure of the Higgs-tau Yukawa coupling can be probed through spin correlations in $H \to \tau\tau$ decays. These correlations are captured in the acoplanarity angle $\phi_{CP}$ between the $\tau^+$ and $\tau^-$ decay planes, which serves as the primary CP-sensitive observable.
 
 In the \ac{SM}, this measurement is expressed in terms of the effective CP mixing angle $\alpha^{\PH\tau\tau}$ (defined in Section~\ref{Section:Chapter2_HiggsCPStructurethroughHttdecays}), predicted to be essentially zero for a purely CP-even interaction. A significant deviation of $\alpha^{\PH\tau\tau}$ from zero would be direct evidence for CP violation in the Higgs–fermion sector, with important implications for physics beyond the \ac{SM}. Minimal supersymmetric models predict only negligible CP-violating effects in Yukawa couplings, whereas extended Higgs sectors such as the next-to-minimal supersymmetric model can accommodate values up to ${\sim}27^\circ$~\cite{King:2015oxa}.
@@ -151,9 +151,9 @@ These weights allow the construction of differential distributions at arbitrary 
 
 \section{Reconstruction of \texorpdfstring{$\phi_{CP}$}{phiCP}}
 
-As discussed in Section~\ref{Section:Chapter2_HiggsCPStructurethroughHttdecays}, $\phi_{CP}$ is formally defined through the polarimetric vectors of the two $\tau$ leptons. In the Higgs boson rest frame, this construction provides the optimal estimator of the $\tau$ spin correlations and therefore of the CP structure of the $\PH\tau\tau$ interaction. 
+As discussed in Section~\ref{Section:Chapter2_HiggsCPStructurethroughHttdecays}, $\phi_{CP}$ is formally defined through the \ac{PV}s of the two $\tau$ leptons. In the Higgs boson rest frame, this construction provides the optimal estimator of the $\tau$ spin correlations and therefore of the CP structure of the $\PH\tau\tau$ interaction. 
 
-Experimentally, a full reconstruction of the polarimetric vector is rarely possible. Most $\tau$ decays involve one or more neutrinos, whose momenta cannot be well constrained, hence preventing the complete reconstruction of the $\tau$ rest frames. As a result, direct access to the Higgs rest frame is limited to only a subset of \acp{DM}. To overcome these challenges, alternative reconstruction frames and methods have been developed. 
+Experimentally, a full reconstruction of the \ac{PV} is rarely possible. Most $\tau$ decays involve one or more neutrinos, whose momenta cannot be well constrained, hence preventing the complete reconstruction of the $\tau$ rest frames. As a result, direct access to the Higgs rest frame is limited to only a subset of \acp{DM}. To overcome these challenges, alternative reconstruction frames and methods have been developed. 
 
 To make the measurement experimentally accessible, $\phi_{CP}$ is reconstructed in the zero-momentum frame (ZMF) of two visible $\tau$ decay products. This is justified by the fact that the spin information of the $\tau$ leptons is imprinted onto their decay products. The planes reconstructed from these visible products therefore inherit the spin correlations, and their relative orientation continues to encode the CP properties of the $\PH\tau\tau$ coupling. 
 
@@ -180,6 +180,16 @@ The acoplanarity angle is then defined over the full range $[0,2\pi]$ by:
 2\pi - \phi_{\text{ZMF}} & O_{\text{ZMF}} < 0
 \end{cases}
 \end{equation_pad}
+
+The performance of the \ac{IP} method is illustrated by the reconstructed $\phi_{CP}$ distributions in the single-prong final states ($\pi\pi$), shown in Fig.~\ref{Figure:CPDist_IPMethod_pipi}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_pi_pi.pdf}
+    \caption[Reconstructed $\phi_{CP}$ distribution in $\pi\pi$ final states using the impact parameter method.]
+    {Reconstructed distribution of the acoplanarity angle $\phi_{CP}$ in the $\tauh\tauh \to \pi\pi$ final state, obtained with the \ac{IP} method. The plots are obtained from the signal samples used in this analysis.}
+    \label{Figure:CPDist_IPMethod_pipi}
+\end{figure}
 
 \subsection{Neutral-pion method}
 \label{Section:NeutralPionMethod}
@@ -223,9 +233,19 @@ where $E_{\pi^\pm}$ and $E_{\pi^0}$ are the energies of the charged and neutral 
 \end{cases}
 \end{equation_pad}
 
-\subsection{Polarimetric vector method in the $a_1^{3\mathrm{pr}}a_1^{3\mathrm{pr}}$ channel}
+The sensitivity of the \ac{NP} method is demonstrated in Fig.~\ref{Figure:CPDist_NPMethod}, which shows the reconstructed $\phi_{CP}$ distributions for the $\rho\rho$ \ac{DM}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_rho_rho.pdf}
+    \caption[Reconstructed $\phi_{CP}$ distribution in $\rho\rho$ final states using the neutral-pion method.]
+    {Reconstructed distribution of the acoplanarity angle $\phi_{CP}$ in the $\tauh\tauh \to \rho\rho$ final state, obtained with the \ac{NP} method. The plots are obtained from the signal samples used in this analysis.}
+    \label{Figure:CPDist_NPMethod}
+\end{figure}
+
+\subsection{\ac{PV} method in the $a_1^{3\mathrm{pr}}a_1^{3\mathrm{pr}}$ channel}
 \label{Section:Chapter7_PV_Method}
-The polarimetric vector method exploits the fact that, for certain $\tau$ decay modes, the full kinematics of the $\tau$ lepton can be reconstructed with sufficient accuracy. This is the case when both $\tau$ leptons decay via the $a_1 \to 3\pi$ mode, in which the \acp{SV} can be reconstructed from the three charged tracks of each decay. The $\tau$ lepton momentum direction is taken from the line connecting the \ac{PV} and \ac{SV}. Its magnitude is determined using the two-body decay kinematics $\tau \to a_1\nu_\tau$ under the assumption of $m_\tau$ and $m_{a_1}$ fixed to their nominal values and a massless neutrino as
+The \ac{PV} method exploits the fact that, for certain $\tau$ decay modes, the full kinematics of the $\tau$ lepton can be reconstructed with sufficient accuracy. This is the case when both $\tau$ leptons decay via the $a_1 \to 3\pi$ mode, in which the \acp{SV} can be reconstructed from the three charged tracks of each decay. The $\tau$ lepton momentum direction is taken from the line connecting the \ac{PV} and \ac{SV}. Its magnitude is determined using the two-body decay kinematics $\tau \to a_1\nu_\tau$ under the assumption of $m_\tau$ and $m_{a_1}$ fixed to their nominal values and a massless neutrino as
 
 \begin{equation_pad}
 |\vec{p}_\tau| = 
@@ -239,7 +259,7 @@ where the solution involves the Gottfried-Jackson angle $\theta_{\mathrm{GJ}}$~\
 
 Equation~\ref{Equation:TauPTMag_PV} admits two possible solutions for the magnitude of the $\tau$ lepton momentum. This ambiguity arises because, in the $\tau$ rest frame, the $a_1$ meson can be emitted either in the same direction as, or opposite to, the $\tau$ momentum in the laboratory frame. The case where the $a_1$ is emitted orthogonally corresponds to the unique solution in which the square root term vanishes. When applied to both $\tau$ decays in an event, this leads in general to up to four candidate solutions for the pair of $\tau$ momenta. The ambiguity is resolved by choosing the solution whose reconstructed ditau mass is closest to the nominal Higgs boson mass.
 
-With the $\tau$ four-momenta determined, the polarimetric vectors $\mathbf{h}_1$ and $\mathbf{h}_2$ are computed using the resonance model implemented in \TAUOLA~\cite{Jadach:1990mz,Jezabek:1991qp,Jadach:1993hs}, calibrated with experimental parameters from CLEO~\cite{CLEO:1999rzk}. In order to build a CP-sensitive observable, $\mathbf{k_{1,2}}$ vectors are defined
+With the $\tau$ four-momenta determined, the \ac{PV}s $\mathbf{h}_1$ and $\mathbf{h}_2$ are computed using the resonance model implemented in \TAUOLA~\cite{Jadach:1990mz,Jezabek:1991qp,Jadach:1993hs}, calibrated with experimental parameters from CLEO~\cite{CLEO:1999rzk}. In order to build a CP-sensitive observable, $\mathbf{k_{1,2}}$ vectors are defined
 
 \begin{equation_pad}
 \mathbf{\hat{k}}_{1,2} = \frac{\mathbf{\hat{h}}_{1,2} \times \mathbf{\hat{n}}_{1,2}}{|\mathbf{\hat{h}}_{1,2} \times \mathbf{\hat{n}}_{1,2}|},
@@ -263,7 +283,18 @@ where $^*$ denotes the Higgs rest frame. The final CP-sensitive observable is th
 \end{cases}
 \end{equation_pad}
 
+An example of the $\phi_{CP}$ distributions reconstructed with the \ac{PV} method in the $a_1^{3\mathrm{pr}}a_1^{3\mathrm{pr}}$ \ac{DM} is presented in Fig.~\ref{Figure:CPDist_PVMethod}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_a1_a1.pdf}
+    \caption[Reconstructed $\phi_{CP}$ distribution in $a_1^\text{3pr}a_1^\text{3pr}$ final states using the \ac{PV} method.]
+    {Reconstructed distribution of the acoplanarity angle $\phi_{CP}$ in the $\tauh\tauh \to a_1^\text{3pr}a_1^\text{3pr}$ final state, obtained with the \ac{PV} method.}
+    \label{Figure:CPDist_PVMethod}
+\end{figure}
+
 \subsection{Combined methods}
+\label{Section:Chapter7_CombinedMethods}
 
 The first combined method utilises both the \ac{IP} and \ac{NP} techniques, applied in channels where the two $\tau$ leptons decay through different modes. In particular, this strategy is relevant when one $\tau$ decays to a resonance with neutral pions (e.g.\ $\rho \to \pi^\pm \pi^0$ or $a_1 \to \pi^\pm 2\pi^0$), while the other $\tau$ undergoes a single-prong decay without neutral pions. In such cases, the decay plane of the $\tau$ with neutral pions is reconstructed with the \ac{NP} method, while the other is reconstructed with the impact-parameter method. The two planes are then combined in the visible ditau \ac{ZMF} to define $\phi_{CP}$. A subtlety arises because the \ac{NP} method introduces an additional sign ambiguity, shifting $\phi_{CP}$:
 
@@ -275,9 +306,103 @@ The first combined method utilises both the \ac{IP} and \ac{NP} techniques, appl
 \end{cases}
 \end{equation_pad}
 
-The second combined method arises when one $\tau$ lepton decays via the $a_1^\text{3pr}$ mode, while the other follows a single-prong decay that can be reconstructed using either the \ac{IP} or \ac{NP} methods. As in the pure $a_1^\text{3pr}-a_1^\text{3pr}$ polarimetric vector method, the $\tau$ flight direction is approximated by the line connecting the \ac{SV} and \ac{PV}. To determine the full $\tau$ four-momentum, the magnitude of the momentum is inferred using a kinematic fit. In this analysis, the \textsc{FastMTT} algorithm~\cite{Bianchini:2014vza} is employed with the constraint that the ditau invariant mass is compatible with $m_H$. The resulting four-vector is constructed under the assumption of the nominal $\tau$ mass, and truncated as necessary to respect the maximum Gottfried–Jackson angle. The polarimetric vector of the $a_1(3\pi)$ is then calculated as described in Section~\ref{Section:Chapter7_PV_Method}.
+The resulting $\phi_{CP}$ distributions obtained with the \ac{IP}-\ac{NP} combined method are shown in Fig.~\ref{Figure:CPDist_Combined_IP_NP}, illustrating the complementarity of the different approaches across \acp{DM}.
 
-The acoplanarity angle $\phi_{CP}$ is subsequently reconstructed by combining the polarimetric vector on the $a_1^{3\text{pr}}$ leg with the decay plane from the other $\tau$ leg (either \ac{IP}- or \ac{NP}-based). The same $y_\rho$ sign correction introduced for the first combined method is applied here to resolve the sign ambiguity when one of the decay planes is reconstructed via the \ac{NP} method.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_pi_rho.pdf}
+    \caption[Reconstructed $\phi_{CP}$ distribution in $\pi\rho$ final states using the IP-NP combined method.]
+    {Reconstructed distribution of the acoplanarity angle $\phi_{CP}$ in the $\tauh\tauh \to \pi\rho$ final state, obtained with the \ac{IP}-\ac{NP} combined method. The plots are obtained from the signal samples used in this analysis.}
+    \label{Figure:CPDist_Combined_IP_NP}
+\end{figure}
+
+The second combined method arises when one $\tau$ lepton decays via the $a_1^\text{3pr}$ mode, while the other follows a single-prong decay that can be reconstructed using either the \ac{IP} or \ac{NP} methods. As in the pure $a_1^\text{3pr}-a_1^\text{3pr}$ \ac{PV} method, the $\tau$ flight direction is approximated by the line connecting the \ac{SV} and \ac{PV}. To determine the full $\tau$ four-momentum, the magnitude of the momentum is inferred using a kinematic fit. In this analysis, the \textsc{FastMTT} algorithm~\cite{Bianchini:2014vza} is employed with the constraint that the ditau invariant mass is compatible with $m_H$. The resulting four-vector is constructed under the assumption of the nominal $\tau$ mass, and truncated as necessary to respect the maximum Gottfried–Jackson angle. The \ac{PV} of the $a_1(3\pi)$ is then calculated as described in Section~\ref{Section:Chapter7_PV_Method}.
+
+The acoplanarity angle $\phi_{CP}$ is subsequently reconstructed by combining the \ac{PV} on the $a_1^{3\text{pr}}$ leg with the decay plane from the other $\tau$ leg (either \ac{IP}- or \ac{NP}-based). The same $y_\rho$ sign correction introduced for the first combined method is applied here to resolve the sign ambiguity when one of the decay planes is reconstructed via the \ac{NP} method. The reconstructed $\phi_{CP}$ distributions obtained with the combined \ac{IP}/\ac{NP}--\ac{PV} method are shown in Fig.~\ref{Figure:CPDist_Combined_IPNP_PV}.
+
+\begin{figure}[!htbp]
+        \centering
+        % First row
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_pi_a1_FASTMTT_MassConstraint.pdf}
+            \caption{}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_rho_a1_FASTMTT_MassConstraint.pdf}
+            \caption{}
+        \end{subfigure}
+    \caption[Reconstructed $\phi_{CP}$ distributions with the combined IP/NP--PV method.]
+    {Reconstructed distributions of the acoplanarity angle $\phi_{CP}$ in channels where one $\tau$ decays via the $a_1^{3\mathrm{pr}}$ resonance and the other through a single-prong decay. The \ac{PV} method is applied on the $a_1^{3\mathrm{pr}}$ leg, while the other is reconstructed with the \ac{IP} or \ac{NP} method: \textbf{(a)} $\pi a_1^{3\mathrm{pr}}$ and \textbf{(b)} $\rho a_1^{3\mathrm{pr}}$. The plots are obtained from the signal samples used in this analysis.}
+    \label{Figure:CPDist_Combined_IPNP_PV}
+\end{figure}
+
+\subsection{Summary of reconstruction strategy}
+\label{Section:Chapter7_MethodSummary}
+
+For each $\tauh\tauh$ DM topology, the acoplanarity angle $\phi_{CP}$ is reconstructed with the method that maximises CP sensitivity. The mapping used in this analysis is summarised in Table~\ref{Table:Chapter7_ReconstructionMethodSummary}.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\setlength{\tabcolsep}{10pt} % Increase column width
+\arrayrulecolor{black} % Ensure outer border is black
+\begin{tabular}{ccccc}
+\hline
+Decay mode combination & Method Leg$_1$ & Method Leg$_2$\\
+\hline
+$\pi\pi$       & \ac{IP} & \ac{IP} \\
+\arrayrulecolor{lightgray} \hline
+$\pi\rho$       & \ac{IP} & \ac{NP} \\
+\arrayrulecolor{lightgray} \hline
+$\pi a_1^\text{1pr}$       & \ac{IP} & \ac{NP} \\
+\arrayrulecolor{lightgray} \hline
+$\pi a_1^\text{3pr}$       & \ac{IP} & \ac{PV}$^*$ \\
+\arrayrulecolor{lightgray} \hline
+$\rho\rho$       & \ac{NP} & \ac{NP} \\
+\arrayrulecolor{lightgray} \hline
+$\rho a_1^\text{1pr}$       & \ac{NP} & \ac{NP} \\
+\arrayrulecolor{lightgray} \hline
+$\rho a_1^\text{3pr}$       & \ac{IP} & \ac{PV}$^*$ \\
+\arrayrulecolor{lightgray} \hline
+$a_1^\text{3pr} a_1^\text{3pr}$       & \ac{PV} & \ac{PV} \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption[Summary of reconstruction methods per $\tauh\tauh$ decay mode combination.]
+{Summary of the reconstruction strategy adopted for each $\tauh\tauh$ decay mode combination in this analysis. The second column indicates the method applied to the first $\tau$ leg, while the third column indicates the method applied to the second $\tau$ leg. An asterisk ($^*$) marks cases where the reconstruction strategy differs from that used in the Run 2 analysis of Ref.~\cite{HiggsCP_CMS_2021}.}
+\label{Table:Chapter7_ReconstructionMethodSummary}
+\end{table}
+
+As can be seen in Table~\ref{Table:Chapter7_ReconstructionMethodSummary}, for decay channels involving one $a_1^{3\mathrm{pr}}$ resonance (i.e.\ $X$–$a_1^{3\mathrm{pr}}$ combinations), the reconstruction strategy differs from that used in the earlier Run 2 analysis~\cite{HiggsCP_CMS_2021}. In the previous approach, the $a_1$ leg was reconstructed with a modified version of the \ac{NP} method. In the present analysis, this has been superseded by the use of the \ac{PV} method, as described in Section~\ref{Section:Chapter7_CombinedMethods}. A direct comparison between the two reconstruction strategies for the $X$–$a_1^{3\mathrm{pr}}$ channels is provided in Fig.~\ref{Figure:Chapter7_X-a1-Improvement}, using Run 3 signal samples. This setup ensures that the observed differences isolate the gain from the updated reconstruction method itself, disentangled from other improvements to the analysis chain that were summarised in the Section~\ref{Section:Chapter7_Introduction}.
+
+\begin{figure}[!htbp]
+        \centering
+        % First row
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_pi_a1.pdf}
+            \caption{}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_pi_a1_FASTMTT_MassConstraint.pdf}
+            \caption{}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_rho_a1.pdf}
+            \caption{}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/Acoplanarity/With_IP/aco_rho_a1_FASTMTT_MassConstraint.pdf}
+            \caption{}
+        \end{subfigure}
+    \caption[Comparison of reconstruction strategies for $X$–$a_1^{3\mathrm{pr}}$ decay modes.]
+    {Reconstructed $\phi_{CP}$ distributions in $X$–$a_1^{3\mathrm{pr}}$ channels. \textbf{(a,c)} show the Run 2 strategy using a modified \ac{NP} method for the $a_1$ leg, while \textbf{(b,d)} show the updated Run 3 strategy employing the \ac{PV} method. The comparison isolates the improvement from the new reconstruction approach.}
+    \label{Figure:Chapter7_X-a1-Improvement}
+\end{figure}
 
 \section{Event selection strategy}
 
@@ -423,8 +548,20 @@ The performance of the reweighting procedure is illustrated in Figure~\ref{Figur
     \label{Figure:Chapter6_ZPT_Reweighting_ee}
 \end{figure}
 
+
 \section{Background modelling}
 \label{Section:Chapter7_Background_Modelling}
+
+% \section{Uncertainty model}
+
+% \section{Measurement procedure and statistical interpretation}
+
+% \section{Measurement optimisation}
+
+% \section{Results}
+
+
+
 
 
 % Notes to Remember:

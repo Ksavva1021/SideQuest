@@ -150,7 +150,7 @@ These weights allow the construction of differential distributions at arbitrary 
 \end{equation_pad} 
 
 \section{Reconstruction of \texorpdfstring{$\phi_{CP}$}{phiCP}}
-
+\label{Section:Chapter7_PhiCP_Reconstruction}
 As discussed in Section~\ref{Section:Chapter2_HiggsCPStructurethroughHttdecays}, $\phi_{CP}$ is formally defined through the \ac{PV}s of the two $\tau$ leptons. In the Higgs boson rest frame, this construction provides the optimal estimator of the $\tau$ spin correlations and therefore of the CP structure of the $\PH\tau\tau$ interaction. 
 
 Experimentally, a full reconstruction of the \ac{PV} is rarely possible. Most $\tau$ decays involve one or more neutrinos, whose momenta cannot be well constrained, hence preventing the complete reconstruction of the $\tau$ rest frames. As a result, direct access to the Higgs rest frame is limited to only a subset of \acp{DM}. To overcome these challenges, alternative reconstruction frames and methods have been developed. 
@@ -406,7 +406,7 @@ As can be seen in Table~\ref{Table:Chapter7_ReconstructionMethodSummary}, for de
 
 \section{Event selection strategy}
 
-This analysis targets the process $\PH \to \tau\tau$ in the fully hadronic final state ($\tau_h\tau_h$), which accounts for the largest branching fraction of all ditau topologies ($\sim$42\%). The event selection is designed to maximise signal efficiency while suppressing large backgrounds.
+This analysis targets the process $\PH \to \tau\tau$ in the fully hadronic final state ($\tauh\tauh$), which corresponds to the largest branching fraction of all ditau topologies ($\sim$42\%). The decay-mode combinations considered are those listed in Table~\ref{Table:Chapter7_ReconstructionMethodSummary}. In this section, the trigger requirements, offline object selections, and event-level selections are described.
 
 \subsection{Triggering}
 Events are selected online using two complementary triggers: a dedicated double-$\tau_h$ trigger and a double-$\tau_h$+jet trigger. The corresponding online $p_\text{T}$ thresholds are summarised in Table~\ref{Table:Chapter7_Triggers_TauhTauh}.
@@ -430,13 +430,12 @@ Double-Tau + jet ($\tau\tau$ + jet) & 30 & 30 & 60 \\
 \label{Table:Chapter7_Triggers_TauhTauh}
 \end{table}
 
-The double-$\tau_h$ trigger provides the baseline selection, while the additional double-$\tau_h$+jet path extends acceptance to events with lower-$p_\text{T}$ $\tau_h$ candidates and enhances sensitivity in jet-rich topologies such as \ac{VBF}. Although the two triggers could in principle be used in an orthogonal way, restricting the double-$\tau_h$+jet trigger to its specific phase space, the analysis instead employs their logical OR. This choice increases the complexity of determining trigger efficiency, as overlaps between the paths must be carefully handled. However, it delivers a considerable gain in overall performance and ensures that no signal events are lost in the transition region between the two triggers. 
+The double-$\tau_h$ trigger provides the baseline selection, while the additional double-$\tau_h$+jet path extends acceptance to events with lower-$p_\text{T}$ $\tau_h$ candidates and enhances sensitivity in jet-rich topologies such as \ac{VBF}. Although the two triggers could in principle be used in an orthogonal way, restricting the double-$\tau_h$+jet trigger to its specific phase space, the analysis instead employs their logical OR. This choice increases the complexity of determining trigger efficiency, as overlaps must be carefully handled. However, it delivers a considerable gain in overall performance and ensures that no signal events are lost in the transition region between the two triggers. 
 
-\subsection{Offline object selections}
+\subsection{Offline object and event-level selections}
 
-As in Chapter~\ref{Section:Chapter6_ObjectSelection}, baseline impact parameter requirements are applied to ensure consistency with the primary vertex and to suppress contamination from pileup. In particular, $\tau_h$ candidates are required to satisfy $|d_z| < 0.2\unit{cm}$, consistent with the selections defined in Chapter~\ref{Section:Chapter4}. Each selected $\tau_h$ must also be matched to a corresponding trigger object within $\Delta R < 0.5$, with stricter $p_\text{T}$ thresholds applied to the matched candidates to ensure operation in the efficiency plateau.
+The offline object selections closely follow those employed in the four-tau analysis described in Section~\ref{Section:Chapter6_ObjectSelection}, and are summarised in Table~\ref{Table:Chapter7_Tauh_SelectionSummary}. Similarly, to maintain consistency between trigger- and offline-level definitions, selected $\tau_h$ candidates are required to match the corresponding trigger objects within a cone of $\Delta R < 0.5$, with offline $p_\text{T}$ thresholds set 5\GeV higher than the online turn-on values. At the event level, at least two hadronic tau candidates are required, with the leading pair chosen to form the $\tauh\tauh$ system. The pair must carry opposite charge and be separated by $\Delta R > 0.5$. Events containing additional isolated electrons or muons are vetoed ($n_e = 0$, $n_\mu = 0$) to ensure orthogonality with leptonic channels. 
 
-At the event level, exactly two oppositely charged $\tau_h$ candidates are required. Events containing additional isolated electrons or muons are vetoed in order to maintain orthogonality with leptonic channels and to suppress backgrounds with prompt leptons. This final selection yields a high-purity sample of hadronic ditau events suitable for probing the CP structure of the Higgs–tau Yukawa coupling.
 
 {
 \setlength{\arrayrulewidth}{1pt}
@@ -455,29 +454,82 @@ Summary of baseline selection criteria applied to hadronically decaying tau cand
 \hline
 Criteria & Hadronic Tau ($\tau_h$) \\
 \hline
-$p_\text{T}$ (baseline) & $> 20\GeV$ \\
+$p_\text{T}$ (baseline) &  $> 35 \GeV$\\
 \arrayrulecolor{lightgray} \hline
 
-$p_\text{T}^{\text{Trigger}}$ & $> 40\GeV$ (HLT), +5\GeV offline match \\
+$p_\text{T}^{\text{Trigger}}$ & $ > \text{Table~\ref{Table:Chapter7_Triggers_TauhTauh}} + [5\GeV]$ \\
 \arrayrulecolor{lightgray} \hline
 
-$|\eta|$ & $< 2.3$ \\
+$|\eta|$ & $< 2.1$ \\
 \arrayrulecolor{lightgray} \hline
 
 $|d_z|$ & $< 0.2\unit{cm}$ (see Chapter~\ref{Section:Chapter4}) \\
 \arrayrulecolor{lightgray} \hline
 
-Identification & $D_{\text{jet}} \geq$ Loose \\
-\arrayrulecolor{lightgray} \hline
-
-Lepton vetoes & $D_e \geq$ VVLoose, $D_\mu \geq$ VLoose \\
+Identification 
+& \makecell{
+\normalfont\footnotesize$D_{\text{jet}} \geq$ VTight\hyperlink{Alternative-FFcut_CP}{$^1$} \\
+\normalfont\footnotesize$D_{e} \geq$ VVLoose \\
+\normalfont\footnotesize$D_{\mu} \geq$ Tight
+} \\ 
 \arrayrulecolor{black} \hline
 \end{tabular}
+\vspace{0.5em}
+\begin{minipage}{0.95\linewidth}
+\raggedright
+\footnotesize
+\hypertarget{Alternative-FFcut_CP}{}$^{1}$\,The VTight \ac{WP} is referred to as the \texttt{Nominal} tau identification in the fake factor method (see Section~\ref{Section:Chapter7_JetToTauBackground}). An \texttt{Alternative} selection, defined as $D_{\text{jet}} >$ Loose, is used to construct control regions.
+
+\end{minipage}
 \end{table}
 }
 
+Referring back to Section~\ref{Section:Chapter7_PhiCP_Reconstruction}, the sensitivity of this analysis is highly dependent on the accurate classification of the $\tau$ \acp{DM}. In the previous iteration of this analysis, a dedicated \ac{MVA} was developed to improve upon the performance of the \ac{HPS} \ac{DM} classification (see Fig.~\ref{Figure:Chapter4_HPS_ConfusionMatrix}). For Run 3, this has been superseded by the use of \textsc{ParticleNet}~\cite{Qu:2019gqs}, which provides substantially improved classification performance and is therefore adopted throughout this analysis.  
+
+In addition to the baseline object and event-level requirements, further refinements are introduced to enhance the CP sensitivity in specific channels. In \acp{DM} relying on the \ac{IP} method, events with tracks of small \ac{IP} relative to their resolution yield reduced discriminating power. To mitigate this, a requirement is imposed on the impact parameter significance in the transverse plane, IP$_\text{sig}$, thereby selecting events where the \ac{IP}-based reconstruction is most effective. Similarly, in channels reconstructed with the \ac{NP} method, events with large values of 
+$|y_\rho^+ y_\rho^-|$ provide stronger CP sensitivity\footnote{The observable $y_\rho^\pm$ act as spin-analyser functions: values close to $\pm 1$ correspond to kinematic configurations where the $\tau$ spin information is maximally transferred to the visible $\pi^\pm\pi^0$ system}. Hence, the observable $|y_\rho|$ is exploited to preferentially select such events. These refined selections used for each \ac{DM} are summarised in Table~\ref{Table:Chapter7_RefinedSelections_perDM}.  
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt}
+\arrayrulecolor{black}
+
+\begin{tabular}{ccc}
+\hline
+Decay mode & $\text{IP}_\text{sig}$ & $|y_\rho|$ \\
+\hline
+$\pi$ &  $> 1.25$ & -- \\
+\arrayrulecolor{lightgray} \hline
+$\rho$ &  -- & $> 0.2$ \\
+\arrayrulecolor{lightgray} \hline
+$a_1^\text{1pr}$ &  -- & $> 0.2$ \\
+\arrayrulecolor{lightgray} \hline
+$a_1^\text{3pr}$ &  -- & -- \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption[Refined selection criteria per $\tau$ decay mode in the $\tauh\tauh$ channel.]{
+Refined selection criteria per $\tau$ \ac{DM} in the $\tauh\tauh$ channel. The optimisation of these thresholds is described in Section~\ref{Section:Chapter7_OptimisedCuts}.}
+\label{Table:Chapter7_RefinedSelections_perDM}
+\end{table}
 
 \section{Object and event corrections}
+
+This section summarises the object- and event-level corrections applied to simulated samples in the $\tauh\tauh$ analysis. 
+A few of these follow closely the procedures described for the four-tau analysis in Section~\ref{Section:Chapter6_Corrections}. In particular, the following corrections are applied consistently:
+
+\begin{itemize}
+    \item Pileup reweighting (Section~\ref{Section:Chapter6_PU})
+    \item Hadronic tau misidentification rates (Section~\ref{Section:Chapter6_Lepton_MisID_SF})
+\end{itemize}
+
+However, not all corrections from Chapter~6 are directly transferable to this analysis. Certain ingredients must either be re-derived or adapted due to the specific selections employed here, in particular:
+\begin{itemize}
+    \item The use of ParticleNet for \ac{DM} classification instead of the \ac{HPS} algorithm 
+    \item The optimised, \ac{DM}–dependent selections summarised in Table~\ref{Table:Chapter7_RefinedSelections_perDM}.
+\end{itemize}
+
+Corrections that differ from those used in the four-tau analysis will be discussed in more detail in the remainder of this section. 
 
 \subsection{\texorpdfstring{$\PZ \, \, p_\text{T}$-mass reweighting}{Z pT-mass reweighting}}
 
@@ -547,6 +599,68 @@ The performance of the reweighting procedure is illustrated in Figure~\ref{Figur
 
     \label{Figure:Chapter6_ZPT_Reweighting_ee}
 \end{figure}
+
+\subsection{Top-quark \texorpdfstring{p$_\text{T}$}{pT} reweighting}
+
+The kinematic distributions of $\ttbar$ events are mismodelled in simulation. To improve the disagreement between data and simulation, dedicated weights are applied to the top-quark $p_\text{T}$ distribution. These weights are given by,
+
+\begin{equation}
+    w = \sqrt{\text{SF}(p^t_\text{T}) \, \,\cdot \, \, \text{SF}(p^\overline{t}_\text{T})}
+\end{equation}
+
+\begin{equation}
+    \text{SF}(p_\text{T}) = a \, \cdot \,e^{-b\cdot p_\text{T}} - c \, \cdot \,p_\text{T} + d
+\end{equation}
+
+where the coefficients were measured using Run 2 data and found to be a = 0.103, b = 0.0118, c = 0.000134 and d = 0.973~\cite{Czakon:2017wor}.
+
+This weight was originally derived at $\sqrt{s} = 13\TeV$, hence an extrapolation is required to account for the higher collision energy of $13.6\TeV$ used in Run 3. This is achieved by fitting the ratio of generator-level top-quark $p_\text{T}$ spectra between 13 and 13.6$\TeV$, resulting in an additional multiplicative correction factor,
+
+\begin{equation}
+    \text{SF}(p_\text{T}) = 0.991 + 0.000075 \, p_\text{T}
+\end{equation}
+
+\subsection{\texorpdfstring{$\vec{E}^{\text{miss}}_\text{T}$}{ET miss} recoil}
+
+To ensure the accurate modelling of ($\vec{E}_T^\text{miss}$), recoil corrections are applied to some of the simulated samples. A source of this mismodelling comes from the hadronic recoil, defined as
+
+\begin{equation}
+    \vec{U}_\text{T} =  \vec{E}_T^\text{miss} - \sum_\nu p_\text{T}^\nu
+\end{equation}
+
+where the sum runs over all neutrinos ($\nu$) in the event. The hadronic recoil is determined using a sample of $\PZ \to \mu\mu$ events by measuring the $p_\text{T}$ of the Z boson and the total transverse momentum of the recoiling jets, $\vec{H}_\text{T}$. In this case, no neutrinos are present, so the hadronic recoil is identical to the reconstructed $\vec{E}_T^\text{miss}$, and can be expressed as
+
+\begin{equation}
+    \vec{U}_\text{T} = -\vec{H}_T - p_\text{T}^\PZ \equiv \vec{E}_T^\text{miss}
+\end{equation}
+
+The recoil vector is then decomposed into components parallel and perpendicular to the $\PZ$ boson direction in the transverse plane. Distributions of $U_\parallel$ and $U_\perp$ are constructed in bins of $p_T^\PZ$ and jet multiplicity, both in data and simulation. From these histograms, the corresponding \acp{CDF} are derived.
+
+\begin{equation}
+F_\text{Data/MC}(U_{\parallel/\perp}) = \int_{-\infty}^{U_{\parallel/\perp}} f_\text{Data/MC}(x) \,\, dx
+\end{equation}
+
+A simulated recoil value $U$ is then corrected by quantile mapping:
+
+\begin{equation}
+U_{\parallel/\perp}^\prime = F_\text{data}^{-1}\big(F_\text{MC}(U)\big)
+\end{equation}
+
+This procedure maps the simulated recoil distribution onto that observed in data. The corrected parallel and perpendicular components of the recoil are propagated back into the computation of $\vec{E}_T^\text{miss}$, yielding improved agreement between data and simulation in observables sensitive to $\vec{E}_T^\text{miss}$.
+
+\subsection{IP Calibration}
+
+
+
+\subsection{ggH NNLOPS reweighting}
+
+\subsection{Hadronic taus}
+
+\subsubsection{Identification and energy scale}
+
+\subsubsection{Trigger}
+
+
 
 
 \section{Background modelling}

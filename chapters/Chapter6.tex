@@ -528,7 +528,7 @@ $\tau_e\tau_\mu\tau_h\tau_h$ & 1 & 1 & $\geq 2$ & $0$ & 0 \\
 }
 
 \section{Object and event corrections}
-
+\label{Section:Chapter6_Corrections}
 Simulated events are subject to various imperfections, leading to discrepancies with data. These originate from several sources, including the limited precision of \ac{MC} event generators, approximations in detector simulation, and differences in reconstruction performance. In particular, discrepancies may arise between simulated and real objects in their probability of satisfying selection criteria such as ID, isolation, or trigger requirements. Mismatches in detector response can also cause systematic shifts in reconstructed object energies.
 
 To address these effects, a series of corrections, referred to as \acp{SF}, are applied to simulated events to improve agreement with data. These include object-level adjustments, such as energy scale and resolution corrections, as well as event-level weights such as \ac{PU} corrections.
@@ -536,6 +536,7 @@ To address these effects, a series of corrections, referred to as \acp{SF}, are 
 Wherever possible, corrections provided centrally by the \ac{CMS} collaboration are used. However, for analysis-specific selections or nonstandard trigger paths, dedicated corrections are derived to ensure consistency with the data-taking conditions and selection strategy employed. The remainder of this section summarises the key corrections applied to simulated events in this analysis.
 
 \subsection{Pileup reweighting}
+\label{Section:Chapter6_PU}
 
 Accurate modelling of \ac{PU} interactions is essential to reflect the conditions observed during data taking. In simulation, the \ac{PU} profile, defined as the distribution of the mean number of interactions per bunch crossing, is constructed based on the expected instantaneous luminosity for each year. 
 

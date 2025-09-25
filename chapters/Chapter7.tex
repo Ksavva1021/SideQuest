@@ -405,7 +405,7 @@ As can be seen in Table~\ref{Table:Chapter7_ReconstructionMethodSummary}, for de
 \end{figure}
 
 \section{Event selection strategy}
-
+\label{Section:Chapter7_EventSelectionStrategy}
 This analysis targets the process $\PH \to \tau\tau$ in the fully hadronic final state ($\tauh\tauh$), which corresponds to the largest branching fraction of all ditau topologies ($\sim$42\%). The decay-mode combinations considered are those listed in Table~\ref{Table:Chapter7_ReconstructionMethodSummary}. In this section, the trigger requirements, offline object selections, and event-level selections are described.
 
 \subsection{Triggering}
@@ -433,7 +433,7 @@ Double-Tau + jet ($\tau\tau$ + jet) & 30 & 30 & 60 \\
 The double-$\tau_h$ trigger provides the baseline selection, while the additional double-$\tau_h$+jet path extends acceptance to events with lower-$p_\text{T}$ $\tau_h$ candidates and enhances sensitivity in jet-rich topologies such as \ac{VBF}. Although the two triggers could in principle be used in an orthogonal way, restricting the double-$\tau_h$+jet trigger to its specific phase space, the analysis instead employs their logical OR. This choice increases the complexity of determining trigger efficiency, as overlaps must be carefully handled. However, it delivers a considerable gain in overall performance and ensures that no signal events are lost in the transition region between the two triggers. 
 
 \subsection{Offline object and event-level selections}
-
+\label{Section:Chapter7_OfflineSelections}
 The offline object selections closely follow those employed in the four-tau analysis described in Section~\ref{Section:Chapter6_ObjectSelection}, and are summarised in Table~\ref{Table:Chapter7_Tauh_SelectionSummary}. Similarly, to maintain consistency between trigger- and offline-level definitions, selected $\tau_h$ candidates are required to match the corresponding trigger objects within a cone of $\Delta R < 0.5$, with offline $p_\text{T}$ thresholds set 5\GeV higher than the online turn-on values. At the event level, at least two hadronic tau candidates are required, with the leading pair chosen to form the $\tauh\tauh$ system. The pair must carry opposite charge and be separated by $\Delta R > 0.5$. Events containing additional isolated electrons or muons are vetoed ($n_e = 0$, $n_\mu = 0$) to ensure orthogonality with leptonic channels. 
 
 
@@ -443,7 +443,7 @@ The offline object selections closely follow those employed in the four-tau anal
 \begin{table}[!htbp]
 \centering
 \caption[Summary of baseline selection criteria for $\tau_h$ candidates in the $\tau_h\tau_h$ channel.]{
-Summary of baseline selection criteria applied to hadronically decaying tau candidates in the $\tau_h\tau_h$ final state. Trigger-matched $p_T$ thresholds are defined relative to the online values of the double-$\tau_h$ trigger.}
+Summary of baseline selection criteria applied to hadronically decaying tau candidates in the $\tau_h\tau_h$ final state. Trigger-matched $p_\text{T}$ thresholds are defined relative to the online values of the double-$\tau_h$ trigger.}
 \label{Table:Chapter7_TauhSelectionSummary}
 
 \renewcommand{\arraystretch}{1.5}
@@ -601,7 +601,7 @@ The performance of the reweighting procedure is illustrated in Figure~\ref{Figur
 The kinematic distributions of $\ttbar$ events are mismodelled in simulation. To improve the disagreement between data and simulation, dedicated weights are applied to the top-quark $p_\text{T}$ distribution. These weights are given by,
 
 \begin{equation}
-    w = \sqrt{\text{SF}(p_T^{t}) \cdot \text{SF}(p_T^{\bar{t}})}
+    w = \sqrt{\text{SF}(p_\text{T}^{t}) \cdot \text{SF}(p_\text{T}^{\bar{t}})}
 \end{equation}
 
 \begin{equation}
@@ -716,7 +716,7 @@ where the sum runs over all neutrinos ($\nu$) in the event. The hadronic recoil 
     \vec{U}_\text{T} = -\vec{H}_T - p_\text{T}^\PZ \equiv \vec{E}_T^\text{miss}
 \end{equation}
 
-The recoil vector is then decomposed into components parallel and perpendicular to the $\PZ$ boson direction in the transverse plane. Distributions of $U_\parallel$ and $U_\perp$ are constructed in bins of $p_T^\PZ$ and jet multiplicity, both in data and simulation. From these histograms, the corresponding \acp{CDF} are derived.
+The recoil vector is then decomposed into components parallel and perpendicular to the $\PZ$ boson direction in the transverse plane. Distributions of $U_\parallel$ and $U_\perp$ are constructed in bins of $p_\text{T}^\PZ$ and jet multiplicity, both in data and simulation. From these histograms, the corresponding \acp{CDF} are derived.
 
 \begin{equation}
 F_\text{Data/MC}(U_{\parallel/\perp}) = \int_{-\infty}^{U_{\parallel/\perp}} f_\text{Data/MC}(x) \,\, dx
@@ -733,7 +733,7 @@ This procedure maps the simulated recoil distribution onto that observed in data
 
 \subsection{ggH quark-mass effects}
 
-To address the limitations of the large-$m_t$ approximation used in gluon-fusion Higgs production, corrections for finite top-quark mass effects are applied. In this approximation, the top-quark loop is replaced by a pointlike interaction, which provides an accurate description of the inclusive cross section but does not capture the correct $m_t$ dependence at high Higgs transverse momentum. For $p_T^H \gtrsim m_t$, the internal loop structure is resolved and the approximation overestimates the cross section. To recover the correct kinematic behaviour, differential reweighting factors are obtained using \textsc{HRes}~\cite{deFlorian:2012mx,Grazzini:2013mca}, which computes the Higgs $p_T$ spectrum both in the large-$m_t$ limit and with exact top-mass dependence. The ratio of these predictions is applied to simulated events to restore the mass dependence in the high-$p_T$ region.
+To address the limitations of the large-$m_t$ approximation used in gluon-fusion Higgs production, corrections for finite top-quark mass effects are applied. In this approximation, the top-quark loop is replaced by a pointlike interaction, which provides an accurate description of the inclusive cross section but does not capture the correct $m_t$ dependence at high Higgs transverse momentum. For $p_\text{T}^H \gtrsim m_t$, the internal loop structure is resolved and the approximation overestimates the cross section. To recover the correct kinematic behaviour, differential reweighting factors are obtained using \textsc{HRes}~\cite{deFlorian:2012mx,Grazzini:2013mca}, which computes the Higgs $p_\text{T}$ spectrum both in the large-$m_t$ limit and with exact top-mass dependence. The ratio of these predictions is applied to simulated events to restore the mass dependence in the high-$p_\text{T}$ region.
 
 \section{Background modelling}
 \label{Section:Chapter7_Background_Modelling}
@@ -757,10 +757,281 @@ In brief, the method estimates the jet$\to\tauh$ contribution in the \ac{SR} by 
 Once derived, the $F_F$ is corrected using dedicated closure and extrapolation factors to account for residual mismodelling. These arise both from differences between the signal and determination regions, and from the limited set of variables used to parameterise the misidentification rate. The corrected $F_F$ is then applied to events in the \ac{SR} that fail the nominal ID but pass the alternative ID, yielding an estimate of the jet$\to\tauh$ background. As noted in Section~\ref{Section:Chapter6_FakeFactors_Classical}, the $F_F$ is measured only for the leading $\tauh$ candidate. Consequently, events where the leading $\tauh$ is genuine but the subleading candidate is a misidentified jet are not covered. These subdominant contributions are taken from simulation and added back to the estimate.
 
 \section{Uncertainty model}
+\label{Section:Chapter7_UncertaintyModel}
+The treatment of uncertainties in this chapter follows the same principles as in Section~\ref{Section:Chapter6_Uncertainty_Model}, with adjustments to reflect the specifics of this analysis. Some sources are handled identically and are only listed here for completeness:
 
-% \section{Measurement procedure and statistical interpretation}
+\begin{itemize}
+  \item \textbf{Luminosity:} Since the data-taking eras are combined, the highest value across years (1.4\%) is taken. It is implemented as a normalisation-only uncertainty.
+  \item \textbf{Hadronic tau efficiencies}: Identification and energy scale efficiencies share the same treatment as in Section~\ref{Section:Chapter6_UModel_HadronicTau}.
+  \item \textbf{Jet energy scale and resolution:} Share the same treatment as in Section~\ref{Section:Chapter6_UModel_Jets}. However, the energy scale of the unclustered component of $E_{\mathrm{T}}^{\text{miss,PF}}$ has not been included in this analysis.
 
-% \section{Measurement optimisation}
+\end{itemize}
+
+\subsection{Trigger efficiencies}
+Uncertainties for the $\tau\tau$ and $\tau\tau$+jet triggers are implemented as shape variations. For the $\tauh$ legs, a per-DM, per-era uncertainty is assigned separately for each trigger. For the $\tauh{+}$jet path, an additional independent jet-leg shape uncertainty is included, also decorrelated across eras. 
+
+\subsubsection{Top- and Z-boson reweighting}
+For both the $t\bar{t}$ and $\PZ/\gamma^\ast \to \ell^+\ell^-$ backgrounds, uncertainties are assigned to the applied reweighting corrections.  
+Each is implemented as a shape variation by either omitting the correction entirely or applying it twice, corresponding to a conservative 100\% uncertainty in the reweighting procedure.
+
+\subsubsection{IP Calibration}
+A systematic uncertainty is assigned to the correction of the \ac{IP} vector.  
+The corrected value, $\mathrm{IP}^{\text{corr}}_{\text{sig}}$, is shifted up and down by one quarter of the difference between the corrected and uncorrected values, $\mathrm{IP}^{\text{uncorr}}_{\text{sig}}$:  
+\begin{align}
+\mathrm{IP}^{\text{up}}_{i}   &= \mathrm{IP}^{\text{corr}}_{i} + 0.25 \, \left(\mathrm{IP}^{\text{corr}}_{i} - \mathrm{IP}^{\text{uncorr}}_{i}\right), \\
+\mathrm{IP}^{\text{down}}_{i} &= \mathrm{IP}^{\text{corr}}_{i} - 0.25 \, \left(\mathrm{IP}^{\text{corr}}_{i} - \mathrm{IP}^{\text{uncorr}}_{i}\right).
+\end{align}
+
+This uncertainty covers residual mismodelling observed in the distributions of the \ac{IP} components between simulation and data in $Z \to ee/\mu\mu$ events.  This uncertainty is implemented as a shape variation. However, its expected impact on the $\phi_{\text{CP}}$ distribution is small, as illustrated in Fig.~\ref{Figure:CPDist_IPCalibration_Unc}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter7/Acoplanarity/Angular_Systematics/aco_pi_pi.pdf}
+    \caption{Impact of IP vector calibration uncertainty on $\phi_{CP}$ distribution in $\pi\pi$ final states.}
+    \label{Figure:CPDist_IPCalibration_Unc}
+\end{figure}
+
+\subsubsection{Secondary vertex reconstruction}
+A systematic uncertainty is assigned to account for potential mis-reconstruction of the \ac{SV}, which can bias the acoplanarity angle $\phi_{\text{CP}}$.  
+To evaluate this effect, an alternative value of $\phi_{\text{CP}}$ is computed by rotating the \ac{SV} towards or away from the generator-level position.  
+Based on the variations observed from this procedure, a conservative 20\% uncertainty is assigned.  Its impact on the $\phi_{\text{CP}}$ distribution is, however, found to be minimal, as illustrated in Fig.~\ref{Figure:CPDist_SVCalibration_Unc}.  
+This uncertainty is implemented as a shape variation.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Chapter7/Acoplanarity/Angular_Systematics/aco_pi_a1_FASTMTT_MassConstraint.pdf}
+    \caption{Impact of SV calibration uncertainty on $\phi_{CP}$ distribution in $\pi a_1^\text{3pr}$ final states.}
+    \label{Figure:CPDist_SVCalibration_Unc}
+\end{figure}
+
+
+
+\subsection{\texorpdfstring{$\vec{E}^{\text{miss}}_\text{T}$}{ET miss} recoil}
+
+Uncertainties in the recoil corrections are derived from residual differences between data and simulation in $\PZ \to ee$ control samples. After the nominal recoil corrections are applied, two components are considered:  
+
+\begin{itemize}
+  \item \textbf{Response:} Projection of the hadronic recoil along the boson direction, normalised to the boson $p_\text{T}$.  
+  \item \textbf{Resolution:} Projection of the hadronic recoil perpendicular to the boson direction, again normalised to the boson $p_\text{T}$.  
+\end{itemize}
+
+The uncertainties are obtained by comparing the mean of the response distribution and the width of the resolution distribution in data and simulation.  
+The observed differences are taken as systematic variations and propagated to the reconstructed $\vec{E}^{\text{miss}}_\text{T}$. These shape variations are consistently applied to all processes that utilise recoil corrections.
+
+\subsection{Cross-section uncertainties}
+Uncertainties in the production cross sections of major background processes are treated as normalisation-only effects and are summarised in Table~\ref{Table:Chapter7_XS_Uncertainties}.  
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt} % Increase column width
+\begin{tabular}{l c c}
+\hline
+Process & Source & Uncertainty \\
+\hline
+DY & QCD scale + PDF + Scheme & --1.6\% / +1.3\%~\cite{Grazzini:2017mhc} \\
+$t\bar{t}$ & QCD scale + PDF + $\alpha_s$ & --5.1\% / +4.4\%~\cite{Czakon:2011xx,Botje:2011sn} \\
+Diboson, rare & QCD scale + PDF + Scheme & $\pm$5\%~\cite{Grazzini:2017mhc} \\
+\arrayrulecolor{lightgray}\hline
+\multirow{6}{*}{Higgs production} 
+& \multirow{3}{*}{QCD scale} 
+  & $\pm$3.9\% (ggH)~\cite{Karlberg:2024zxx} \\
+&  & --0.7\% / +0.4\% (WH)~\cite{Karlberg:2024zxx} \\
+&  & --3.2\% / +3.8\% (ZH)~\cite{Karlberg:2024zxx} \\
+& \multirow{3}{*}{PDF} 
+  & $\pm$3.2\% (ggH, VBF)~\cite{Karlberg:2024zxx} \\
+&  & $\pm$1.6\% (WH)~\cite{Karlberg:2024zxx} \\
+&  & $\pm$1.3\% (ZH)~\cite{Karlberg:2024zxx} \\
+\arrayrulecolor{lightgray}\hline
+\multirow{3}{*}{Higgs BR ($H\to\tau_h\tau_h$)} 
+& Theoretical & --1.6\% / +1.7\%~\cite{MelladoGarcia:2150771}\\
+& \multirow{2}{*}{Parametric} & $\pm$1.0\% ($m_q$)~\cite{MelladoGarcia:2150771} \\
+&  & $\pm$0.6\% ($\alpha_s$)~\cite{MelladoGarcia:2150771} \\
+\arrayrulecolor{black}\hline
+\end{tabular}
+\caption{Summary of cross-section and branching ratio uncertainties.}
+\label{Table:Chapter7_XS_Uncertainties}
+\end{table}
+
+\subsubsection{Signal theory uncertainties}
+In this analysis, theoretical uncertainties in the signal modelling are limited to QCD scale and \ac{PDF} variations. Both are implemented as shape uncertainties.
+
+\subsection{Jets \texorpdfstring{$\to \PGt_h$}{to hadronic tau} background}
+
+The following uncertainty components are assigned to the jet$\to \PGt_h$ estimate:
+\begin{itemize}
+    \item \textbf{Statistical:} Fitted parameters of the $F_F$ are propagated as shape variations, decorrelated by \ac{DM}.
+    \item \textbf{Alternative validation region:} A dedicated validation region is defined by inverting the ID requirement on the subleading $\tauh$. The associated uncertainties are separated into the following components:
+    \begin{enumerate}
+        \item \textbf{Overall normalisation:} Derived in a distribution binned simultaneously by \ac{BDT} score\footnote{Here the \ac{BDT} score refers to the output of the signal-background classifier introduced in Section~\ref{Section:Chapter7_SignalVsBackground}.} and $\phi_{CP}$. This accounts for residual differences observed between data and prediction in the validation region. 
+        \item \textbf{\ac{BDT} score:} Shape uncertainty assigned since the $F_F$ is not derived as a function of the \ac{BDT} discriminant.  
+        \item \textbf{$\phi_{CP}$:} Shape uncertainty assigned since the $F_F$ is not derived as a function of the acoplanarity angle.  
+    \end{enumerate}
+    \item \textbf{Subtracted real-$\tau$ contamination:} A shape uncertainty is assigned to account for the subtraction of genuine-$\tau$ backgrounds in the control regions. In addition, a 30\% normalisation uncertainty is applied to the simulated contribution in events where the subleading $\tau$ candidate is misidentified and the leading $\tau$ candidate is genuine.
+\end{itemize}
+
+\section{Statistical procudure}
+
+The extraction of the CP effective mixing angle $\alpha_{\PH\tau\tau}$ is performed via a simultaneous binned maximum-likelihood fit to the distribution of the discriminating observable in all categories. The likelihood function, denoted by $\mathcal{L}$, is defined as,
+
+\begin{equation}
+\mathscr{L}(\text{data} \,|\, \mu_{\tau\tau}, \alpha_{\PH\tau\tau}, \theta) 
+= \prod_{i=1}^{N_\text{c}} 
+\text{Poisson}\!\left( 
+n_i \,\middle|\,  S_i(\mu_{\tau\tau}, \alpha_{\PH\tau\tau}, \theta)
++ B_i(\theta) 
+\right) \cdot p(\hat{\theta} \,|\, \theta),
+\label{eq:likelihood_alpha}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $n_i$ is the number of observed events in bin $i$ of the fit, with $i$ running over all bins in all categories.
+    \item $\mu_{\tau\tau}$ is a signal strength parameter, scaling the total Higgs boson production cross section multiplied by the branching fraction $\text{B}_f(H\to\tau\tau)$ relative to the \ac{SM} prediction. This parameter $\mu_{\tau\tau}$ is left unconstrained in the fit, such that the normalisation of the signal is determined from data. 
+    This ensures that the extraction of $\alpha_{\PH\tau\tau}$ relies solely on the shape of the $\phi_{\mathrm{CP}}$ distribution, rather than on the absolute rate.
+    \item $S_i(\mu_{\tau\tau}, \alpha_{\PH\tau\tau}, \theta)$ and $B_i(\theta)$ denote the expected signal and background yields in bin $i$, respectively. 
+    \item $\theta$ is the set of nuisance parameters, corresponding to the systematic uncertainties described in Section~\ref{Section:Chapter7_UncertaintyModel}.
+    \item $p(\hat{\theta} \,|\, \theta)$ encodes the set of \acp{P.D.F} constraining the nuisance parameters to their nominal values (see discussion in Section~\ref{Section:Chapter6_NuisanceParameters}).
+\end{itemize}
+
+The best-fit value of $\alpha_{\PH\tau\tau}$ is obtained by maximising the likelihood. 
+Confidence intervals are constructed using the negative log-likelihood ratio,
+
+\begin{equation}
+-2\Delta\ln\mathscr{L}(\alpha_{\PH\tau\tau}) = -2\ln\frac{\mathscr{L}(\alpha_{\PH\tau\tau})}{\mathscr{L}(\hat{\alpha}_{\tau\tau})}
+\end{equation}
+
+where $\hat{\alpha}_{\tau\tau}$ denotes the best-fit value of the parameter of interest $\alpha_{\PH\tau\tau}$
+The values of $-2\Delta\ln\mathcal{L}$ equal to 1.00, 4.02, and 8.81 correspond to the $68.3\%$, $95.5\%$, and $99.7\%$ CL, respectively.
+
+\section{Measurement optimisation}
+\label{Section:Chapter7_Optimisation}
+The sensitivity of the measurement is maximised through a series of optimisation studies. These studies include the choice of event categorisation, the selection criteria applied to the reconstructed events, and the binning of the final histograms used in the statistical inference. Each optimisation step is described in this section.
+
+\subsection{Event categorisation}
+\label{Section:Chapter7_EventCategorisation}
+The categorisation strategy in this analysis is based on a multivariate classifier trained to distinguish signal from background processes. 
+A \ac{BDT} is employed as a multi-class classifier with three target categories, using a softmax activation to output probabilities: 
+
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{Higgs}: ggH, VBF and VH production mode samples.
+    \item \textbf{Genuine $\tau$ background:} Background processes involving two genuine $\tau$ leptons
+    \item \textbf{Misidentified $\tau$ background (jet$ \to \tauh$:} Background process involving at least jet misidentified as $\tauh$.
+\end{enumerate}
+
+The training is performed inclusively across the early Run 3 data-taking eras, and all simulated samples are scaled by integrated luminosity, cross section, and the number of generated events. Only events satisfying the baseline selections defined in Section~\ref{Section:Chapter7_EventSelectionStrategy} are considered for training and evaluation. This ensures that the classifier is exposed to a clean and well-defined input space, consistent with the signal region used in the statistical inference. Furthermore, to prevent the training from being dominated by the most abundant background processes, the event weights are also normalised such that the three categories contribute equally to the loss function.  
+
+The feature set used for training consists of high-level observables characterising the $\tauh\tauh$ system, jets, and $\vec{E}^{\text{miss}}_\text{T}$. These features are chosen to provide strong discrimination across the three target classes, while avoiding observables that are overly sensitive to CP effects or detector-specific conditions ($\eg \Delta\phi$ between the two leading jets). These features are grouped into the following categories: 
+\begin{itemize}
+    \item \textbf{Individual tau kinematics:} $p_\text{T}^{1}$, $p_\text{T}^{2}$
+    \item \textbf{MET information:} $p_\text{T}^{\text{MET}}$, $\Delta\phi^{1}_{\text{MET}}$, $\Delta\phi^{2}_{\text{MET}}$
+    \item \textbf{Pair quantities:} $\Delta R$, $\Delta\phi$, $m_{\text{vis}}$, $p_\text{T}^{\text{vis}}$, $p_\text{T}^{\PGt\PGt}$, $m_{\text{FastMTT}}$
+    \item \textbf{Transverse mass variables:} $m_{T}^{(1,\text{MET})}$, $m_{T}^{(2,\text{MET})}$, $m_{T}^{(1,2)}$, $m_T^{\text{TOT}}$
+    \item \textbf{Individual jet kinematics:} $p_\text{T}^{\text{jet1}}$, $p_\text{T}^{\text{jet2}}$, $n_{\text{jet1}}$, $n_{\text{jet2}}$
+    \item \textbf{Dijet quantities:} $m_{jj}$, $p_\text{T}^{jj}$, $\Delta\eta_{jj}$
+    \item \textbf{Global jet information:} $N_{\text{jets}}$
+\end{itemize}
+
+To maximise the use of available statistics while ensuring independence between training and evaluation, events are split by event number into two subsets: EVEN and ODD. 
+Two independent \acp{BDT} are then trained: one on EVEN and validated on ODD, and vice versa. 
+This approach reduces the risk of overfitting and ensures statistical independence between training and testing samples. The BDT hyperparameters are tuned using the Bayesian optimisation framework \textsc{Optuna}~\cite{akiba2019optunanextgenerationhyperparameteroptimization}. The optimisation objective is designed to favour models with both high sensitivity and consistent performance between the EVEN and ODD trainings, by maximising
+
+\begin{equation}
+    (\mathrm{AMS}_{\text{even}} + \mathrm{AMS}_{\text{odd}}) - |\mathrm{AMS}_{\text{even}} - \mathrm{AMS}_{\text{odd}}|
+\end{equation}
+
+where the \ac{AMS} is computed in five bins flat in weighted signal yield. To ensure stability and consistency, the final models are required to use identical hyperparameters and to satisfy the condition
+\begin{equation}
+\frac{|\mathrm{AMS}_{\text{even}} - \mathrm{AMS}_{\text{odd}}|}{\mathrm{AMS}_{\text{even}} + \mathrm{AMS}_{\text{odd}}} < 0.04
+\end{equation}
+
+which enforces agreement between the EVEN and ODD trainings. For completeness, the set of hyperparameters scanned includes: 
+\begin{enumerate}[label=(\roman*)]
+    \item Number of estimators (trees)  
+    \item Learning rate  
+    \item Maximum tree depth  
+    \item L2 regularisation strength  
+    \item Subsampling (global and per tree)  
+    \item Minimum child weight  
+\end{enumerate}
+
+\subsection{Selection criteria}
+\label{Section:Chapter7_OptimisingSelectionCriteria}
+
+The second optimisation step concerns the choice of analysis cuts. The goal is to identify the set of kinematic and identification requirements that maximise the expected sensitivity to $\alpha_{\PH\tau\tau}$ while retaining sufficient statistics. 
+The key ingredients explored in this study are:
+
+\begin{itemize}
+    \item The \ac{WP} of the DeepTau identification against jets, 
+    \item A requirement on $IP_\text{sig}$, as defined in Section~\ref{Section:Chapter7_OfflineSelections}
+    \item A cut on $|y_\rho|$, similarly defined in Section~\ref{Section:Chapter7_OfflineSelections}
+\end{itemize}
+
+The optimisation is performed using Asimov datasets, following the same procedure as in the four-tau analysis described in Section~\ref{Section:Chapter6_Search_Optimisation}. For each choice of cuts, the event categorisation \ac{BDT} is retrained to ensure that the categorisation remains consistent and that the impact of the cuts is evaluated rigorously. The figure of merit is the expected exclusion significance of the pure CP-odd scenario. The first set of optimisation studies investigates the IP length significance requirement, evaluated in combination with three DeepTau $D_\text{jet}$ working points (Medium, Tight, and VTight). The results are summarised in Table~\ref{Chapter7_IPsignificance_Optimisation}.
+ 
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\setlength{\tabcolsep}{10pt} % Increase column width
+\arrayrulecolor{black} % Ensure outer border is black
+\begin{tabular}{c c c c}
+\hline
+IP$_\text{sig}$ & Medium & Tight & VTight \\
+\hline
+$>0.0$           & 1.65 & 1.87 & 1.96 \\
+\arrayrulecolor{lightgray} \hline
+$>0.5$           & 1.68 & 1.90 & 2.00 \\
+\arrayrulecolor{lightgray} \hline
+$>1.0$           & 1.73 & 1.95 & 2.03 \\
+\arrayrulecolor{lightgray} \hline
+$>1.25$          & 1.77 & 1.98 & 2.03 \\
+\arrayrulecolor{lightgray} \hline
+$>1.5$ & 1.80 & 1.99 & 2.04 \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption{Expected exclusion significance of the CP-odd scenario for different IP length significance thresholds and DeepTau $D_{\text{jet}}$ working points.}
+\label{Table:Chapter7_IPsignificance_Optimisation}
+\end{table}
+
+A complementary scan is performed on the $|y_\rho|$ while the IP$_\text{sig}$ is set to 1.5. The results are reported in Table~\ref{Table:Chapter7_yrho_Optimisation}. The sensitivity increases with tighter $|y_\rho|$ thresholds up to $>0.2$, beyond which the performance deteriorates, likely due to reduced event yields in the high-purity region.  
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height
+\setlength{\tabcolsep}{10pt} % Increase column width
+\arrayrulecolor{black} % Ensure outer border is black
+\begin{tabular}{c c c c}
+\hline
+$|y_\rho|$ & Medium & Tight & VTight \\
+\hline
+$>0.0$ & 1.80 & 1.99 & 2.04 \\
+\arrayrulecolor{lightgray} \hline
+$>0.1$           & 1.91 & 2.10 & 2.15 \\
+\arrayrulecolor{lightgray} \hline
+
+$>0.2$           & 1.93 & 2.13 & 2.17 \\
+\arrayrulecolor{lightgray} \hline
+
+$>0.3$           & 1.87 & 2.04 & 2.08 \\
+\arrayrulecolor{lightgray} \hline
+
+$>0.4$           & 1.72 & 1.86 & 1.93 \\
+\arrayrulecolor{black} \hline
+\end{tabular}
+\caption{Expected exclusion significance of the CP-odd scenario for different $|y_\rho|$ thresholds, with IP length significance fixed at $>1.5$.}
+\label{Table:Chapter7_yrho_Optimisation}
+\end{table}
+
+Combining the results of the two scans, the final selection is defined by an IP$\text{sig}$ requirement of $>1.25$ together with a $|y_\rho|$ threshold of $>0.2$. The VTight $D_{\text{jet}}$ \ac{WP} is chosen as it consistently provides the highest sensitivity across all scenarios. A sensitivity scan is shown in Fig.~\ref{Figure:Chapter7_WP_Optimisation}, where the IP$\text{sig}$ and $|y_\rho|$ cuts are fixed to their optimal values. The figure displays three curves corresponding to the Medium, Tight, and VTight $D_{\text{jet}}$ working points. 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/Chapter7/alpha/alpha_WP.pdf}
+    \caption[Expected sensitivity scan for different $D_{\text{jet}}$ working points.]
+    {Expected exclusion sensitivity of the pure CP-odd scenario for three $D_{\text{jet}}$ working points (Medium, Tight, and VTight). The sensitivities shown here differ slightly from those in Tables~\ref{Table:Chapter7_IPsignificance_Optimisation}-~\ref{Table:Chapter7_yrho_Optimisation}, as the figure includes the impact of nuisance parameters, which are not considered in the table results. The overall conclusions, however, remain unchanged.}
+    \label{Figure:Chapter7_WP_Optimisation}
+\end{figure}
+
 
 % \section{Results}
 

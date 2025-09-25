@@ -910,7 +910,7 @@ This approach provides a consistent and statistically robust means of estimating
 \section{Uncertainty model}
 \label{Section:Chapter6_Uncertainty_Model}
 
-This section will discuss the statistical and systematic uncertainties that are taken into account in this analysis. A short overview of the systematic uncertainties is provided first, followed by a discussion of the statistical component. Systematic uncertainties are grouped into two main categories:
+This section will discuss the statistical and systematic uncertainties that are taken into account in this analysis. The uncertainties related to the limited number of simulated events are taken into account with the Barlow-Beeston-lite approach~\cite{BARLOW1993219,Conway:2011in}, while the systematic uncertainties are grouped into two main categories:
 
 \begin{enumerate}[label=(\roman*)]
 
@@ -1055,6 +1055,7 @@ where:
 \end{itemize}
 
 \subsection{Treatment of nuisance parameters}
+\label{Section:Chapter6_NuisanceParameters}
 
 The term $p(\hat{\theta} \mid \theta)$ in the likelihood encodes the set of \acp{P.D.F} constraining the nuisance parameters $\theta$ to their nominal values $\hat{\theta}$. Each constraint term expresses the probability that the true value of a nuisance parameter is equal to its best estimate, with the likelihood penalising deviations. Two classes of nuisance parameters are considered, depending on whether they affect only the normalisation of a process or also modify the shape of a distribution.
 

@@ -14,7 +14,7 @@ A fundamental principle in theoretical physics is \textit{naturalness}, which su
 
 The \ac{SM} is widely regarded as an \ac{EFT}, valid up to a certain energy scale, and it is expected to require an extension at higher energies. The hierarchy problem arises from the absence of a natural mechanism to prevent large quantum corrections from driving the Higgs boson mass to much higher scales, typically near the Planck mass. This extreme disparity between the electroweak scale ($10^2 \GeV$) and the Planck scale remains one of the most significant unresolved questions in high-energy physics.
 
-In \ac{QFT}, the Higgs boson mass is not simply a fixed parameter. It receives corrections to its physical mass from virtual processes involving particles that couple directly or indirectly to the Higgs field. Mathematically, the physical mass of the Higgs boson can be expressed as
+In \ac{QFT}, the Higgs boson mass is not simply a fixed parameter. It receives corrections to its physical mass from virtual processes involving particles that couple directly or indirectly to the Higgs field. Mathematically, the physical mass of the Higgs boson can be expressed as,
 
 \vspace{-0.5pt}
 \begin{equation_pad}
@@ -31,21 +31,21 @@ where $m_H^0$ represents the bare mass of the Higgs boson, and $\Delta m_H$ term
 
 where $\Lambda$ should be interpreted as the least energy scale at which new physics is expected to modify the high-energy behaviour of the theory~\cite{SUSY}. The Feynman diagram for the mass correction due to a fermion coupling to the Higgs field is shown in Fig.~\ref{Figure:Chapter2_Hierarchy_Feynman1}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \input{FeynmanDiagrams/HiggsCorrection_FermionLoop}
 \caption[One-loop correction to Higgs mass from fermion coupling]{One-loop Feynman diagram illustrating the correction to the Higgs boson mass due to its coupling to a fermion.}
 \label{Figure:Chapter2_Hierarchy_Feynman1}
 \end{figure}
 
-At the core of the hierarchy problem lies this $\Lambda$ term. If $\Lambda$ is taken to be close to the Plank scale, these quantum loop corrections become many orders of magnitude larger than the observed mass of the Higgs boson, $125.04 \pm 0.12~\GeV$ (in natural units)~\cite{Higgs_Mass_Z4L}. To reconcile this, an extreme degree of fine-tuning in Eq.~\ref{Equation:Chapter2_HiggsBosonMass} is required. Specifically, the bare mass term has to be sufficiently large ($\mathcal{O}(10^{38})$) to cancel out the quantum loop correction term. This degree of unnatural finetuning remains an open question in the field, as the Higgs mass would otherwise be expected close to the scale of new physics. This could suggest that new physics may exist near $\Lambda$, that can stabilise the Higgs mass and resolve the hierarchy problem. 
+At the core of the hierarchy problem lies this $\Lambda$ term. If $\Lambda$ is taken to be close to the Planck scale, these quantum loop corrections become many orders of magnitude larger than the observed mass of the Higgs boson, $125.04 \pm 0.12\GeV$~\cite{Higgs_Mass_Z4L}. To reconcile this, an extreme degree of fine-tuning in Eq.~\ref{Equation:Chapter2_HiggsBosonMass} is required. Specifically, the bare mass term has to be sufficiently large ($\mathcal{O}(10^{38})$) to cancel out the quantum loop correction term. This degree of unnatural fine-tuning remains an open question in the field, as the Higgs mass would otherwise be expected close to the scale of new physics. This could suggest that new physics may exist near $\Lambda$, that can stabilise the Higgs mass and resolve the hierarchy problem. 
 
 Perhaps the most studied and appealing solution to the hierarchy problem is \ac{SUSY}~\cite{SUSY}, which introduces a symmetry relating fermions and bosons. In \ac{SUSY}, every known \ac{SM} particle has at least one supersymmetric partner. Bosons have fermionic superpartners, while fermions have scalar boson superpartners. This symmetry provides a natural way of addressing this extreme fine-tuning, as superpartners also contribute to $\Delta m_H^2$ but, with opposite signs relative to their \ac{SM} counterparts. This allows the Higgs mass to stabilise naturally through the cancellation of the quantum loop corrections. The Feynman diagram for the mass correction due to a fermionic superpartner (scalar boson) is shown in Fig.~\ref{Figure:Chapter2_Hierarchy_Feynman2}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \input{FeynmanDiagrams/HiggsCorrection_SFermionLoop}
-\caption{One-loop correction to the Higgs mass due to a scalar S}
+\caption{One-loop correction to the Higgs mass from a scalar superpartner.}
 \label{Figure:Chapter2_Hierarchy_Feynman2}
 \end{figure}
 
@@ -53,7 +53,7 @@ While \ac{SUSY} provides a natural solution to the hierarchy problem, the lack o
 
 \section{Extended Higgs sector - 2HDM}
 \label{Section:Chapter2_2HDM}
-The simplest extension to the \ac{SM} Higgs sector is the \textbf{\ac{2HDM}}~\cite{2HDM_1}. In contrast to the \ac{SM}, the \ac{2HDM} introduces two complex scalar $\mathcal{SU}(2)_L$ doublets, $\Phi_1$ and $\Phi_2$.
+The simplest extension to the \ac{SM} Higgs sector is the \textbf{\ac{2HDM}}~\cite{2HDM_1}. In contrast to the \ac{SM}, the \ac{2HDM} introduces two complex scalar $\mathcal{SU}(2)_L$ doublets, $\Phi_1$ and $\Phi_2$,
 
 \begin{equation_pad}
 \Phi_i =
@@ -83,7 +83,7 @@ A major constraint imposed in 2HDMs is the suppression of tree-level \ac{FCNC}~\
     \Phi_1 \to \Phi_1, \Phi_2 \to - \Phi_2, \Phi_1 \not\to \Phi_2 
 \end{equation_pad}
 
-This ensures that each fermion type couples to only one of the Higgs doublets. Following the introduction of the discrete symmetry, the quartic interaction terms $\lambda_6$ and $\lambda_7$ are eliminated from the potential. In addition to suppressing flavour-changing neutral currents (FCNCs), charge-parity (CP) symmetry plays a crucial role in ensuring the theoretical consistency of 2HDMs. \textit{CP symmetry} is a fundamental symmetry in \ac{QFT} that combines charge conjugation (C) and parity (P). \textit{Under a charge conjugation transformation, particles are transformed into their corresponding antiparticles, whilst parity transformations invert the spatial coordinates}. In 2HDMs, CP conservation is often imposed to prevent spontaneous CP violation by requiring all free parameters in the Higgs potential to be real.
+This ensures that each fermion type couples to only one of the Higgs doublets. Following the introduction of the discrete symmetry, the quartic interaction terms $\lambda_6$ and $\lambda_7$ are eliminated from the potential. In addition to suppressing \ac{FCNC}, charge-parity (CP) symmetry plays a crucial role in ensuring the theoretical consistency of 2HDMs. \textit{CP symmetry} is a fundamental symmetry in \ac{QFT} that combines charge conjugation (C) and parity (P). \textit{Under a charge conjugation transformation, particles are transformed into their corresponding antiparticles, whilst parity transformations invert the spatial coordinates}. In 2HDMs, CP conservation is often imposed to prevent spontaneous CP violation by requiring all free parameters in the Higgs potential to be real.
 
 Additionally, electroweak symmetry breaking occurs in a manner similar to the \ac{SM}. To preserve the $\mathcal{U}(1)_{\text{EM}}$ gauge symmetry, only the neutral components of the Higgs doublets acquire non-zero VEVs, ensuring that the photon remains massless. The vacuum structure is given by,
 
@@ -96,7 +96,7 @@ Additionally, electroweak symmetry breaking occurs in a manner similar to the \a
 
 where $\nu_1$ and $\nu_2$ are the VEVs associated with each Higgs doublet.
 
-After \ac{SSB}, the Higgs doublets can be expanded around the minimum
+After \ac{SSB}, the Higgs doublets can be expanded around the minimum,
 
 \begin{equation_pad}
     \text{SSB} \rightarrow\Phi_i = \begin{pmatrix}
@@ -107,7 +107,7 @@ After \ac{SSB}, the Higgs doublets can be expanded around the minimum
 
 where the doublets have been expressed in terms of CP-even ($h_i$), CP-odd ($z_i$) and charged Higgs fields ($\phi_i^+$).
 
-Analogous to the \ac{SM} Higgs sector, the introduction of a second Higgs doublet introduces an additional four \ac{dof}. Upon \ac{SSB}, three out of the eight \ac{dof} are absorbed as Goldstone bosons providing the $\PW^{\pm}$ and $\PZ$ bosons with longitudinal \ac{dof} while the remaining five \ac{dof} correspond to five physical Higgs bosons; two CP-even ($\Ph$ and $\PH$), one CP-odd (A) and two charged Higgs bosons ($\PH^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets,
+Analogous to the \ac{SM} Higgs sector, the introduction of a second Higgs doublet introduces an additional four \ac{dof}. Upon \ac{SSB}, three out of the eight \ac{dof} are absorbed as Goldstone bosons providing the $\PW^{\pm}$ and $\PZ$ bosons with longitudinal \ac{dof} while the remaining five \ac{dof} correspond to five physical Higgs bosons; two CP-even ($\Ph$ and $\PH$), one CP-odd/pseudoscalar (A) and two charged Higgs bosons ($\PH^{\pm}$). The mass eigenstates corresponding to these physical Higgs bosons are admixtures of the components of the two Higgs doublets,
 
 \begin{equation_pad}
 \begin{array}{c}
@@ -139,14 +139,14 @@ $u$ & $\Phi_2$ & $\Phi_2$ & $\Phi_2$ & $\Phi_2$ \\
 \arrayrulecolor{lightgray} \hline
 $d$ & $\Phi_2$ & $\Phi_1$ & $\Phi_2$ & $\Phi_1$ \\ 
 \arrayrulecolor{lightgray} \hline
-$l$ & $\Phi_2$ & $\Phi_2$ & $\Phi_1$ & $\Phi_2$ \\ 
+$l$ & $\Phi_2$ & $\Phi_1$ & $\Phi_1$ & $\Phi_2$ \\ 
 \arrayrulecolor{black} \hline
 \end{tabular}
 \caption{Table showing how each Higgs doublet couples to each fermion flavour in different Two-Higgs Doublet Model types.}
 \label{Table:Chapter2_2HDM-Types}
 \end{table}
 
-In each \ac{2HDM} type, the structure of the Yukawa interactions depends on the specific assignment of the fermion couplings to the Higgs doublets. After \ac{SSB}, the Yukawa part of the \ac{2HDM} Lagrangian can be expressed in terms of the physical Higgs mass eigenstates, up-like ($u$) and down-like($d$) quark, charged lepton ($l$) and neutrino ($\upsilon$) fields as
+In each \ac{2HDM} type, the structure of the Yukawa interactions depends on the specific assignment of the fermion couplings to the Higgs doublets. After \ac{SSB}, the Yukawa part of the \ac{2HDM} Lagrangian can be expressed in terms of the physical Higgs mass eigenstates, up-like ($u$) and down-like ($d$) quark, charged lepton ($l$) and neutrino ($\upsilon$) fields as,
 
 \begin{equation_pad}
 \begin{aligned}
@@ -185,13 +185,13 @@ $g_d^h$ & $\cos{\alpha}/\sin{\beta}$ & $-\sin{\alpha}/\cos{\beta}$ & $\cos{\alph
 \label{Table:Chapter2_2HDM-Couplings}
 \end{table}
 
-In 2HDMs, the observed Higgs boson can be matched to the predicted CP-even bosons by a linear combination of the two mass eigenstates 
+In 2HDMs, the observed Higgs boson can be matched to the predicted CP-even bosons by a linear combination of the two mass eigenstates,
 
 \begin{equation_pad}
     h_{\text{obs}} = \sin{(\beta - \alpha)} h + \cos{(\beta - \alpha)} H 
 \end{equation_pad}
 
-In the Higgs alignment limit, one of these CP-even neutral Higgs bosons is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the \textit{normal scenario}, the observed Higgs is identified as the lighter h, in contrast to H being identified as the observed Higgs in the \textit{inverted scenario}. The couplings of the unmatched CP-even boson are summarised in Table~\ref{Table:Chapter2_2HDM-CouplingsAlignmentLimit} for each of the four different types of 2HDMs.
+In the Higgs alignment limit, one of these CP-even neutral Higgs bosons is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the \textit{normal scenario}, the observed Higgs is identified as the lighter h, in contrast to H being identified as the observed Higgs in the \textit{inverted scenario}, 
 
 \begin{equation_pad}
 \begin{rcases}
@@ -210,6 +210,8 @@ In the Higgs alignment limit, one of these CP-even neutral Higgs bosons is the o
 \quad \text{Inverted}
 \label{Equation:Chapter2-InvertedScenario}
 \end{equation_pad}
+
+The couplings of the unmatched CP-even boson are summarised in Table~\ref{Table:Chapter2_2HDM-CouplingsAlignmentLimit} for each of the four different types of 2HDMs.
 
 \begin{table}[h]
 \centering
@@ -242,7 +244,7 @@ In 2023, Fermilab announced the most precise measurement of the anomalous magnet
 
 A possible explanation for the discrepancy between the experimental measurements and the theoretical prediction of the $g-2$ anomaly can be accommodated by some \ac{2HDM}. In these models, the additional Higgs bosons can introduce loop corrections to the calculation of $\alpha_\mu$, through one-loop and two-loop Barr-Zee interactions~\cite{Barr_Zee_1,Barr_Zee_2} presented in Fig.~\ref{Figure:Chapter2_OneBarrZee} and Fig.~\ref{Figure:Chapter2_TwoBarrZee} respectively. 
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     % First row
     \begin{subfigure}{0.45\textwidth}
@@ -259,7 +261,7 @@ A possible explanation for the discrepancy between the experimental measurements
     \label{Figure:Chapter2_OneBarrZee}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     % First row
     \begin{subfigure}{0.45\textwidth}
@@ -287,9 +289,9 @@ A possible explanation for the discrepancy between the experimental measurements
 
 The one-loop contributions are mediated by $\phi$, A and H$^{\pm}$, with the contribution of $\phi$ to $\Delta\alpha_\mu$ being positive while those of A and H$^{\pm}$ are negative. The dominant contribution comes from two-loop Barr-Zee type diagrams with heavy fermions in the loop providing a positive shift to $\Delta\alpha_\mu$. The CP-odd Higgs boson contributes positively primarily through the top quark loop. However, the contribution from the additional CP-even boson can have either a positive or a negative impact, depending on $\tan{\beta}$. 
 
-For the $g-2$ anomaly to be explained by 2HDMs, enhanced couplings between muons and the additional Higgs bosons are required. The Type-II and Type-X 2HDMs can facilitate these enhanced couplings at large values of $\tan{\beta}$. The Type-II \ac{2HDM} also features enhanced couplings to down-type quarks. This leads to gluon fusion and associated production with bottom quarks, being the dominant single Higgs boson production modes. However, finding regions of the parameter space within this model that can explain the $g-2$ anomaly is challenging because of the production mechanisms being heavily constrained by experimental searches at \ac{LEP}, Tevatron and \ac{LHC}~\cite{TypeX_2HDM}.
+For the $g-2$ anomaly to be explained by 2HDMs, enhanced couplings between muons and the additional Higgs bosons are required. The Type-II and Type-X 2HDMs can facilitate these enhanced couplings at large values of $\tan{\beta}$. The Type-II \ac{2HDM} also features enhanced couplings to down-type quarks. This leads to gluon fusion and associated production with bottom quarks being the dominant single Higgs boson production modes. However, finding regions of the parameter space within this model that can explain the $g-2$ anomaly is challenging because of the production mechanisms being heavily constrained by experimental searches at \ac{LEP}, Tevatron and \ac{LHC}~\cite{TypeX_2HDM}.
 
-The \textbf{Type-X \ac{2HDM}} is particularly interesting because of its \textit{hadrophobic nature}, featuring suppressed up-type and down-type quark couplings with increased $\tan{\beta}$. This suppression allows it to evade the experimentally constrained quark-initiated production modes, leaving much of its parameter space relatively untouched. As a result, the Type-X \ac{2HDM} remains a more viable candidate for explaining the $g-2$ anomaly~\cite{TypeX_2HDM}. 
+The Type-X \ac{2HDM} is particularly interesting because of its \textit{hadrophobic nature}, featuring suppressed up-type and down-type quark couplings with increased $\tan{\beta}$. This suppression allows it to evade the experimentally constrained quark-initiated production modes, leaving much of its parameter space relatively untouched. As a result, the Type-X \ac{2HDM} remains a more viable candidate for explaining the $g-2$ anomaly~\cite{TypeX_2HDM}. 
 
 In addition to collider constraints, the available parameter space is further shaped by theoretical considerations, including vacuum stability and perturbative unitarity, as well as electroweak precision measurements~\cite{TypeX_2HDM}. The regions where the $g-2$ anomaly can be accommodated within the Type-X \ac{2HDM} in both alignment scenarios are summarised in Table~\ref{Table:Chapter2_TypeX-ParameterSpace}.
 
@@ -308,9 +310,9 @@ Inverted           & $\geq$ 120    & 100 - 120                 & 70 - 105       
 \label{Table:Chapter2_TypeX-ParameterSpace}
 \end{table}
 
-To effectively probe this region of parameter space, \textit{a non-suppressed production mode is required}. The simultaneous production of two \ac{BSM} Higgs bosons ($\phi$ and A) from an off-shelf Z boson is such a mode. With a predicted cross-section varying between $10-300\unit{fb}$ (see Fig.~\ref{Figure:Chapter2_4tau_ProductionXS}) across the mass ranges outlined in Table~\ref{Table:Chapter2_TypeX-ParameterSpace}, this process is very appealing. 
+To effectively probe this region of parameter space, \textit{a non-suppressed production mode is required}. The simultaneous production of two \ac{BSM} Higgs bosons ($\phi$ and A) from an off-shell Z boson is such a mode. With a predicted cross-section varying between $10-300\unit{fb}$ (see Fig.~\ref{Figure:Chapter2_4tau_ProductionXS}) across the mass ranges outlined in Table~\ref{Table:Chapter2_TypeX-ParameterSpace}, this process is very appealing. 
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
     \includegraphics[width= 0.9\textwidth]{Figures/Chapter2/4tau_Production_XS.pdf}
     \caption[Projections of the total cross-section of the $pp \to Z^* \to \phi A \to 4\tau$ process]{Projections of the total cross-section of the $pp \to Z^* \to \phi A \to 4\tau$ process as a function of $m_\phi$ and $m_A$, presented for both alignment scenarios: \textbf{(Left)}: NS = Normal scenario \& \textbf{(Right)}: IS = Inverted scenario \cite{TypeX_2HDM}.}
@@ -319,7 +321,7 @@ To effectively probe this region of parameter space, \textit{a non-suppressed pr
 
 At high $\tan\beta$ in the Type-X 2HDM, the branching fractions of \ac{BSM} Higgs bosons to $\tau$ leptons dominate. Hence, this process has a four-$\tau$ lepton final state, as shown in Fig.~\ref{Figure:Chapter2_Feynman4tau}. 
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \input{FeynmanDiagrams/4tau}
 \caption[Feynman diagram for the production of two Beyond-the-Standard Model neutral Higgs bosons from an off-shell Z boson followed by their decay to four $\tau$ leptons.]{Feynman diagram for the production of two \ac{BSM} neutral Higgs bosons from an off-shell Z boson followed by their decay to four $\tau$ leptons.}
@@ -346,7 +348,7 @@ The \ac{SM} Higgs sector is constrained to be CP-conserving by only allowing one
 
 Experimentally, the CP structure of the Higgs boson can be studied by measuring the CP nature of the coupling of the Higgs boson to vector bosons and fermions. Initially, the ATLAS and \ac{CMS} experiments tested several spin-parity hypotheses, excluding the pure states $0^-,1^+,1^-,2^+,2^-$ at more than 99\% confidence level via the $H\to \gamma\gamma, H\to ZZ, H\to WW$~\cite{CP_constraints_1,CP_constraints_2,CP_constraints_3} decay mechanisms. A direct comparison between pure CP-even ($0^+$) and pure CP-odd ($0^-$) hypotheses is illustrated in Fig.~\ref{Figure:Chapter2_CPevenVsCPodd}. 
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width= 0.67\textwidth]{Figures/Chapter2/SpinParity.png}
 \caption[Log-likelihood ratio test statistic for scalar vs pseudoscalar hypotheses]{Distribution of the log-likelihood ratio test statistic (taken from~\cite{CP_constraints_2}) $-2\ln(\mathcal{L}_{0-}/\mathcal{L}_{0+})$ for pseudoexperiments generated under the scalar ($0^+$, yellow histogram) and pseudoscalar ($0^-$, blue histogram) hypotheses. Data were collected by the \ac{CMS} experiment at $\sqrt{s} = 7$ TeV with an integrated luminosity of $5.1$ fb$^{-1}$. The black arrow indicates the observed value in data, which strongly favours the scalar hypothesis with a $p$-value of $0.072\%$ for the pseudoscalar hypothesis, corresponding to a $\text{CL}_s$ value of $2.4\%$.}\label{Figure:Chapter2_CPevenVsCPodd}
@@ -354,8 +356,8 @@ Experimentally, the CP structure of the Higgs boson can be studied by measuring 
 
 The next set of constraints came from searches for CP-odd 
 HVV couplings in different Higgs production modes. The first such search was conducted in VBF production, focusing on the 
-$H\to\tau\tau$ decay channel~\cite{CP_constraints_4}. Additionally, CP-odd effects were explored in associated VH production, where the Higgs boson decays into a pair of bottom quarks ($H\to bb$)~\cite{CP_constraints_5}. Since the first set of studies into the CP structure of the Higgs, constraints on the CP-invariance were tightened for the HVV couplings and extended to Higgs Yukawa couplings to fermions \cite{CP_constraints_6,CP_constraints_7,CP_constraints_8,CP_constraints_9,CP_constraints_10,CP_constraints_11,CP_constraints_12,CP_constraints_13,HiggsCP_CMS_2021,CP_constraints_15,CP_constraints_16,CP_constraints_17,CP_constraints_18,CP_constraints_19,CP_constraints_20,CP_constraints_21,CP_constraints_22}. HVV couplings are highly constrained by electroweak gauge symmetry hence, any CP-violating terms in such interactions must respect gauge invariance. Conversely, the Yukawa Lagrangian can be naturally modified to include a CP-odd component, allowing for CP violation.
-\newpage
+$H\to\tau\tau$ decay channel~\cite{CP_constraints_4}. Additionally, CP-odd effects were explored in associated VH production, where the Higgs boson decays into a pair of bottom quarks ($H\to bb$)~\cite{CP_constraints_5}. Since the first set of studies into the CP structure of the Higgs, constraints on the CP-invariance were tightened for the HVV couplings and extended to Higgs Yukawa couplings to fermions \cite{CP_constraints_6,CP_constraints_7,CP_constraints_8,CP_constraints_9,CP_constraints_10,CP_constraints_11,CP_constraints_12,CP_constraints_13,HiggsCP_CMS_2021,CP_constraints_15,CP_constraints_16,CP_constraints_17,CP_constraints_18,CP_constraints_19,CP_constraints_20,CP_constraints_21,CP_constraints_22}. HVV couplings are highly constrained by electroweak gauge symmetry, hence any CP-violating terms in such interactions must respect gauge invariance. Conversely, the Yukawa Lagrangian can be naturally modified to include a CP-odd component, allowing for CP violation.
+
 \subsection{CP structure of the Yukawa interactions}
 \label{Section:Chapter2_CP_Yukawa_Structure}
 Building on the previous discussion, this section focuses on the fermionic sector, where the CP structure of the Higgs–fermion interaction admits a straightforward extension. The \ac{SM} Lagrangian describing the interaction of the Higgs boson with fermions (Eq.~\ref{Equation:Introduction_YukawaLagrangian}) can be generalised to include a CP-odd component,
@@ -379,7 +381,7 @@ where $y_f$ ($\tilde{y_f}$) is the CP-even (CP-odd) Yukawa coupling constant, as
 \label{Equation:Chapter2_YukawaLagrangian_CP_2}
 \end{equation_pad}
 
-In the \ac{SM}, $\kappa_f = 1$ and $\tilde{\kappa_f} = 0$, indicating a purely CP-even Higgs-fermion interaction. Conversely, a pure CP-odd coupling would be represented by $\kappa_f = 0$ and $\tilde{\kappa_f} = 1$. The interaction Lagrangian (Eq.~\ref{Equation:Chapter2_YukawaLagrangian_CP_2}) exhibits a linear dependency on the fermionic mass, indicating the best processes to investigate the CP structure of the interaction involving the heaviest fermions. The most interesting decays (ranked by $B_f$) involve,
+In the \ac{SM}, $\kappa_f = 1$ and $\tilde{\kappa_f} = 0$, indicating a purely CP-even Higgs-fermion interaction. Conversely, a pure CP-odd coupling would be represented by $\kappa_f = 0$ and $\tilde{\kappa_f} = 1$. The interaction Lagrangian (Eq.~\ref{Equation:Chapter2_YukawaLagrangian_CP_2}) exhibits a linear dependency on the fermionic mass, indicating the best processes to investigate the CP structure of the interaction involve the heaviest fermions. The most interesting decays (ranked by $B_f$) involve,
 
 \begin{itemize}
     \item $H \to b\overline{b}$: This is the process with the highest branching fraction, which is also directly related to the bottom Yukawa coupling. However, this channel offers low sensitivity because of the high \ac{QCD} backgrounds. The hadronisation of bottom quarks into jets also washes out spin information, making CP-sensitive measurements challenging.
@@ -398,7 +400,7 @@ In the \ac{SM}, $\kappa_f = 1$ and $\tilde{\kappa_f} = 0$, indicating a purely C
 As discussed in the previous section, the parameters $\kappa_f$ ($\kappa_\tau$) and $\tilde{\kappa_f}$ ($\tilde{\kappa_\tau}$) represent the reduced CP-even and CP-odd couplings of the Higgs to fermions ($\tau$ leptons). These couplings can be expressed in terms of an effective mixing angle $\alpha^{\PH\tau\tau}$ as,
 
 \begin{equation_pad}
-\tan \alpha^{\PH\tau\tau} = \frac{\bar{\kappa}_\tau}{\kappa_\tau} 
+\tan \alpha^{\PH\tau\tau} = \frac{\tilde{\kappa}_\tau}{\kappa_\tau} 
 \begin{cases}
     \alpha^{\PH\tau\tau} \to 0, & \text{CP-even} \\
     \alpha^{\PH\tau\tau} \to \frac{\pi}{2}, & \text{CP-odd} \\
@@ -420,9 +422,9 @@ In Higgs boson decays to tau leptons (\(H \to \tau^+ \tau^-\)), the \textit{spin
 \label{Equation:Chapter2_TauDifferentialXS}
 \end{equation_pad}
 
-where $c(\theta^+, \theta^-)$ is defined as $\sin(\theta^+)\sin(\theta^-)/(1+\cos(\theta^+)\cos(\theta))$. The angles $\theta^\pm$ and $\phi^\pm$ are the polar and azimuthal coordinates of the \ac{P.V.}, which is the optimal estimator of the $\tau$ polarisation. The \ac{P.V.} is taken with respect to the $\tau^\pm$ direction of flight, as illustrated in Fig~\ref{Figure:Chapter2_PolarimetricVector_Definition}.
+where $c(\theta^+, \theta^-)$ is defined as $\sin(\theta^+)\sin(\theta^-)/(1+\cos(\theta^+)\cos(\theta^-))$. The angles $\theta^\pm$ and $\phi^\pm$ are the polar and azimuthal coordinates of the \ac{P.V.}, which is the optimal estimator of the $\tau$ polarisation. The \ac{P.V.} is taken with respect to the $\tau^\pm$ direction of flight, as illustrated in Fig.~\ref{Figure:Chapter2_PolarimetricVector_Definition}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     % First row
     \begin{subfigure}{0.45\textwidth}
@@ -444,19 +446,18 @@ Higgs rest frame. \textbf{(a)} presents a three-dimensional representation showi
 
 A full reconstruction of the \ac{P.V.} in most $\tau$ decay modes is particularly challenging due to the presence of neutrinos in the final state. Nevertheless, the \textit{angular difference} ($\Delta\phi = \phi^+ - \phi^-$) in Eq.~\ref{Equation:Chapter2_TauDifferentialXS} offers a powerful observable. It coincides with the angle between the $\tau$ lepton decay planes in the Higgs boson rest frame, commonly denoted as $\phi_{CP}$. A simple illustration of the decay planes is shown in Fig.~\ref{Figure:Chapter2_DecayPlanes}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width= 0.6\textwidth]{Figures/Chapter2/DecayPlane.pdf}
 \caption[Schematic representation of a single-prong tau decay configuration]{Schematic representation of a single-prong tau decay configuration. In the diagram, H marks the Higgs boson decay vertex, from which two tau leptons emerge in opposite directions. Each tau subsequently decays, with the charged pion decay products indicated by arrows. The angle $\phi_{CP}$ represents the acoplanarity angle between the decay planes. Figure taken from Ref.~\cite{HiggsCP_CMS_2021}.}
 \label{Figure:Chapter2_DecayPlanes}
 \end{figure}
 
-\clearpage
-The normalised distributions of $\phi_{CP}$ under different CP hypotheses are shown in Fig.~\ref{Figure:Chapter2_PhiCP_Gen}, alongside the corresponding distribution for Drell-Yan background events. For the CP-even, CP-odd, and CP-mixed Higgs couplings, the $\phi_{CP}$ distributions exhibit sinusoidal shapes, illustrating how the $\tau$ lepton spin correlations project onto $\phi_{CP}$. The CP-even and CP-odd hypotheses are shifted in phase relative to each other, while the CP-mixed scenario lies intermediate between the two extremes. The \textit{effective mixing angle} ($\alpha_{\H\tau\tau}$) governs this phase shift: specifically, a difference in $\phi_{CP}$ corresponds to twice the difference in $\alpha_{\PH\tau\tau}$, as described by Eq.~\ref{Equation:Chapter2_TauDifferentialXS}.
+The normalised distributions of $\phi_{CP}$ under different CP hypotheses are shown in Fig.~\ref{Figure:Chapter2_PhiCP_Gen}, alongside the corresponding distribution for Drell-Yan background events. For the CP-even, CP-odd, and CP-mixed Higgs couplings, the $\phi_{CP}$ distributions exhibit sinusoidal shapes, illustrating how the $\tau$ lepton spin correlations project onto $\phi_{CP}$. The CP-even and CP-odd hypotheses are shifted in phase relative to each other, while the CP-mixed scenario lies intermediate between the two extremes. The \textit{effective mixing angle} ($\alpha^{\PH\tau\tau}$) governs this phase shift: specifically, a difference in $\phi_{CP}$ corresponds to twice the difference in $\alpha^{\PH\tau\tau}$, as described by Eq.~\ref{Equation:Chapter2_TauDifferentialXS}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/Chapter2/AcoplanarityScenarios.pdf}
-\caption[Acoplanarity angle $\phi_{CP}$ distributions for different CP hypotheses in $H \rightarrow \tau\tau$ decays]{Normalized distributions of the acoplanarity angle $\phi_{CP}$ for the $H \rightarrow \tau\tau \rightarrow 2\pi\nu_{\tau}$ decay channel. The curves correspond to different CP hypotheses: CP-even (blue), CP-odd (red), and CP-mixed (green). The Drell-Yan (Z) background is shown in grey for comparison. Figure taken from Ref.~\cite{HiggsCP_CMS_2021}.}
+\caption[Acoplanarity angle $\phi_{CP}$ distributions for different CP hypotheses in $H \rightarrow \tau\tau$ decays]{Normalised distributions of the acoplanarity angle $\phi_{CP}$ for the $H \rightarrow \tau\tau \rightarrow 2\pi\nu_{\tau}$ decay channel. The curves correspond to different CP hypotheses: CP-even (blue), CP-odd (red), and CP-mixed (green). The Drell-Yan (Z) background is shown in grey for comparison. Figure taken from Ref.~\cite{HiggsCP_CMS_2021}.}
 \label{Figure:Chapter2_PhiCP_Gen}
 \end{figure}

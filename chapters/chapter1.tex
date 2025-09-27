@@ -19,7 +19,7 @@ Built on the theoretical framework of \ac{QFT}, the \ac{SM} is a renormalisable 
 \label{Figure:Introduction_1}
 \end{figure}
 
-Within the \ac{SM}, fermions serve as the fundamental constituents of all observable matter. These elementary, non-composite, spin-1/2 particles are organised into three distinct generations, with each fermion paired with an antiparticle. The anti-particles exhibit quantum numbers precisely opposite in sign, with the exception of mass and spin, which remain identical. As shown in Fig.~\ref{Figure:Introduction_1}, fermions are further divided into \textit{quarks} and \textit{leptons}. 
+Within the \ac{SM}, fermions serve as the fundamental constituents of all observable matter. These elementary, non-composite, spin-1/2 particles are organised into three distinct generations, with each fermion paired with an antiparticle. The antiparticles exhibit quantum numbers precisely opposite in sign, with the exception of mass and spin, which remain identical. As shown in Fig.~\ref{Figure:Introduction_1}, fermions are further divided into \textit{quarks} and \textit{leptons}. 
 
 The leptonic sector consists of three charged leptons (\textit{electron, muon, tau}) and three electrically neutral neutrinos (\textit{electron neutrino, muon neutrino, tau neutrino}). The quark sector, on the other hand, comprises of six quark flavours; \textit{up}, \textit{down}, \textit{charm}, \textit{strange}, \textit{top} and \textit{bottom}. Within the first generation, the electron and electron neutrino comprise the leptons, while the up and down quarks form the quark sector. Although fundamental quantum numbers remain identical across generations\footnote{While fundamental quantum numbers like electric charge remain constant, others, such as flavour, vary across generations, as do properties like mass.}, the mass spectrum exhibits a strong hierarchy, with the third generation being significantly heavier than the first.
 
@@ -53,7 +53,7 @@ where $\psi$ and its adjoint $\overline{\psi}$ are the fermion fields expressed 
 As briefly discussed in Section~\ref{Section:Chapter1_FundamentalInteractions}, under a local $\mathcal{U}$(1) gauge transformation, the fermion field transforms in a way (Eq.~\ref{Equation:Introduction_LocalPhaseTransformation}) that breaks the local gauge invariance of the Lagrangian. Under this transformation, the Dirac equation (Eq.~\ref{Equation:Introduction_DiracEquation}) becomes
 
 \begin{equation_pad}
-    \mathcal{U}(1) \rightarrow \mathcal{L}_{\text{Dirac}}^{\prime} = \mathcal{L}_{\text{Dirac}} - q\overline{\psi}(\partial_\mu\theta(x))\psi
+    \mathcal{U}(1) \rightarrow \mathcal{L}_{\text{Dirac}}^{\prime} = \mathcal{L}_{\text{Dirac}} - q\overline{\psi}\gamma^\mu(\partial_\mu\theta(x))\psi
 \label{Equation:Introduction_Dirac(U1)}
 \end{equation_pad}
 
@@ -103,7 +103,7 @@ where $G^{a}_{\mu}$ represent the eight new fields, which correspond to the eigh
 \mathcal{L}_{\text{QCD}} = \sum_{f}\overline{\psi_f}(i\gamma^\mu D_\mu - m_f)\psi_f - \frac{1}{4} G^{\mu\nu}_{a}G^{a}_{\mu\nu}
 \end{equation_pad}
 
-where $\psi_f$ represents the quark field (spinor) for the $j^{th}$ flavour. Once again, according to N\"{o}ether's theorem, colour charge corresponds to the conserved quantity associated with local $\mathcal{SU}(3)_C$ gauge symmetry.
+where $\psi_f$ represents the quark field (spinor) for the $f^{th}$ flavour. Once again, according to N\"{o}ether's theorem, colour charge corresponds to the conserved quantity associated with local $\mathcal{SU}(3)_C$ gauge symmetry.
 
 Unlike \ac{QED}, the kinetic (gauge term) in the Lagrangian includes additional terms representing the self-interactions of the gauge bosons. This is a direct consequence of the \ac{QCD} generators not commuting,
 
@@ -115,7 +115,7 @@ which allows gluons themselves to carry colour charge. The quantity $f^{abc}$ re
 
 An important consequence of this is \textit{asymptotic freedom}~\cite{AsymptoticFreedom_1,AsymptoticFreedom_2}, where at very high energies (short distances), such as the deep scattering energies at the \ac{LHC}, $\alpha_{S}$ decreases approaching zero. In this scenario, quarks and gluons behave as quasi-free particles within the protons and neutrons, allowing perturbative \ac{QCD} to describe their interactions accurately. However, at low energies, the strong coupling grows large, making \ac{QCD} non-perturbative. In this regime, quarks and gluons are not found as free particles but instead form bound, colour-neutral states known as hadrons. This phenomenon, known as \textit{colour confinement}~\cite{MarkThompson}\footnote{The phenomenon of colour confinement was first motivated theoretically in the 1970s through ideas such as flux tube formation and asymptotic freedom. A clear summary is provided in Reference~\cite{MarkThompson}.}, ensures that isolated colour-charged particles do not exist in nature; only hadrons are observed.
 
-As a consequence of colour confinement, in high-energy collisions, high-energy quarks and gluons are observed as jets~\cite{Hadronisation_Jets} of colourless particles formed through a process known as hadronisation. In the context of proton-proton (pp) collisions, highly energetic partons fly away from the interaction point. As the partons separate, the colour field between them can be thought of as if it is being squeezed in a tube, with the energy in the field becoming increasingly larger with distance. Once that energy becomes sufficient, a new quark-antiquark pair is produced, separating the colour field into smaller segments. Eventually, the formation of colourless hadrons occurs when the quark-antiquark pairs have sufficiently low energy. This resulting cascade of collimated hadrons forms what is observed as a jet. A qualitative description of the hadronisation process is shown in Fig.~\ref{Figure:Introduction_ColourConfinement}.
+As a consequence of colour confinement, in high-energy collisions, high-energy quarks and gluons are observed as jets~\cite{Hadronisation_Jets} of colourless particles formed through a process known as hadronisation. In the context of proton-proton (pp) collisions, highly energetic partons fly away from the interaction point. As the partons separate, the colour field between them can be thought of as if it is being squeezed in a tube, with the energy in the field becoming increasingly larger with distance. Once that energy becomes sufficient, a new quark-antiquark pair is produced, separating the colour field into smaller segments. Eventually, the formation of colourless hadrons occurs when the quark-antiquark pairs have sufficiently low energy. This resulting cascade of collimated hadrons forms what is observed as a jet. A qualitative schematic of the hadronisation process is shown in Fig.~\ref{Figure:Introduction_ColourConfinement}.
 
 \begin{figure}[h]
     \centering
@@ -135,7 +135,7 @@ In the 1960s, Glashow~\cite{Glashow_1}, Salam~\cite{Salam_1} and Weinberg~\cite{
 where $L$ denotes the \textit{left-handed nature} of the weak interaction under $\mathcal{SU}(2)_L$, and $Y$ represents the \textit{weak hypercharge} associated with the $\mathcal{U}(1)_Y$ gauge symmetry. To ensure that the electroweak Lagrangian is invariant under local transformations of this symmetry group, the covariant derivative is written as
 
 \begin{equation_pad}
-    D_\mu = \partial_\mu + \underbrace{g^{\prime}B^i_\mu Y}_{\mathcal{U}(1)_Y} + \underbrace{\frac{i}{2}gW^i_\mu\sigma^i}_{\mathcal{SU}(2)_L}
+    D_\mu = \partial_\mu + \underbrace{ig^{\prime}B_\mu Y}_{\mathcal{U}(1)_Y} + \underbrace{\frac{i}{2}gW^i_\mu\sigma^i}_{\mathcal{SU}(2)_L}
 \end{equation_pad}
 
 where $Y$ is the single generator of the $\mathcal{U}(1)_Y$ gauge group, associated with the gauge boson field, $B_\mu$. While the three generators of $\mathcal{SU}(2)_L$ are represented by the 2 x 2 Pauli-spin matrices ($\sigma^i$), associated with the three gauge boson fields, $W^i_\mu$. The coupling strengths of the interactions are represented by $g$ and $g^{\prime}$, respectively. The conserved charges corresponding to these gauge symmetries are the weak isospin component, $I_3$, for $\mathcal{SU}(2)_L$ and the weak hypercharge, Y, for $\mathcal{U}(1)_Y$.
@@ -157,7 +157,7 @@ where $\theta_{W}$, the weak mixing angle, quantifies the mixing between the wea
     \theta_W = \text{arctan}(\frac{g^{\prime}}{g})
 \end{equation_pad}
 
-As discussed earlier in Section~\ref{Section:Particle content and fundamental interactions}, all fermions interact via the weak interaction. A key feature of the weak interaction is its violation of parity symmetry~\cite{ParityViolation_Wu}. This means that weak interactions exhibit different behaviours under spatial translations. In contrast to \ac{QED} and \ac{QCD}, which conserve parity and involve pure vector interactions of the form,
+As discussed earlier in Section~\ref{Section:Particle content and fundamental interactions}, all fermions interact via the weak interaction. A key feature of the weak interaction is its violation of parity symmetry~\cite{ParityViolation_Wu}. This means that weak interactions exhibit different behaviours under spatial inversions. In contrast to \ac{QED} and \ac{QCD}, which conserve parity and involve pure vector interactions of the form,
 
 \begin{equation_pad}
     j^\mu = \overline{u}\gamma^\mu u
@@ -203,7 +203,7 @@ Despite beautifully unifying the electromagnetic and weak interactions into a si
 
 \section{Brout-Englert-Higgs mechanism}
 \label{Section:Introduction_HiggsMechanism}
-First proposed back in the 1960s by Englert and Brout~\cite{Englert_Brout}, Higgs~\cite{PeterHiggs_1,PeterHiggs_2,PeterHiggs_3}, and Guralnik, Hagen and Kibble~\cite{Guralnik_Hagen_Kibble,Kibble}, the \textbf{\ac{BEH} mechanism} provides a way to generate mass while preserving the local gauge invariance of the \ac{SM}. It is based on the principle of \textbf{\ac{SSB}}~\cite{SSB_Definition} where \textit{the Lagrangian of a system remains invariant under a certain symmetry group, but the vacuum of state of the system does not}. The symmetry of the \ac{SM} Lagrangian is broken through the \ac{BEH} mechanism as
+First proposed back in the 1960s by Englert and Brout~\cite{Englert_Brout}, Higgs~\cite{PeterHiggs_1,PeterHiggs_2,PeterHiggs_3}, and Guralnik, Hagen and Kibble~\cite{Guralnik_Hagen_Kibble,Kibble}, the \textbf{\ac{BEH} mechanism} provides a way to generate mass while preserving the local gauge invariance of the \ac{SM}. It is based on the principle of \textbf{\ac{SSB}}~\cite{SSB_Definition} where \textit{the Lagrangian of a system remains invariant under a certain symmetry group, but the vacuum state of the system does not}. The symmetry of the \ac{SM} Lagrangian is broken through the \ac{BEH} mechanism as
 
 \begin{equation_pad}
     \mathcal{SU}(3)_C \otimes \mathcal{SU}(2)_L \otimes \mathcal{U}(1)_Y \quad \underbrace{\rightarrow}_{\text{BEH}} \quad \mathcal{SU}(3)_C \otimes \mathcal{U}(1)_{\text{EM}}
@@ -258,7 +258,7 @@ A key constraint to achieving \ac{SSB} through the \ac{BEH} mechanism is to ensu
     \end{pmatrix}
 \end{equation_pad}
  
-Before expanding the Higgs field around its minimum to study the consequences of \ac{SSB}, it is important to recall \textbf{Goldstone's theorem}~\cite{Goldstone}. \textit{This theorem predicts the emergence of a massless scalar (Goldstone) boson after the spontaneous breaking of a continuous symmetry}. Out of the four \ac{dof} introduced by the Higgs field, the three associated with the broken symmetry generators become Goldstone bosons, which appear as massless scalar fields in the Lagrangian. Gauge invariance guarantees that the choice of gauge does not affect the physical predictions of the theory, allowing us to eliminate the Goldstone bosons from the Lagrangian by making an appropriate local gauge transformation. This is referred to as the unitary gauge where the \ac{dof} associated with the massless Goldstone bosons are replaced with new degrees of freedom corresponding to the longitudinal polarisation states of the gauge bosons ($\PW^{\pm}/\PZ$). In the unitary gauge, the Higgs field can be re-expressed as,
+Before expanding the Higgs field around its minimum to study the consequences of \ac{SSB}, it is important to recall \textbf{Goldstone's theorem}~\cite{Goldstone}. \textit{This theorem predicts the emergence of a massless scalar (Goldstone) boson after the spontaneous breaking of a continuous symmetry}. Out of the four \ac{dof} introduced by the Higgs field, the three associated with the broken symmetry generators become Goldstone bosons, which appear as massless scalar fields in the Lagrangian. Gauge invariance guarantees that the choice of gauge does not affect the physical predictions of the theory, allowing us to eliminate the Goldstone bosons from the Lagrangian by making an appropriate local gauge transformation. This is referred to as the unitary gauge, where the \ac{dof} associated with the massless Goldstone bosons are replaced with new \ac{dof} corresponding to the longitudinal polarisation states of the gauge bosons ($\PW^{\pm}/\PZ$). In the unitary gauge, the Higgs field can be re-expressed as,
 
 \begin{equation_pad}
     \text{BEH} \rightarrow \Phi = \frac{1}{\sqrt{2}}\begin{pmatrix}
@@ -286,7 +286,7 @@ Using the known form of a mass term for a spin-1 gauge boson, the masses of the 
 \end{aligned}
 \end{equation_pad}
 
-Importantly in this physical basis, the neutral gauge boson associated with the $\text{A}_\mu$ field remains massless while the physical Higgs field also appears in the Lagrangian with the associated terms being,
+Importantly, in this physical basis, the neutral gauge boson associated with the $\text{A}_\mu$ field remains massless while the physical Higgs field also appears in the Lagrangian with the associated terms being,
 
 \begin{equation_pad}
     \text{BEH} \rightarrow \mathcal{L}_{\text{Higgs}} \supset \underbrace{\frac{1}{2} \partial_\mu h \, \partial^\mu h - \lambda \nu^2 h^2}_{\text{massive scalar boson } h}
@@ -380,18 +380,18 @@ At the \ac{LHC}, the Higgs boson is produced via four major production modes: \t
 \begin{tabular}{|c|c|c|}
 \hline
 Mechanism & Cross Section @ 13 TeV [pb] & Cross Section @ 13.6 TeV [pb] \\ \hline \hline 
-ggH                                & 48.6  & 52.23 \\ 
+ggH                                & 48.60  & 52.23 \\ 
 \arrayrulecolor{lightgray} \hline
-VBF                                & 3.78  & 4.078 \\ 
+VBF                                & 3.78  & 4.08 \\ 
 \arrayrulecolor{lightgray} \hline
-WH                                 & 1.37  & 1.457 \\ 
+WH                                 & 1.37  & 1.46 \\ 
 \arrayrulecolor{lightgray} \hline
-ZH                                 & 0.76  & 0.9439 \\ 
+ZH                                 & 0.76  & 0.94 \\ 
 \arrayrulecolor{lightgray} \hline
 ttH                                & 0.51  & 0.57 \\ 
 \arrayrulecolor{black} \hline
 \end{tabular}
-\caption[Cross sections of dominant Standard Model Higgs production modes at $13$ and $13.6\TeV$]{Cross sections of the dominant Higgs production mechanisms in the \ac{SM}. Derived for $\text{m}_H = 125\GeV$ and presented for both $\sqrt{\sigma}=13\TeV$ and $\sqrt{\sigma}=13.6\TeV$~\cite{HiggsProduction_XS_13TeV,HiggsProduction_XS_13p6TeV}.}
+\caption[Cross sections of dominant Standard Model Higgs production modes at $13$ and $13.6\TeV$]{Cross sections of the dominant Higgs production mechanisms in the \ac{SM}. Derived for $\text{m}_H = 125\GeV$ and presented for both $\sqrt{s}=13\TeV$ and $\sqrt{s}=13.6\TeV$~\cite{HiggsProduction_XS_13TeV,HiggsProduction_XS_13p6TeV}.}
 \label{Table:Introduction_HiggsProduction_XS}
 \end{table}
 
@@ -430,4 +430,4 @@ $\mu\mu$                    & 0.02  \\
 \label{Table:Introduction_HiggsBranchingFractions}
 \end{table}
 
-However, the sensitivity of this event is heavily impacted by the presence of a large hadronic background. The Higgs discovery was only possible after a combination of several of the decay channels; $H\rightarrow ZZ \rightarrow 4l$, $H\rightarrow \gamma \gamma$, $H\rightarrow WW^*$, $H\rightarrow \tau\tau$ and $H\rightarrow b\overline{b}$, with the di-photon and 4 lepton decay channels being the main contributors. Particularly interesting is the $H\rightarrow \tau\tau$ decay mode, providing a relatively large branching fraction while being less impaired by backgrounds than $H\rightarrow b\overline{b}$.
+However, the sensitivity of this mode is heavily impacted by the presence of a large hadronic background. The Higgs discovery was only possible after a combination of several of the decay channels; $H\rightarrow ZZ \rightarrow 4l$, $H\rightarrow \gamma \gamma$, $H\rightarrow WW^*$, $H\rightarrow \tau\tau$ and $H\rightarrow b\overline{b}$, with the di-photon and four lepton decay channels being the main contributors. Particularly interesting is the $H\rightarrow \tau\tau$ decay mode, providing a relatively large branching fraction while being less impaired by backgrounds than $H\rightarrow b\overline{b}$.

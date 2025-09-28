@@ -29,7 +29,7 @@ Global track reconstruction is facilitated by the \textbf{\ac{CTF}} algorithm~\c
 
 The \textbf{iterative tracking} procedure in \ac{CMS} is performed in successive iterations, each designed to target different classes of tracks, as summarised in Table~\ref{Table:Chapter4_IterativeTrackingSeeds}. The initial iterations target tracks that are the easiest to find (\eg high $p_\mathrm{T}$ tracks, and tracks produced near the primary interaction point). After each iteration, the combinatorial complexity is reduced by removing hits associated with tracks. This enables later iterations to target more challenging classes of tracks (\eg low $p_\mathrm{T}$ tracks, and tracks displaced from the interaction point). 
 
-\begin{table}[h]
+\begin{table}[!htbp]
 \centering
 \renewcommand{\arraystretch}{1.5} % Increase row height
 \arrayrulecolor{black} % Ensure outer borders are black
@@ -78,7 +78,7 @@ The primary goal of the \ac{CMS} vertex reconstruction~\cite{CMS_TrackerPerforma
 
 Once all the vertices are reconstructed, a collection is formed, which is ordered by the quadratic sum of the transverse track momenta associated with each vertex, $\sum_{\text{tracks}} p_{\mathrm{T}}^2$. The vertex with the largest sum is assumed to most likely correspond to the vertex of the hard scattering process~\cite{ParticleFlow}. The efficiency to correctly identify the \ac{PV} when at least three tracks are associated is close to 100\%~\cite{CMS_TrackerPerformance_2014}. The resolution of the \ac{PV} position, particularly in the $x$ and $z$ coordinates, has been measured using $\sqrt{s} = 13\ \mathrm{TeV}$ collision data~\cite{PrimaryVertex_Resolution} and is found to improve rapidly as the summed $p_{\mathrm{T}}$ of the associated tracks increases, as shown in Fig.~\ref{Figure:Chapter4_PrimaryVertex_Resolution}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     % First row
     \begin{subfigure}[b]{0.49\textwidth}
@@ -224,7 +224,7 @@ where $\Delta R_{ij}$ is the distance between objects $i$ and $j$ in the $\eta$â
 
 One significant constraint to jet clustering in \ac{CMS} arises from \ac{PU}. These secondary interactions introduce extra particles that can be clustered into jets, contaminating the jet energy and degrading both the resolution and substructure observables. To mitigate this, \ac{CMS} employs dedicated \ac{PU} mitigation strategies~\cite{PU_Mitigation}. The standard method in Run 2 was the \textbf{\ac{CHS}} algorithm~\cite{ParticleFlow}, which leverages information from the tracker to remove charged hadrons that are not associated with the \ac{PV} before jet clustering. Although \ac{CHS} substantially improves jet energy resolution, its reliance on post-clustering corrections~\cite{JetEnergyCalibration} on the four-momenta limits its ability to preserve jet shape and substructure. To overcome this limitation, an alternative approach known as \textbf{\ac{PUPPI}}~\cite{PUPPI} has been developed. \ac{PUPPI} computes on an event-by-event basis a weight for each particle. This weight quantifies the likelihood of the particle originating from the \ac{PV}, and it is used to scale the particle momenta before clustering. Therefore, allowing jet reconstruction to be less sensitive to \ac{PU} effects. Both \ac{CHS} and \ac{PUPPI} are employed in this thesis: \ac{CHS}-based jets are used in Chapter~\ref{Section:Chapter_4tau}, while \ac{PUPPI}-based jets are used in Chapter~\ref{Section:Chapter_CP}. A schematic comparison of the \ac{CHS} and \ac{PUPPI} algorithms is shown in Fig.~\ref{Figure:Chapter4_Pileup_Schematic}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{Figures/Chapter4/PU_Shematic.pdf}
 \caption[Sketch of pileup suppression techniques]{
@@ -238,7 +238,7 @@ To suppress misidentified jets arising from non-hadronic or spurious sources, a 
 
 Jets originating from bottom quarks can be identified using a technique known as \textit{b-tagging}, which exploits the distinctive properties of $b$-hadron decays. A key characteristic of $b$ hadrons is their relatively long lifetime (approximately $1.5\unit{ps}$~\cite{ParticleMasses}), which allows them to travel several millimetres from the \ac{PV} before decaying. Consequently, the resulting decay products are displaced from the \ac{PV} and typically leave tracks that can be traced back to a \textbf{\ac{SV}}. The displacement of these tracks is quantified using the \ac{IP}. The reliability of this observable is further characterised by the \textit{\ac{IP} significance}, given by the ratio of the \ac{IP} to its associated uncertainty. The discriminating power of the \ac{IP} in $b$-tagging is illustrated in Fig.\ref{Figure:Chapter4_IP_bjets}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/Chapter4/IP_bjets.pdf}
 \caption[Distributions of the 3D impact parameter for tracks associated with different types of jets]{Distributions of the 3D \ac{IP} for tracks associated with different types of jets. Figure taken from Ref.~\cite{HeavyFlavourJets_ID}.}
@@ -247,7 +247,7 @@ Jets originating from bottom quarks can be identified using a technique known as
 
 Algorithms used to identify b-jets typically exploit lifetime-based signatures. They may also incorporate variables sensitive to other distinctive properties of b hadrons, such as their large mass and hard fragmentation behaviour. In this thesis, the employed tagger is \textbf{DeepJet}~\cite{DeepJet}, a deep neural network combining convolutional (CNN) and recurrent (LSTM) layers. DeepJet takes as input a set of global variables, \ac{PF} candidate features, and \ac{SV} information, and outputs class probabilities for a jet to be a b-, c-, or light-flavour jet. Its performance is summarised in Fig.~\ref{Figure:Chapter4_DeepJetPerformance}.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     % First row
     \begin{subfigure}[b]{0.49\textwidth}
@@ -285,7 +285,7 @@ However, \ac{PF} \ac{MET} suffers from \ac{PU} contamination, similar to \ac{PF}
 
 The reconstruction and identification of $\PGt$ leptons are fundamental to this thesis. With a mass of $m_\tau = 1.776\GeV$ and a decay length of $c\tau = 87.03\unit{\mu m}$~\cite{ParticleMasses}, the $\PGt$ lepton decays promptly before reaching the pixel tracker, and must therefore be reconstructed from its decay products. Owing to its relatively large mass, it exhibits a rich variety of \acp{DM}, which proceed either leptonically or hadronically, as summarised in Table~\ref{Table:Chapter4_TauDecayModes}. Leptonic decays involve the $\PGt$ lepton decaying into a lighter lepton (electron or muon) and two neutrinos, while hadronic decays produce one or more charged hadrons (pions or kaons) and at least one neutrino. Leptonic $\PGt$ decays are identified using the electron and muon identification algorithms described in Sections~\ref{Section:Electron_Identification} \& \ref{Section:Muon_Identification}, respectively.
 
-\begin{table}[htbp]
+\begin{table}[!htbptbp]
 \centering
 \renewcommand{\arraystretch}{1.5} % Increase row height
 \arrayrulecolor{black} % Ensure outer border is black
@@ -342,7 +342,7 @@ To reconstruct hadronic tau candidates, the \textbf{\ac{HPS}} algorithm~\cite{Ta
     \item The strip construction ends when no further $e/\gamma$ candidates are found within the strip window.
 \end{enumerate}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
         \centering
         % First row
         \begin{subfigure}[b]{0.49\textwidth}
@@ -371,7 +371,7 @@ Once strips are reconstructed, they are combined with charged hadrons to form $\
 
 The performance of the \ac{HPS} algorithm in correctly identifying these \acp{DM} is illustrated in Fig.~\ref{Figure:Chapter4_HPS_ConfusionMatrix}, which presents a confusion matrix derived from simulated $Z \rightarrow \PGt^+ \PGt^-$ events. 
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/Chapter4/HPS_DecayMode_Performance.pdf}
 \caption[Hadronic tau decay mode confusion matrix]{Confusion matrix of reconstructed and generated $\PGt_h$ \acp{DM} in simulation. Each cell indicates the fraction of generated \acp{DM} reconstructed as a given decay mode. Figure extracted from Ref.~\cite{DeepTau_20-001}.}
@@ -388,7 +388,7 @@ DeepTau is a multiclass neural network combining convolutional and dense layers.
 
 which efficiently reject misidentified electrons ($D_\text{e}$), muons ($D_\mu$), and jets ($D_\text{jet}$). To support consistent application across physics analyses, a set of predefined WPs is defined for each discriminator. These \acp{WP} correspond to fixed target efficiencies for identifying genuine $\PGt_h$ decays, allowing analysts to balance background rejection against signal efficiency. The expected performance of each \ac{WP} is summarised in Table~\ref{Table:Chapter4_DeepTau_WPs}.
 
-\begin{table}[htbp]
+\begin{table}[!htbptbp]
 \centering
 \renewcommand{\arraystretch}{1.5} % Increase row height
 \begin{tabular}{|l|c|c|c|}

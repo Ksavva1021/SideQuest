@@ -60,6 +60,10 @@
 
 \usepackage[Lenny]{fncychap}   % or whatever style you like
 
+\newcommand{\circnum}[1]{%
+  \tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=1pt,minimum size=14pt] (char) {#1};}}
+
 \makeatletter
 \renewcommand{\DOCH}{%
     \@ifundefined{@chapapp}{\let\@chapapp\chaptername}{}%
@@ -261,7 +265,7 @@ and the Diploma of Imperial College London
 \acro{NLO}{Next-to-Leading Order}
 \acro{NNLO}{Next-to-Next-to-Leading Order}
 \acro{DY}{Drell-Yan}
-\acro{SF}{Scale-Factors}
+\acro{SF}{Scale-Factor}
 \acro{TES}{Tau Energy Scale}
 \acro{DR}{Determination Region}
 \acro{AR}{Application Region}

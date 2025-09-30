@@ -95,8 +95,8 @@ Although many of the backgrounds discussed above can be reduced through the appl
 \rowcolor{verylightblue}
 \textbf{\ac{DY}
 , $\PZ/\gamma^* \to \ell^+ \ell^-$ (\ac{LO})\hyperlink{DY_W-MLM}{$^2$}} & & \\
-+ jets, $10 < m_{\ell \ell} < 50\GeV$ & \MADGRAPH, \PYTHIA & 15810.0 (\ac{LO}), 18610.0 (\ac{NLO}) \\
-+ jets, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 5379.0 (\ac{LO}), 6077.2 (\ac{NNLO}) \\
++ jets, $10 < m_{\ell \ell} < 50\GeV$ & \MADGRAPH, \PYTHIA & 15810.0 (\ac{LO}), 18610.0 (\ac{NLO}\hyperlink{Stat_precision}{$^1$}) \\
++ jets, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 5379.0 (\ac{LO}), 6077.2 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$}) \\
 +1 jets\hyperlink{DY_W-Stitch}{$^3$}, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 997.3 (\ac{LO}) \\
 +2 jets\hyperlink{DY_W-Stitch}{$^3$}, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 347.0 (\ac{LO})\\
 +3 jets\hyperlink{DY_W-Stitch}{$^3$}, $m_{\ell \ell} > 50\GeV$ & \MADGRAPH, \PYTHIA & 126.4 (\ac{LO}) \\
@@ -105,7 +105,7 @@ Although many of the backgrounds discussed above can be reduced through the appl
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{W+jets (\ac{LO})\hyperlink{DY_W-MLM}{$^2$}} & & \\
-+ jets & \MADGRAPH, \PYTHIA & 52940.0 (\ac{LO}), 61526.7 (\ac{NLO}) \\
++ jets & \MADGRAPH, \PYTHIA & 52940.0 (\ac{LO}), 61526.7 (\ac{NLO}\hyperlink{Stat_precision}{$^1$}) \\
 +1 jets\hyperlink{DY_W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 8104.0 (\ac{LO}) \\
 +2 jets\hyperlink{DY_W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 2793.0 (\ac{LO}) \\
 +3 jets\hyperlink{DY_W-Stitch}{$^3$} & \MADGRAPH, \PYTHIA & 992.5 (\ac{LO}) \\
@@ -114,17 +114,17 @@ Although many of the backgrounds discussed above can be reduced through the appl
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{\ttbar (\ac{NLO})} & & \\
-Fully hadronic & \POWHEG, \PYTHIA & 377.96 (\ac{NNLO})\\
-Semi-leptonic & \POWHEG, \PYTHIA & 365.34 (\ac{NNLO})\\
-Fully leptonic & \POWHEG, \PYTHIA & 88.29 (\ac{NNLO}) \\
+Fully hadronic & \POWHEG, \PYTHIA & 377.96 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$})\\
+Semi-leptonic & \POWHEG, \PYTHIA & 365.34 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$})\\
+Fully leptonic & \POWHEG, \PYTHIA & 88.29 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{Single top (\ac{NLO})} & & \\
-t-channel ($t$) & \POWHEG, \PYTHIA & 136.02 (\ac{NNLO}) \\
-t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 80.95 (\ac{NNLO}) \\
-$t + W^-$ & \POWHEG, \PYTHIA & 35.60 (\ac{NNLO}) \\
-$t + W^+$ & \POWHEG, \PYTHIA & 35.60 (\ac{NNLO}) \\
+t-channel ($t$) & \POWHEG, \PYTHIA & 136.02 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$}) \\
+t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 80.95 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$}) \\
+$t + W^-$ & \POWHEG, \PYTHIA & 35.60 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$}) \\
+$t + W^+$ & \POWHEG, \PYTHIA & 35.60 (\ac{NNLO}\hyperlink{Stat_precision}{$^1$}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
@@ -166,9 +166,9 @@ $\PZ \to \ell \ell$ + 2 jets & \MADGRAPH, \PYTHIA & 3.987 (\ac{LO})\\
 \vspace{0.5em}
 \noindent\begin{minipage}{\linewidth}
 \footnotesize
-\hypertarget{Cross-section}{}$^{1}$While the samples are generated at the perturbative order indicated by the generator, the normalisation is performed using the best available cross sections. For example, the inclusive \ac{DY}+jets sample with $m_{\ell\ell} > 50\GeV$ is generated at \ac{LO}, but normalised to the \ac{NNLO} prediction. \\
+\hypertarget{Stat_precision}{}$^{1}$While the samples are generated at the perturbative order indicated by the generator, the normalisation is performed using the best available cross sections. For example, the inclusive \ac{DY}+jets sample with $m_{\ell\ell} > 50\GeV$ is generated at \ac{LO}, but normalised to the \ac{NNLO} prediction. \\
 \hypertarget{DY_W-MLM}{}$^{2}$In the \ac{DY} and W+jets simulation, the MLM jet matching scheme~\cite{MLM} is employed to consistently combine partons generated at the matrix-element level with those from the parton shower, avoiding double counting of \ac{ISR} jets. \\
-\hypertarget{DY_W-Stitch}{}$^{3}$ To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to accurately reproduce the overall cross section and kinematic distributions.
+\hypertarget{DY_W-Stitch}{}$^{3}$To improve statistical precision, exclusive samples with fixed jet multiplicities are generated using the MLM scheme. These are stitched with inclusive samples to accurately reproduce the overall cross section and kinematic distributions.
 \end{minipage}
 
 % For \ac{NLO} simulations, however, the MLM scheme is incompatible with the negative event weights that naturally arise. In such cases, the FxFx jet merging scheme~\cite{FxFx} is used instead. 

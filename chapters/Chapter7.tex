@@ -13,7 +13,7 @@ In the \ac{SM}, this measurement is expressed in terms of the effective CP mixin
 
 The most precise determination to date was performed by the \ac{CMS} Collaboration using the full Run~2 dataset of $137~\mathrm{fb}^{-1}$ at $\sqrt{s} = 13~\mathrm{TeV}$~\cite{HiggsCP_CMS_2021}. That analysis combined multiple $\tau$ decay channels, including leptonic modes ($\tau_e^\pm,\ \tau_\mu^\pm$) and the dominant hadronic modes ($\pi^\pm$, $\rho^\pm \to \pi^\pm \pi^0$, $a_1^\pm \to \pi^\pm \pi^0 \pi^0$, $a_1^\pm \to \pi^\pm \pi^\mp \pi^\pm$). The result, $\alpha^{\PH\tau\tau} = -1 \pm 19^\circ$, with an expected precision of $0 \pm 21^\circ$ at 68.3\%~CL, disfavors the pure CP-odd scenario at the $3.0\sigma$ level. The measurement remains dominated by statistical uncertainty. Feasibility studies indicate that a precision of ${\sim}5$-$10^\circ$ could be achieved with $3\unit{ab}^{-1}$ of data~\cite{Harnik:2013aja,Berge:2014sra}.
 
-This chapter presents a complementary measurement focusing exclusively on the $\PGt_h \PGt_h$ final state. The dataset corresponds to the partial Run~3 data-taking period and is substantially smaller in integrated luminosity than in Run~2, limiting the statistical reach. Nevertheless, this analysis aims to approach the precision of the Run~2 results by implementing improvements in key components, including:
+This chapter presents a complementary measurement focusing exclusively on the $\PGt_h \PGt_h$ final state. The dataset corresponds to the partial Run 3 data-taking period and is substantially smaller in integrated luminosity than that used in Run 2, limiting the statistical reach. Nevertheless, this analysis aims to approach the precision of the Run~2 results by implementing improvements in key components, including:
 
 \begin{enumerate}[label=(\roman*)]
     \item Tau Identification
@@ -73,14 +73,14 @@ The modelling and estimation strategies for these background contributions, incl
 \endlastfoot
 \rowcolor{verylightblue}
 \textbf{\ac{DY}, $\PZ/\gamma^* \to \ell^+ \ell^-$ (\ac{NLO})} & & \\
-+1 jets\hyperlink{DY-Excl}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 1788.0 (\ac{NLO}) \\
-+2 jets\hyperlink{DY-Excl}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 339.6 (\ac{NLO})\\
-+3 jets\hyperlink{DY-Excl}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 125.1 (\ac{NLO}) \\
++1 jets\hyperlink{DY_FxFx}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 1788.0 (\ac{NLO}) \\
++2 jets\hyperlink{DY_FxFx}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 339.6 (\ac{NLO})\\
++3 jets\hyperlink{DY_FxFx}{$^1$}, $m_{\ell \ell} > 50\GeV$ & \MCATNLO, \PYTHIA & 125.1 (\ac{NLO}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{W+jets (\ac{LO})} & & \\
-+ jets & \MADGRAPH, \PYTHIA & 55300.0 (\ac{LO}), 63425.1 (\ac{NLO}) \\
++ jets & \MADGRAPH, \PYTHIA & 55300.0 (\ac{LO}), 63425.1 (\ac{NLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
 +1 jets & \MADGRAPH, \PYTHIA & 9128.0 (\ac{LO}) \\
 +2 jets & \MADGRAPH, \PYTHIA & 2922.0 (\ac{LO}) \\
 +3 jets & \MADGRAPH, \PYTHIA & 861.3 (\ac{LO}) \\
@@ -89,24 +89,24 @@ The modelling and estimation strategies for these background contributions, incl
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{\ttbar (\ac{NLO})} & & \\
-Fully hadronic & \POWHEG, \PYTHIA & 419.81 (\ac{NNLO})\\
-Semi-leptonic & \POWHEG, \PYTHIA & 405.75 (\ac{NNLO})\\
-Fully leptonic & \POWHEG, \PYTHIA & 98.04 (\ac{NNLO}) \\
+Fully hadronic & \POWHEG, \PYTHIA & 419.81 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$})\\
+Semi-leptonic & \POWHEG, \PYTHIA & 405.75 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$})\\
+Fully leptonic & \POWHEG, \PYTHIA & 98.04 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{Single top (\ac{NLO})} & & \\
-t-channel ($t$) & \POWHEG, \PYTHIA & 145.0 (\ac{NNLO}) \\
-t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 87.2 (\ac{NNLO}) \\
-$t + W^-$ & \POWHEG, \PYTHIA & 43.95 (\ac{NNLO}) \\
-$t + W^+$ & \POWHEG, \PYTHIA & 43.95 (\ac{NNLO}) \\
+t-channel ($t$) & \POWHEG, \PYTHIA & 145.0 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
+t-channel ($\overline{t}$) & \POWHEG, \PYTHIA & 87.2 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
+$t + W^-$ & \POWHEG, \PYTHIA & 43.95 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
+$t + W^+$ & \POWHEG, \PYTHIA & 43.95 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
 \textbf{Diboson (\ac{LO})} & & \\
-$\PW \PZ$  & \PYTHIA & 44.35 (\ac{NNLO}) \\
-$\PW \PW$  & \PYTHIA & 122.27 (\ac{NNLO}) \\
-$\PZ \PZ$  & \PYTHIA & 19.43 (\ac{NNLO}) \\
+$\PW \PZ$  & \PYTHIA & 44.35 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
+$\PW \PW$  & \PYTHIA & 122.27 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
+$\PZ \PZ$  & \PYTHIA & 19.43 (\ac{NNLO}\hyperlink{Higher-Order-XS}{$^2$}) \\
 
 \arrayrulecolor{lightgray}\hline
 \rowcolor{verylightblue}
@@ -122,13 +122,14 @@ $\PZ \PZ \PZ $ & \MCATNLO, \PYTHIA & 0.0159 (\ac{NLO})\\
 \vspace{0.5em}
 \noindent\begin{minipage}{\linewidth}
 \footnotesize
-\hypertarget{DY_FxFx}{}$^{1}$For the \ac{DY} samples, only exclusive jet multiplicity samples are generated at \ac{NLO} using the FxFx jet merging scheme~\cite{FxFx}. No inclusive sample is produced in this case.
+\hypertarget{DY_FxFx}{}$^{1}$For the \ac{DY} samples, only exclusive jet multiplicity samples are generated at \ac{NLO} using the FxFx jet merging scheme~\cite{FxFx}. No inclusive sample is produced in this case.\\
+\hypertarget{Higher-Order-XS}{}$^{2}$While the samples are generated at the perturbative order indicated by the generator, the normalisation is performed using the best available cross sections.
 \end{minipage}
 
 \section{Modelling of signal processes}
 \label{Section:Chapter7_SignalModelling}
 
-The signal samples used in this analysis correspond to Higgs boson production through \ac{ggH}, \ac{VBF}, and \ac{VH} ($\PW\PH$, $\PZ\PH$). All samples are generated with the \POWHEG v2.0 event generator~\cite{Powheg_0,Powheg_1,Powheg_2,Powheg_3}. To ensure that the measurement of $\alpha^{\PH\tau\tau}$ remains unbiased with respect to possible assumptions about the CP structure in the Higgs boson production mechanism, observables directly sensitive to the production CP properties are not considered. In particular, variables such as the azimuthal separation between the two leading jets are excluded from the event selection.
+The signal samples used in this analysis correspond to Higgs boson production through \ac{ggH}, \ac{VBF}, and \ac{VH} ($\PW\PH$, $\PZ\PH$). All samples are generated with the \POWHEG v2.0 event generator~\cite{Powheg_0,Powheg_1,Powheg_2,Powheg_3}. To ensure that the measurement of $\alpha^{\PH\tau\tau}$ remains unbiased with respect to the Higgs boson production CP structure, the event selection and categorisation were designed without relying on observables directly sensitive to production CP properties. In particular, variables such as the azimuthal separation between the two leading jets were deliberately not included.
 
 As with background samples discussed in Section~\ref{Section:Chapter7_Backgrounds}, the $\PGt$ decays are simulated with \PYTHIA (version 8.230)~\cite{PYTHIA}. In the initial simulation, the spins of the $\tau$ pair are uncorrelated. The proper spin correlations, which encode the CP-sensitive effects of the $\PH \to \tau\tau$ interaction, are subsequently incorporated through reweighting with the \TAUSPINNER package~\cite{Przedzinski:2018ett}. This tool computes per-event weights corresponding to benchmark CP scenarios:
 
@@ -149,19 +150,32 @@ These per-event weights enable the construction of differential distributions at
 \end{aligned}
 \end{equation_pad} 
 
+All acoplanarity angle distributions presented in this chapter include a ``Nominal'' curve, which corresponds to the unweighted sample (\ie with the CP benchmark reweighting factor set to unity).
+
 \section{Reconstruction of \texorpdfstring{$\phi_{CP}$}{phiCP}}
 \label{Section:Chapter7_PhiCP_Reconstruction}
 As discussed in Section~\ref{Section:Chapter2_HiggsCPStructurethroughHttdecays}, $\phi_{CP}$ is formally defined through the \acp{P.V.} of the two $\tau$ leptons. In the Higgs boson rest frame, this construction provides the optimal estimator of the $\tau$ spin correlations and therefore of the CP structure of the $\PH\tau\tau$ interaction. 
 
 Experimentally, a full reconstruction of the \ac{P.V.} is rarely possible. Because most $\tau$ decays involve one or more neutrinos whose momenta cannot be reconstructed, the $\tau$ rest frames are not directly accessible. As a result, direct access to the Higgs rest frame is limited to only a subset of \acp{DM}. To overcome these challenges, alternative reconstruction frames and methods have been developed. 
 
-To make the measurement experimentally accessible, $\phi_{CP}$ is reconstructed in the \ac{ZMF} of two visible $\tau$ decay products. This is justified by the fact that the spin information of the $\tau$ leptons is imprinted onto their decay products. The planes reconstructed from these visible products therefore inherit the spin correlations, and their relative orientation continues to encode the CP properties of the $\PH\tau\tau$ coupling. 
+To make the measurement experimentally accessible, $\phi_{CP}$ is reconstructed in the \ac{ZMF} of two visible $\tau$ decay products. This works because
+the polarisation of each $\tau$ lepton is transferred to the angular
+distributions of its decay products. In other words, the visible products retain
+information about the parent $\tau$ spins, so the decay planes reconstructed from these products inherit the spin correlations. Therefore, their relative orientation continues to encode the CP properties of the $\PH\tau\tau$ coupling. 
 
 In the remainder of this section, the different reconstruction strategies employed are described in more detail. Throughout, the symbol $\phi_{CP}$ is used generically to denote the reconstructed acoplanarity angle, irrespective of the specific method chosen.
 
 \subsection{Impact parameter method}
 \label{Section:Chapter7_IP_METHOD}
-The \ac{IP} method exploits the finite lifetime of $\tau$ leptons to approximate their decay planes using tracking information. This method provides the highest CP sensitivity when both taus decay into a single charged particle.
+The \ac{IP} method exploits the finite lifetime of $\tau$ leptons to approximate their decay planes using tracking information. This method provides the highest CP sensitivity when both taus decay into a single charged particle. A schematic of this method is shown in Fig.~\ref{Figure:Chapter7_IP_IP_Method}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Figures/Chapter7/Acoplanarity/Diagrams/IP-IP.pdf}
+    \caption[Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \pi\pi$ category using the impact parameter method.]
+    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \pi\pi$ category using the \ac{IP} method.}
+    \label{Figure:Chapter7_IP_IP_Method}
+\end{figure}
 
 The method reconstructs each $\tau$ decay plane from the spatial momentum of the charged decay product ($\mathbf{q^\pm}$) together with its associated \ac{IP} vector ($\mathbf{n^\pm}$), as defined in Section~\ref{Section:Chapter4_Vertex_reconstruction}. These are expressed as four-vectors: the four-momentum of the charged particle $q^\pm$ and the impact-parameter four-vector $n^\pm = (0,\mathbf{n^\pm})$, both measured in the laboratory frame. The set of four-vectors is then boosted into the rest frame of the two charged particles, \ie the visible ditau \ac{ZMF} (denoted by $_\text{ZMF}$). In the \ac{ZMF}, the boosted \ac{IP} three-vector is normalised and decomposed into components parallel and transverse to the corresponding normalised three-momentum vector of the charged particle. From these, two key observables are defined: $\phi_{\text{ZMF}}$ and $O_{\text{ZMF}}$\footnote{The observable $O_{\text{ZMF}}$ resolves the twofold ambiguity in the angle between decay planes, which would otherwise be confined to the interval $[0,\pi]$. Its sign encodes the relative orientation (clockwise or anticlockwise) of the planes, thereby unfolding the acoplanarity angle to the full range $[0,2\pi]$ and retaining sensitivity to the CP phase of the $\PH\tau\tau$ coupling.}.
 \begin{equation_pad}
@@ -194,7 +208,15 @@ The performance of the \ac{IP} method is illustrated by the reconstructed $\phi_
 \subsection{Neutral-pion method}
 \label{Section:NeutralPionMethod}
 
-The \ac{NP} method, also referred to as the \textit{decay-plane method}, is designed for $\tau$ decays via the $\rho^\pm$ resonance, \ie $\tau^\pm \to \rho^\pm \nu_\tau$ with $\rho^\pm \to \pi^\pm \pi^0$. In this case, the $\tau$ decay plane is reconstructed from the momentum vectors of the charged pion ($\mathbf{q^\pm}$) and the neutral pion ($\mathbf{q^{0\pm}}$). Here, the neutral pion provides the secondary axis defining the plane, replacing the \ac{IP} vector used in the \ac{IP} method (Section~\ref{Section:Chapter7_IP_METHOD}).  
+The \ac{NP} method, also referred to as the \textit{decay-plane method}, is designed for $\tau$ decays via the $\rho^\pm$ resonance, \ie $\tau^\pm \to \rho^\pm \nu_\tau$ with $\rho^\pm \to \pi^\pm \pi^0$. A schematic illustration of this method is shown in Fig.~\ref{Figure:Chapter7_NP_Method}. In this case, the $\tau$ decay plane is reconstructed from the momentum vectors of the charged pion ($\mathbf{q^\pm}$) and the neutral pion ($\mathbf{q^{0\pm}}$). Here, the neutral pion provides the secondary axis defining the plane, replacing the \ac{IP} vector used in the \ac{IP} method (Section~\ref{Section:Chapter7_IP_METHOD}).  
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Figures/Chapter7/Acoplanarity/Diagrams/NP-NP.pdf}
+    \caption[Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\rho$ category using the neutral-pion method.]
+    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\rho$ category using the \ac{NP} method.}
+    \label{Figure:Chapter7_NP_Method}
+\end{figure}
 
 In analogy with the IP construction, the acoplanarity angle is first defined as,
 
@@ -244,7 +266,7 @@ The performance of the \ac{NP} method is demonstrated in Fig.~\ref{Figure:CPDist
     \label{Figure:CPDist_NPMethod}
 \end{figure}
 
-\subsection{P.V. method in the $a_1^{3\mathrm{pr}}a_1^{3\mathrm{pr}}$ channel}
+\subsection{Polarimetric vector method in the $a_1^{3\mathrm{pr}}a_1^{3\mathrm{pr}}$ channel}
 \label{Section:Chapter7_PV_Method}
 The \ac{P.V.} method exploits the fact that, for certain $\tau$ \acp{DM}, the full kinematics of the $\tau$ lepton can be reconstructed with sufficient accuracy. This is the case when both $\tau$ leptons decay via the $a_1^\text{3pr}$ resonance, in which the \acp{SV} can be reconstructed from the three charged tracks of each decay. The $\tau$ lepton momentum direction is taken from the line connecting the \ac{PV} and \ac{SV}. Its magnitude is determined from the two-body decay kinematics $\tau \to a_1\nu_\tau$ under the assumptions of fixed $m_\tau$ and $m_{a_1}$ and a massless neutrino, as follows:
 
@@ -298,7 +320,17 @@ An example of the $\phi_{CP}$ distribution reconstructed with the \ac{P.V.} meth
 \subsection{Combined methods}
 \label{Section:Chapter7_CombinedMethods}
 
-The first combined method utilises both the \ac{IP} and \ac{NP} techniques, applied in channels where the two $\tau$ leptons decay through different modes. In particular, this strategy is relevant in the $\tauh\tauh \to \rho\pi$ category. In such cases, the decay plane of the $\tau_h\to\rho$ is reconstructed with the \ac{NP} method, while the other is reconstructed with the \ac{IP} method. The two planes are then combined in the visible ditau \ac{ZMF} to define $\phi_{CP}$. A subtlety arises because the \ac{NP} method introduces a sign ambiguity, which requires redefining $\phi_{CP}$ as
+The first combined method utilises both the \ac{IP} and \ac{NP} techniques, applied in channels where the two $\tau$ leptons decay through different modes. In particular, this strategy is relevant in the $\tauh\tauh \to \rho\pi$ category. In such cases, the decay plane of the $\tau_h\to\rho$ is reconstructed with the \ac{NP} method, while the other is reconstructed with the \ac{IP} method. The two planes are then combined in the visible ditau \ac{ZMF} to define $\phi_{CP}$. A schematic illustration of this method is shown in Fig.~\ref{Figure:Chapter7_IPNP_Method}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Figures/Chapter7/Acoplanarity/Diagrams/IP-NP.pdf}
+    \caption[Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\pi$ category using the combined neutral-pion \& impact parameter method.]
+    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\pi$ category using the combined \ac{NP}-\ac{IP} method.}
+    \label{Figure:Chapter7_IPNP_Method}
+\end{figure}
+
+A subtlety arises because the \ac{NP} method introduces a sign ambiguity, which requires redefining $\phi_{CP}$ as
 
 \begin{equation_pad}
 \phi_{CP} =
@@ -351,7 +383,7 @@ For each $\tauh\tauh$ category, the acoplanarity angle $\phi_{CP}$ is reconstruc
 \renewcommand{\arraystretch}{1.5} % Increase row height
 \setlength{\tabcolsep}{10pt} % Increase column width
 \arrayrulecolor{black} % Ensure outer border is black
-\begin{tabular}{ccccc}
+\begin{tabular}{ccc}
 \hline
 Category & Method Leg$_1$ & Method Leg$_2$\\
 \hline
@@ -436,7 +468,7 @@ Double-Tau + jet ($\tau\tau$ + jet) & 30 & 30 & 60 \\
 \label{Table:Chapter7_Triggers_TauhTauh}
 \end{table}
 
-The double-$\tau_h$ trigger provides the baseline selection, while the additional double-$\tau_h$+jet path extends acceptance to events with lower-$p_\text{T}$ $\tau_h$ candidates and enhances sensitivity in jet-rich topologies such as \ac{VBF}. Although the two triggers could be used in an orthogonal way, the analysis instead employs their logical OR. This increases the complexity of efficiency determination, as overlaps must be handled carefully, but ensures maximal signal acceptance and prevents losses in the transition region between the two triggers. 
+The double-$\tau_h$ trigger provides the baseline selection, while the additional double-$\tau_h$+jet path extends acceptance to events with lower-$p_\text{T}$ $\tau_h$ candidates and enhances sensitivity in jet-rich topologies such as \ac{VBF}. Although the two triggers could be used in an orthogonal manner, the analysis instead employs their logical OR. This increases the complexity of efficiency determination, as overlaps must be handled carefully, but ensures maximal signal acceptance and prevents losses in the transition region between the two triggers. 
 
 \subsection{Offline object and event-level selections}
 \label{Section:Chapter7_OfflineSelections}
@@ -526,7 +558,7 @@ This section summarises the object- and event-level corrections applied to simul
     \item Hadronic tau misidentification rates (Section~\ref{Section:Chapter6_Lepton_MisID_SF})
 \end{itemize}
 
-However, not all corrections from Section~\ref{Section:Chapter6_Corrections} are transferable. Certain ingredients must be re-derived or adapted to account for the selections specific to this analysis. In particular, the hadronic tau identification, energy scale, and trigger efficiencies were re-derived. This was required because ParticleNet is used for \ac{DM} classification (instead of the \ac{HPS} algorithm), together with the optimised \ac{DM}-dependent selections summarised in Table~\ref{Table:Chapter7_RefinedSelections_perDM}. Despite these changes, the procedures for deriving the corrections remain unchanged from those described in Sections~\ref{Section:Chapter6_Tau_ID_ES}-\ref{Section:Chapter6_HadronicTauTrigger_Efficiencies}. The only distinction is that, in this analysis, the corrections are determined in bins of ParticleNet \ac{DM} and derived for $\tauh$ candidates passing the optimised \ac{DM}-dependent selections.
+However, not all corrections from Section~\ref{Section:Chapter6_Corrections} are transferable. Certain elements must be re-derived or adapted to account for the selections specific to this analysis. In particular, the hadronic tau identification, energy scale, and trigger efficiencies were re-derived. This was required because ParticleNet is used for \ac{DM} classification (instead of the \ac{HPS} algorithm), together with the optimised \ac{DM}-dependent selections summarised in Table~\ref{Table:Chapter7_RefinedSelections_perDM}. Despite these changes, the procedures for deriving the corrections remain unchanged from those described in Sections~\ref{Section:Chapter6_Tau_ID_ES}-\ref{Section:Chapter6_HadronicTauTrigger_Efficiencies}. The only distinction is that, in this analysis, the corrections are determined in bins of ParticleNet \ac{DM} and derived for $\tauh$ candidates passing the optimised \ac{DM}-dependent selections.
 
 The remaining corrections that differ from the four-tau analysis are detailed in the following subsections.
 
@@ -574,7 +606,7 @@ The performance of the reweighting is illustrated in Fig.~\ref{Figure:Chapter6_Z
             \includegraphics[width=\textwidth]{Figures/Chapter7/zpt_ptvis_with.pdf}
             \caption{}
         \end{subfigure}
-    \caption[Reweighting validation in $Z/\gamma^* \to \mu\mu$ events.]{Validation of the $\PZ \, \, p_\text{T}$-mass reweighting in $Z/\gamma^* \to \mu\mu$ events. Shown are $m_\text{vis}$ distributions \textbf{(a)} before and \textbf{(b)} after reweighting, and $p_\text{T}^\text{vis}$ distributions \textbf{(c)} before and \textbf{(d)} after.}
+    \caption[Reweighting validation in $Z/\gamma^* \to \mu\mu$ events.]{Validation of the $\PZ \, \, p_\text{T}$-mass reweighting in $Z/\gamma^* \to \mu\mu$ events. Shown are $m_\text{vis}$ distributions \textbf{(a)} before and \textbf{(b)} after reweighting, and $p_\text{T}^\text{vis}$ distributions \textbf{(c)} before and \textbf{(d)} after reweighting.}
 
     \label{Figure:Chapter6_ZPT_Reweighting}
 \end{figure}
@@ -712,7 +744,7 @@ To improve the modelling of $\vec{E}_T^\text{miss}$, recoil corrections are appl
     \vec{U}_\text{T} =  \vec{E}_T^\text{miss} - \sum_\nu p_\text{T}^\nu
 \end{equation_pad}
 
-where the sum runs over all neutrinos in the event. The hadronic recoil is determined using a sample of $Z \to \mu\mu$ events by measuring the $p_\text{T}$ of the $Z$ boson and the total transverse momentum of the recoiling jets, $\vec{H}_\text{T}$. In this case, no neutrinos are present, so the hadronic recoil coincides with the reconstructed $\vec{E}_T^\text{miss}$ and can be written as
+where the sum runs over all neutrinos in the event. The hadronic recoil is determined using a sample of $Z \to \mu\mu$ events by measuring the $p_\text{T}$ of the $Z$ boson, $p_\text{T}^\PZ$, and the total transverse momentum of the recoiling jets, $\vec{H}_\text{T}$. In this case, no neutrinos are present, so the hadronic recoil coincides with the reconstructed $\vec{E}_T^\text{miss}$ and can be written as
 
 \begin{equation_pad}
     \vec{U}_\text{T} = -\vec{H}_T - p_\text{T}^\PZ \equiv \vec{E}_T^\text{miss}
@@ -844,7 +876,7 @@ Diboson, rare & QCD scale + PDF + Scheme & $\pm$5\%~\cite{Grazzini:2017mhc} \\
 &  & $\pm$1.6\% (WH)~\cite{Karlberg:2024zxx} \\
 &  & $\pm$1.3\% (ZH)~\cite{Karlberg:2024zxx} \\
 \arrayrulecolor{lightgray}\hline
-\multirow{3}{*}{Higgs BR ($H\to\tau_h\tau_h$)} 
+\multirow{3}{*}{Higgs BR ($H\to\tau\tau$)} 
 & Theoretical & --1.6\% / +1.7\%~\cite{MelladoGarcia:2150771}\\
 & \multirow{2}{*}{Parametric} & $\pm$1.0\% ($m_q$)~\cite{MelladoGarcia:2150771} \\
 &  & $\pm$0.6\% ($\alpha_s$)~\cite{MelladoGarcia:2150771} \\
@@ -923,15 +955,16 @@ A \ac{BDT} is employed as a multi-class classifier with three target categories,
 The training is performed inclusively across the early Run 3 data-taking eras, and all simulated samples are scaled by integrated luminosity, cross section, and the number of generated events. Only events satisfying the baseline selections defined in Section~\ref{Section:Chapter7_EventSelectionStrategy} are considered for training and evaluation. This ensures that the classifier is exposed to a clean and well-defined input space, consistent with the signal region used in the statistical inference. Furthermore, to prevent the training from being dominated by the most abundant background processes, the event weights are also normalised such that the three categories contribute equally to the loss function.  
 
 The feature set used for training consists of high-level observables characterising the $\tauh\tauh$ system, jets, and $\vec{E}^{\text{miss}}_\text{T}$. These features are chosen to provide strong discrimination across the three target classes, while avoiding observables that are overly sensitive to CP effects or detector-specific conditions ($\eg$ $\Delta\phi$ between the two leading jets). These features are grouped into the following categories: 
-\begin{itemize}
-    \item \textbf{Individual tau kinematics:} $p_\text{T}^{1}$, $p_\text{T}^{2}$
-    \item \textbf{MET information:} $p_\text{T}^{\text{MET}}$, $\Delta\phi^{1}_{\text{MET}}$, $\Delta\phi^{2}_{\text{MET}}$
-    \item \textbf{Pair quantities:} $\Delta R$, $\Delta\phi$, $m_{\text{vis}}$, $p_\text{T}^{\text{vis}}$, $p_\text{T}^{\PGt\PGt}$, $m_{\text{FastMTT}}$
-    \item \textbf{Transverse mass variables:} $m_{T}^{(1,\text{MET})}$, $m_{T}^{(2,\text{MET})}$, $m_{T}^{(1,2)}$, $m_T^{\text{TOT}}$
-    \item \textbf{Individual jet kinematics:} $p_\text{T}^{\text{jet1}}$, $p_\text{T}^{\text{jet2}}$, $\eta_{\text{jet1}}$, $\eta_{\text{jet2}}$
-    \item \textbf{Dijet quantities:} $m_{jj}$, $p_\text{T}^{jj}$, $\Delta\eta_{jj}$
-    \item \textbf{Global jet information:} $\mathcal{N}_{\text{jets}}$
-\end{itemize}
+
+\begin{enumerate}[label=(\roman*)]
+    \item Individual tau kinematics
+    \item MET information
+    \item Ditau pair quantities
+    \item Transverse mass variables
+    \item Individual jet kinematics
+    \item Dijet quantities
+    \item Global jet information
+\end{enumerate}
 
 To maximise the use of available statistics while ensuring independence between training and evaluation, events are split by event number into two subsets: EVEN and ODD. 
 Two independent \acp{BDT} are then trained: one on EVEN and validated on ODD, and vice versa. 
@@ -981,7 +1014,7 @@ The key ingredients explored in this study are:
     \item A cut on $|y_\rho|$, similarly defined in Section~\ref{Section:Chapter7_OfflineSelections}
 \end{itemize}
 
-The optimisation is performed using Asimov datasets, following the same procedure as in the four-tau analysis described in Section~\ref{Section:Chapter6_Search_Optimisation}. For each choice of cuts, the event categorisation \ac{BDT} is retrained to ensure that the categorisation remains consistent and that the impact of the cuts is evaluated rigorously. The figure of merit is the expected exclusion significance of the pure CP-odd scenario. The first set of optimisation studies investigates the IP length significance requirement, evaluated in combination with three DeepTau $D_\text{jet}$ working points (Medium, Tight, and VTight). The results are summarised in Table~\ref{Table:Chapter7_IPsignificance_Optimisation}.
+The optimisation is performed using Asimov datasets, following the same procedure as in the four-tau analysis described in Section~\ref{Section:Chapter6_Search_Optimisation}. For each choice of cuts, the event categorisation \ac{BDT} is retrained to ensure that the categorisation remains consistent and that the impact of the cuts is evaluated rigorously. The figure of merit is the expected exclusion significance of the pure CP-odd scenario. The first set of optimisation studies investigates the IP significance (IP$_\text{sig}$) requirement, evaluated in combination with three DeepTau $D_\text{jet}$ working points (Medium, Tight, and VTight). The results are summarised in Table~\ref{Table:Chapter7_IPsignificance_Optimisation}.
  
 \begin{table}[!htbp]
 \centering
@@ -1007,7 +1040,7 @@ $>1.5$ & 1.80 & 1.99 & 2.04 \\
 \label{Table:Chapter7_IPsignificance_Optimisation}
 \end{table}
 
-A complementary scan is performed on the $|y_\rho|$ while the IP$_\text{sig}$ is set to 1.5. The results are reported in Table~\ref{Table:Chapter7_yrho_Optimisation}. The sensitivity increases with tighter $|y_\rho|$ thresholds up to $>0.2$, beyond which the performance deteriorates, likely due to reduced event yields in the high-purity region.  
+Irrespective of the $\tau$ identification working point, Table~\ref{Table:Chapter7_IPsignificance_Optimisation} shows that the $>1.25$ and $>1.5$ IP$\text{sig}$ thresholds consistently yield the best sensitivity. With this in mind, complementary scans are performed to determine the optimal value of $|y_\rho|$, fixing IP$\text{sig}$ to either 1.25 or 1.5 in each case. The results for the latter are presented in Table~\ref{Table:Chapter7_yrho_Optimisation}. The sensitivity increases with tighter $|y\rho|$ thresholds up to $>0.2$, beyond which the performance deteriorates, likely due to reduced event yields in the high-purity region.
 
 \begin{table}[!htbp]
 \centering
@@ -1036,7 +1069,7 @@ $>0.4$           & 1.72 & 1.86 & 1.93 \\
 \label{Table:Chapter7_yrho_Optimisation}
 \end{table}
 
-Combining the results of the two scans, the final selection is defined by an IP$\text{sig}$ requirement of $>1.25$ together with a $|y_\rho|$ threshold of $>0.2$. The VTight $D_{\text{jet}}$ \ac{WP} is chosen as it consistently provides the highest sensitivity across all scenarios. A sensitivity scan is shown in Fig.~\ref{Figure:Chapter7_WP_Optimisation}, where the IP$\text{sig}$ and $|y_\rho|$ cuts are fixed to their optimal values. The figure displays three curves corresponding to the Medium, Tight, and VTight $D_{\text{jet}}$ working points. 
+The results obtained with IP$\text{sig}>1.25$ are nearly identical to those shown in Table~\ref{Table:Chapter7_yrho_Optimisation} for the $>1.5$ case. Since the performance is nearly identical, the IP$\text{sig}>1.25$ requirement is preferred as it retains more events. In combination with a $|y_\rho|$ threshold of $>0.2$, this choice yields the best overall sensitivity. Among the $\tau$ identification \acp{WP}, the VTight $D_{\text{jet}}$ option is selected, as it consistently delivers the highest sensitivity across all configurations. The corresponding sensitivity scan is shown in Fig.~\ref{Figure:Chapter7_WP_Optimisation}, where the IP$\text{sig}$ and $|y\rho|$ cuts are fixed to their optimal values, and the three curves represent the Medium, Tight, and VTight \acp{WP}.
 
 \begin{figure}[!htbp]
     \centering
@@ -1077,7 +1110,7 @@ Postfit distributions of the BDT score in the Genuine and Mis-identified (Mis-ID
             \includegraphics[width=\textwidth]{Figures/Chapter7/postfit/htt_tt_2_13p6TeV.pdf}
             \caption{}
         \end{subfigure}
-    \caption{Postfit BDT score distributions in the \textbf{(a)} Genuine and \textbf{(b)} Mis-ID categories.}
+    \caption{Postfit BDT score distributions in the \textbf{(a)} Genuine $\tau_h$ and \textbf{(b)} Mis-ID categories.}
     \label{Figure:Chapter7_Postfit_BDT}
 \end{figure}
 
@@ -1087,8 +1120,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_3_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $\rho\rho$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $\rho\rho$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
-
+    {Postfit $\phi_{CP}$ distribution in the $\rho\rho$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_1}
 \end{figure}
 
@@ -1096,7 +1128,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_7_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $\pi\rho$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $\pi\rho$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $\pi\rho$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_2}
 \end{figure}
 
@@ -1104,7 +1136,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_5_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $\rho a_1^\text{3pr}$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $\rho a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $\rho a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_3}
 \end{figure}
 
@@ -1112,7 +1144,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_9_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $\pi a_1^\text{3pr}$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $\pi a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $\pi a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_4}
 \end{figure}
 
@@ -1120,7 +1152,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_8_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $\pi \pi$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $\pi \pi$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $\pi \pi$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_5}
 \end{figure}
 
@@ -1128,7 +1160,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_4_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $a_1^\text{1pr}\rho + a_1^\text{1pr}a_1^\text{1pr}$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $a_1^\text{1pr}\rho + a_1^\text{1pr}a_1^\text{1pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $a_1^\text{1pr}\rho + a_1^\text{1pr}a_1^\text{1pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_6}
 \end{figure}
 
@@ -1136,7 +1168,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_6_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $a_1^\text{3pr}a_1^\text{3pr}$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $a_1^\text{3pr}a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $a_1^\text{3pr}a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_7}
 \end{figure}
 
@@ -1144,7 +1176,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_10_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $\pi a_1^\text{1pr}$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $\pi a_1^\text{1pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $\pi a_1^\text{1pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_8}
 \end{figure}
 
@@ -1152,7 +1184,7 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \centering
     \includegraphics[width=1\textwidth]{Figures/Chapter7/postfit/htt_tt_11_13p6TeV.pdf}
     \caption[Postfit $\phi_{CP}$ distribution in the $a_1^\text{1pr}a_1^\text{3pr}$ category.]
-    {Postfit $\phi_{CP}$ distribution in the $a_1^\text{1pr}a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result.}
+    {Postfit $\phi_{CP}$ distribution in the $a_1^\text{1pr}a_1^\text{3pr}$ category, shown in bins of \ac{BDT} score. Overlaid are the signal distributions for a purely CP-odd coupling and for the best-fit result. The binning of the BDT score is displayed through the broken vertical lines, with labels indicating the corresponding intervals.}
     \label{Figure:Chapter7_Postfit_Unrolled_9}
 \end{figure}
 
@@ -1169,9 +1201,7 @@ The data disfavour the pure CP-odd scenario at \textbf{1.74$\sigma$}, compared t
     \label{Figure:Chapter7_LLScan}
 \end{figure}
 
-The present result is consistent with previous measurements of the same parameter. The CMS analysis using the full Run 2 dataset reported $\alpha^{\PH\tau\tau} = -1 \pm 19^{\circ}$ (observed) and $0 \pm 21^{\circ}$ (expected) at the 68.3\% CL~\cite{HiggsCP_CMS_2021}, as discussed earlier in this chapter. The ATLAS collaboration obtained $\alpha^{\PH\tau\tau} = 9 \pm 16^{\circ}$ (observed) and $0 \pm 28^{\circ}$ (expected)~\cite{ATLAS:2022akr}, with their observed sensitivity also affected by statistical fluctuations, in that case leading to stronger observed limits than expected. This measurement is in agreement with both results, and remains compatible with the \ac{SM} expectation of $\alpha^{\PH\tau\tau} = 0^{\circ}$ within uncertainties.
-
-The total uncertainty of the present measurement is dominated by statistical effects, with bin-by-bin fluctuations in the background templates forming the second most important contribution. Experimental systematic uncertainties and theoretical modelling uncertainties are subdominant.
+The present result ($\alpha^{\PH\tau\tau} = 24 ^{+31^{\circ}}_{-28^{\circ}}$) is consistent with previous measurements of the same parameter. The CMS analysis using the full Run 2 dataset reported $\alpha^{\PH\tau\tau} = -1 \pm 19^{\circ}$ (observed) and $0 \pm 21^{\circ}$ (expected) at the 68.3\% CL~\cite{HiggsCP_CMS_2021}, as discussed earlier in this chapter. The ATLAS collaboration obtained $\alpha^{\PH\tau\tau} = 9 \pm 16^{\circ}$ (observed) and $0 \pm 28^{\circ}$ (expected)~\cite{ATLAS:2022akr}, with their observed sensitivity also affected by statistical fluctuations, in that case leading to stronger observed limits than expected. This measurement is in agreement with both results, and remains compatible with the \ac{SM} expectation of $\alpha^{\PH\tau\tau} = 0^{\circ}$ within uncertainties. In a similar fashion to the previous measurements, the sensitivity of this analysis is predominantly limited by the statistical uncertainty of about $24^{\circ}$, while the contributions from bin-by-bin uncertainties, theoretical modelling, and experimental systematics are subdominant.
 
 \subsection{Sensitivity comparison with the CMS Run 2 analysis}
 
@@ -1182,9 +1212,10 @@ This measurement has introduced several methodological improvements compared to 
 \renewcommand{\arraystretch}{1.5} % Increase row height
 \setlength{\tabcolsep}{10pt} % Increase column width
 \arrayrulecolor{black} % Ensure outer border is black
-\begin{tabular}{ccccc}
+\begin{tabular}{ccc}
 \hline
-Category & Run 2 Sensitivity ($\sigma$) & Run 3 Sensitivity ($\sigma$)\\
+\multirow{2}{*}{Category} & \multicolumn{2}{c}{Expected sensitivity [$\sigma$]} \\
+         & Run 2 ($137~\mathrm{fb}^{-1}$)  & Run 3 ($62.4~\mathrm{fb}^{-1}$) \\
 \hline
 $\rho\rho$       & 1.10 & 1.36 \\
 \arrayrulecolor{lightgray} \hline
@@ -1210,7 +1241,7 @@ $a_1^\text{3pr} a_1^\text{1pr}$       & 0.13 & 0.27 \\
 \label{Table:Chapter7_Run2Run3_PerCat_Comp}
 \end{table}
 
-An improvement in sensitivity is observed across all categories relative to the Run 2 analysis. The largest gain is achieved in categories involving one $a_1^{3\mathrm{pr}}$ decay, where the $\phi_{CP}$ reconstruction method has been substantially overhauled (see Section~\ref{Section:Chapter7_CombinedMethods}). Overall, the expected exclusion of the pure CP-odd scenario reaches $2.39\sigma$, compared to $1.85\sigma$ in Run 2, despite the reduced statistical power of the datasets used in this analysis. This improvement underscores the effectiveness of the methodological refinements introduced in Run 3 and illustrates the potential impact they could deliver, both in future analyses with larger Run 3 datasets and in a possible re-analysis of the full Run 2 data.
+An improvement in sensitivity is observed across all categories relative to the Run 2 analysis. The largest gain is achieved in categories involving one $a_1^{3\mathrm{pr}}$ decay, where the $\phi_{CP}$ reconstruction method has been substantially overhauled (see Section~\ref{Section:Chapter7_CombinedMethods}). Overall, the expected exclusion of the pure CP-odd scenario in the $\PH\to\tau_h\tau_h$ alone reaches $2.39\sigma$, compared to $1.85\sigma$ in Run 2~\cite{HiggsCP_CMS_2021}, despite the reduced statistical power of the datasets used in this analysis. This improvement underscores the effectiveness of the methodological refinements introduced in Run 3 and illustrates the potential impact they could deliver, both in future analyses with larger Run 3 datasets and in a possible re-analysis of the full Run 2 data.
 
 \subsection{Combination with the CMS Run 2 result}
 

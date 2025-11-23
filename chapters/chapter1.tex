@@ -19,7 +19,7 @@ Built on the theoretical framework of \ac{QFT}, the \ac{SM} is a renormalisable 
 \label{Figure:Introduction_1}
 \end{figure}
 
-Within the \ac{SM}, fermions serve as the fundamental constituents of all observable matter. These elementary, non-composite, spin-1/2 particles are organised into three distinct generations, with each fermion paired with an antiparticle. The antiparticles exhibit quantum numbers precisely opposite in sign, with the exception of mass and spin, which remain identical. As shown in Fig.~\ref{Figure:Introduction_1}, fermions are further divided into \textit{quarks} and \textit{leptons}. 
+Within the \ac{SM}, fermions serve as the fundamental constituents of all observable matter. These elementary, non-composite, spin-1/2 particles are organised into three distinct generations, with each fermion paired with an antiparticle. The antiparticles exhibit quantum numbers (electric charge, weak isospin, hypercharge, and colour charge) precisely opposite in sign, with the exception of mass and spin, which remain identical. As shown in Fig.~\ref{Figure:Introduction_1}, fermions are further divided into \textit{quarks} and \textit{leptons}. 
 
 The leptonic sector consists of three charged leptons (\textit{electron, muon, tau}) and three electrically neutral neutrinos (\textit{electron neutrino, muon neutrino, tau neutrino}). The quark sector, on the other hand, comprises of six quark flavours; \textit{up}, \textit{down}, \textit{charm}, \textit{strange}, \textit{top} and \textit{bottom}. Within the first generation, the electron and electron neutrino comprise the leptons, while the up and down quarks form the quark sector. Although fundamental quantum numbers remain identical across generations\footnote{While fundamental quantum numbers like electric charge remain constant, others, such as flavour, vary across generations, as do properties like mass.}, the mass spectrum exhibits a strong hierarchy, with the third generation being significantly heavier than the first.
 
@@ -41,7 +41,7 @@ where $q$ is the charge associated with the gauge symmetry and
 $\theta(x)$ is a \\ spacetime-dependent function representing the local phase transformation. The introduction of the gauge boson fields mediating fermion interactions is a direct consequence of imposing this invariance. Alone, a local phase transformation would break the invariance of the \ac{SM} Lagrangian, which is restored by the introduction of the gauge boson fields.
 
 \subsection{Quantum Electrodynamics}
-The \ac{QFT} of electromagnetism, known as \textbf{\ac{QED}}~\cite{QED}, describes the interactions between electrically charged fermions through the exchange of photons. Remarkably, the entire framework of \ac{QED} emerges beautifully from a single guiding principle: \textit{the requirement that the \ac{QED} Lagrangian remains invariant under local $\mathcal{U}$(1) gauge transformations}. The foundation of \ac{QED} begins with the Dirac equation \cite{MarkThompson} which describes the equations of motion for spin-$\frac{1}{2}$ fermion fields,
+The \ac{QFT} of electromagnetism, known as \textbf{\ac{QED}}~\cite{QED}, describes the interactions between electrically charged fermions through the exchange of photons. Remarkably, the framework of \ac{QED} emerges beautifully from a single guiding principle: \textit{the requirement that the \ac{QED} Lagrangian remains invariant under local $\mathcal{U}$(1) gauge transformations}. The foundation of \ac{QED} begins with the Dirac equation \cite{MarkThompson} which describes the equations of motion for spin-$\frac{1}{2}$ fermion fields,
 
 \begin{equation_pad}
     \mathcal{L}_{\text{Dirac}} = \overline{\psi}(i\gamma^\mu \partial_\mu - m_{\psi}) \psi
@@ -76,7 +76,7 @@ Therefore, imposing a $\mathcal{U}$(1) local gauge invariance on the Lagrangian 
 \label{Equation:Dirac_GaugeInvariant}
 \end{equation_pad}
 
-The additional term in the Lagrangian (Eq.\ref{Equation:Dirac_GaugeInvariant}) encapsulates the electromagnetic interaction between charged fermions and photons. The strength of this coupling is given by $q = |e|Q$, where e denotes the fundamental unit of electric charge, and Q represents the dimensionless charge of the fermion field $\psi$ relative to e. By N\"{o}ether's theorem, electric charge corresponds to the conserved quantity associated with a local $\mathcal{U}$(1) gauge symmetry, once again reinforcing the deep connection between symmetry and conservation laws in \ac{QFT}. The final component necessary to complete the \ac{QED} Lagrangian is the gauge-invariant kinetic term for the massless spin-1 field, described by the field strength tensor $F_{\mu\nu}$. Incorporating this, the total \ac{QED} Lagrangian takes the form,
+The additional term in the Lagrangian (Eq.\ref{Equation:Dirac_GaugeInvariant}) encapsulates the electromagnetic interaction between charged fermions and photons. The strength of this coupling is given by $q = |e|Q$, where e denotes the fundamental unit of electric charge, and Q represents the dimensionless charge of the fermion field $\psi$ relative to e. By N\"{o}ether's theorem, electric charge corresponds to the conserved quantity associated with a global $\mathcal{U}$(1) gauge symmetry, once again reinforcing the deep connection between symmetry and conservation laws in \ac{QFT}. The final component necessary to complete the \ac{QED} Lagrangian is the gauge-invariant kinetic term for the massless spin-1 field, described by the field strength tensor $F_{\mu\nu}$. Incorporating this, the total \ac{QED} Lagrangian takes the form,
 
 \begin{equation_pad}
     \mathcal{L}_{\text{QED}} = \overline{\psi}(i\gamma^\mu \partial_\mu - m_{\psi}) \psi - q\overline{\psi}\gamma^\mu A_\mu\psi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
@@ -103,7 +103,7 @@ where $G^{a}_{\mu}$ represent the eight new fields, which correspond to the eigh
 \mathcal{L}_{\text{QCD}} = \sum_{f}\overline{\psi_f}(i\gamma^\mu D_\mu - m_f)\psi_f - \frac{1}{4} G^{\mu\nu}_{a}G^{a}_{\mu\nu}
 \end{equation_pad}
 
-where $\psi_f$ represents the quark field (spinor) for the $f^{th}$ flavour. Once again, according to N\"{o}ether's theorem, colour charge corresponds to the conserved quantity associated with local $\mathcal{SU}(3)_C$ gauge symmetry.
+where $\psi_f$ represents the quark field (spinor) for the $f^{th}$ flavour. Once again, according to N\"{o}ether's theorem, colour charge corresponds to the conserved quantity associated with global $\mathcal{SU}(3)_C$ gauge symmetry.
 
 Unlike \ac{QED}, the kinetic (gauge term) in the Lagrangian includes additional terms representing the self-interactions of the gauge bosons. This is a direct consequence of the \ac{QCD} generators not commuting,
 
@@ -249,7 +249,7 @@ The second term in Eq.~\ref{Equation:Introduction_HiggsLagrangian} represents th
     \Phi^{\dagger}\Phi = -\frac{\mu^{2}}{2\lambda} = \frac{\nu^2}{2}
 \end{equation_pad}
 
-A key constraint to achieving \ac{SSB} through the \ac{BEH} mechanism is to ensure that the photon remains massless while the other gauge bosons acquire mass. Hence, the Higgs potential's minimum must correspond to a nonzero \ac{VEV} exclusively for the neutral scalar field, $\phi^{0}$. This condition preserves the $\mathcal{U}(1)_{\text{EM}}$ symmetry after \ac{SSB}.
+A key requirement of electroweak \ac{SSB} via the \ac{BEH} mechanism is that one gauge boson must remain massless after symmetry breaking, corresponding to the unbroken $\mathcal{U}(1)_{\text{EM}}$ generator. Choosing the Higgs \ac{VEV} to lie in the neutral component $\phi^{0}$ is a convenient gauge choice that makes this unbroken generator manifest.
 
 \begin{equation_pad}
     <0|\Phi|0> = \frac{1}{\sqrt{2}} \begin{pmatrix}
@@ -319,7 +319,7 @@ Remarkably, fermions in the \ac{SM} also acquire masses via the \ac{BEH} mechani
 \label{Equation:Introduction_YukawaLagrangian}
 \end{equation_pad}
 
-where $\psi_L$ and $\psi_R$ are the left-handed and right-handed chiral fields, and the first term gives the fermionic mass $m_f = g_f\nu / \sqrt{2}$. The second term in the Lagrangian describes the coupling between the fermion and the Higgs boson itself, interestingly indicating that heavier fermions couple stronger to the Higgs.
+where $\psi_L$ and $\psi_R$ are the left-handed and right-handed chiral fields, and the first term gives the fermionic mass $m_f = g_f\nu / \sqrt{2}$. The second term in the Lagrangian describes the coupling between the fermion and the Higgs boson itself, interestingly indicating that heavier fermions couple strongly to the Higgs.
 
 \section{The Higgs boson}
 

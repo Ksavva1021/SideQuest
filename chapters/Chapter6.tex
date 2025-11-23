@@ -27,7 +27,7 @@ This section provides a brief overview of the \ac{SM} processes that can contrib
 
 \textbf{Diboson} production, specifically $\PZ\PZ \to 4\PGt$, constitutes the primary irreducible background in this analysis. These events contain four genuine $\PGt$ leptons, closely resembling the signal topology by construction. Although the cross section is small compared to other \ac{SM} processes, their kinematics make them difficult to distinguish from the signal. Other relevant contributions include $\PZ\PZ \to e^+e^-\PGt^+\PGt^-$ and $\PZ\PZ \to \mu^+\mu^-\PGt^+\PGt^-$, where prompt electrons or muons can be misidentified either as leptons from $\PGt$ decays or directly as hadronically decaying taus.
 
-The \textbf{\ac{DY}} process, $\PZ/\gamma^* \to \ell^+\ell^-$, is one of the dominant backgrounds in ditau final states, producing genuine $\PGt^+\PGt^-$ pairs in roughly one third of events. In addition, QCD radiation can produce accompanying jets in the final state, as illustrated in Fig.~\ref{Figure:Chapter6_DY}. Although the overall DY contribution is suppressed in this analysis, it remains relevant through three distinct mechanisms:
+The \textbf{\ac{DY}} process, $\PZ/\gamma^* \to \ell^+\ell^-$, is one of the dominant backgrounds in ditau final states. Among the leptonic DY decays ($\PZ/\gamma^* \to e^+e^-$, $\mu^+\mu^-$, and $\tau^+\tau^-$), the $\tau^+\tau^-$ channel accounts for roughly one third of events, providing a source of genuine $\tau$ leptons. In addition, QCD radiation can produce accompanying jets in the final state, as illustrated in Fig.~\ref{Figure:Chapter6_DY}. Although the overall DY contribution is suppressed in this analysis, it remains relevant through three distinct mechanisms:
 
 \begin{enumerate}[label=(\roman*)]
 \item Events with genuine $\PZ/\gamma^* \to \PGt^+\PGt^-$ decays, where accompanying jets are misidentified as $\PGt_h$.
@@ -213,7 +213,7 @@ $m_A$ [GeV] & $m_\phi$ [GeV] \\
 \label{Table:Chapter6_4tauMassGrid}
 \end{table}
 
-The signal samples are simulated under the \textit{alignment limit} of the \ac{2HDM}, consistent with current experimental constraints on the couplings of the observed Higgs boson. The specific scenario is dynamically selected at each mass point depending on the value of $m_\phi$:
+The signal samples are simulated under the \textit{alignment limit} of the \ac{2HDM}~\cite{TypeX_2HDM}, consistent with current experimental constraints on the couplings of the observed Higgs boson. The specific scenario is dynamically selected at each mass point depending on the value of $m_\phi$:
 \begin{enumerate}[label=(\roman*)]
     \item For $m_\phi > 125~\GeV$, the heavier CP-even scalar is identified as $\phi \equiv H$.
     \item For $m_\phi \leq 125~\GeV$, the lighter CP-even scalar is identified as $\phi \equiv h$.
@@ -225,7 +225,7 @@ Model parameters such as the charged Higgs mass and the soft $\mathbb{Z}_2$-brea
 m_{H^\pm} = m_\phi, \quad\quad m_{12}^2 = m_\phi^2 \sin\beta \cos\beta
 \end{equation_pad}
 
-Figure~\ref{Figure:Chapter6_GenVisDistributions} illustrates the generator-level distributions of the visible ditau mass ($m_\text{vis}$) for selected combinations of $m_\phi$ and $m_A$. The visible mass is defined as the invariant mass of the visible decay products of the two $\PGt$ leptons. These distributions provide a representative overview of the signal kinematics across the mass grid.
+For each signal point, the distributions correspond to the visible mass\footnote{The visible mass is defined as the invariant mass of the visible decay products of the two $\PGt$ leptons.} of the $\tau^+\tau^-$ pair originating from a single scalar decay ($\phi \to \tau^+\tau^-$ or $A \to \tau^+\tau^-$). Since the process $Z^* \to \phi A$ yields two Higgs bosons per event, and hence two independent $\tau$ pairs, the visible mass is computed separately for each decay, and the resulting distributions are shown for the correctly matched generator-level pairs in Fig.~\ref{Figure:Chapter6_GenVisDistributions}.
 
 \begin{figure}[!htbp]
         \centering
@@ -241,7 +241,15 @@ Figure~\ref{Figure:Chapter6_GenVisDistributions} illustrates the generator-level
             \includegraphics[width=\textwidth]{Figures/Chapter6/mvis_phi.pdf}
             \caption{}
         \end{subfigure}
-    \caption[Generator-level visible mass distributions for different mass combinations of $\phi$ and A.]{Generator-level distributions of the visible di-$\PGt$ mass for selected combinations of $m_A$ and $m_\phi$. The visible mass is computed using only the decay products of the two $\PGt$ leptons, excluding neutrinos. Distributions are shown for scans over \textbf{(a)} $m_A$ and \textbf{(b)} $m_\phi$.}
+    \caption[Generator-level visible mass distributions for different mass combinations of $\phi$ and A.]{
+    Generator-level distributions of the visible di-$\PGt$ mass for selected combinations of $m_A$ and $m_\phi$. 
+    The visible mass is computed using only the decay products of the two $\PGt$ leptons, excluding neutrinos. 
+    Distributions are shown for scans over \textbf{(a)} $m_A$ and \textbf{(b)} $m_\phi$. 
+    It is worth noting that the visible mass distributions for $A$ and $\phi$ exhibit a mild dependence on the mass of the other scalar. 
+    This arises from the kinematic correlation inherent in the two-body production process $Z^* \to \phi A$: increasing $m_\phi$ reduces the available phase space for $A$, thereby decreasing its boost and shifting $m_A^{\text{vis}}$ to lower values (and vice versa). 
+    This effect is more pronounced in panel~(a), where for each value of $m_A$ the corresponding $m_\phi$ points span a wider mass range (\eg 100–300\GeV). 
+    In contrast, panel~(b) shows a weaker variation because, for each $m_\phi$, the associated $m_A$ values cover a narrower interval (\eg 60–160\GeV).
+    }
     \label{Figure:Chapter6_GenVisDistributions}
 \end{figure}
 
@@ -401,7 +409,7 @@ $\mu_1 \mathbin{\lor} \mu_2 \mathbin{\lor} \mu_3 \mathbin{\lor} \mu_4$ \\
 \subsection{Offline object selections}
 \label{Section:Chapter6_ObjectSelection}
 
-Offline selection criteria are applied to reconstructed electrons, muons, and $\PGt_h$ candidates, as introduced in Chapter~\ref{Section:Chapter4}. These selections suppress backgrounds from nonprompt and misidentified particles while maintaining high signal efficiency. To ensure consistency with the \ac{PV} and reduce contamination from \ac{PU}, all selected objects are required to originate from the \ac{PV}. This is enforced through cuts on transverse and longitudinal \acp{IP}: $|d_{xy}| < 0.045\unit{cm}$ and $|d_z| < 0.2\unit{cm}$ for electrons and muons, and $|d_z| < 0.2\unit{cm}$ for $\PGt_h$ candidates.
+Offline selection criteria are applied to reconstructed electrons, muons, and $\PGt_h$ candidates, as introduced in Chapter~\ref{Section:Chapter4}. These selections suppress backgrounds from nonprompt and misidentified particles while maintaining high signal efficiency. To ensure consistency with the \ac{PV} and reduce contamination from \ac{PU}, all selected objects are required to originate from the \ac{PV}. This is enforced through cuts on transverse and longitudinal \acp{IP}: $|d_{xy}| < 0.045\unit{cm}$ and $|d_z| < 0.2\unit{cm}$ for electrons and muons, and $|d_z| < 0.2\unit{cm}$ for $\PGt_h$ candidates\footnote{The \ac{IP} selections are designed to enforce compatibility with the primary vertex, exploiting the fact that prompt electrons, muons, and the charged prongs of hadronic $\tau$ decays originate within $\mathcal{O}(100~\mu\mathrm{m})$ of the PV. The typical track impact-parameter resolution in CMS is at the level of $10$--$20~\mu\mathrm{m}$ in $d_{xy}$ and $20$--$40~\mu\mathrm{m}$ in $d_{z}$, so the requirements correspond to ``loose promptness'' selections. Although the $\tau$ lepton has a finite lifetime, its visible decay products are still reconstructed with \acp{IP} well within these thresholds. Nonprompt leptons and misidentified hadronic objects from heavy-flavour decays or pileup vertices typically fail these criteria, making the IP cuts effective for suppressing such backgrounds while retaining high signal efficiency.}.
 
 Electrons and muons are additionally required to be isolated from nearby hadronic activity. The relative isolation, defined in Chapter~\ref{Section:Chapter4} (Equations~\ref{Equation:Chapter4_PFIso_Electron} and~\ref{Equation:Chapter4_PFIso_Muon}), is required to satisfy $I^{e/\mu}_\text{PF} < 0.15$. No explicit isolation cut is applied to $\PGt_h$ candidates, as this information is embedded in the DeepTau discriminators.
 
@@ -604,11 +612,7 @@ Systematic uncertainties are estimated by varying aspects of the tag-and-probe p
 \subsubsection{Identification and energy scale}
 \label{Section:Chapter6_Tau_ID_ES}
 
-Reliable modelling of $\PGt_h$ leptons is essential for accurate signal and background estimation in this analysis. As with electrons and muons (see Sections~\ref{Section:Electron_Identification} and~\ref{Section:Muon_Identification}), data-to-simulation corrections are applied in the form of \acp{SF}. These corrections are derived centrally by the \ac{CMS} collaboration~\cite{DeepTau_24-001} and are therefore only summarised here.
-
-Identification \acp{SF} are derived using a tag-and-probe method similar to that described for light leptons. In this case, $\PZ/\gamma^* \to \tau_\mu \tau_h$ events are used, where the muon serves as the tag and the $\PGt_h$ candidate as the probe. The visible mass of the muon–tau system, $m_{\text{vis}}$, is used as the primary observable. A binned maximum-likelihood fit to the $m_{\text{vis}}$ distribution, performed in the range $50 < m_{\text{vis}} < 150\GeV$, is used to extract the \ac{SF} by comparing yields in data and simulation. To improve the robustness of the derivation, the fit is performed simultaneously with a control region enriched in $\PZ/\gamma^* \to \mu\mu$ events. The \ac{DY} yield is treated with a common rate parameter across both regions, while the $\PGt_h$ ID \ac{SF} is treated as the parameter of interest. Systematic uncertainties, including muon efficiency, luminosity, background normalisation, and \ac{MC} statistics, are included as nuisance parameters. The resulting \acp{SF} are binned in \ac{HPS}-assigned \acp{DM} for $\pt^{\tauh} > 20\GeV$, accounting for variations across decay topologies and kinematic regions. 
-
-In parallel, the \ac{TES} is extracted using external template fits. For each $\PGt_h$ \ac{DM}, a set of $m_{\text{vis}}$ templates is generated with varied \ac{TES} values, and the best-fit value is determined via a likelihood scan. This \ac{TES} correction is then applied by shifting the four-momentum of each $\PGt_h$ lepton, provided that it is matched to genuine $\PGt_h$ decays at generator level. The extracted values are typically within $\pm 2\%$, reflecting the excellent agreement between data and simulation in \ac{CMS} $\PGt_h$ energy reconstruction. The \ac{TES} correction is fixed when extracting the ID \acp{SF}.
+Reliable modelling of $\PGt_h$ leptons is essential for accurate signal and background estimation in this analysis. As with electrons and muons (see Sections~\ref{Section:Electron_Identification} and~\ref{Section:Muon_Identification}), data-to-simulation corrections are applied in the form of \acp{SF}. These corrections are derived centrally by the \ac{CMS} collaboration~\cite{DeepTau_24-001}. These corrections are discussed in more detail in Section~\ref{Section:Chapter7_Tau_ID_ES}.
 
 \subsubsection{Trigger}
 \label{Section:Chapter6_HadronicTauTrigger_Efficiencies}
@@ -992,7 +996,7 @@ Estimated by smearing the jet momenta in simulation to match the resolution obse
 Both JES and JER uncertainties are treated as shape uncertainties ranging from subpercent to $\mathcal{O}(10\%)$. Additionally, an uncertainty is included for the energy scale of the unclustered component of $\vec{E}_\mathrm{T}^{\text{miss,PF}}$\footnote{Unclustered energy refers to \ac{PF} candidates not clustered into jets or associated to identified leptons or photons.}.
 
 \subsection{Prefiring}
-The prefiring uncertainty accounts for the incorrect identification of the bunch crossing by the \ac{L1} trigger, primarily due to \ac{ECAL} endcap misalignments in 2016 and 2017 data. Event-by-event prefiring weights are applied to simulated events based on jet and photon kinematics. The associated uncertainty is implemented through shape variations decorrelated by year, corresponding to an average effect of about 1\%.
+The prefiring uncertainty accounts for the incorrect identification of the bunch crossing by the \ac{L1} trigger, primarily due to \ac{ECAL} endcap misalignments in 2016 and 2017 data. Event-by-event prefiring weights are applied to simulated events based on jet and photon kinematics. The associated uncertainty is implemented through shape variations decorrelated by year, corresponding to an average effect of about 1\% (event yield).
 
 \subsection{B-tagging corrections}
 Uncertainties associated with the b-tagging corrections are parameterised as functions of jet $p_{\mathrm{T}}$ and $\eta$. These are treated as normalisation uncertainties by varying the corresponding b-tagging \acp{SF} within their prescribed uncertainties. The resulting variations in event yields typically range from 0\% to 3\%.
@@ -1018,21 +1022,21 @@ Multiple sources of uncertainty are associated with the \ac{ML}-based $F_F$ meth
 \begin{itemize}
     \item \textbf{Contamination from non-jet $\to\PGt_h$ backgrounds in the fit region:}
     \begin{itemize}
-        \item \textit{\ac{BDT}-based background removal} (Section~\ref{Section:Chapter6_BDT_NonJet_BkgRemoval}): An uncertainty is assigned by comparing the variable distributions obtained using standard histogram subtraction and those obtained with the \ac{BDT}-based subtraction. The largest observed deviation in each event is taken as the systematic uncertainty. This comparison is performed separately in the pass and fail $\tauh$ identification regions.
+        \item \textit{\ac{BDT}-based background removal} (Section~\ref{Section:Chapter6_BDT_NonJet_BkgRemoval}): An uncertainty is assigned by comparing the variable distributions obtained using standard histogram subtraction and those obtained with the \ac{BDT}-based subtraction. The largest observed deviation in each event is taken as the systematic uncertainty. This comparison is performed separately in the pass and fail $\tauh$ identification regions. Uncertainties that range from 0--5\% depending on the channel, are included to account for the influence of non-jet$\to\tau_h$ objects in the measurement regions.
         \item \textit{\ac{MC} mismodelling of non-jet $\to\PGt_h$ contributions:} To account for uncertainties in the simulation of these objects, the \ac{MC} contributions are varied by $\pm$10\%. The \ac{BDT}-based subtraction and $F_F$ procedures are repeated using the varied samples, and the resulting changes are taken as systematic uncertainties.
     \end{itemize}
 
     \item \textbf{\ac{BDT}-based $F_F$ fit:}
     \begin{itemize}
-        \item \textit{Fit closure:} An uncertainty is derived by comparing the reweighted distributions in the fail $\tauh$ identification region to those in the pass region. Any observed non-closure is propagated as a systematic uncertainty.
-        \item \textit{Sideband variable dependence:} An uncertainty is placed to cover any potential dependency of the $F_F$ on the choice of sideband variables. To quantify this, alternative sideband variable combinations are used in separate fits. The largest resulting deviation is taken as the uncertainty.
+        \item \textit{Fit closure:} An uncertainty is derived by comparing the reweighted distributions in the fail $\tauh$ identification region to those in the pass region. Any observed non-closure is propagated as a systematic uncertainty. This has size $\mathcal{O}(10\%)$ on the total jet$\to \tau_h$ background in each channel.
+        \item \textit{Sideband variable dependence:} An uncertainty is placed to cover any potential dependency of the $F_F$ on the choice of sideband variables. To quantify this, alternative sideband variable combinations are used in separate fits. The largest resulting deviation is taken as the uncertainty. This uncertainty is found to be around 5--15\%, depending on the channel.
     \end{itemize}
 \end{itemize}
 
 \section{Signal extraction and statistical interpretation}
 \label{Section:Chapter6_SignalExtraction}
 
-The extraction of the signal is performed via a simultaneous binned maximum‑likelihood fit to the distribution of the final discriminating variable in all channels and categories. The likelihood function, denoted by $\mathscr{L}$, is defined as:
+The extraction of the signal is performed via a simultaneous binned maximum‑likelihood fit\footnote{An unbinned likelihood fit is in principle statistically optimal, but in CMS analyses a binned approach is preferred because systematic uncertainties, background templates, and data-driven estimates are naturally implemented as binned shapes.} to the distribution of the final discriminating variable in all channels and categories. The likelihood function, denoted by $\mathscr{L}$, is defined as:
 
 \begin{equation}
 \mathscr{L}(\text{data} \mid \mu, \theta) = \prod_{i=1}^{N_{\mathrm{c}}}

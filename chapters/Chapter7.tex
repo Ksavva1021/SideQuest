@@ -139,7 +139,7 @@ As with background samples discussed in Section~\ref{Section:Chapter7_Background
     \item Maximally mixed ($\alpha^{\PH\tau\tau} = 45^\circ$) 
 \end{itemize}  
 
-These per-event weights enable the construction of differential distributions at arbitrary values of the effective mixing angle through linear combinations of the benchmark templates. In practice, this is achieved using the decomposition:    
+These per-event weights enable the construction of differential distributions at arbitrary values of the effective mixing angle through linear combinations of the benchmark templates. In practice, this is achieved using the decomposition~\cite{Przedzinski:2018ett}:    
 
 \begin{equation_pad}
 \begin{aligned}
@@ -173,7 +173,7 @@ The \ac{IP} method exploits the finite lifetime of $\tau$ leptons to approximate
     \centering
     \includegraphics[width=0.4\textwidth]{Figures/Chapter7/Acoplanarity/Diagrams/IP-IP.pdf}
     \caption[Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \pi\pi$ category using the impact parameter method.]
-    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \pi\pi$ category using the \ac{IP} method.}
+    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \pi\pi$ category using the \ac{IP} method in the visible ditau ZMF.}
     \label{Figure:Chapter7_IP_IP_Method}
 \end{figure}
 
@@ -214,7 +214,7 @@ The \ac{NP} method, also referred to as the \textit{decay-plane method}, is desi
     \centering
     \includegraphics[width=0.4\textwidth]{Figures/Chapter7/Acoplanarity/Diagrams/NP-NP.pdf}
     \caption[Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\rho$ category using the neutral-pion method.]
-    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\rho$ category using the \ac{NP} method.}
+    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\rho$ category using the \ac{NP} method in the visible ditau ZMF.}
     \label{Figure:Chapter7_NP_Method}
 \end{figure}
 
@@ -326,7 +326,7 @@ The first combined method utilises both the \ac{IP} and \ac{NP} techniques, appl
     \centering
     \includegraphics[width=0.4\textwidth]{Figures/Chapter7/Acoplanarity/Diagrams/IP-NP.pdf}
     \caption[Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\pi$ category using the combined neutral-pion \& impact parameter method.]
-    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\pi$ category using the combined \ac{NP}-\ac{IP} method.}
+    {Acoplanarity angle $\phi_{CP}$ reconstructed in the $\tauh\tauh \to \rho\pi$ category using the combined \ac{NP}-\ac{IP} method in the visible ditau ZMF.}
     \label{Figure:Chapter7_IPNP_Method}
 \end{figure}
 
@@ -558,9 +558,7 @@ This section summarises the object- and event-level corrections applied to simul
     \item Hadronic tau misidentification rates (Section~\ref{Section:Chapter6_Lepton_MisID_SF})
 \end{itemize}
 
-However, not all corrections from Section~\ref{Section:Chapter6_Corrections} are transferable. Certain elements must be re-derived or adapted to account for the selections specific to this analysis. In particular, the hadronic tau identification, energy scale, and trigger efficiencies were re-derived. This was required because ParticleNet is used for \ac{DM} classification (instead of the \ac{HPS} algorithm), together with the optimised \ac{DM}-dependent selections summarised in Table~\ref{Table:Chapter7_RefinedSelections_perDM}. Despite these changes, the procedures for deriving the corrections remain unchanged from those described in Sections~\ref{Section:Chapter6_Tau_ID_ES}-\ref{Section:Chapter6_HadronicTauTrigger_Efficiencies}. The only distinction is that, in this analysis, the corrections are determined in bins of ParticleNet \ac{DM} and derived for $\tauh$ candidates passing the optimised \ac{DM}-dependent selections.
-
-The remaining corrections that differ from the four-tau analysis are detailed in the following subsections.
+However, not all corrections from Section~\ref{Section:Chapter6_Corrections} are transferable. Certain elements must be re-derived or adapted to account for the selections specific to this analysis. The remaining corrections that differ from the four-tau analysis are detailed in the following subsections.
 
 \subsection{\texorpdfstring{$\PZ \, \, p_\text{T}$-mass reweighting}{Z pT-mass reweighting}}
 
@@ -627,6 +625,45 @@ The performance of the reweighting is illustrated in Fig.~\ref{Figure:Chapter6_Z
     \caption[Closure test of $\PZ \, \, p_\text{T}$-mass reweighting in $Z/\gamma^* \to ee$ events.]{Closure test of the $\PZ \, \, p_\text{T}$-mass reweighting in $Z/\gamma^* \to ee$ events. Distributions of $p_\text{T}^\text{vis}$ are shown \textbf{(a)} before and \textbf{(b)} after reweighting.}
 
     \label{Figure:Chapter6_ZPT_Reweighting_ee}
+\end{figure}
+
+\subsection{Hadronic taus}
+\label{Section:Chapter7_Tau_ID_ES}
+
+The standard CMS for $\tau_h$ corrections include identification, energy scale, and trigger efficiencies derived in bins of $\pt$ and HPS-assigned decay modes. This binning captures variations in the reconstruction and identification performance across kinematic regimes and the distinct visible topologies of hadronic tau decays. In this analysis, however, the HPS decay-mode assignment is replaced by ParticleNet, and optimised \ac{DM}-dependent selections are applied (Table~\ref{Table:Chapter7_RefinedSelections_perDM}). To account for any residual data-simulation mismodelling associated with these modified object definitions and selections, all $\tau_h$ corrections are re-derived specifically for candidates passing the optimised ParticleNet-based requirements. Despite these differences, the methodology used to extract the corrections follows the procedures employed by CMS when deriving the central $\tau_h$ corrections.
+
+Identification \acp{SF} are obtained using a modified tag-and-probe method applied to $\PZ/\gamma^* \to \tau_\mu \tau_h$ events, where the muon acts as the tag and the $\PGt_h$ candidate as the probe. The visible mass of the $\mu$--$\tauh$ system, $m_{\text{vis}}$, serves as the primary observable. A binned maximum-likelihood fit to the $m_{\text{vis}}$ distribution in the range $40 < m_{\text{vis}} < 200\GeV$ is performed simultaneously across multiple regions. In addition to the signal region, a dimuon control region enriched in $\PZ/\gamma^* \to \mu\mu$ events is included to constrain the \ac{DY} normalisation. The overall modelling of this control region is displayed in Fig.~\ref{Figure:Chapter6_ZPT_Reweighting}. Two further regions are introduced to control non-\ac{DY} backgrounds: a $W+\mathrm{jets}$-enriched region defined using the transverse mass of the muon-\ac{MET} system ($m_{\mathrm{T},1}$), and a QCD-enriched region obtained by inverting the muon isolation requirement. The $\PGt_h$ ID SF is treated as the parameter of interest, while systematic uncertainties including muon efficiencies, luminosity, background normalisations, and \ac{MC} statistical uncertainties are incorporated as nuisance parameters. The resulting identification SFs are provided in bins of ParticleNet-assigned \acp{DM} for $\pt^{\tauh} > 20\GeV$.
+
+The $\tauh$ \ac{TES} is determined using external template fits, following the standard CMS methodology. For each \ac{DM}, a set of $m_{\text{vis}}$ templates is produced by varying the assumed TES and recomputing the distributions. A likelihood scan over these templates is used to extract the best-fit TES value, using both the $\mu\tauh$ and $\mu\mu$ regions to reduce dependence on the modelling of the \ac{DY} cross section and $\PGt$ kinematics. Unlike the identification \acp{SF}, the \ac{TES} corrections are binned only in decay mode (and not in $\pt$), in line with current CMS recommendations, although efforts are ongoing to introduce a $\pt$-dependent TES to further reduce kinematic mismodelling. The extracted TES values, typically within $\pm 2\%$, are applied to the four-momentum of generator-matched genuine $\tauh$ candidates. The TES is fixed in the extraction of the identification SFs to avoid circular dependencies between the two procedures.
+
+Figures~\ref{Figure:TauID_SF_DM0}-\ref{Figure:TauCorrections_Validation} illustrate the impact and validation of the newly derived corrections. Figure~\ref{Figure:TauID_SF_DM0} shows, for illustration, the identification SFs obtained for the $\PGt \to \pi$ decay mode, highlighting both the magnitude of the data-simulation corrections and their associated uncertainties. The performance of the full correction set is validated in the $\PZ/\gamma^* \to \tau_\mu \tau_h$ channel. As shown in Figures~\ref{Figure:TauCorrections_Validation}, excellent agreement is observed between data and simulation once the corrections are applied. The right panel of the same figure displays the corresponding $m_{\text{vis}}$ distribution for $\PZ/\gamma^* \to \tau_h \tau_h$ events, demonstrating similarly improved modelling. 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/Chapter7/tau_sf_DM0_Run3_2022.pdf}
+    \caption[Identification scale factors for the $\PGt \to \pi$ decay mode.]
+    {Identification scale factors derived for the $\PGt \to \pi$ decay mode using the tag-and-probe procedure described in the text. The uncertainties include statistical and systematic components from the simultaneous fit in the $m_{\text{vis}}$ regions.}
+
+    \label{Figure:TauID_SF_DM0}
+\end{figure}
+
+\begin{figure}[!htbp]
+        \centering
+        % First row
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/datacard_m_vis_cp_inclusive_mt_full2223.pdf}
+            \caption{}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/Chapter7/datacard_m_vis_cp_inclusive_tt_full2223.pdf}
+            \caption{}
+        \end{subfigure}
+    \caption[Validation of the derived $\tau_h$ corrections]{Validation of the derived $\tau_h$ corrections  
+    \textbf{(a)} Agreement between data and simulation in $\PZ/\gamma^* \to \tau_\mu \tau_h$ events after applying the full set of identification, trigger, and energy-scale corrections.  
+    \textbf{(b)} Corresponding $m_{\text{vis}}$ distribution for $\PZ/\gamma^* \to \tau_h \tau_h$ events.}
+    \label{Figure:TauCorrections_Validation}
 \end{figure}
 
 \subsection{Top-quark \texorpdfstring{p$_\text{T}$}{pT} reweighting}
@@ -1093,7 +1130,7 @@ Postfit distributions are presented following the simultaneous fit to the data, 
     \item \textbf{Others:} Contributions from processes such as $\ttbar$, single-top, diboson, and \ac{DY}, in which one $\tauh$ candidate is genuine and the other is a misidentified lepton, or in which both $\tauh$ candidates are misidentified leptons.
 \end{enumerate}
 
-In addition, the $H\to\tau\tau$ signal is shown, with contributions from \ac{ggH}, \ac{VBF}, and \ac{VH}.
+In addition, the $H\to\tau\tau$ signal is shown, with contributions from \ac{ggH}, \ac{VBF}, and \ac{VH}. 
 
 Postfit distributions of the BDT score in the Genuine and Mis-identified (Mis-ID) categories are shown first in Fig.~\ref{Figure:Chapter7_Postfit_BDT}. As expected, events from the genuine ditau and jet\textrightarrow$\tauh$ backgrounds populate high BDT scores in the Genuine and Mis-ID categories, respectively. This demonstrates the effectiveness of the \ac{BDT} classifier in separating the dominant background types. The data and simulated expectations agree within uncertainties. While these distributions do not carry direct sensitivity to the CP structure of the Higgs boson coupling, their inclusion in the fit is crucial for constraining background normalisations and associated uncertainties. Signal templates corresponding to a purely CP-odd ($\mathrm{PS}$) coupling and to the best-fit result are overlaid for comparison.
 
@@ -1188,6 +1225,10 @@ Subsequently, the unrolled two-dimensional discriminants are shown after the fit
     \label{Figure:Chapter7_Postfit_Unrolled_9}
 \end{figure}
 
+The transition from the prefit to postfit distributions exhibits no large pulls in the nuisance parameters and no significant reshaping of the templates. This behaviour confirms that the background modelling is robust, that the fit is not compensating for mismodelling through nuisance-parameter shifts, and that the postfit results represent a consistent description of the data. 
+
+It is also important to note the apparent sculpting of the $\phi_{CP}$ distribution observed in the highest BDT-score bins for some categories. This effect is most visible in the jet$\,\to\tauh$ background, whose $\phi_{CP}$ distribution is not expected to be flat as discussed earlier. The sculpting seems to be a consequence of the classification strategy rather than a sign of mismodelling. By construction, high BDT scores correspond to regions of high process purity: signal-like events dominate the upper bins in the signal region, genuine-$\tau$ events dominate in the genuine category, and jet$\,\to\tauh$ events dominate in the misidentification category. Since each of these processes exhibits its own characteristic $\phi_{CP}$ shape, selecting progressively purer subsamples naturally amplifies these features. This behaviour does not indicate that the BDT is learning $\phi_{CP}$, but instead reflects the changing composition of physics processes across the BDT score.
+
 \subsection{\texorpdfstring{$\alpha^{\PH\tau\tau}$}{alphatautau} mixing angle}
 
 The observed and expected negative log-likelihood scans for the combination of all analysis categories in the $\tauh\tauh$ final state are shown in Fig.~\ref{Figure:Chapter7_LLScan}. As discussed in Section~\ref{Section:Chapter7_StatisticalProcedure}, a freely-floating single rate parameter scaling the overall signal strength is used. The best fit value of this parameter is $\mu_{\tau\tau}= 0.94 \pm 0.33$.
@@ -1245,7 +1286,7 @@ An improvement in sensitivity is observed across all categories relative to the 
 
 \subsection{Combination with the CMS Run 2 result}
 
-A statistical combination of this measurement with the previous CMS Run 2 result has been performed to maximise sensitivity to the CP structure of the $\PH\tau\tau$ Yukawa coupling. Since both analyses are dominated by statistical uncertainties, only a subset of systematic effects is treated as correlated between the two. Theoretical uncertainties on production cross sections and branching ratios are considered correlated, with the exception of backgrounds, where different generators are used across the two analyses. Similarly, top-quark $p_\text{T}$ reweighting uncertainties are treated as correlated, whereas uncertainties from Z $p_\text{T}$-mass reweighting are decorrelated due to the different modelling strategies employed in the two analyses.
+A statistical combination of this measurement with the previous CMS Run 2 result has been performed to maximise sensitivity to the CP structure of the $\PH\tau\tau$ Yukawa coupling. Theoretical uncertainties on production cross sections and branching ratios are considered correlated, with the exception of backgrounds, where different generators are used across the two analyses. Similarly, top-quark $p_\text{T}$ reweighting uncertainties are treated as correlated, whereas uncertainties from Z $p_\text{T}$-mass reweighting are decorrelated due to the different modelling strategies employed in the two analyses.
 
 For theory uncertainties affecting the signal acceptance and shape, a conservative approach is adopted. For the \ac{ggH} process, different event generators are used in Run 2 and Run 3, and the associated uncertainties are therefore decorrelated. For \ac{VBF}, uncertainties from parton-shower modelling are correlated, but QCD scale variations are not, since their implementation differs between the two analyses. Experimental uncertainties are mostly decorrelated, reflecting the distinct reconstruction strategies and treatments applied in the two data-taking periods. Overall, the combination remains statistics-limited, and the exact treatment of subdominant systematic sources has only a minor impact on the final result.
 

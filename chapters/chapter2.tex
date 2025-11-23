@@ -83,7 +83,7 @@ A major constraint imposed in 2HDMs is the suppression of tree-level \ac{FCNC}~\
     \Phi_1 \to \Phi_1, \Phi_2 \to - \Phi_2, \Phi_1 \not\to \Phi_2 
 \end{equation_pad}
 
-This ensures that each fermion type couples to only one of the Higgs doublets. Following the introduction of the discrete symmetry, the quartic interaction terms $\lambda_6$ and $\lambda_7$ are eliminated from the potential. In addition to suppressing \ac{FCNC}, charge-parity (CP) symmetry plays a crucial role in ensuring the theoretical consistency of 2HDMs. \textit{CP symmetry} is a fundamental symmetry in \ac{QFT} that combines charge conjugation (C) and parity (P). \textit{Under a charge conjugation transformation, particles are transformed into their corresponding antiparticles, whilst parity transformations invert the spatial coordinates}. In 2HDMs, CP conservation is often imposed to prevent spontaneous CP violation by requiring all free parameters in the Higgs potential to be real.
+This ensures that each fermion type couples to only one of the Higgs doublets. Following the introduction of the discrete symmetry, the quartic interaction terms $\lambda_6$ and $\lambda_7$ are eliminated from the potential. In addition to suppressing \ac{FCNC}, charge-parity (CP) symmetry plays a crucial role in ensuring the theoretical consistency of 2HDMs. \textit{CP symmetry} is a fundamental symmetry in \ac{QFT} that combines charge conjugation (C) and parity (P). \textit{Under a charge conjugation transformation, particles are transformed into their corresponding antiparticles, whilst parity transformations invert the spatial coordinates}. In 2HDMs, CP conservation is often enforced by requiring all parameters in the Higgs potential to be real, thereby avoiding spontaneous CP violation, where the potential is CP-symmetric but the vacuum develops complex phases that break CP after electroweak symmetry breaking.
 
 Additionally, electroweak symmetry breaking occurs in a manner similar to the \ac{SM}. To preserve the $\mathcal{U}(1)_{\text{EM}}$ gauge symmetry, only the neutral components of the Higgs doublets acquire non-zero VEVs, ensuring that the photon remains massless. The vacuum structure is given by,
 
@@ -191,7 +191,7 @@ In 2HDMs, the observed Higgs boson can be matched to the predicted CP-even boson
     h_{\text{obs}} = \sin{(\beta - \alpha)} h + \cos{(\beta - \alpha)} H 
 \end{equation_pad}
 
-In the Higgs alignment limit, one of these CP-even neutral Higgs bosons is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the \textit{normal scenario}, the observed Higgs is identified as the lighter h, in contrast to H being identified as the observed Higgs in the \textit{inverted scenario}, 
+In the Higgs alignment limit~\cite{2HDM_1}, one of these CP-even neutral Higgs bosons is the observed Higgs, which enables two possible alignment scenarios, the normal and inverted scenarios. In the \textit{normal scenario}, the observed Higgs is identified as the lighter h, in contrast to H being identified as the observed Higgs in the \textit{inverted scenario}, 
 
 \begin{equation_pad}
 \begin{rcases}
@@ -342,7 +342,7 @@ A certain degree of CP violation is required to explain this observed baryon asy
 CP_QuarkSector_5, CP_QuarkSector_6, CP_QuarkSector_7, CP_QuarkSector_8, 
 CP_QuarkSector_9, CP_QuarkSector_10, CP_QuarkSector_11, CP_QuarkSector_12, 
 CP_QuarkSector_13, CP_QuarkSector_14}. However, this proves insufficient to account for the baryon asymmetry. 
-Naturally, this has led to significant interest in exploring different areas of the \ac{SM} to potentially find an additional source. Simultaneously, beyond the \ac{SM} framework, strong indications of CP violation have also emerged in neutrino oscillations, which can arise due to complex phases in the PMNS matrix~\cite{Neutrino_Oscillations,CP_Neutrino_Oscillations}.
+Naturally, this has led to significant interest in exploring different areas of the \ac{SM} to potentially find an additional source. Simultaneously, beyond the \ac{SM} framework, strong indications of CP violation have also emerged in neutrino oscillations, which can arise due to complex phases in the Pontecorvo–Maki–Nakagawa–Sakata matrix (PMNS)~\cite{Neutrino_Oscillations,CP_Neutrino_Oscillations}.
 
 The \ac{SM} Higgs sector is constrained to be CP-conserving by only allowing one CP-even state to couple with other particles. If the Higgs boson exhibited a CP-odd component, then CP violation would be possible in the Higgs sector, potentially explaining the matter-antimatter asymmetry. A type of model that includes CP-violating Higgs coupling is the 2HDM, discussed in Section~\ref{Section:Chapter2_2HDM}. The CP-conserving cases were discussed earlier, but CP-violating cases also exist. In such models, the three neutral bosons (h, H, A) are not CP eigenstates, but rather admixtures of the CP-even and CP-odd components, denoted as h$_1$, h$_2$, h$_3$.
 
@@ -351,7 +351,7 @@ Experimentally, the CP structure of the Higgs boson can be studied by measuring 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width= 0.67\textwidth]{Figures/Chapter2/SpinParity.png}
-\caption[Log-likelihood ratio test statistic for scalar vs pseudoscalar hypotheses]{Distribution of the log-likelihood ratio test statistic (taken from~\cite{CP_constraints_2}) $-2\ln(\mathcal{L}_{0-}/\mathcal{L}_{0+})$ for pseudoexperiments generated under the scalar ($0^+$, yellow histogram) and pseudoscalar ($0^-$, blue histogram) hypotheses. Data were collected by the \ac{CMS} experiment at $\sqrt{s} = 7$ TeV with an integrated luminosity of $5.1$ fb$^{-1}$. The black arrow indicates the observed value in data, which strongly favours the scalar hypothesis with a $p$-value of $0.072\%$ for the pseudoscalar hypothesis, corresponding to a $\text{CL}_s$ value of $2.4\%$.}\label{Figure:Chapter2_CPevenVsCPodd}
+\caption[Log-likelihood ratio test statistic for scalar vs pseudoscalar hypotheses]{Distribution of the log-likelihood ratio test statistic (taken from~\cite{CP_constraints_2}) $-2\ln(\mathcal{L}_{0-}/\mathcal{L}_{0+})$ for pseudoexperiments generated under the scalar ($0^+$, yellow histogram) and pseudoscalar ($0^-$, blue histogram) hypotheses. Data were collected by the \ac{CMS} experiment at $\sqrt{s} = 7$ TeV with an integrated luminosity of $5.1$ fb$^{-1}$. The red arrow indicates the observed value in data, which strongly favours the scalar hypothesis with a $p$-value of $0.072\%$ for the pseudoscalar hypothesis, corresponding to a $\text{CL}_s$ value of $2.4\%$.}\label{Figure:Chapter2_CPevenVsCPodd}
 \end{figure}
 
 The next set of constraints came from searches for CP-odd 
@@ -360,7 +360,9 @@ $H\to\tau\tau$ decay channel~\cite{CP_constraints_4}. Additionally, CP-odd effec
 
 \subsection{CP structure of the Yukawa interactions}
 \label{Section:Chapter2_CP_Yukawa_Structure}
-Building on the previous discussion, this section focuses on the fermionic sector, where the CP structure of the Higgs–fermion interaction admits a straightforward extension. The \ac{SM} Lagrangian describing the interaction of the Higgs boson with fermions (Eq.~\ref{Equation:Introduction_YukawaLagrangian}) can be generalised to include a CP-odd component,
+Building on the previous discussion, this section focuses on the fermionic sector, where the CP structure of the Higgs–fermion interaction admits a straightforward extension. The \ac{SM} Lagrangian describing the interaction of the Higgs boson with fermions (Eq.~\ref{Equation:Introduction_YukawaLagrangian}) can be generalised to include a CP-odd component\footnote{In the Yukawa interaction, the scalar bilinear 
+$\overline{\psi}\psi$ is even under both C and P, whereas the pseudoscalar bilinear 
+$\overline{\psi}\gamma^5\psi$ is C-even but P-odd. The $\gamma^5$ term therefore introduces a parity-odd contribution, making the associated coupling $\tilde{y}_f$ CP-odd.},
 
 \begin{equation_pad}
     \text{BEH} \rightarrow \mathcal{L}_{\text{Yukawa}}^f \supset - \overline{\psi_f} (\underbrace{y_f}_{\text{CP-even}} + \underbrace{i\gamma^5\tilde{y}_f}_{\text{CP-odd}})h\psi_f
@@ -381,7 +383,7 @@ where $y_f$ ($\tilde{y_f}$) is the CP-even (CP-odd) Yukawa coupling constant, as
 \label{Equation:Chapter2_YukawaLagrangian_CP_2}
 \end{equation_pad}
 
-In the \ac{SM}, $\kappa_f = 1$ and $\tilde{\kappa_f} = 0$, indicating a purely CP-even Higgs-fermion interaction. Conversely, a pure CP-odd coupling would be represented by $\kappa_f = 0$ and $\tilde{\kappa_f} = 1$. The interaction Lagrangian (Eq.~\ref{Equation:Chapter2_YukawaLagrangian_CP_2}) exhibits a linear dependency on the fermionic mass, indicating the best processes to investigate the CP structure of the interaction involve the heaviest fermions. The most interesting decays (ranked by $B_f$) involve,
+In the \ac{SM}, $\kappa_f = 1$ and $\tilde{\kappa}_f = 0$, corresponding to a purely CP-even Yukawa interaction. A purely CP-odd coupling would instead be described by $\kappa_f = 0$ and $\tilde{\kappa}_f = 1$. Importantly, the overall Higgs--fermion coupling strength is proportional to $m_f/\nu$ in both cases, indicating the best processes to investigate the CP structure of the interaction involve the heaviest fermions. The most interesting decays (ranked by $B_f$) involve,
 
 \begin{itemize}
     \item $H \to b\overline{b}$: This is the process with the highest branching fraction, which is also directly related to the bottom Yukawa coupling. However, this channel offers low sensitivity because of the high \ac{QCD} backgrounds. The hadronisation of bottom quarks into jets also washes out spin information, making CP-sensitive measurements challenging.
@@ -422,7 +424,7 @@ In Higgs boson decays to tau leptons (\(H \to \tau^+ \tau^-\)), the \textit{spin
 \label{Equation:Chapter2_TauDifferentialXS}
 \end{equation_pad}
 
-where $c(\theta^+, \theta^-)$ is defined as $\sin(\theta^+)\sin(\theta^-)/(1+\cos(\theta^+)\cos(\theta^-))$. The angles $\theta^\pm$ and $\phi^\pm$ are the polar and azimuthal coordinates of the \ac{P.V.}, which is the optimal estimator of the $\tau$ polarisation. The \ac{P.V.} is taken with respect to the $\tau^\pm$ direction of flight, as illustrated in Fig.~\ref{Figure:Chapter2_PolarimetricVector_Definition}.
+where $c(\theta^+, \theta^-)$ is defined as $\sin(\theta^+)\sin(\theta^-)/(1+\cos(\theta^+)\cos(\theta^-))$ in the Higgs rest frame. The angles $\theta^\pm$ and $\phi^\pm$ are the polar and azimuthal coordinates of the \ac{P.V.}, which is the optimal estimator of the $\tau$ polarisation. The \ac{P.V.} is taken with respect to the $\tau^\pm$ direction of flight, as illustrated in Fig.~\ref{Figure:Chapter2_PolarimetricVector_Definition}.
 
 \begin{figure}[!htbp]
     \centering

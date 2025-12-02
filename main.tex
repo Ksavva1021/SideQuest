@@ -178,9 +178,6 @@ Doctor of Philosophy at Imperial College London\\
 \clearpage
 \end{center}
 
-\chapter*{Abstract}
-Since the discovery of the Higgs boson at the LHC, attention has turned to testing its properties and searching for extended Higgs sectors that could reveal new physics. This thesis addresses three complementary topics within the CMS experiment: the study of a compact data format to meet the ever-growing computing needs, a direct search for additional Higgs bosons in the four-tau final state, and a precision measurement of the CP structure of the Higgs–tau Yukawa coupling. First, the development of the compact RAW' data format is described, demonstrating recovered performance in displaced track reconstruction and positioning RAW' as a promising option. Second, a search for additional Higgs bosons in the four-tau final state is performed using the full Run 2 dataset of $137\unit{fb}^{-1}$ at $\sqrt{s}=13\TeV$. No excess is observed, and exclusion limits on $Z^* \to \phi A \to 4\tau$ production reach from $\mathcal{O}(190\unit{fb})$ at low masses to $\mathcal{O}(0.4\unit{fb})$ at high masses. Regions of the Type-X 2HDM relevant to the muon anomalous magnetic moment are also excluded. Finally, a measurement of the CP structure of the Higgs–tau Yukawa coupling is performed in the $\tauh\tauh$ channel with Run 3 data, excluding the pure CP-odd hypothesis at $1.74\sigma$. When combined with the Run 2 result, the exclusion improves to $3.55\sigma$ with $\alpha^{\PH\tau\tau}$ constrained to $\pm 15^\circ$, representing the most precise determination to date. This result remains compatible with the SM prediction of a CP-even coupling.
-
 \chapter*{Statement of Originality}
 
 I declare that the work presented in this thesis is my own. Wherever figures, tables, or results have been taken from other sources, this is clearly indicated by a reference in the text or figure caption. Figures labelled ``CMS'' are sourced from CMS publications. The ``CMS preliminary'' label is attached to CMS public results that are not yet finalised by the Collaboration or the journal. The ``Simulation'' tag is used when only simulated data is shown in a CMS public plot. Figures labelled as ``Private work (CMS data/simulation)'' or ``Private work (CMS simulation)'' indicate non-public material; in the context of this thesis, these correspond to results currently under review by the CMS Collaboration. 
@@ -192,6 +189,24 @@ The work in Chapter~5 forms part of my CMS ``service work'' and was carried out 
 Chapter~6 describes a search for extended Higgs sector signatures, conducted in collaboration with members of the Imperial College London $H\to\tau\tau$ group, namely Dr~George Uttley and Dr~Daniel Winterbottom, under the supervision of Prof.~David Colling. I contributed across the full analysis workflow, from the implementation of the framework to the interpretation of the final results. My specific focus was on background modelling, optimisation strategies, uncertainty estimation, and the statistical interpretation of the results.  
 
 The final analysis chapter presents a measurement of the CP structure of the Higgs-tau Yukawa coupling in $H\to\tau_h\tau_h$ decays, carried out in collaboration with other members of the CMS $H\to\tau\tau$ group. This particular channel was primarily developed by the Imperial College team consisting of Lucas Russell, Dr.~Daniel Winterbottom, and myself, under the supervision of Prof. David Colling. I contributed to all stages of the analysis workflow, with particular responsibility for setting up the framework, generating signal simulations, and optimising analysis cuts and techniques (including the development of the improved $X$-$a_1$ method, which was my own work). In addition, I contributed to the background modelling and the statistical interpretation of the results.  
+
+\chapter*{Copyright}
+The copyright of this thesis rests with the author. Unless otherwise indicated,
+its contents are licensed under a Creative Commons Attribution-Non
+Commercial 4.0 International Licence (CC BY-NC).
+Under this licence, you may copy and redistribute the material in any medium
+or format. You may also create and distribute modified versions of the work.
+This is on the condition that: you credit the author and do not use it, or any
+derivative works, for a commercial purpose.
+When reusing or sharing this work, ensure you make the licence terms clear to
+others by naming the licence and linking to the licence text. Where a work has
+been adapted, you should indicate that the work has been changed and
+describe those changes.
+Please seek permission from the copyright holder for uses of this work that are
+not included in this licence or permitted under UK Copyright Law.
+
+\chapter*{Abstract}
+Since the discovery of the Higgs boson at the LHC, attention has turned to testing its properties and searching for extended Higgs sectors that could reveal new physics. This thesis addresses three complementary topics within the CMS experiment: the study of a compact data format to meet the ever-growing computing needs, a direct search for additional Higgs bosons in the four-tau final state, and a precision measurement of the CP structure of the Higgs–tau Yukawa coupling. First, the development of the compact RAW' data format is described, demonstrating recovered performance in displaced track reconstruction and positioning RAW' as a promising option. Second, a search for additional Higgs bosons in the four-tau final state is performed using the full Run 2 dataset of $137\unit{fb}^{-1}$ at $\sqrt{s}=13\TeV$. No excess is observed, and exclusion limits on $Z^* \to \phi A \to 4\tau$ production reach from $\mathcal{O}(190\unit{fb})$ at low masses to $\mathcal{O}(0.4\unit{fb})$ at high masses. Regions of the Type-X 2HDM relevant to the muon anomalous magnetic moment are also excluded. Finally, a measurement of the CP structure of the Higgs–tau Yukawa coupling is performed in the $\tauh\tauh$ channel with Run 3 data, excluding the pure CP-odd hypothesis at $1.74\sigma$. When combined with the Run 2 result, the exclusion improves to $3.55\sigma$ with $\alpha^{\PH\tau\tau}$ constrained to $\pm 15^\circ$, representing the most precise determination to date. This result remains compatible with the SM prediction of a CP-even coupling.
 
 \chapter*{}
 \begin{center}
@@ -226,90 +241,91 @@ To all my family and friends, near and far, thank you for shaping the person I a
 \clearpage
 \section*{List of Acronyms}
 \begin{acronym}
-\acro{SM}{Standard Model}
-\acro{BSM}{Beyond-the-Standard Model}
-\acro{QFT}{Quantum Field Theory}
-\acro{QED}{Quantum Electrodynamics}
-\acro{QCD}{Quantum Chromodynamics}
+\acro{AMS}{Approximate Median Significance}
+\acro{APD}{Avalanche Photodiode}
+\acro{AR}{Application Region}
+\acro{BDT}{Boosted Decision Tree}
 \acro{BEH}{Brout-Englert-Higgs}
-\acro{SSB}{Spontaneous Symmetry Breaking}
-\acro{VEV}{Vacuum Expectation Value}
-\acro{dof}{Degrees of Freedom}
-\acro{LHC}{Large Hadron Collider}
-\acro{ggH}{Gluon-gluon fusion}
-\acro{VBF}{Vector boson fusion}
-\acro{VH}{Vector boson associated production}
-\acro{EFT}{Effective Field Theory}
-\acro{SUSY}{Supersymmetry}
-\acro{MSSM}{Minimal Supersymmetric Standard Model}
-\acro{2HDM}{Two-Higgs Doublet Model}
-\acro{FCNC}{Flavour-Changing-Neutral-Currents}
-\acro{CMS}{Compact Muon Solenoid}
-\acro{MET}{Missing Transverse Energy}
-\acro{CERN}{European Organization for Nuclear Research}
-\acro{LEP}{Large Electron Positron}
-\acro{LINAC4}{Linear Accelerator 4}
-\acro{PSB}{Proton Synchrotron Booster}
-\acro{PS}{Proton Synchrotron}
-\acro{SPS}{Super Proton Synchrotron}
-\acro{PU}{Pileup}
-\acro{ECAL}{Electromagnetic Calorimeter}
-\acro{HCAL}{Hadronic Calorimeter}
 \acro{BPIX}{Barrel Pixel}
+\acro{BSM}{Beyond-the-Standard Model}
+\acro{CDF}{Cumulative Distribution Function}
+\acro{CERN}{European Organization for Nuclear Research}
+\acro{CHS}{Charged Hadron Subtraction}
+\acro{CSC}{Cathode Strip Chamber}
+\acro{CMS}{Compact Muon Solenoid}
+\acro{CTF}{Combinatorial Track Finder}
+\acro{dof}{Degrees of Freedom}
+\acro{DM}{Decay Mode}
+\acro{DR}{Determination Region}
+\acro{DT}{Drift Tube}
+\acro{DY}{Drell-Yan}
+\acro{ECAL}{Electromagnetic Calorimeter}
+\acro{EFT}{Effective Field Theory}
+\acro{FCNC}{Flavour-Changing-Neutral-Currents}
+\acro{FED}{Front End Driver}
 \acro{FPIX}{Forward Pixel}
+\acro{FSR}{Final-State Radiation}
+\acro{ggH}{Gluon-gluon fusion} % <-- EXACT as you wrote it (case preserved)
+\acro{GSF}{Gaussian-sum Filter}
+\acro{HB}{Hadron Barrel}
+\acro{HCAL}{Hadronic Calorimeter}
+\acro{HE}{Hadron Endcap}
+\acro{HF}{Hadron Forward}
+\acro{HL}{High Luminosity}
+\acro{HLT}{High Level Trigger}
+\acro{HO}{Hadron Outer}
+\acro{HPS}{Hadron-Plus Strips}
+\acro{IP}{Impact Parameter}
+\acro{ISR}{Initial-State Radiation}
+\acro{KF}{Kalman Filter}
+\acro{L1}{Level-1}
+\acro{LEP}{Large Electron Positron}
+\acro{LHC}{Large Hadron Collider}
+\acro{LINAC4}{Linear Accelerator 4}
+\acro{LO}{Leading Order}
+\acro{MC}{Monte Carlo}
+\acro{MET}{Missing Transverse Energy}
+\acro{ML}{Machine Learning}
+\acro{MSSM}{Minimal Supersymmetric Standard Model}
+\acro{MVA}{Multivariate Analysis}
+\acro{NLO}{Next-to-Leading Order}
+\acro{NNLO}{Next-to-Next-to-Leading Order}
+\acro{NP}{Neutral-Pion}
+\acro{P.D.F}{Probability Distribution Function}
+\acro{PF}{Particle Flow}
+\acro{PDF}{Parton Distribution Function}
+\acro{PS}{Proton Synchrotron}
+\acro{PSB}{Proton Synchrotron Booster}
+\acro{PU}{Pileup}
+\acro{PV}{Primary Vertex}
+\acro{PUPPI}{Pileup Per Particle Identification}
+\acro{P.V.}{Polarimetric Vector}
+\acro{QCD}{Quantum Chromodynamics}
+\acro{QED}{Quantum Electrodynamics}
+\acro{QFT}{Quantum Field Theory}
+\acro{RPC}{Resistive Plate Chamber}
+\acro{SF}{Scale-Factor}
+\acro{SV}{Secondary Vertex}
+\acro{SM}{Standard Model}
+\acro{SPS}{Super Proton Synchrotron}
+\acro{SR}{Signal Region}
+\acro{SSB}{Spontaneous Symmetry Breaking}
 \acro{SST}{Silicon Strip Tracker}
+\acro{SUSY}{Supersymmetry}
+\acro{TEC}{Tracker EndCaps}
+\acro{TES}{Tau Energy Scale}
 \acro{TIB}{Tracker Inner Barrel}
 \acro{TID}{Tracker Inner Disks}
 \acro{TOB}{Tracker Outer Barrel}
-\acro{TEC}{Tracker EndCaps}
-\acro{APD}{Avalanche Photodiode}
+\acro{VBF}{Vector boson fusion}
+\acro{VEV}{Vacuum Expectation Value}
+\acro{VH}{Vector boson associated production}
 \acro{VPT}{Vacuum Phototriode}
-\acro{HB}{Hadron Barrel}
-\acro{HE}{Hadron Endcap}
-\acro{HO}{Hadron Outer}
-\acro{HF}{Hadron Forward}
-\acro{DT}{Drift Tube}
-\acro{CSC}{Cathode Strip Chamber}
-\acro{RPC}{Resistive Plate Chamber}
-\acro{L1}{Level-1}
-\acro{HLT}{High Level Trigger}
 \acro{WP}{Working Point}
-\acro{CTF}{Combinatorial Track Finder}
-\acro{KF}{Kalman Filter}
-\acro{PV}{Primary Vertex}
-\acro{GSF}{Gaussian-sum Filter}
-\acro{PF}{Particle Flow}
-\acro{MVA}{Multivariate Analysis}
-\acro{BDT}{Boosted Decision Tree}
-\acro{CHS}{Charged Hadron Subtraction}
-\acro{PUPPI}{Pileup Per Particle Identification}
-\acro{SV}{Secondary Vertex}
-\acro{IP}{Impact Parameter}
-\acro{HPS}{Hadron-Plus Strips}
-\acro{DM}{Decay Mode}
-\acro{FED}{Front End Driver}
-\acro{PDF}{Parton Distribution Function}
-\acro{MC}{Monte Carlo}
-\acro{ISR}{Initial-State Radiation}
-\acro{FSR}{Final-State Radiation}
-\acro{LO}{Leading Order}
-\acro{NLO}{Next-to-Leading Order}
-\acro{NNLO}{Next-to-Next-to-Leading Order}
-\acro{DY}{Drell-Yan}
-\acro{SF}{Scale-Factor}
-\acro{TES}{Tau Energy Scale}
-\acro{DR}{Determination Region}
-\acro{AR}{Application Region}
-\acro{SR}{Signal Region}
-\acro{ML}{Machine Learning}
-\acro{P.D.F}{Probability Distribution Function}
-\acro{AMS}{Approximate Median Significance}
-\acro{HL}{High Luminosity}
 \acro{ZMF}{Zero-Momentum Frame}
-\acro{P.V.}{Polarimetric Vector}
-\acro{NP}{Neutral-Pion}
-\acro{CDF}{Cumulative Distribution Function}
+\acro{2HDM}{Two-Higgs Doublet Model}
 \end{acronym}
+
 
 \clearpage
 \pagenumbering{arabic}
